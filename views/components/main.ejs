@@ -1,0 +1,84 @@
+<div id="main">
+    <div class="main-slider">
+        <div class="slideshow-container">
+
+            <div class="slider-item mySlides fade">
+                <a href=""> <img src="../../public/images/slider.jpg" alt=""></a>
+            </div>
+
+            <div class="slider-item mySlides fade">
+                <a href=""> <img src="../../public/images/slider_1.jpg" alt=""></a>
+                <a href=""><img src="../../public/images/slider_2.jpg" alt=""></a>
+                <a href=""> <img src="../../public/images/silder_3.jpg" alt=""></a>
+                <a href=""><img src="../../public/images/slidr_4.jpg" alt=""></a>  
+            </div> 
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        <!-- <div class="slider-item">
+            <a href=""> <img src="../../public/images/slider.jpg" alt=""></a>
+        </div> -->
+
+        <!-- <div class="slider-item">
+            <a href=""> <img src="../../public/images/slider_1.jpg" alt=""></a>
+            <a href=""><img src="../../public/images/slider_2.jpg" alt=""></a>
+            <a href=""> <img src="../../public/images/silder_3.jpg" alt=""></a>
+            <a href=""><img src="../../public/images/slidr_4.jpg" alt=""></a>
+
+        </div> -->
+        
+    </div>
+    <div class="main-banner"></div>
+    <div class="main-content">
+        <div class="section">
+            <div class="section-head">
+                <div class="section-title">
+                    <h1>Sản phẩm nổi bật</h1>
+                </div>
+                <div class="sub-title">
+                    Các sản phẩm nổi bật theo từng loại sản phẩm
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="section-body"> 
+                <div class="nav-product-popular">
+                    <ul>
+                        <% types.forEach(type => { %>
+                            <li class="nav-product-popular__item">
+                                <a >
+                                    <%= type.split(",")[1] %>
+                                </a>
+                            </li>    
+                        <% }) %>
+                    </ul>
+                </div>
+                <% types.forEach(type => { %>
+                    <div class="section-list-product">
+                        <% products.forEach(product => { %>
+                            <% if (product.prd_key == type ){ %>
+                                <div class="product-card">
+                                    <a href="">
+                                        <div class="product-card_info">
+                                            <div class="product-card_img">
+                                                <img src= <%= product.img[0] %> alt="">
+                                            </div>
+                                           <div class="product-card_text">
+                                                <div class="product-card_title">
+                                                    <%= product.name %>
+                                                </div>
+                                                <div class="product-card_price">
+                                                    <%= product.price %>
+                                                </div>      
+                                           </div>
+                                        </div>   
+                                    </a>
+                                </div>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="main-content_banner"></div>
+    </div>
+</div>

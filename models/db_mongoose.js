@@ -1,4 +1,4 @@
-const mongoose = require("/dbconnect");
+const mongoose = require("./dbconnect");
 // const useraddress = require("../models/addressModel");
 // const selectedProduct = require("../models/selectedProduct");
 const Schema = mongoose.Schema;
@@ -92,5 +92,6 @@ const ProductModel = mongoose.model("Products", Products);
 const accountmodel = mongoose.model("account", account);
 const cartModel = mongoose.model("Cart", Cart);
 const orderssModel = mongoose.model("orders", orders);
+
 
 module.exports = { ProductModel, accountmodel, cartModel, orderssModel };
