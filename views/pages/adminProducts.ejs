@@ -7,7 +7,31 @@
     <%- include('../components/Admin/header.ejs') %>
     <div class="main">
       <%- include('../components/Admin/main-nav.ejs') %>
-      <div class="main-body"></div>
+      <div class="main-body">
+        <% prd.map((ele)=>{ %>
+        <div
+          style="
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+          "
+        >
+          <span
+            ><img
+              style="width: 50px; height: 50px"
+              src="/public/upload/<%= ele.img %>"
+              alt=""
+          /></span>
+          <span><%= ele.name %></span>
+          <span><%= ele.price %></span>
+          <span
+            ><button onclick="deletePrd('<%= ele._id %>')">
+              Xóa sản phẩm
+            </button></span
+          >
+        </div>
+        <% }) %>
+      </div>
     </div>
   </body>
 </html>
