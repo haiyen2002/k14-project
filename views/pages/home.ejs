@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../components/Home/head.ejs') %>
+    <link rel="stylesheet" href="/public/assets/css/owl.carousel.min.css" />
+    <link
+      rel="stylesheet"
+      href="/public/assets/css/owl.theme.default.min.css"
+    />
+    <!-- Css -->
+    <link rel="stylesheet" href="/public/assets/css/home.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <%- include('../components/Home/header.ejs') %>
+    <!-- Main-wrapper -->
+    <div class="main-wrapper">
+      <!-- Carousel -->
+      <div id="carouselId" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <img
+              src="/public/images/ms_banner_img2.jpg"
+              style="width: 100%; height: 100%; object-fit: cover"
+              alt="First slide"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="/public/images/ms_banner_img3.jpg"
+              style="width: 100%; height: 100%; object-fit: cover"
+              alt="Second slide"
+            />
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#carouselId"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#carouselId"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <!-- Carousel-end -->
+
+      <!-- Intro-detail -->
+      <div class="main-wrapper-intro">
+        <div class="container">
+          <div class="wrapper-intro">
+            <div class="intro">
+              <div class="intro-img">
+                <img src="/public/images/policy_banner_img1.jpg" alt="" />
+              </div>
+              <div class="detail-comment">
+                <h6>Chăm sóc tóc</h6>
+                <p>Sản phẩm chăm sóc chiết xuất từ thiên nhiên</p>
+              </div>
+            </div>
+            <div class="intro">
+              <div class="intro-img">
+                <img src="/public/images/policy_banner_img2.png" alt="" />
+              </div>
+              <div class="detail-comment">
+                <h6>Chăm sóc da</h6>
+                <p>Sản phẩm chăm sóc chiết xuất từ thiên nhiên</p>
+              </div>
+            </div>
+            <div class="intro">
+              <div class="intro-img">
+                <img src="/public/images/policy_banner_img3.png" alt="" />
+              </div>
+              <div class="detail-comment">
+                <h6>Sản phẩm dành cho Nam</h6>
+                <p>Sản phẩm dành cho Nam giới chiết xuất từ thiên nhiên</p>
+              </div>
+            </div>
+          </div>
+          <div class="wrapper-detail row">
+            <div class="detail col">
+              <div class="detail-icon">
+                <a href="#"
+                  ><img src="/public/assets/img/policy_icon1 (1).png" alt=""
+                /></a>
+              </div>
+              <div class="detail-cmt">
+                <a href="#"><h5>Chính sách giao hàng</h5></a>
+                <p>Hỗ trợ toàn quốc</p>
+              </div>
+            </div>
+            <div class="detail col">
+              <div class="detail-icon">
+                <a href="#"
+                  ><img src="/public/assets/img/policy_icon2.png" alt=""
+                /></a>
+              </div>
+              <div class="detail-cmt">
+                <a href="#"><h5>Hỗ trợ đổi, trả hàng</h5></a>
+                <p>Hỗ trợ đổi, trả hàng nếu do lỗi nhà sản xuất</p>
+              </div>
+            </div>
+            <div class="detail col">
+              <div class="detail-icon">
+                <a href="#"
+                  ><img src="/public/assets/img/policy_icon3.png" alt=""
+                /></a>
+              </div>
+              <div class="detail-cmt">
+                <a href="#"><h5>Địa chỉ mua hàng</h5></a>
+                <p>
+                  Sản phẩm được phân phối tại hệ thống siêu thị BigC, Vinsmart,
+                  Thành Đô...hoặc các cửa hàng mỹ phẩm trên toàn quốc.
+                </p>
+              </div>
+            </div>
+            <div class="detail col">
+              <div class="detail-icon">
+                <a href="#"
+                  ><img src="/public/assets/img/policy_icon4.png" alt=""
+                /></a>
+              </div>
+              <div class="detail-cmt">
+                <a href="#"> <h5>Bảo mật</h5></a>
+                <p>Chính sách bảo mật khi sử dụng website Hachi Việt Nam</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Intro-detail-end -->
+    </div>
+    <!-- Main-wrapper-end -->
+
+    <!-- Body-products -->
+    <div class="body">
+      <div class="feature-product">
+        <div class="content">
+          <h2>Sản phẩm nổi bật</h2>
+          <p>Các sản phẩm nổi bật theo từng loại sản phẩm</p>
+          <div class="underline"></div>
+        </div>
+        <div class="feature-btn">
+          <button>Dầu gội</button>
+          <button>Dầu xả</button>
+          <button>Sữa tắm</button>
+          <button>Nam giới</button>
+          <button>Trẻ em</button>
+        </div>
+        <div class="list-prd"></div>
+      </div>
+      <div class="banner-product" style="display: flex">
+        <div>
+          <img src="/public/images/banner_img1.png" alt="" />
+        </div>
+        <div>
+          <img src="/public/images/banner_img2.png" alt="" />
+        </div>
+      </div>
+      <div class="product-hair">
+        <div class="content">
+          <h2>Chăm sóc tóc</h2>
+          <p>Sản phẩm chăm sóc tóc nổi bật, chiết xuất thiên nhiên</p>
+          <div class="underline"></div>
+        </div>
+        <div class="list-prd">
+          <div class="owl-carousel owl-theme">
+            <!-- Set up your HTML -->
+            <% prdHair.map((ele)=>{ %>
+            <div
+              class="item"
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <img src="/public/upload/<%= ele.img %>" alt="" />
+              <p
+                style="
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  width: 200px;
+                "
+              >
+                <%= ele.name %>
+              </p>
+              <h6><%= ele.price %></h6>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <div class="product-hair">
+        <div class="content">
+          <h2>Chăm sóc da</h2>
+          <p>Sản phẩm chăm sóc tóc nổi bật, chiết xuất thiên nhiên</p>
+          <div class="underline"></div>
+        </div>
+        <div class="list-prd">
+          <div class="owl-carousel owl-theme">
+            <!-- Set up your HTML -->
+            <% prdST.map((ele)=>{ %>
+            <div
+              class="item"
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <img src="/public/upload/<%= ele.img %>" alt="" />
+              <p
+                style="
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  width: 200px;
+                "
+              >
+                <%= ele.name %>
+              </p>
+              <h6><%= ele.price %></h6>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <div class="product-news">
+        <div class="content">
+          <h2>Tin tức</h2>
+          <p>Tin mới nhất, nóng hổi nhất</p>
+          <div class="underline"></div>
+        </div>
+        <div class="list-prd"></div>
+      </div>
+    </div>
+    <!-- Body-products-end -->
+    <!-- Footer -->
+    <%-include('../components/Home/footer.ejs') %>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <script src="/public/assets/js/owl.carousel.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        mouseDrag: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 5,
+          },
+        },
+      });
+    });
+  </script>
+</html>
