@@ -86,8 +86,15 @@ router.get("/add", (req, res) => {
 });
 
 // Trang Adm quản lý sp*******//
-router.get("/products", (req, res) => {
-  res.render("pages/adminProducts");
+router.get("/products", async (req, res) => {
+  try {
+    const prd = await ProductModel.find();
+    res.render("pages/adminProducts", {
+      prd,
+    });
+  } catch (error) {
+    res.json;
+  }
 });
 
 // Trang Adm quản lý user*******//
