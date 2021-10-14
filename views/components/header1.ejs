@@ -1,0 +1,377 @@
+<!-- HEADER START *******************************-->
+<div class="header">
+    <div class="header-top">
+      <div class="header-top-left">
+        <div class="top-left-item">
+          <i class="fas fa-mobile-alt"></i> 1900 636 648
+        </div>
+        <div class="top-left-item">
+          <i class="fas fa-envelope"></i> team@Nodemy.com
+        </div>
+        <div class="top-left-item">
+          <i class="fas fa-map-marker-alt"></i> Hệ thống cửa hàng
+        </div>
+      </div>
+      <div class="header-top-mobile">
+        <div class="top-mobile-item">
+          <i class="fas fa-home"></i>
+          HOME: 214, Nguyễn Xiển, Thanh Xuân, Hà Nội
+        </div>
+      </div>
+      <div class="header-top-right info-user">
+        <div class="top-right-item login-regiser">Đăng nhập / Đăng ký</div>
+        <button class="logout" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>Đăng xuất
+        </button>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="header-main-mobile">
+        <div class="main-mobile-item">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+      <div class="header-main-left">
+        <a class="main-left-item" href="/">
+          <img src="/public/assets/img/logo_hachi1.png" alt="" />
+        </a>
+      </div>
+      <div class="header-main-center">
+        <div class="main-center-items">
+          <a class="main-center-item" href="/">
+            <span class="img-items">
+              <img
+                class="img-main-center"
+                src="/public/assets/img/home.png"
+                alt=""
+              />
+              <img
+                class="img-main-center-hover"
+                src="/public/assets/img/home_hover.png"
+                alt=""
+              />
+            </span>
+            <span class="content-center">TRANG CHỦ</span>
+          </a>
+        </div>
+        <div class="main-center-items">
+          <a class="main-center-item" href="/product">
+            <span class="img-items">
+              <img
+                class="img-main-center"
+                src="/public/assets/img/sanpham.png"
+                alt=""
+              />
+              <img
+                class="img-main-center-hover"
+                src="/public/assets/img/sanpham_hover (1).png"
+                alt=""
+              />
+            </span>
+            <span class="content-center">SẢN PHẨM</span>
+          </a>
+          <div class="lists">
+            <div class="list">
+              <a class="list-link" href="/product/cham-soc-toc">CHĂM SÓC TÓC</a>
+              <a class="list-link" href="/product/dau-xa">Dầu xả</a>
+              <a class="list-link" href="/product/dau-goi">Dầu gội</a>
+            </div>
+            <div class="list">
+              <a class="list-link" href="/product/cham-soc-da">CHĂM SÓC DA</a>
+              <a class="list-link" href="/product/sua-tam">Sữa tắm</a>
+            </div>
+            <div class="list">
+              <a class="list-link" href="#">NAM GIỚI</a>
+              <a class="list-link" href="#">Chăm sóc tóc cho nam</a>
+              <a class="list-link" href="#">Tắm và dưỡng thể cho nam</a>
+            </div>
+            <div class="list list-sp1">
+              <a class="list-link" href="#">TRẺ EM</a>
+              <a class="list-link" href="#">2-in-1 cho Trẻ em</a>
+              <a class="list-link" href="#">Dầu gội Trẻ em</a>
+            </div>
+          </div>
+        </div>
+        <div class="main-center-items">
+          <a class="main-center-item" href="#">
+            <span class="img-items">
+              <img
+                class="img-main-center"
+                src="/public/assets/img/vehachi.png"
+                alt=""
+              />
+              <img
+                class="img-main-center-hover"
+                src="/public/assets/img/vehachi_hover.png"
+                alt=""
+              />
+            </span>
+            <span class="content-center">VỀ HACHI</span>
+          </a>
+          <div class="lists">
+            <div class="list">
+              <a class="list-link" href="/about-us/">Về chúng tôi</a>
+              <a class="list-link" href="/slogan/"
+                >Tầm nhìn - Sứ mệnh - Giá trị cốt lõi</a
+              >
+              <a class="list-link" href="/contact/">Liên hệ</a>
+              <a class="list-link" href="/store/">Hệ thống phân phối bán lẻ</a>
+            </div>
+          </div>
+        </div>
+        <div class="main-center-items">
+          <a class="main-center-item" href="#">
+            <span class="img-items">
+              <img
+                class="img-main-center"
+                src="/public/assets/img/logo3.png"
+                alt=""
+              />
+            </span>
+            <span class="content-center">TIN TỨC</span>
+          </a>
+          <div class="lists">
+            <div class="list">
+              <a class="list-link" href="#">Khuyến mãi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-main-right">
+        <div class="main-right-item">
+          <button class="search-up"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="main-right-item">
+          <a class="cart-txt" href="/cart/">GIỎ HÀNG</a>
+          <a class="cart-span" href="/cart">
+            <img src="/public/assets/img/hd_mainmenu_icon_cart.png" alt="" />
+            <span class="countSumCart"></span>
+          </a>
+  
+          <!-- CART -->
+          <div class="container-cart">
+            <div class="tableTitle"></div>
+            <div id="buyItems"></div>
+            <div class="priceSumCart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MODAL-LOGIN -->
+  
+  <div class="modal-login">
+    <div class="close-login"><i class="fas fa-times"></i></div>
+    <div class="box-login">
+      <form class="form-login" action="">
+        <h2>Login</h2>
+        <input type="text" name="" id="user" placeholder="Username" />
+        <input type="password" name="" id="pass" placeholder="Password" />
+        <a class="on-regiser" href="/regiser/"
+          >Bạn chưa có tài khoản ? Đăng ký ngay</a
+        >
+        <input
+          class="on-login"
+          onclick="dangnhap()"
+          type="button"
+          value="Đăng nhập"
+        />
+      </form>
+    </div>
+  </div>
+  <!-- MODAL-LOGIN-END -->
+  
+  <!-- MODAL-SEARCH -->
+  <div class="modal-search">
+    <div class="modal-search-close">
+      <button class="btn-close" onclick="offModalSearch()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="box-search">
+      <form class="form-search" action="">
+        <input
+          type="text"
+          placeholder="Tìm kiếm"
+          id="search"
+          oninput="searchData()"
+        />
+        <button class="btn-search"><i class="fas fa-search"></i></button>
+        <div class="list-search"></div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- MODAL-SEARCH-END -->
+  
+  <!-- MODAL-MOBILE -->
+  
+  <div class="modal-nav-mobile">
+    <div class="modal-mobile-close">
+      <button class="btn-mobile-close" onclick="offModalSearch()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="modal-mobile">
+      <div class="container-mobile">
+        <ul class="nav-mobile">
+          <li class="nav-mobile-search">
+            <select name="" id="search-mobile-op">
+              <option value="">All</option>
+              <option value="">Chăm sóc da</option>
+              <option value="">Chăm sóc tóc</option>
+            </select>
+            <div class="search-mobile">
+              <input
+                id="search-mobile-input"
+                type="text"
+                placeholder="Tìm kiếm"
+              />
+              <span class="search-mobile-icon">
+                <i class="fas fa-search"></i>
+              </span>
+            </div>
+          </li>
+          <li class="nav-mobile-item">
+            <div class="nav-item">
+              <a class="mobile-link" href="/">
+                <span class="img-mobile-nav">
+                  <img src="/public/assets/img/home.png" alt="" />
+                  <img
+                    class="img-mobile-hover"
+                    src="/public/assets/img/home_hover.png"
+                    alt=""
+                  />
+                </span>
+                <span>TRANG CHỦ</span>
+              </a>
+            </div>
+          </li>
+          <li class="nav-mobile-item">
+            <div class="nav-item">
+              <a class="mobile-link" href="/product/">
+                <span class="img-mobile-nav">
+                  <img src="/public/assets/img/sanpham.png" alt="" />
+                  <img
+                    class="img-mobile-hover"
+                    src="/public/assets/img/sanpham_hover.png"
+                    alt=""
+                  />
+                </span>
+                <span>SẢN PHẨM</span>
+              </a>
+              <span class="more">
+                <i class="fas fa-chevron-down more-link-item1"></i>
+  
+                <i class="fas fa-chevron-down more-link-item-click1"></i>
+              </span>
+            </div>
+            <ul class="children1">
+              <li class="children-item">
+                <a class="children-link" href="/product/cham-soc-toc"
+                  >Chăm sóc tóc</a
+                >
+                <a class="children-link" href="/product/dau-xa">Dầu xả</a>
+                <a class="children-link" href="/product/dau-goi">Dầu gội</a>
+              </li>
+              <li class="children-item">
+                <a class="children-link" href="/product/cham-soc-da"
+                  >Chăm sóc da</a
+                >
+                <a class="children-link" href="/product/sua-tam">Sữa tắm</a>
+              </li>
+              <li class="children-item">
+                <a class="children-link" href="">Nam giới</a>
+                <a class="children-link" href="">Chăm sóc tóc nam</a>
+                <a class="children-link" href="">Tắm và dưỡng thể cho nam</a>
+              </li>
+              <li class="children-item">
+                <a class="children-link" href="">Trẻ em</a>
+                <a class="children-link" href="">2-in-1 cho trẻ em</a>
+                <a class="children-link" href="">Dầu gội cho Trẻ em</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-mobile-item">
+            <div class="nav-item">
+              <a class="mobile-link" href="">
+                <span class="img-mobile-nav">
+                  <img src="/public/assets/img/vehachi.png" alt="" />
+                  <img
+                    class="img-mobile-hover"
+                    src="/public/assets/img/vehachi_hover.png"
+                    alt=""
+                  />
+                </span>
+                <span>VỀ HACHI</span>
+              </a>
+              <span class="more">
+                <i class="fas fa-chevron-down more-link-item2"></i>
+  
+                <i class="fas fa-chevron-down more-link-item-click2"></i>
+              </span>
+            </div>
+            <ul class="children2">
+              <li class="children-item">
+                <a class="children-link" href="/about-us/">Về chúng tôi</a>
+                <a class="children-link" href="/slogan/"
+                  >Tầm nhìn - Sứ mệnh - Giá trị cốt lõi</a
+                >
+                <a class="children-link" href="/contact/">Liên hệ</a>
+                <a class="children-link" href="/storey/">Hệ thống phân phối</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-mobile-item">
+            <div class="nav-item">
+              <a class="mobile-link" href="">
+                <span class="img-mobile-nav">
+                  <img src="/public/assets/img/logo3.png" alt="" />
+                </span>
+                <span>TIN TỨC</span>
+              </a>
+              <span class="more">
+                <i class="fas fa-chevron-down more-link-item3"></i>
+  
+                <i class="fas fa-chevron-down more-link-item-click3"></i>
+              </span>
+            </div>
+            <ul class="children3">
+              <li class="children-item">
+                <a class="children-link" href="">Khuyến mãi</a>
+              </li>
+            </ul>
+          </li>
+  
+          <li class="nav-mobile-login">
+            <button class="mobile-login">Đăng nhập</button>
+          </li>
+          <li class="nav-mobile-link">
+            <a class="link-web" href=""
+              ><i class="fas fa-envelope-square"></i> NEWSLETTER</a
+            >
+          </li>
+          <li class="nav-mobile-link">
+            <a class="link-web" href=""><i class="fab fa-facebook-f"></i></a>
+            <a class="link-web" href=""><i class="fab fa-instagram"></i></a>
+            <a class="link-web" href=""><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="nav-mobile-link">
+            <a class="link-web" href=""
+              ><i class="fas fa-mobile-alt"></i> 1900 666 888</a
+            >
+          </li>
+          <li class="nav-mobile-link">
+            <a class="link-web" href=""
+              ><i class="fas fa-envelope-square"></i> nodemy@team</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MODAL-MOBILE-END -->
+  <!-- HEADER-END ****************** -->
+

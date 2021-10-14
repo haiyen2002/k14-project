@@ -38,4 +38,16 @@ router.get('/count', (req, res) => {
 
 })
 
+// CART //
+
+router.get("/cart/", (req, res) => {
+    res.render("Order-Cart/cart");
+  });
+
+// ORDER //
+router.get("/order/", (req, res) => {
+    res.render("Order-Cart/order");
+  });
+  
+
 module.exports = router

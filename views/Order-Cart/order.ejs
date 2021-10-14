@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../components/head1.ejs') %>
+    <link rel="stylesheet" href="/public/assets/css/mainOrder.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <%- include('../components/header1.ejs') %>
+
+    <!-- MAIN -->
+    <%- include('./order/main.ejs') %>
+
+    <!-- FOOTER -->
+    <%- include('../components/footer1.ejs') %>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="/public/assets/js/Home-shop.js"></script>
+  <script src="/public/assets/js/dangnhap.js"></script>
+  <script src="/public/assets/js/cart-hachi.js"></script>
+  <script>
+    $(".container-cart").css("display", "none");
+  </script>
+</html>
