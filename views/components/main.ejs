@@ -1,34 +1,112 @@
 <div id="main">
-    <div class="main-slider">
-        <div class="slideshow-container">
-
-            <div class="slider-item mySlides fade">
-                <a href=""> <img src="../../public/images/slider.jpg" alt=""></a>
+    <!-- <div class="main-slider"> -->
+    <div id="slider-top">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <a href=""> <img src="../../public/images/ms_banner_img3.jpg" alt=""></a>
+            </div>
+            <div class="item">
+                <a href=""> <img src="../../public/images/ms_banner_img2.jpg" alt=""></a>
             </div>
 
-            <div class="slider-item mySlides fade">
-                <a href=""> <img src="../../public/images/slider_1.jpg" alt=""></a>
-                <a href=""><img src="../../public/images/slider_2.jpg" alt=""></a>
-                <a href=""> <img src="../../public/images/silder_3.jpg" alt=""></a>
-                <a href=""><img src="../../public/images/slidr_4.jpg" alt=""></a>  
-            </div> 
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-        <!-- <div class="slider-item">
-            <a href=""> <img src="../../public/images/slider.jpg" alt=""></a>
-        </div> -->
-
-        <!-- <div class="slider-item">
-            <a href=""> <img src="../../public/images/slider_1.jpg" alt=""></a>
-            <a href=""><img src="../../public/images/slider_2.jpg" alt=""></a>
-            <a href=""> <img src="../../public/images/silder_3.jpg" alt=""></a>
-            <a href=""><img src="../../public/images/slidr_4.jpg" alt=""></a>
-
-        </div> -->
-        
+        </div>
     </div>
-    <div class="main-banner"></div>
+    <!-- </div> -->
+    <div class="main-banner">
+        <div class="main-banner__image">
+            <a href="">
+                <div class="main-banner__card">
+                    <img src="../../public/images/policy_banner_img1.jpg" alt="">
+                </div>
+                <div class="main-banner-hover">
+                    <div class="main-banner-hover_text">
+                        <p>Chăm sóc tóc</p>
+                        <h3>Sản phẩm chăm sóc tóc chiết xuất từ thiên nhiên</h3>
+                        <p>xem thêm</p>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="main-banner__card">
+                    <img src="../../public/images/policy_banner_img2 (1).png" alt="">
+                </div>
+                <div class="main-banner-hover">
+                    <div class="main-banner-hover_text">
+                        <p>Chăm sóc da</p>
+                        <h3>Sản phẩm chăm sóc da chiết xuất từ thiên nhiên</h3>
+                        <p>xem thêm</p>
+                    </div>
+
+                </div>
+            </a>
+            <a href="">
+                <div class="main-banner__card">
+                    <img src="../../public/images/policy_banner_img3 (1).png" alt="">
+                </div>
+                <div class="main-banner-hover">
+                    <div class="main-banner-hover_text">
+                        <p>Sản phẩm dành cho Nam</p>
+                        <h3>Sản phẩm dành cho Nam giới chiết xuất từ thiên nhiên</h3>
+                        <p>xem thêm</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="main-banner__contact">
+            <div class="main-banner__contact___card">
+                <a href="">
+                    <div class="icon-box-image">
+                        <img src="../../public/images/policy_icon_fly.png" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <h3>Chính sách giao hàng</h3>
+                        <p>Hỗ trợ giao hàng toàn quốc</p>
+                    </div>
+                </a>
+            </div>
+            <div class="main-banner__contact___card">
+                <a href="">
+                    <div class="icon-box-image">
+                        <img src="../../public/images/policy_icon2.png" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <h3>Hỗ trợ đổi, trả hàng</h3>
+                        <p>Hỗ trợ đổi, trả hàng nếu do lỗi nhà sản xuất</p>
+                    </div>
+                </a>
+            </div>
+            <div class="main-banner__contact___card">
+                <a href="">
+                    <div class="icon-box-image">
+                        <img src="../../public/images/policy_icon3.png" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <h3>Địa chỉ mua hàng</h3>
+                        <p>Sản phẩm được phân phối tại hệ thống siêu thị BigC, Vinmart, Thành Đô…hoặc các cửa hàng mỹ
+                            phẩm
+                            trên toàn quốc.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="main-banner__contact___card">
+                <a href="">
+                    <div class="icon-box-image">
+                        <img src="../../public/images/policy_icon4.png" alt="">
+                    </div>
+                    <div class="icon-box-text">
+                        <h3>Bảo mật</h3>
+                        <p>Chính sách bảo mật thông tin khi sử dụng website Hachi Việt Nam</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <div class="line-devide"></div>
+
     <div class="main-content">
         <div class="section">
             <div class="section-head">
@@ -40,45 +118,266 @@
                 </div>
                 <div class="line"></div>
             </div>
-            <div class="section-body"> 
+            <div class="section-body">
                 <div class="nav-product-popular">
                     <ul>
-                        <% types.forEach(type => { %>
+                        <% types.forEach(type=> { %>
                             <li class="nav-product-popular__item">
-                                <a >
+                                <a>
                                     <%= type.split(",")[1] %>
                                 </a>
-                            </li>    
-                        <% }) %>
+                            </li>
+                            <% }) %>
                     </ul>
                 </div>
-                <% types.forEach(type => { %>
+                <% types.forEach(type=> { %>
                     <div class="section-list-product">
-                        <% products.forEach(product => { %>
-                            <% if (product.prd_key == type ){ %>
+                        <% products.forEach(product=> { %>
+                            <% if (product.prd_key==type ){ %>
                                 <div class="product-card">
                                     <a href="">
                                         <div class="product-card_info">
                                             <div class="product-card_img">
-                                                <img src= <%= product.img[0] %> alt="">
+                                                <img src=<%=product.img[0] %> alt="">
                                             </div>
-                                           <div class="product-card_text">
+                                            <div class="product-card_text">
                                                 <div class="product-card_title">
                                                     <%= product.name %>
                                                 </div>
                                                 <div class="product-card_price">
                                                     <%= product.price %>
-                                                </div>      
-                                           </div>
-                                        </div>   
+                                                </div>
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
-                            <% } %>
-                        <% }) %>
+                                <% } %>
+                                    <% }) %>
                     </div>
-                <% }) %>
+                    <% }) %>
             </div>
         </div>
-        <div class="main-content_banner"></div>
+        <div class="main-content_banner">
+            <div>
+                <img src="../../public/images/banner_img1.png" alt="">
+            </div>
+            <div>
+                <img src="../../public/images/banner_img2.png" alt="">
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-body">
+                <% var distinct=[] %>
+                    <% types.forEach(type=> { %>
+                        <% distinct.push(type.split(",")[0]) %>
+                            <% }) %>
+                                <% var uniques=distinct.map(item=> item) .filter((value, index, self) =>
+                                    self.indexOf(value) === index) %>
+                                    %>
+                                    <div id="slider">
+                                        <% uniques.forEach((unique,index)=> { %>
+                                            <div class="section-head">
+                                                <div class="section-title">
+                                                    <h1>
+                                                        <%= unique %>
+                                                    </h1>
+                                                </div>
+                                                <div class="sub-title">
+                                                    Sản phẩm <%= unique %> nổi bật, chiết xuất thiên nhiên
+                                                </div>
+                                                <div class="line"></div>
+                                            </div>
+                                            <div id="owl-<%= index %>" class="owl-carousel owl-theme">
+
+                                                <% products.forEach(product=> { %>
+
+                                                    <% if(product.prd_key.split(",")[0]==unique){ %>
+                                                        <div class="item product-card_item">
+                                                            <a href="">
+                                                                <div class="product-card_info">
+                                                                    <div class="product-card_img">
+                                                                        <img src=<%=product.img[0] %>>
+                                                                    </div>
+                                                                    <div class="product-card_text">
+                                                                        <div class="product-card_title">
+                                                                            <%= product.name %>
+                                                                        </div>
+                                                                        <div class="product-card_price">
+                                                                            <%= product.price %>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+
+                                                        <% } %>
+                                                            <% }) %>
+                                            </div>
+                                            <% }) %>
+
+                                    </div>
+
+            </div>
+
+        </div>
+
+        <div class="section">
+            <div class="section-head">
+                <div class="section-title">
+                    <h1>Tin tức</h1>
+                </div>
+                <div class="sub-title">
+                    Tin mới nhất, nóng hổi nhất
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="section-body">
+                <div id="slider">
+                    <div class="owl-carousel owl-theme">
+                        <a href="">
+                            <div class="item box-card">
+                                <div class="news-card">
+                                    <div class="card-images">
+                                        <img src="../../public/images/news_card_1.png" alt="">
+                                    </div>
+                                    <div class="card-text">
+                                        <div class="card-text_title">
+                                            <h3>COMBO CHĂM SÓC TÓC ĐI BIỂN CHỈ VỚI 449K – TẶNG NGAY SỮA TẮM</h3>
+                                        </div>
+                                        <div class="card-text_date">
+                                            11/05/2020
+                                        </div>
+                                        <div class="card-line"></div>
+                                        <div class="card-description">
+                                            Khi khí trời bắt đầu chuyển gió, hơi nóng thoảng bay như báo hiệu mùa Hè sắp
+                                            đến. Đó
+                                            cũng là lúc công việc và những nỗi lo toan cuộc ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="item box-card">
+                                <div class="news-card">
+                                    <div class="card-images">
+                                        <img src="../../public/images/news_card_2.png" alt="">
+                                    </div>
+                                    <div class="card-text">
+                                        <div class="card-text_title">
+                                            <h3>CHA KHÔNG HOÀN HẢO NHƯNG SẼ LUÔN LÀ NGƯỜI YÊU CON NHẤT!</h3>
+                                        </div>
+                                        <div class="card-text_date">
+                                            11/05/2020
+                                        </div>
+                                        <div class="card-line"></div>
+                                        <div class="card-description">
+                                            Cha trong ấn tượng của hầu hết chúng ta có phải là người đàn ông ít nói
+                                            nhưng tình
+                                            cảm, nghiêm khắc nhưng lại bao dung? “Trên Trái Đất này, ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="item box-card">
+                                <div class="news-card">
+                                    <div class="card-images">
+                                        <img src="../../public/images/news_card_3.jpg" alt="">
+                                    </div>
+                                    <div class="card-text">
+                                        <div class="card-text_title">
+                                            <h3>LÀM SAO ĐỂ TÓC HẾT DẦU BẾT VÀ GÀU ?</h3>
+                                        </div>
+                                        <div class="card-text_date">
+                                            11/05/2020
+                                        </div>
+                                        <div class="card-line"></div>
+                                        <div class="card-description">
+                                            Tóc gàu và bết là vấn đề không của riêng ai, gây ra sự mất thẩm mỹ, khiến
+                                            bạn không
+                                            tự tin khi tiếp xúc với người khác và ảnh ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="item box-card">
+                                <div class="news-card">
+                                    <div class="card-images">
+                                        <img src="../../public/images/news_card_4.png" alt="">
+                                    </div>
+                                    <div class="card-text">
+                                        <div class="card-text_title">
+                                            <h3>HÃY ĐỂ HACHI TRAO CHO EM MÓN QUÀ BẤT NGỜ!!!</h3>
+                                        </div>
+                                        <div class="card-text_date">
+                                            11/05/2020
+                                        </div>
+                                        <div class="card-line"></div>
+                                        <div class="card-description">
+                                            Xu hướng sử dụng các sản phẩm chăm sóc tóc từ thiên nhiên hiện nay còn HOT
+                                            hơn cả
+                                            cái nắng mùa hè. Thương hiệu HACHI tuy mới có mặt ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="item box-card">
+                                <div class="news-card">
+                                    <div class="card-images">
+                                        <img src="../../public/images/news_card_5.png" alt="">
+                                    </div>
+                                    <div class="card-text">
+                                        <div class="card-text_title">
+                                            <h3>KHI NÀO BẠN CẦN DETOX DA ĐẦU?</h3>
+                                        </div>
+                                        <div class="card-text_date">
+                                            11/05/2020
+                                        </div>
+                                        <div class="card-line"></div>
+                                        <div class="card-description">
+                                            Thường thì khi mọi người gặp phải những vấn đề về tóc như: tóc khô, tóc
+                                            rụng, tóc
+                                            yếu,… đều chỉ muốn chữa trị tình trạng tóc đang mắc phải ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="item box-card">
+                                <div class="news-card">
+                                    <div class="card-images">
+                                        <img src="../../public/images/news_card_6.jpeg" alt="">
+                                    </div>
+                                    <div class="card-text">
+                                        <div class="card-text_title">
+                                            <h3>DETOX DA ĐẦU MANG LẠI SỰ KHỎE MẠNH CHO TÓC</h3>
+                                        </div>
+                                        <div class="card-text_date">
+                                            11/05/2020
+                                        </div>
+                                        <div class="card-line"></div>
+                                        <div class="card-description">
+                                            Hãy thử lắng nghe làn da và tưởng tượng da đang phải chịu đựng những gì
+                                            trong thời
+                                            tiết nóng bức, bít tắc lỗ chân lông, nhiễm chì, lão hóa ...
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-devide">
+
     </div>
 </div>

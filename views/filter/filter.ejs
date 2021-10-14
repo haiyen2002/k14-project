@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="../../public/assets/css/base.css">
     <link rel="stylesheet" href="../../public/assets/css/header.css">
     <link rel="stylesheet" href="../../public/assets/css/footer.css">
-    <link rel="stylesheet" href="../../public/assets/css/main.css">
     <link rel="stylesheet" href="../../public/assets/css/product_card.css">
-    <link rel="stylesheet" href="../../public/assets/css/search_overlay.css">
+    <link rel="stylesheet" href="../../public/assets/css/product-filter.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
@@ -21,31 +20,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
         integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> -->
 </head>
 
 <body>
-    <!-- overlay search -->
-    <%- include('../components/search_overlay') %>
     <!-- header -->
     <%- include('../components/header') %>
 
-     <!-- main -->
-    <%- include('../components/main') %>
+    <!-- content -->
+    <%- include('../components/filter_content') %>
 
     <!-- footer -->
     <%- include('../components/footer') %>
+
+    <!-- jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- own caroucell -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- js -->
+        <script src="../../public/assets/js/filter.js"></script>
 </body>
-<!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- own caroucell -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- js -->
-<script src="../../public/assets/js/index.js"></script>
 
 </html>

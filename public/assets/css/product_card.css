@@ -13,6 +13,15 @@
     z-index: 1;
 }
 
+.product-card a {
+    color: #797c11;
+    text-decoration: none;
+}
+
+.product-card:hover.product-card a{
+    color: #555;
+}
+
 .product-card_img {
     width: 100%;
 }

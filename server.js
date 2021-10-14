@@ -16,7 +16,9 @@ app.set("view engine",'ejs');
 app.set("views", "views");
 
 var indexRouter = require('./router/indexRouter');
+var filterRouter = require('./router/filterRouter')
 app.use('/', indexRouter);
+app.use('/filter',filterRouter);
 
 app.use("/public", express.static(path.join(__dirname, "./public")));
 
