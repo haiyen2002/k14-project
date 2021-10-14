@@ -1,0 +1,29 @@
+<div class="product-main">
+  <div class="container-product">
+    <!-- SEARCH AND CATELOG -->
+    <%- include('../form/search&catelog.ejs') %>
+
+    <!-- SHOW ALL PRODUCT -->
+    <div class="show-all">
+      <!-- Start -->
+      <% data.map((ele)=>{ %>
+      <div class="product-item">
+        <div class="product-img">
+          <img class="img-prd" src="/public/upload/<%= ele.img %>" alt="" />
+        </div>
+        <div class="product-name"><%= ele.name %></div>
+        <div class="product-price"><%= ele.price %></div>
+        <div class="item-buy-see">
+          <button class="buy-item add-to-cart" data-product-id="<%= ele._id %>">
+            <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+          </button>
+          <a class="see-item" href="/product/detail/<%= ele._id %>"
+            >Xem chi tiết</a
+          >
+        </div>
+      </div>
+      <% }) %>
+      <!-- End -->
+    </div>
+  </div>
+</div>

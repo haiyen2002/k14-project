@@ -5,6 +5,7 @@ const path = require("path");
 var cookieParser = require("cookie-parser");
 const indexRouter = require("./router/indexRouter");
 const UserRouter = require("./router/UserRouter");
+const productRouter = require("./router/productRouter");
 
 const {
   ProductModel,
@@ -24,5 +25,6 @@ app.use("/public", express.static(path.join(__dirname, "./public")));
 
 app.use("/", indexRouter);
 app.use("/user", UserRouter);
+app.use("/product", productRouter);
 
 app.listen(process.env.PORT || 3000);

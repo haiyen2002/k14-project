@@ -34,62 +34,78 @@ const upload = multer({
   },
 }).single("imgProducts");
 
-// Trang chủ*******//
+// HOME //
 router.get("/", async (req, res) => {
   try {
     const prdAll = await ProductModel.find();
+    const prdDG = await ProductModel.find({ codeProduct: "DG" });
+    const prdDX = await ProductModel.find({ codeProduct: "DX" });
     const prdHair = await ProductModel.find({ prd_key: "123" });
     const prdST = await ProductModel.find({ prd_key: "456" });
-    res.render("pages/home", {
+    res.render("Home/home", {
       prdAll,
       prdHair,
       prdST,
+      prdDG,
+      prdDX,
     });
   } catch (error) {
     res.json(error);
   }
 });
 
-// Trang Về chúng tôi*******//
-router.get("/ve-chung-toi/", (req, res) => {
-  res.render("pages/home_Vechungtoi");
+// ABOUT US //
+router.get("/about-us/", (req, res) => {
+  res.render("store-detail/about-us");
 });
 
-// Trang Tầm nhìn- sứ mệnh - giá trị cốt lõi *******//
-router.get("/tam-nhin-su-menh-gia-tri-cot-loi/", (req, res) => {
-  res.render("pages/home_Tamnhin");
+// SLOGAN  //
+router.get("/slogan/", (req, res) => {
+  res.render("store-detail/slogan");
 });
 
-// Trang Liên hệ*******//
-router.get("/lien-he", (req, res) => {
-  res.render("pages/home_Lienhe");
+// CONTACT //
+router.get("/contact", (req, res) => {
+  res.render("store-detail/contact");
 });
 
-// Trang Hệ thống phân phối*******//
-router.get("/he-thong-phan-phoi-va-ban-le/", (req, res) => {
-  res.render("pages/home_HethongPhanphoi");
+// STORE //
+router.get("/store/", (req, res) => {
+  res.render("store-detail/store");
 });
 
-// Trang đăng ký*******//
+// REGISER //
 router.get("/regiser", (req, res) => {
-  res.render("pages/regiser");
+  res.render("Home/regiser");
 });
 
-// Trang Admin*******//
+//CART //
+router.get("/cart/", (req, res) => {
+  res.render("Order-Cart/cart");
+});
+
+// ORDER //
+router.get("/order/", (req, res) => {
+  res.render("Order-Cart/order");
+});
+
+//------------------------------------//
+
+// ADMIN //
 router.get("/admin", (req, res) => {
-  res.render("pages/admin");
+  res.render("page_admin/admin");
 });
 
-// Trang Adm thêm sp*******//
+// ADMIN - ADD //
 router.get("/add", (req, res) => {
-  res.render("pages/add");
+  res.render("page_admin/add");
 });
 
-// Trang Adm quản lý sp*******//
+// ADMIN - PRODUCTS //
 router.get("/products", async (req, res) => {
   try {
     const prd = await ProductModel.find();
-    res.render("pages/adminProducts", {
+    res.render("page_admin/Products", {
       prd,
     });
   } catch (error) {
@@ -97,11 +113,11 @@ router.get("/products", async (req, res) => {
   }
 });
 
-// Trang Adm quản lý user*******//
+// ADMIN - USER //
 router.get("/user", async (req, res) => {
   try {
     const acc = await accountmodel.find({ role: "user" });
-    res.render("pages/adminListUser", {
+    res.render("page_admin/ListUser", {
       acc,
     });
   } catch (error) {
@@ -109,12 +125,12 @@ router.get("/user", async (req, res) => {
   }
 });
 
-// Trang Adm quản lý oder*******//
+// ADMIN - ODER //
 router.get("/oder", (req, res) => {
-  res.render("pages/adminOders");
+  res.render("page_admin/Oders");
 });
 
-// post add****/
+// POST - ADD /
 router.post("/add", function (req, res) {
   //Upload file
   upload(req, res, function (err) {
@@ -150,4 +166,7 @@ router.post("/add", function (req, res) {
     }
   });
 });
+
+// PRODUCT //
+
 module.exports = router;

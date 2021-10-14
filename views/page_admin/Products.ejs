@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../components/page_admin/head.ejs') %>
+  </head>
+  <body>
+    <style>
+      tr {
+        width: 100%;
+      }
+      td{
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        text-align: center;
+      }
+      td:nth-child(1) {
+        width: 10%;
+      }
+      td:nth-child(2) {
+        width: 70%;
+        text-align: start;
+      }
+      td:nth-child(3) {
+        width: 10%;
+      }
+      td:nth-child(4) {
+        width: 10%;
+      }
+    </style>
+    <%- include('../components/page_admin/header.ejs') %>
+    <div class="main">
+      <%- include('../components/page_admin/main-nav.ejs') %>
+      <table class="main-body">
+        <tbody>
+          <td>Ảnh</td>
+          <td>Tên</td>
+          <td>Giá</td>
+          <td>Xóa</td>
+        </tbody>
+        <% prd.map((ele)=>{ %>
+        <tr>
+          <td>
+            <img
+              style="width: 50px; height: 50px"
+              src="/public/upload/<%= ele.img %>"
+              alt=""
+            />
+          </td>
+          <td><%= ele.name %></td>
+          <td><%= ele.price %></td>
+          <td>
+            <button onclick="deletePrd('<%= ele._id %>')">Xóa sản phẩm</button>
+          </td>
+        </tr>
+        
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

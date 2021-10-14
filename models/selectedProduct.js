@@ -1,7 +1,7 @@
 const mongoose = require("./dbconnect");
 const Schema = mongoose.Schema;
 
-let SelectedProduct = new Schema(
+const SelectedProduct = new Schema(
   {
     userId: String,
     productId: {
@@ -15,5 +15,5 @@ let SelectedProduct = new Schema(
   }
 );
 
-let SelectedProductModel = mongoose.model("selectedProduct", SelectedProduct);
+const SelectedProductModel = mongoose.model("selectedProduct", SelectedProduct);
 module.exports = SelectedProductModel;
