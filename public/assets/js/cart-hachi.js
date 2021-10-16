@@ -3,7 +3,7 @@ if (!productsInCart) {
   productsInCart = [];
 }
 
-const products = document.querySelectorAll(".product-item");
+const products = document.querySelectorAll(".product-card_item");
 // CART - HOVER
 const parentElement = document.querySelector("#buyItems");
 const countSumCart = document.querySelector(".countSumCart");
@@ -15,6 +15,7 @@ const tableTitle = document.querySelector(".tableTitle");
 const prdCart = document.querySelector(".buy-table");
 const prdContent = document.querySelector(".content-table");
 const prdTotal = document.querySelector(".right-cart");
+
 
 // ORDER //
 
@@ -55,10 +56,10 @@ products.forEach((ele) => {
   ele.addEventListener("click", (event) => {
     if (event.target.classList.contains("add-to-cart")) {
       const productID = event.target.dataset.productId;
-      const productName = ele.querySelector(".product-name").innerHTML;
-      const productPriceS = ele.querySelector(".product-price").innerHTML;
+      const productName = ele.querySelector(".product-card_title").innerHTML;
+      const productPriceS = ele.querySelector(".product-card_price").innerHTML;
       const productImg = ele.querySelector(".img-prd").src;
-      const productPrice = parseInt(productPriceS);
+      const productPrice = parseInt(productPriceS.split(",").join(""));
       let product = {
         name: productName,
         image: productImg,
@@ -69,9 +70,11 @@ products.forEach((ele) => {
       };
       updateProductsInCart(product);
       updateShoppingCartHTML();
-      if (prdCart != null) {
-        updateCart();
-      }
+     
+        if(prdCart != null){
+            updateCart();
+        }
+      
     }
   });
 });
@@ -104,7 +107,7 @@ const updateShoppingCartHTML = function () {
                   <p>${product.name}</p>
               </div>
               <div class="price-prd-cart">
-                  <p>${product.basePrice}</p>
+                  <p>${product.basePrice.toLocaleString() + "đ"}</p>
               </div>
               <div class="count-prd-cart">
                   <button class="button-minus" data-id="${product.id}">-</button>
@@ -112,7 +115,7 @@ const updateShoppingCartHTML = function () {
                   <button class="button-plus" data-id="${product.id}">+</button>
               </div>
               <div class="total-price">
-                  <p>${product.price}</p>
+                  <p>${product.price.toLocaleString() + "đ"}</p>
               </div>
            </div>
            `;
@@ -131,7 +134,7 @@ const updateShoppingCartHTML = function () {
     priceSumCart1.innerHTML = `
       <div class="totalItem">
       <div class= "total">Tổng :</div>
-      <div class="buy-sumPrice">${countTheSumPrice()}</div>
+      <div class="buy-sumPrice">${countTheSumPrice() + "đ"}</div>
       </div>
     `;
     countSumCart.innerHTML = countTheSumPrd();
@@ -159,13 +162,13 @@ const updateCart = function () {
       <div class="item-td">
         <p>${product.name}</p>
       </div>
-      <div class="item-td price">${product.basePrice}</div>
+      <div class="item-td price">${product.basePrice.toLocaleString() + "đ"}</div>
       <div class="item-td">
         <button class="button-minus" data-id="${product.id}">-</button>
         <span class="countOfProduct">${product.count}</span>
         <button class="button-plus" data-id="${product.id}">+</button>
       </div>
-      <div class="item-td price">${product.price}</div>
+      <div class="item-td price">${product.price.toLocaleString() + "đ"}</div>
     </div>
     <hr />
       `;
@@ -184,11 +187,11 @@ const updateCart = function () {
     <div class="right-content"><p>CỘNG GIỎ HÀNG</p></div>
       <div class="total">
         <div class="total-content">Tạm tính</div>
-        <div class="total-price">${countTheSumPrice()}</div>
+        <div class="total-price">${countTheSumPrice() + "đ"}</div>
       </div>
       <div class="total-end">
         <div class="total-end-content">Tổng</div>
-        <div class="total-end-price">${countTheSumPrice()}</div>
+        <div class="total-end-price">${countTheSumPrice() + "đ"}</div>
       </div>
       <a class="pay"  href="/order/">
         <div class="pay-item">Tiến hành thanh toán</div>
@@ -220,7 +223,7 @@ const updateOder = function () {
       <div class="prd-buy-item">
           <div class="buy-item-prd">${product.name}</div>
           <div class="buy-item-count">${product.count}</div>
-          <div class="buy-item-price">${product.price}</div>
+          <div class="buy-item-price">${product.price.toLocaleString() + "đ"}</div>
         </div>
       
       `;
@@ -233,7 +236,7 @@ const updateOder = function () {
     `;
     order_price.innerHTML = `
         <div class="total-txt">Tổng</div>
-        <div class="total-end">${countTheSumPrice()}</div>
+        <div class="total-end">${countTheSumPrice() + "đ"}</div>
     `;
   } else {
     order_buy.innerHTML = ``;
@@ -257,7 +260,7 @@ const countTheSumPrice = function () {
   productsInCart.forEach((item) => {
     sum1 += item.price;
   });
-  return sum1;
+  return sum1.toLocaleString();
 };
 
 // MINUS AND PLUS COUNT  //

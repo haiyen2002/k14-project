@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- css -->
+    <link rel="stylesheet" href="/public/assets/css/cart1.css">
     <link rel="stylesheet" href="../../public/assets/css/base.css">
     <link rel="stylesheet" href="../../public/assets/css/header.css">
     <link rel="stylesheet" href="../../public/assets/css/footer.css">
     <link rel="stylesheet" href="../../public/assets/css/main.css">
     <link rel="stylesheet" href="../../public/assets/css/product_card.css">
     <link rel="stylesheet" href="../../public/assets/css/search_overlay.css">
+    <link rel="stylesheet" href="/public/assets/css/modal-mobile.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
@@ -46,7 +48,41 @@
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- js -->
-<script src="../../public/assets/js/index.js"></script>
+<script src="/public/assets/js/index.js"></script>
 <script src="/public/assets/js/cart-hachi.js"></script>
+<script>
+      // MODAL-MOBILE**********
+  
+  $(".main-mobile-item").on("click", () => {
+    $(".modal-nav-mobile").css("display", "flex");
+    $(".main-mobile-item").css("display", "none");
+  });
+  function offModalMobile() {
+    $(".modal-nav-mobile").css("display", "none");
+    $(".main-mobile-item").css("display", "block");
+  }
+  $(".modal-nav-mobile").on("click", offModalMobile);
+  $(".modal-mobile").on("click", (event) => {
+    event.stopPropagation();
+  });
+
+  // SHOW -CHILDREN //
+  // SHOW CHILREN //
+
+for (let i = 1; i < 4; i++) {
+    $(`.more-link-item${i}`).on("click", () => {
+        $(`.children${i}`).css("display", "block");
+        $(`.more-link-item${i}`).css("display", "none");
+        $(`.more-link-item-click${i}`).css("display", "block");
+      });
+      $(`.more-link-item-click${i}`).on("click", () => {
+        $(`.children${i}`).css("display", "none");
+        $(`.more-link-item${i}`).css("display", "block");
+        $(`.more-link-item-click${i}`).css("display", "none");
+
+      })
+    
+}
+</script>
 
 </html>

@@ -1,6 +1,9 @@
+$(".header-top").toggleClass("fade", window.scrollY > 150);
+$(".header-main").toggleClass("sticky", window.scrollY > 100);
+
 window.addEventListener("scroll", () => {
-    $(".header-top").toggleClass("fade", window.scrollY > 100);
-    $(".header-main").toggleClass("sticky", window.scrollY > 150);
+    $(".header-top").toggleClass("fade", window.scrollY > 150);
+    $(".header-main").toggleClass("sticky", window.scrollY > 100);
   });
   
   // MODAL-LOGIN*****
@@ -48,36 +51,63 @@ window.addEventListener("scroll", () => {
     event.stopPropagation();
   });
   
-  //SHOW-CHILDREN-ITEM-NAV-MOBILE -1
-  $(".more-link-item1").on("click", () => {
-    $(".children1").css("display", "block");
-    $(".more-link-item1").css("display", "none");
-    $(".more-link-item-click1").css("display", "block");
-  });
-  $(".more-link-item-click1").on("click", () => {
-    $(".children1").css("display", "none");
-    $(".more-link-item1").css("display", "block");
-    $(".more-link-item-click1").css("display", "none");
-  });
-  //SHOW-CHILDREN-ITEM-NAV-MOBILE - 2
-  $(".more-link-item2").on("click", () => {
-    $(".children2").css("display", "block");
-    $(".more-link-item2").css("display", "none");
-    $(".more-link-item-click2").css("display", "block");
-  });
-  $(".more-link-item-click2").on("click", () => {
-    $(".children2").css("display", "none");
-    $(".more-link-item2").css("display", "block");
-    $(".more-link-item-click2").css("display", "none");
-  });
-  //SHOW-CHILDREN-ITEM-NAV-MOBILE - 3
-  $(".more-link-item3").on("click", () => {
-    $(".children3").css("display", "block");
-    $(".more-link-item3").css("display", "none");
-    $(".more-link-item-click3").css("display", "block");
-  });
-  $(".more-link-item-click3").on("click", () => {
-    $(".children3").css("display", "none");
-    $(".more-link-item3").css("display", "block");
-    $(".more-link-item-click3").css("display", "none");
-  });
+// SHOW CHILREN //
+
+for (let i = 1; i < 4; i++) {
+    $(`.more-link-item${i}`).on("click", () => {
+        $(`.children${i}`).css("display", "block");
+        $(`.more-link-item${i}`).css("display", "none");
+        $(`.more-link-item-click${i}`).css("display", "block");
+      });
+      $(`.more-link-item-click${i}`).on("click", () => {
+        $(`.children${i}`).css("display", "none");
+        $(`.more-link-item${i}`).css("display", "block");
+        $(`.more-link-item-click${i}`).css("display", "none");
+
+      })
+    
+}
+
+
+// SEARCH //
+
+const inputSearch = document.getElementById("search")
+
+
+inputSearch.addEventListener("keyup", (e) => {
+    $('.list-search').html('');
+    search(e.target.value)
+})
+
+
+function search(inputSearch) {
+    if (inputSearch != '') {
+        $.ajax({
+            url: `/search`,
+            type: "POST",
+            data: {
+                name: inputSearch,              
+        }
+            }).then(data => {
+            var newdata = data.data;
+            if (newdata.length > 0) {
+                for (var i = 0; i < newdata.length; i++) {
+                    var item = `
+                            <a href="/products/${newdata[i]._id}" class="search-item">
+                                <div class="img-search-item"><img class="img-search" src = "${newdata[i].img[0]}" ></div>
+                                <div class="name-search-item">${newdata[i].name} </div>
+                                <div class="price-search-item">${newdata[i].price} </div>
+                            </a>
+                           `
+                    $('.list-search').append(item)
+                }
+            } else {
+                $('.list-search').html("<div style='text-align :center'> Không tìm thấy sản phẩm</div>")
+            }
+        }).catch(err => console.log(err))
+    }
+}
+
+
+
+

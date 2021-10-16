@@ -104,9 +104,7 @@
               content: "x ";
               font-weight: 600;
             }
-            .buy-item-price::before {
-              content: "$";
-            }
+         
           }
         }
         .total-price {
@@ -122,9 +120,7 @@
           .total-end {
             color: #4267b2;
             font-weight: 600;
-            &::before {
-              content: "$";
-            }
+          
           }
         }
         .ok-order {

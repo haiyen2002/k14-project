@@ -134,11 +134,11 @@
                     <div class="section-list-product">
                         <% products.forEach(product=> { %>
                             <% if (product.prd_key==type ){ %>
-                                <div class="product-card">
-                                    <a href="">
+                                <div class="product-card product-card_item">
+                                    <a   href="">
                                         <div class="product-card_info">
                                             <div class="product-card_img">
-                                                <img src=<%=product.img[0] %> alt="">
+                                                <img class="img-prd" src=<%=product.img[0] %> alt="">
                                             </div>
                                             <div class="product-card_text">
                                                 <div class="product-card_title">
@@ -150,6 +150,7 @@
                                             </div>
                                         </div>
                                     </a>
+                                    <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
                                 </div>
                                 <% } %>
                                     <% }) %>
@@ -196,7 +197,7 @@
                                                             <a href="">
                                                                 <div class="product-card_info">
                                                                     <div class="product-card_img">
-                                                                        <img src=<%=product.img[0] %>>
+                                                                        <img class="img-prd" src=<%=product.img[0] %>>
                                                                     </div>
                                                                     <div class="product-card_text">
                                                                         <div class="product-card_title">
@@ -208,6 +209,7 @@
                                                                     </div>
                                                                 </div>
                                                             </a>
+                                                            <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
                                                         </div>
 
                                                         <% } %>

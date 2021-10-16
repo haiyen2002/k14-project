@@ -161,10 +161,6 @@ body {
   font-weight: 600;
 }
 
-.main-order .main-order-right .container-order .prd-buy-items .prd-buy-item .buy-item-price::before {
-  content: "$";
-}
-
 .main-order .main-order-right .container-order .total-price {
   display: -ms-grid;
   display: grid;
@@ -182,10 +178,6 @@ body {
 .main-order .main-order-right .container-order .total-price .total-end {
   color: #4267b2;
   font-weight: 600;
-}
-
-.main-order .main-order-right .container-order .total-price .total-end::before {
-  content: "$";
 }
 
 .main-order .main-order-right .container-order .ok-order {
