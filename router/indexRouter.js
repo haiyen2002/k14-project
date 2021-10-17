@@ -1,8 +1,7 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 var path = require("path");
+const controller = require("../controllers/prdController");
 var productController = require("../controllers/ProductsController");
-const {ProductModel, accountmodel} = require("../models/db_mongoose");
 router.get("/", (req, res) => {
   productController
     .getAllProduct()
@@ -37,49 +36,10 @@ router.post("/", (req, res) => {
 
 router.get("/count", (req, res) => {});
 
-// SEARCH //
-router.post("/search", (req, res) => {
-  const name = req.body.name;
-  ProductModel.find({name: {$regex: name, $options: "i"}})
-    .then((data) => {
-      res.json({
-        data: data,
-      });
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
+router.post("/search", controller.postSearch);
 
-// CART //
+router.get("/cart/", controller.getCart);
 
-router.get("/cart/", (req, res) => {
-  res.render("Order-Cart/cart");
-});
-
-// ORDER //
-router.get("/order/", (req, res) => {
-  res.render("Order-Cart/order");
-});
-
-router.get("/ttt", (req, res) => {
-  ProductModel.find()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
-router.get("/aaa", (req, res) => {
-  accountmodel
-    .find()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
+router.get("/order/", controller.getOrder);
 
 module.exports = router;

@@ -7,18 +7,20 @@ var multer = require("multer");
 require("dotenv").config();
 var port = 3000;
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cookieParser());
 
 //ejs
-app.set("view engine",'ejs');
+app.set("view engine", "ejs");
 app.set("views", "views");
 
-var indexRouter = require('./router/indexRouter');
-var filterRouter = require('./router/filterRouter')
-app.use('/', indexRouter);
-app.use('/filter',filterRouter);
+var indexRouter = require("./router/indexRouter");
+var filterRouter = require("./router/filterRouter");
+var cartRouter = require("./router/cartRouter");
+app.use("/", indexRouter);
+app.use("/filter", filterRouter);
+app.use("/cart", cartRouter);
 
 app.use("/public", express.static(path.join(__dirname, "./public")));
 

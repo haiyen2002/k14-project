@@ -16,7 +16,6 @@ const prdCart = document.querySelector(".buy-table");
 const prdContent = document.querySelector(".content-table");
 const prdTotal = document.querySelector(".right-cart");
 
-
 // ORDER //
 
 const order_content = document.querySelector(".content-items");
@@ -70,11 +69,10 @@ products.forEach((ele) => {
       };
       updateProductsInCart(product);
       updateShoppingCartHTML();
-     
-        if(prdCart != null){
-            updateCart();
-        }
-      
+
+      if (prdCart != null) {
+        updateCart();
+      }
     }
   });
 });
@@ -110,7 +108,9 @@ const updateShoppingCartHTML = function () {
                   <p>${product.basePrice.toLocaleString() + "đ"}</p>
               </div>
               <div class="count-prd-cart">
-                  <button class="button-minus" data-id="${product.id}">-</button>
+                  <button class="button-minus" data-id="${
+                    product.id
+                  }">-</button>
                   <span class="countOfProduct">${product.count}</span>
                   <button class="button-plus" data-id="${product.id}">+</button>
               </div>
@@ -157,12 +157,18 @@ const updateCart = function () {
       return `
       <div class="buy-table-item">
       <div class="item-td">
-        <img class="item-img" src="${product.image}" alt="" />
+      <a class="item-prd-link" href="/products/detail/${product.id}">
+      <img class="item-img" src="${product.image}" alt="" />        
+      </a>
       </div>
       <div class="item-td">
-        <p>${product.name}</p>
+      <a class="item-prd-link" href="/product/detail/${product.id}">${
+        product.name
+      }</a>
       </div>
-      <div class="item-td price">${product.basePrice.toLocaleString() + "đ"}</div>
+      <div class="item-td price">${
+        product.basePrice.toLocaleString() + "đ"
+      }</div>
       <div class="item-td">
         <button class="button-minus" data-id="${product.id}">-</button>
         <span class="countOfProduct">${product.count}</span>
@@ -214,7 +220,7 @@ const updateCart = function () {
   }
 };
 
-//
+// UPDATE ORDER
 const updateOder = function () {
   localStorage.setItem("shoppingCart", JSON.stringify(productsInCart));
   if (productsInCart.length > 0) {
@@ -223,7 +229,9 @@ const updateOder = function () {
       <div class="prd-buy-item">
           <div class="buy-item-prd">${product.name}</div>
           <div class="buy-item-count">${product.count}</div>
-          <div class="buy-item-price">${product.price.toLocaleString() + "đ"}</div>
+          <div class="buy-item-price">${
+            product.price.toLocaleString() + "đ"
+          }</div>
         </div>
       
       `;
