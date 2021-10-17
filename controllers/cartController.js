@@ -1,12 +1,15 @@
 const {cartModel} = require("../models/db_mongoose");
+const jwt = require("jsonwebtoken");
 
+// tạo đơn hàng
 module.exports.postCart = async (req, res) => {
-  const user = req.body.user;
+  const token = req.cookies.user;
+  const userId = jwt.verify(token, "teamk14").id;
   const product = req.body.product;
   const status = req.body.status;
   try {
     const data = await cartModel.create({
-      userId: user,
+      userId: userId,
       product: product,
       status: status,
     });

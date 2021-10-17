@@ -17,7 +17,6 @@ async function order() {
       type: "POST",
       data: {
         product: arr,
-        user: user,
         status: comment,
       },
     });
