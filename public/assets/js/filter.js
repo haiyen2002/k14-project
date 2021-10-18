@@ -1,5 +1,4 @@
-var x = "cgcgc, jgjhj ff zff  ";
-var y = [];
-y.push(x.split(",")[1].trim());
-
-console.log(y);
+var x = [];
+var y = {key: "123"}
+x.push(y)
+console.log(x);
