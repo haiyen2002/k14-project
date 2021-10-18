@@ -2,6 +2,12 @@ const router = require("express").Router();
 var path = require("path");
 const controller = require("../controllers/prdController");
 var productController = require("../controllers/ProductsController");
+const {
+  orderssModel,
+  ProductModel,
+  accountmodel,
+  cartModel,
+} = require("../models/db_mongoose");
 router.get("/", (req, res) => {
   productController
     .getAllProduct()
@@ -41,5 +47,29 @@ router.post("/search", controller.postSearch);
 router.get("/cart/", controller.getCart);
 
 router.get("/order/", controller.getOrder);
+
+router.get("/ttt", (req, res) => {
+  ProductModel.find()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.get("/test", (req, res) => {
+  productController
+    .getAllProduct()
+    .then((products) => {
+      productController.getTypePrd().then((types) => {
+        res.render("home/test", {
+          products: products,
+          types: types,
+        });
+      });
+    })
+    .catch((err) => console.log(err));
+});
 
 module.exports = router;

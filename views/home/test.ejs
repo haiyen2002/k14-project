@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <% var distinct1 = [] %>
+        <% var distinct2 = [] %>
+            <% types.forEach(type=> { %>
+                <% distinct1.push(type.split(",")[0].trim()) %>
+                <% distinct2.push(type) %>
+                    <% }) %>    
+                        <% var uniques=distinct1.map(item=> item).filter((value, index, self) =>
+                            self.indexOf(value) === index) %>
+                                %>
+                        <% var uniques2=distinct2.map(item=> item).filter((value, index, self) =>
+                            self.indexOf(value) === index) %>
+                                %>
+                                    <div id="slider">
+                                        <% uniques.forEach((unique,index)=> { %>
+                                            <div class="section-head">
+                                                <div class="section-title">
+                                                        <%= unique %>
+                                                </div>
+                            
+                                                <% uniques2.forEach((unique2,index)=> {  %>
+                                                    <% if(unique2.split(",")[0].trim() == unique) { %>
+                                                        <div>
+                                                            <%= unique2.split(",")[1].trim()  %>
+                                                        </div>
+                                                    <% } %>   
+                                                <% }) %>
+                                            </div>
+                                        <% }) %>    
+                                    </div>
+
+  </body>
+</html>

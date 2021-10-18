@@ -1,4 +1,5 @@
-var number = 1557564534;
-var y = number.toLocaleString();
+var x = "cgcgc, jgjhj ff zff  ";
+var y = [];
+y.push(x.split(",")[1].trim());
 
 console.log(y);
