@@ -5,14 +5,23 @@
     <link rel="stylesheet" href="/public/assets/css/mainOrder.css" />
   </head>
   <body>
-    <!-- HEADER -->
-    <%- include('../components/header1.ejs') %>
+     <!-- Modal-search -->
+     <%- include('../components/modal_search.ejs') %>
 
-    <!-- MAIN -->
-    <%- include('./order/main.ejs') %>
-
-    <!-- FOOTER -->
-    <%- include('../components/footer1.ejs') %>
+     <!-- Modal-login -->
+     <%- include('../components/modal_login.ejs') %>
+ 
+     <!-- Modal-nav-mobile -->
+     <%- include('../components/modal_nav-mobile.ejs') %>
+ 
+     <!-- HEADER -->
+     <%- include('../components/header1.ejs') %>
+ 
+     <!-- ORDER -->
+     <%- include('./order/main.ejs') %>
+ 
+     <!-- FOOTER -->
+     <%- include('../components/footer1.ejs') %>
   </body>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -20,9 +29,9 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
-  <script src="/public/assets/js/Home-shop.js"></script>
-  <script src="/public/assets/js/dangnhap.js"></script>
-  <script src="/public/assets/js/cart-hachi.js"></script>
+  <script src="/public/assets/js/header_search.js"></script>
+  <script src="/public/assets/js/cart_localStorage.js"></script>
+  <script src="/public/assets/js/login.js"></script>
   <script>
     $(".container-cart").css("display", "none");
   </script>

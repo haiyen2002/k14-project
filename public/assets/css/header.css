@@ -366,3 +366,68 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+
+.top-right-item {
+  color: #777;
+  cursor: pointer;
+}
+
+.info-user {
+  display: flex;
+  position: relative;
+}
+.info-username {
+  display: inline-block;
+  text-decoration: none;
+  height: 100%;
+  font-size: 13px;
+  color: #4267b2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.img_user {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: none;
+}
+
+.open-logout {
+  width: 30px;
+  height: 100%;
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 6px;
+  margin-left: 20px;
+  color: #4267b2;
+}
+.logout {
+  display: none;
+  position: absolute;
+  right: 0%;
+  top: 100%;
+  width: 100px;
+  height: 50px;
+  background: none;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  font-size: 14px;
+  color: #4267b2;
+  outline: none;
+  z-index: 11;
+  cursor: pointer;
+}
+.logout:hover {
+  background: #4267b2;
+  color: #fff;
+}

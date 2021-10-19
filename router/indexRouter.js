@@ -3,11 +3,13 @@ var path = require("path");
 const controller = require("../controllers/prdController");
 var productController = require("../controllers/ProductsController");
 const {
-  orderssModel,
-  ProductModel,
-  accountmodel,
-  cartModel,
+  cartModel, BlackListModel, ProductModel, accountmodel,
 } = require("../models/db_mongoose");
+
+router.get("/regiser", (req, res)=>{
+    res.sendFile(path.join(__dirname, "../views/regiser.html"))
+})
+
 router.get("/", (req, res) => {
   productController
     .getAllProduct()
@@ -40,36 +42,20 @@ router.post("/", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/count", (req, res) => {});
-
 router.post("/search", controller.postSearch);
 
 router.get("/cart/", controller.getCart);
 
 router.get("/order/", controller.getOrder);
 
-router.get("/ttt", (req, res) => {
-  cartModel.find()
+router.get("/testData", (req, res) => {
+  accountmodel.find()
     .then((data) => {
       res.json(data);
     })
     .catch((err) => {
       res.json(err);
     });
-});
-
-router.get("/test", (req, res) => {
-  productController
-    .getAllProduct()
-    .then((products) => {
-      productController.getTypePrd().then((types) => {
-        res.render("home/test", {
-          products: products,
-          types: types,
-        });
-      });
-    })
-    .catch((err) => console.log(err));
 });
 
 module.exports = router;

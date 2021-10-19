@@ -1,11 +1,11 @@
 const {cartModel} = require("../models/db_mongoose");
 const jwt = require("jsonwebtoken");
 
-// tạo đơn hàng
-module.exports.postCart = async (req, res) => {
-    console.log(req.body);
+// Tạo đơn hàng
+module.exports.postCart = async (req, res) => {   
+    const token = req.cookies.user
+    const id = jwt.verify(token, "team").id;
     const keys = Object.keys(req.body)
-    console.log(keys);
     const productInfo = keys.filter((ele)=>{
         return ele.includes('prd')
     })
@@ -17,11 +17,10 @@ module.exports.postCart = async (req, res) => {
             quantity:req.body[productInfo[i+1]]
         })
     }
-
     var status = req.body.status;
     try {
       const data = await cartModel.create({
-        userId: "zffsfsfsf",
+        userId: id,
         product: product,
         status: status,
       });
@@ -31,12 +30,4 @@ module.exports.postCart = async (req, res) => {
     }
   };
 
-  module.exports.deleteCart = (req, res)=>{
-      cartModel.deleteMany({userId: "zffsfsfsf"})
-      .then(data=>{
-          res.json(data)
-      })
-      .catch(err=>{
-          res.json(err)
-      })
-  }
+

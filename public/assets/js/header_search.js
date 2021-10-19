@@ -65,21 +65,29 @@ for (let i = 1; i < 4; i++) {
 // SEARCH //
 
 const inputSearch = document.getElementById("search");
+var select = $("#selection").val();
 
 inputSearch.addEventListener("keyup", (e) => {
   $(".list-search").html("");
   search(e.target.value);
 });
 
+
+
+$("#selection").on("change", ()=>{
+    select = $('#selection').val()
+})
+
+
+
 function search(inputSearch) {
-  var select = $("#selection").val();
   if (inputSearch != "") {
     $.ajax({
-      url: `/search`,
+      url: "/search",
       type: "POST",
       data: {
-        name: inputSearch,
-        select: select,
+        name: inputSearch,  
+        type: select,
       },
     })
       .then((data) => {

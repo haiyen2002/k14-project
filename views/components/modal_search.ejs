@@ -1,0 +1,45 @@
+<!-- MODAL-SEARCH -->
+<div class="modal-search">
+    <div class="modal-search-close">
+      <button class="btn-close" onclick="offModalSearch()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="box-search">
+      <div class="form-search">
+        <div class="select_input">
+          <select name="" id="selection">
+            <option>All</option>
+            <% var distinct=[] %>
+                <% types.forEach(type=> { %>
+                    <% distinct.push(type.split(",")[0]) %>
+                        <% }) %>
+                            <% var uniques=distinct.map(item=> item) .filter((value, index, self) =>
+                                self.indexOf(value) === index) %>
+                                %>
+                                <% uniques.forEach(type=> { %>
+                                    <option class="list-option">
+                                        <%= type.split(",")[0] %>
+                                    </option>
+                                    <% }) %>
+            
+          </select>
+          <div class="search-box">
+            <input
+              type="text"
+              autocomplete="off"
+              name=""
+              id="search"
+              placeholder="Tìm kiếm ..."
+            />
+            <button class="btn-search"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <div class="search_show">
+          <div class="list-search"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- MODAL-SEARCH-END -->

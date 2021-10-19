@@ -6,7 +6,7 @@
   bottom: 0;
   right: 0;
   position: fixed;
-  z-index: 11;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -310,4 +310,14 @@
   text-decoration: none;
   color: #777;
 }
-/*# sourceMappingURL=modal-mobile.css.map */
+
+.modal-mobile::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  background: #fff;
+}
+
+.modal-mobile::-webkit-scrollbar-thumb {
+  background-color: #e4e6eb;
+}
+/*# sourceMappingURL=nav-modal-mobile.css.map */

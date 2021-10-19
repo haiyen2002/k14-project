@@ -1,6 +1,13 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const {
+    ProductModel,
+    accountmodel,
+    cartModel,
+    orderssModel,
+    BlackListModel,
+  } = require("./models/db_mongoose");
 var cookieParser = require("cookie-parser");
 // const bodyParser = require("body-parser");
 var multer = require("multer");
@@ -18,9 +25,11 @@ app.set("views", "views");
 var indexRouter = require("./router/indexRouter");
 var filterRouter = require("./router/filterRouter");
 var cartRouter = require("./router/cartRouter");
+var UserRouter = require("./router/UserRouter");
 app.use("/", indexRouter);
 app.use("/filter", filterRouter);
 app.use("/cart", cartRouter);
+app.use("/user", UserRouter);
 
 app.use("/public", express.static(path.join(__dirname, "./public")));
 
