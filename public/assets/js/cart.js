@@ -26,14 +26,3 @@ async function order() {
   }
 }
 
-async function deleteCart(){
-    try {
-        const data = await $.ajax({
-            url: "/cart/order",
-            type: "delete"
-        })
-        console.log(data);
-    } catch (error) {
-        console.log(error);
-    }
-}

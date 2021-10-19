@@ -344,7 +344,6 @@
 }
 
 .product-card_item {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -352,11 +351,10 @@
 }
 
 .product-card_item:hover .add-to-cart {
-  display: block;
+  display: none;
 }
 .add-to-cart {
   display: none;
-  position: absolute;
   width: 160px;
   height: 40px;
   margin: 0 auto;

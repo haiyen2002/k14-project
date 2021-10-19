@@ -60,10 +60,7 @@ $.ajax({
         event.stopPropagation();
       });
 
-      let mua = `
-        <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
-        `;
-      $(".product-card_item").append(mua);
+      $(".add-to-cart").css("display","block")
     }
   })
   .catch((err) => {

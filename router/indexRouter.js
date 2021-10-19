@@ -49,7 +49,7 @@ router.get("/cart/", controller.getCart);
 router.get("/order/", controller.getOrder);
 
 router.get("/testData", (req, res) => {
-  accountmodel.find()
+  cartModel.find()
     .then((data) => {
       res.json(data);
     })
