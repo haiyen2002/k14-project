@@ -29,8 +29,8 @@
       height: 300px;
       display: flex;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.856);
-      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.719);
+      background: rgba(241, 235, 235, 0.856);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.74);
       .form-login {
         display: flex;
         flex-direction: column;
@@ -40,14 +40,14 @@
         height: 100%;
         h2 {
           text-align: center;
-          color: #f5f5f5;
+          color: #4267b2;
           margin-bottom: 16px;
         }
         .input_box{
             position: relative;
             width: 100%;
             display: flex;
-            color: #f5f5f5;
+            color: #4267b2;
             .input_icon{
                 position: absolute;
                 top: 8px;
@@ -61,17 +61,16 @@
             border: none;
             font-size: 15px;
             letter-spacing: 2px;
-            color: #f5f5f5;
+            color: #4267b2;
             background: none;
             border: none;
-            border-bottom: 1px solid #f5f5f5;  
+            border-bottom: 1px solid #4267b2;  
             &::placeholder {
-                color: #f5f5f5;
+                color: #4267b2;
             }
             &:focus{
                 color: #4267b2;
-                border-bottom: 1px solid #4267b2;
-                font-weight: 600;
+                border-bottom: 1px solid #e74c3c;
             }
         }
         }
@@ -80,9 +79,9 @@
           text-align: center;
           text-decoration: none;
           margin-bottom: 16px;
-          color: #f5f5f5;
+          color: #4267b2;
           &:hover {
-            color: #4267b2;
+            color: #4cd137;
           }
         }
         .on-login {
@@ -90,14 +89,15 @@
           padding: 12px 20px;
           margin-bottom: 16px;
           border: none;
-          border: 1px solid #f5f5f5;
+          border: 1px solid #4267b2;
           background: none;
-          color: #f5f5f5;
+          color: #4267b2;
           cursor: pointer;
           font-size: 15px;
           letter-spacing: 2px;
           &:hover {
-            color: #4267b2;
+            color:#4cd137;
+            border: 1px solid #4cd137;
           }
         }
       }

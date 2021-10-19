@@ -43,9 +43,9 @@
   display: -ms-flexbox;
   display: flex;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.856);
-  -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.719);
-          box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.719);
+  background: rgba(241, 235, 235, 0.856);
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.74);
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.74);
 }
 
 .modal-login .box-login .form-login {
@@ -68,7 +68,7 @@
 
 .modal-login .box-login .form-login h2 {
   text-align: center;
-  color: #f5f5f5;
+  color: #4267b2;
   margin-bottom: 16px;
 }
 
@@ -78,7 +78,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #f5f5f5;
+  color: #4267b2;
 }
 
 .modal-login .box-login .form-login .input_box .input_icon {
@@ -95,37 +95,36 @@
   border: none;
   font-size: 15px;
   letter-spacing: 2px;
-  color: #f5f5f5;
+  color: #4267b2;
   background: none;
   border: none;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #4267b2;
 }
 
 .modal-login .box-login .form-login .input_box #user::-webkit-input-placeholder,
 .modal-login .box-login .form-login .input_box #pass::-webkit-input-placeholder {
-  color: #f5f5f5;
+  color: #4267b2;
 }
 
 .modal-login .box-login .form-login .input_box #user:-ms-input-placeholder,
 .modal-login .box-login .form-login .input_box #pass:-ms-input-placeholder {
-  color: #f5f5f5;
+  color: #4267b2;
 }
 
 .modal-login .box-login .form-login .input_box #user::-ms-input-placeholder,
 .modal-login .box-login .form-login .input_box #pass::-ms-input-placeholder {
-  color: #f5f5f5;
+  color: #4267b2;
 }
 
 .modal-login .box-login .form-login .input_box #user::placeholder,
 .modal-login .box-login .form-login .input_box #pass::placeholder {
-  color: #f5f5f5;
+  color: #4267b2;
 }
 
 .modal-login .box-login .form-login .input_box #user:focus,
 .modal-login .box-login .form-login .input_box #pass:focus {
   color: #4267b2;
-  border-bottom: 1px solid #4267b2;
-  font-weight: 600;
+  border-bottom: 1px solid #e74c3c;
 }
 
 .modal-login .box-login .form-login .on-regiser {
@@ -133,11 +132,11 @@
   text-align: center;
   text-decoration: none;
   margin-bottom: 16px;
-  color: #f5f5f5;
+  color: #4267b2;
 }
 
 .modal-login .box-login .form-login .on-regiser:hover {
-  color: #4267b2;
+  color: #4cd137;
 }
 
 .modal-login .box-login .form-login .on-login {
@@ -145,15 +144,16 @@
   padding: 12px 20px;
   margin-bottom: 16px;
   border: none;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #4267b2;
   background: none;
-  color: #f5f5f5;
+  color: #4267b2;
   cursor: pointer;
   font-size: 15px;
   letter-spacing: 2px;
 }
 
 .modal-login .box-login .form-login .on-login:hover {
-  color: #4267b2;
+  color: #4cd137;
+  border: 1px solid #4cd137;
 }
 /*# sourceMappingURL=modal_login.css.map */
