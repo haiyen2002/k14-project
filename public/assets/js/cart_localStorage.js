@@ -32,7 +32,7 @@ if (prd_detail != null) {
       const prdName = prd_detail.querySelector(".prd-detail-name").innerHTML;
       const prdImg = prd_detail.querySelector(".prd-detail-img").src;
       const prdPriceS = prd_detail.querySelector(".prd-detail-price").innerHTML;
-      const prdPrice = parseInt(prdPriceS);
+      const prdPrice = parseInt(prdPriceS.split(",").join(""));
       let product = {
         name: prdName,
         image: prdImg,

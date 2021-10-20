@@ -26,10 +26,12 @@ var indexRouter = require("./router/indexRouter");
 var filterRouter = require("./router/filterRouter");
 var cartRouter = require("./router/cartRouter");
 var UserRouter = require("./router/UserRouter");
+var productRouter = require("./router/productRouter");
 app.use("/", indexRouter);
 app.use("/filter", filterRouter);
 app.use("/cart", cartRouter);
 app.use("/user", UserRouter);
+app.use("/product", productRouter);
 
 app.use("/public", express.static(path.join(__dirname, "./public")));
 

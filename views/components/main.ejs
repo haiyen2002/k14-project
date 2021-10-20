@@ -135,7 +135,7 @@
                         <% products.forEach(product=> { %>
                             <% if (product.prd_key==type ){ %>
                                 <div class="product-card product-card_item">
-                                    <a   href="">
+                                    <a   href="/product/detail/<%= product._id %>">
                                         <div class="product-card_info">
                                             <div class="product-card_img">
                                                 <img class="img-prd" src=<%=product.img[0] %> alt="">
@@ -194,7 +194,7 @@
 
                                                     <% if(product.prd_key.split(",")[0]==unique){ %>
                                                         <div class="item product-card_item">
-                                                            <a href="">
+                                                            <a href="/product/detail/<%= product._id %>">
                                                                 <div class="product-card_info">
                                                                     <div class="product-card_img">
                                                                         <img class="img-prd" src=<%=product.img[0] %>>

@@ -9,7 +9,6 @@ module.exports.postCart = async (req, res) => {
     const productInfo = keys.filter((ele)=>{
         return ele.includes('prd')
     })
-    console.log(productInfo);
     let product = []
     for(let i = 0;i<productInfo.length;i+=2){
         product.push({

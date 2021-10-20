@@ -1,0 +1,91 @@
+<div class="container-product-left">
+    <div class="left-search">
+      <input class="search-prd" type="text" placeholder="Tìm kiếm" />
+      <span class="search-icon"><i class="fas fa-search"></i></span>
+    </div>
+    <div class="left-catelog-prd">
+      <div class="catelog-prd">DANH MỤC SẢN PHẨM</div>
+      <ul class="catelog-items">
+        <li class="catelog-item">
+          <div class="catelog-item-prd">
+            <a class="catelog-link" href="/product/cham-soc-toc/">Chăm sóc tóc</a>
+            <span class="catelog-item-icon">
+              <i class="fas fa-chevron-down more-item1"></i>
+              <i class="fas fa-chevron-up more-item-click1"></i>
+            </span>
+          </div>
+          <ul class="children-item1">
+            <li class="children-link-item">
+              <a class="children-link-item-a" href="/product/dau-goi">Dầu gội</a>
+            </li>
+            <li class="children-link-item">
+              <a class="children-link-item-a" href="/product/dau-xa">Dầu xả</a>
+            </li>
+          </ul>
+        </li>
+        <li class="catelog-item">
+          <div class="catelog-item-prd">
+            <a class="catelog-link" href="/product/cham-soc-da">Chăm sóc da</a>
+            <span class="catelog-item-icon">
+              <i class="fas fa-chevron-down more-item2"></i>
+              <i class="fas fa-chevron-up more-item-click2"></i>
+            </span>
+          </div>
+          <ul class="children-item2">
+            <li class="children-link-item">
+              <a class="children-link-item-a" href="/product/sua-tam">Sữa tắm</a>
+            </li>
+          </ul>
+        </li>
+        <li class="catelog-item">
+          <div class="catelog-item-prd">
+            <a class="catelog-link" href="#">Nam giới</a>
+            <span class="catelog-item-icon">
+              <i class="fas fa-chevron-down more-item3"></i>
+              <i class="fas fa-chevron-up more-item-click3"></i>
+            </span>
+          </div>
+          <ul class="children-item3">
+            <li class="children-link-item">
+              <a class="children-link-item-a" href="#">Chăm sóc cho nam</a>
+            </li>
+            <li class="children-link-item">
+              <a class="children-link-item-a" href="">Tắm và dưỡng thể cho nam</a>
+            </li>
+          </ul>
+        </li>
+        <li class="catelog-item">
+          <div class="catelog-item-prd">
+            <a class="catelog-link" href="#">Trẻ em</a>
+            <span class="catelog-item-icon">
+              <i class="fas fa-chevron-down more-item4"></i>
+              <i class="fas fa-chevron-up more-item-click4"></i>
+            </span>
+          </div>
+          <ul class="children-item4">
+            <li class="children-link-item">
+              <a class="children-link-item-a" href="">Dầu gội cho trẻ em</a>
+            </li>
+            <li class="children-link-item">
+              <a class="children-link-item-a" href="">2-in-1 cho trẻ em</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="left-products">
+      <div class="left-product-content">SẢN PHẨM</div>
+      <div class="left-show-products">
+        <% prdST.map((ele)=>{ %>
+        <a class="left-show-product" href="/product/detail/<%= ele._id %>">
+          <img
+            class="img-show-product"
+            src="/public/upload/<%= ele.img %>"
+            alt=""
+          />
+          <p><%= ele.name %></p>
+        </a>
+        <% }) %>
+      </div>
+    </div>
+  </div>
