@@ -9,10 +9,14 @@ function getTypePrd(){
     return ProductModel.distinct('prd_key')
 }
 
+function findPrdByUserData(type, name){
+    return ProductModel.find({prd_key: {$regex : type , $options: "i"}, name: {$regex : name , $options: "i"}})
+}
+
 function getSampoo(){
     
 }
 module.exports = {
     getAllProduct,
-    getTypePrd
+    getTypePrd,findPrdByUserData,
 }
