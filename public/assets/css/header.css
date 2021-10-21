@@ -19,8 +19,7 @@
   font-size: 14px;
 }
 
-.header-top_contact-item {
-}
+
 
 .header-top_contact .header-top_contact-item + .header-top_contact-item {
   margin-left: 12px;
@@ -45,8 +44,6 @@
   font-weight: 300;
 }
 
-.header-top_contact span i {
-}
 
 .header-top_account {
   font-size: 14px;
@@ -284,6 +281,8 @@
 
 .header-main-mobile {
   display: none;
+  font-size: 24px;
+  color: #555;
 }
 
 @media (max-width: 849px) {
