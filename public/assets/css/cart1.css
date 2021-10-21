@@ -2,7 +2,7 @@
   display: none;
   position: absolute;
   position: fixed;
-  top: 20%;
+  top: 15vh;
   right: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
