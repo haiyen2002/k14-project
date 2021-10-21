@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <% var distinct1 = [] %>
+        <% var distinct2 = [] %>
+            <% types.forEach(type=> { %>
+                <% distinct1.push(type.split(",")[0].trim()) %>
+                <% distinct2.push(type) %>
+                    <% }) %>    
+                        <% var x = distinct1.filter((value, index, self) =>
+                            self.indexOf(value) === index) %>
+                                %>
+                        <% var y = distinct2.filter((value, index, self) =>
+                            self.indexOf(value) === index) %>
+                                %>
+                                    <div id="slider">
+                                        <% x.forEach((unique,index)=> { %>
+                                            <div class="section-head">
+                                                <div class="section-title">
+                                                        <%= unique %>
+                                                </div>
+                            
+                                                <% y.forEach((unique2,index)=> {  %>
+                                                    <% if(unique2.split(",")[0].trim() == unique) { %>
+                                                        <div class="section-title-item">
+                                                            <%= unique2.split(",")[1].trim()  %>
+                                                        </div>
+                                                    <% } %>   
+                                                <% }) %>
+                                            </div>
+                                        <% }) %>    
+                                    </div>
+
+  </body>
+</html>
