@@ -28,16 +28,7 @@ router.get("/", Check.checkAdmin, async (req, res) => {
   }
 });
 
-router.get("/:id", (req, res) => {
-  UserModel.accountmodel
-    .findOne({ _id: req.params.id })
-    .then(function (data) {
-      res.json(data);
-    })
-    .catch(function (err) {
-      res.json(err);
-    });
-});
+
 
 router.post("/signup", async (req, res) => {
   try {
@@ -218,5 +209,16 @@ router.post("/unlink", async (req, res) => {
     fs.unlinkSync((__dirname + checkname.avatar).replace("\\router", ""));
   }
 });
+
+router.get("/:id", (req, res) => {
+    UserModel.accountmodel
+      .findOne({ _id: req.params.id })
+      .then(function (data) {
+        res.json(data);
+      })
+      .catch(function (err) {
+        res.json(err);
+      });
+  });
 
 module.exports = router;

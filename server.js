@@ -6,7 +6,6 @@ const {
     accountmodel,
     cartModel,
     orderssModel,
-    BlackListModel,
   } = require("./models/db_mongoose");
 var cookieParser = require("cookie-parser");
 // const bodyParser = require("body-parser");
@@ -30,6 +29,7 @@ var productRouter = require("./router/productRouter");
 const RouterHome = require("./router/RouterHomeAdmin");
 const Router = require("./router/RouterAdmin");
 
+app.use("/public", express.static(path.join(__dirname, "./public")));
 
 app.use("/", indexRouter);
 app.use("/filter", filterRouter);
@@ -39,7 +39,6 @@ app.use("/product", productRouter);
 app.use("/admin", RouterHome);
 app.use("/check", Router);
 
-app.use("/public", express.static(path.join(__dirname, "./public")));
 
 app.get("/admin/login", async (req, res) => {
   try {

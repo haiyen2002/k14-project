@@ -304,6 +304,7 @@
 }
 
 .product-main .container-product .container-product-right .product-detail .prd-detail-right .prd-detail-add .to-add {
+  display: none;
   padding: 15px 20px;
   font-size: 20px;
   border: none;

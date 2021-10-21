@@ -146,15 +146,18 @@ function checklogin() {
   })
     .then((data) => {
       if (data.status === 200) {
+        $(".add-to-cart").css("display", "block")
+        $(".to-add").css("display", "block")
         $(".header-top_account").html("");
         const IdAccount = data.id;
         $.ajax({
-          url: "user/" + IdAccount,
+          url: "/user/" + IdAccount,
           type: "GET",
         }).then((resultdata) => {
-          $(".header-top_account").html(` 
-        <button style = "    display: flex;
-        width: auto;
+            $(".header-top_account").html("");
+        let user = ` 
+        <button style = "display: flex;
+        width: auto;  z-index: 12;
         padding-left: 10px;
         padding-right: 10px;
         color: black;
@@ -181,7 +184,8 @@ function checklogin() {
         <i class="fas fa-sign-out-alt"></i>
             <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
         </li>
-        </ul> </button>`);
+        </ul> </button>`;
+        $(".header-top_account").append(user)
         });
       } else {
         // $(".pb-modalreglog-submit")[0].click();

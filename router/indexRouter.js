@@ -1,6 +1,7 @@
 const router = require("express").Router();
 var path = require("path");
 var productController = require("../controllers/ProductsController");
+const controller = require("../controllers/prdController")
 const {
   cartModel, BlackListModel, ProductModel, accountmodel,
 } = require("../models/db_mongoose");
@@ -52,7 +53,7 @@ router.get("/cart/",  (req, res) => {
       .catch((err) => console.log(err));
   });
 
-router.get("/order/",   (req, res) => {
+router.get("/order",   (req, res) => {
     productController
       .getAllProduct()
       .then((products) => {
@@ -65,5 +66,14 @@ router.get("/order/",   (req, res) => {
       })
       .catch((err) => console.log(err));
   });
+
+router.get("/about-us/", controller.about_Us);
+
+router.get("/slogan/", controller.slogan);
+
+router.get("/contact", controller.contact);
+
+router.get("/store/", controller.store);
+
 
 module.exports = router;

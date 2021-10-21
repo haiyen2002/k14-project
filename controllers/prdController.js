@@ -42,3 +42,50 @@ module.exports.prdDetail = async (req, res) => {
     }
 };
 
+
+module.exports.about_Us = async (req, res) => {
+    try {
+        const types = await ProductModel.distinct('prd_key')
+        res.render("home/about_us", {
+            types: types
+        });
+        
+    } catch (error) {
+        res.json(error)
+    }
+}
+  
+  module.exports.slogan = async (req, res) => {
+    try {
+        const types = await ProductModel.distinct('prd_key')
+        res.render("home/slogan", {
+            types: types
+        });
+        
+    } catch (error) {
+        res.json(error)
+    }
+}
+  module.exports.contact = async (req, res) => {
+    try {
+        const types = await ProductModel.distinct('prd_key')
+        res.render("home/contact", {
+            types: types
+        });
+        
+    } catch (error) {
+        res.json(error)
+    }
+}
+  
+  module.exports.store = async (req, res) => {
+    try {
+        const types = await ProductModel.distinct('prd_key')
+        res.render("home/store", {
+            types: types
+        });
+        
+    } catch (error) {
+        res.json(error)
+    }
+}
