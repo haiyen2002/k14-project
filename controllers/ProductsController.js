@@ -13,11 +13,12 @@ function findPrdByUserData(type, name){
     return ProductModel.find( { prd_key: { $regex: type, $options: 'i'}, name : {$regex: name, $options: 'i'}})
  }
 
-function getSampoo(){
-    
+function findPrdByType(type){
+    return ProductModel.find( { prd_key: { $regex: type, $options: 'i'}})
 }
 module.exports = {
     getAllProduct,
     getTypePrd,
-    findPrdByUserData
+    findPrdByUserData,
+    findPrdByType
 }

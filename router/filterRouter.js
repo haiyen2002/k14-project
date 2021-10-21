@@ -12,9 +12,21 @@ router.get('/', (req, res) => {
                               types: types,
                          });
                     })
-
           })
           .catch(err => console.log(err))
+})
+
+router.post('/',async (req, res)=>{
+     const type= req.body.type;
+     const types = await productController.getTypePrd()
+     productController.findPrdByType(type)
+     .then(products => {
+          res.status(200).json({
+               products: products,
+               types: types
+          });
+     })
+     .catch(err => console.log(err))
 })
 
 
