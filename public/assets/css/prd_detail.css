@@ -47,7 +47,7 @@
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  border: 1px solid #4267b2;
+  border: 1px solid #797c11;
 }
 
 .product-main .container-product .container-product-left .left-search .search-icon {
@@ -59,21 +59,21 @@
   text-align: center;
   line-height: 40px;
   font-size: 18px;
-  background: #4267b2;
+  background: #797c11;
   color: #fff;
 }
 
 .product-main .container-product .container-product-left .left-catelog-prd {
   width: 100%;
   margin-bottom: 20px;
-  border: 1px solid #4267b2;
+  border: 1px solid #797c11;
 }
 
 .product-main .container-product .container-product-left .left-catelog-prd .catelog-prd {
   width: 100%;
   height: 40px;
   padding: 0 10px;
-  background: #4267b2;
+  background: #797c11;
   color: #fff;
   font-size: 16px;
   font-weight: 600;
@@ -111,7 +111,7 @@
   height: 100%;
   line-height: 40px;
   text-decoration: none;
-  color: #4267b2;
+  color: #797c11;
 }
 
 .product-main .container-product .container-product-left .left-catelog-prd .catelog-items .catelog-item .catelog-item-prd .catelog-item-icon {
@@ -190,12 +190,12 @@
 
 .product-main .container-product .container-product-left .left-products {
   width: 100%;
-  border: 1px solid #4267b2;
+  border: 1px solid #797c11;
 }
 
 .product-main .container-product .container-product-left .left-products .left-product-content {
   padding: 0 10px;
-  background: #4267b2;
+  background: #797c11;
   color: #fff;
   height: 40px;
   line-height: 40px;
@@ -232,7 +232,7 @@
           flex-direction: column;
   width: 100%;
   padding: 20px;
-  border: 1px solid #4267b2;
+  border: 1px solid #797c11;
 }
 
 .product-main .container-product .container-product-right .product-detail {
@@ -291,7 +291,7 @@
 .product-main .container-product .container-product-right .product-detail .prd-detail-right .prd-detail-price {
   font-size: 24px;
   font-weight: 600;
-  color: #4267b2;
+  color: #797c11;
   padding: 20px 0;
   border-bottom: 1px solid #ccc;
 }
@@ -307,7 +307,7 @@
   padding: 15px 20px;
   font-size: 20px;
   border: none;
-  background: #4267b2;
+  background: #797c11;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
@@ -327,7 +327,7 @@
 
 .more-products .more-prd-content {
   text-align: center;
-  color: #4267b2;
+  color: #797c11;
   margin-bottom: 30px;
 }
 
@@ -361,7 +361,7 @@
 
 .more-products .product-item .product-price {
   width: 100%;
-  color: #4267b2;
+  color: #797c11;
   font-size: 18px;
   text-align: center;
   padding: 10px 0;
@@ -391,7 +391,7 @@
 .more-products .product-item .item-buy-see .buy-item {
   width: 110px;
   height: 40px;
-  background: #4267b2;
+  background: #797c11;
   color: #fff;
   font-size: 13px;
   border: none;

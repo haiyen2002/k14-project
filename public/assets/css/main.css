@@ -1,5 +1,5 @@
 #main {
-  margin-top: 147px;
+  width: 100%;
 }
 
 .slider-top {
@@ -383,3 +383,18 @@
   height: 60px;
   background-color: #ddd;
 }
+
+.product-card_item:hover .add-to-cart {
+    display: none;
+  }
+  .add-to-cart {
+    display: none;
+    width: 160px;
+    height: 40px;
+    margin: 0 auto;
+    background: #4267b2;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+  }

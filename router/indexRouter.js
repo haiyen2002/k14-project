@@ -42,11 +42,34 @@ router.post("/", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/search", controller.postSearch);
 
-router.get("/cart/", controller.getCart);
+router.get("/cart/",  (req, res) => {
+    productController
+      .getAllProduct()
+      .then((products) => {
+        productController.getTypePrd().then((types) => {
+          res.render("Order-Cart/cart", {
+            products: products,
+            types: types,
+          });
+        });
+      })
+      .catch((err) => console.log(err));
+  });
 
-router.get("/order/", controller.getOrder);
+router.get("/order/",   (req, res) => {
+    productController
+      .getAllProduct()
+      .then((products) => {
+        productController.getTypePrd().then((types) => {
+          res.render("Order-Cart/order", {
+            products: products,
+            types: types,
+          });
+        });
+      })
+      .catch((err) => console.log(err));
+  });
 
 router.get("/testData", (req, res) => {
   cartModel.find()
