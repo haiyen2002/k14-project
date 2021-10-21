@@ -1,14 +1,9 @@
 const router = require("express").Router();
 var path = require("path");
-const controller = require("../controllers/prdController");
 var productController = require("../controllers/ProductsController");
 const {
   cartModel, BlackListModel, ProductModel, accountmodel,
 } = require("../models/db_mongoose");
-
-router.get("/regiser", (req, res)=>{
-    res.sendFile(path.join(__dirname, "../views/regiser.html"))
-})
 
 router.get("/", (req, res) => {
   productController
@@ -70,15 +65,5 @@ router.get("/order/",   (req, res) => {
       })
       .catch((err) => console.log(err));
   });
-
-router.get("/testData", (req, res) => {
-  cartModel.find()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
 
 module.exports = router;

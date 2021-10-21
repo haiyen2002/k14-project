@@ -6,7 +6,4 @@ const controller = require("../controllers/cartController");
 
 router.post("/order", controller.postCart);
 
-router.get("/deleteCart", (req, res)=>{
-    res.sendFile(path.join(__dirname, "../views/delete.html"))
-})
 module.exports = router;

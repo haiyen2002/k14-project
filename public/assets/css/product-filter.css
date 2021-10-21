@@ -35,17 +35,20 @@
     text-transform: uppercase;
 }
 
-.filter-item {
+.price-filter__item span {
     background-color: #eeee;
     border-radius: 12px;
     padding: 2px 12px;
     margin-bottom: 4px;
     display: inline-block;
+}
+
+.brand-filter__item {
     line-height: 20px;
     padding-bottom: 8px;;
 }
 
-.filter-item input {
+.brand-filter__item input {
     margin-right: 10px;
 }
 

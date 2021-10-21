@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../public/assets/css/product_card.css">
     <link rel="stylesheet" href="../../public/assets/css/search_overlay.css">
     <link rel="stylesheet" href="/public/assets/css/nav-modal-mobile.css">
-    <link rel="stylesheet" href="/public/assets/css/modal_login.css">
+    <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
@@ -26,17 +26,20 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css"> -->
-</head>
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../public/assets/css/bootstrap.min.css" />
+    <script type="text/javascript" src="../../public/assets/js/jquery-1.10.2.min.js"></script>
+
+</head>
 <body>
     <!-- overlay search -->
     <%- include('../components/search_overlay') %>
+    
     <!-- header -->
     <%- include('../components/header') %>
-
-    <!-- modal-login -->
-    <%- include('../components/modal_login.ejs') %>
-    
+   
     <!-- modal-nav-mobile -->
     
     <%- include('../components/modal_nav-mobile.ejs') %>
@@ -56,7 +59,10 @@
     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- js -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
 <script src="/public/assets/js/index.js"></script>
 <script src="/public/assets/js/cart_localStorage.js"></script>
-<script src="/public/assets/js/login.js"></script>
+<script src="/public/assets/js/bootstrap.min.js"></script>
+
+<script src="/public/assets/js/signin-login.js"></script>
 </html>

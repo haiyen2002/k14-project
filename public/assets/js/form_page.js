@@ -100,25 +100,7 @@ function showResult(inputdata) {
       $(".modal-mobile").on("click", (event) => {
         event.stopPropagation();
       });
-    
-      // MODAL - LOGIN //
-      $(".top-right-item").on("click", () => {
-      $(".modal-login").css("display", "flex");
-    });
-    
-    $(".mobile-login").on("click", () => {
-      $(".modal-login").css("display", "flex");
-    });
-    
-    function offModal() {
-      $(".modal-login").css("display", "none");
-    }
-    $(".modal-login").on("click", offModal);
-    $(".close-login").on("click", offModal);
-    $(".box-login").on("click", (event) => {
-      event.stopPropagation();
-    });
-    
+        
       // SHOW CHILREN //
     for (let i = 1; i < 4; i++) {
         $(`.more-link-item${i}`).on("click", () => {
