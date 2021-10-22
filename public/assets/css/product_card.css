@@ -1,4 +1,5 @@
 .product-card {
+    position: relative;
     width: 20%;
     padding-top: 10px;
     
@@ -51,4 +52,21 @@
 .product-filter__card{
     text-decoration: none;
     color: #555;
+}
+
+.product-card_item:hover .add-to-cart {
+    display: none;
+  }
+.add-to-cart {
+    position: absolute;
+    display: none;
+    width: 160px;
+    height: 40px;
+    margin: 0 auto;
+    background: #4267b2;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.63);
 }

@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
 });
 
 
-router.get("/cart/",  (req, res) => {
+router.get("/cart",  (req, res) => {
     productController
       .getAllProduct()
       .then((products) => {
