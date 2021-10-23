@@ -10,39 +10,50 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 async function logout() {
+  delete_cookie();
+  window.location.href = "/admin/login";
+}
+var working = false;
+
+$("[type='text'],[type='password']").focus(function () {
+  $(".err").remove();
+});
+
+async function login() {
+  let username = $("[type='text']").val();
+  let password = $("[type='password']").val();
+  if (username == "admin" && password == "admin") {
+    setCookie("user", "admin", 30);
+    window.location.href = "/admin";
+  } else {
+    const loginadmin = await $.ajax({
+      url: "/admin/login",
+      type: "POST",
+      data: { username: username, password: password },
+    });
+    if (loginadmin.status == 200) {
+      setCookie("user", loginadmin.id, 30);
+      window.location.href = "/check/listuser";
+    }
+    if (loginadmin.mess == "ban khong co quyen admin") {
+      $(".login").append(
+        `<div class="err" style="color :red">` + loginadmin.mess + `</div>`
+      );
+    }
+    if (
+      loginadmin.mess == "sai password" ||
+      loginadmin.mess == "sai username"
+    ) {
+      $(".login").append(
+        `<div class="err" style="color :red">` + loginadmin.mess + `</div>`
+      );
+    }
+  }
+}
+function logout() {
   delete_cookie("user");
   window.location.href = "/admin/login";
 }
-
-var working = false;
-$(".login").on("submit", function (e) {
-  let username = $("[type='text']").val();
-  let password = $("[type='password']").val();
-  // if (username != "admin" && password != "admin") {
-  //   alert("error username or password");
-  // }
-  if (username == "admin" && password == "admin") {
-    e.preventDefault();
-    if (working) return;
-    working = true;
-    var $this = $(this),
-      $state = $this.find("button > .state");
-    $this.addClass("loading");
-    $state.html("Authenticating");
-    setTimeout(function () {
-      $this.addClass("ok");
-      $state.html("finish loading...");
-      setTimeout(function () {
-        $state.html("Log in");
-        $this.removeClass("ok loading");
-        working = false;
-        setCookie("user", "admin", 30);
-        window.location.href = "/admin";
-      }, 4000);
-    }, 3000);
-  }
-});
-
 function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);

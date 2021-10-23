@@ -149,7 +149,7 @@ function checklogin() {
         $(".header-top_account").html("");
         const IdAccount = data.id;
         $.ajax({
-          url: "user/" + IdAccount,
+          url: "/user/" + IdAccount,
           type: "GET",
         }).then((resultdata) => {
           $(".header-top_account").html(` 
@@ -213,7 +213,7 @@ async function logout() {
 async function checkuser() {
   const input = $("#inputEmail").val();
   const result = await $.ajax({
-    url: "user/available",
+    url: "/user/available",
     type: "POST",
     data: { username: input },
   });

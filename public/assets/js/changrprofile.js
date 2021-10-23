@@ -16,7 +16,6 @@ function checklogin() {
           $("#lastname").val(resultdata.lastname);
           $("#email").val(resultdata.email);
           $("#phone").val(resultdata.phone);
-
           var dt = resultdata.birthday.split("/");
           if (dt[1].length == 1) {
             dt[1] = "0" + dt[1];
@@ -79,7 +78,6 @@ async function update() {
         return data;
       });
       const linkavt = ("/" + res.link).replace(`\\`, "/");
-      console.log(linkavt);
       const dataresults = await $.ajax({
         url: "/user/updatenew",
         type: "POST",
