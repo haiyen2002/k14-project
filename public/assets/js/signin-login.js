@@ -53,7 +53,7 @@ async function sigup() {
       );
     } else {
       const result = await $.ajax({
-        url: "user/signup",
+        url: "/user/signup",
         type: "POST",
         data: {
           firstname: firtname,
