@@ -167,16 +167,29 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
-  height: 60px;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   padding: 10px;
   text-transform: uppercase;
+  gap: 20px;
+}
+
+.main .main-cart .container-cart-buy .back-buy .update_cart {
+  width: 100%;
+  font-size: 18px;
+  border: none;
+  background: #797c11;
+  color: #fff;
+  padding: 5px;
 }
 
 .main .main-cart .container-cart-buy .back-buy .go-buy {
