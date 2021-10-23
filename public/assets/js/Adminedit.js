@@ -64,14 +64,20 @@ async function deleteUser(id) {
 }
 
 async function editproduct(id) {
-  const name = $("#fname").val();
-  const codeproduct = $("#codeproduct").val();
-  const price = $("#price").val();
-  const quantity = $("#quantity").val();
-  const descriptionDetails = $("#descriptionDetails").val();
-  const rate = $("#rate").val();
-
-  console.log(id);
+  const name = $("#fname_" + id).val();
+  const codeproduct = $("#codeproduct_" + id).val();
+  const price = $("#price_" + id).val();
+  const quantity = $("#quantity_" + id).val();
+  const descriptionDetails = $("#descriptionDetails_" + id).val();
+  const rate = $("#rate_" + id).val();
+  const prd_key = $("#prd_key_" + id).val();
+  console.log(name);
+  console.log(codeproduct);
+  console.log(price);
+  console.log(quantity);
+  console.log(descriptionDetails);
+  console.log(rate);
+  console.log(prd_key);
 }
 
 async function deleteProduct(id) {

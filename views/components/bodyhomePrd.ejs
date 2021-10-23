@@ -69,7 +69,7 @@
     .modal {
         visibility: hidden;
         opacity: 0;
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         bottom: 0;
@@ -213,32 +213,32 @@
                                         <table cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td><label for="fname">Name</label></td>
-                                                <td> <input type="text" id="fname" name="namePrd"
+                                                <td> <input type="text" id="fname_<%= ele._id %>" name="namePrd"
                                                         placeholder="Your name.." value="<%= ele.name %>">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td> <label for="lname">codeProduct</label></td>
-                                                <td> <input type="text" id="codeproduct" name="codeproduct"
-                                                        placeholder="Your codeproduct.."
+                                                <td> <input type="text" id="codeproduct_<%= ele._id %>"
+                                                        name="codeproduct" placeholder="Your codeproduct.."
                                                         value="  <%= ele.codeProduct %>"></td>
                                             </tr>
-
                                             <tr>
                                                 <td> <label for="country">price</label></td>
-                                                <td> <input type="text" id="price" name="price"
+                                                <td> <input type="text" id="price_<%= ele._id %>" name="price"
                                                         placeholder="Your price.." value="  <%= ele.price %>">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td> <label for="country">quantity</label></td>
-                                                <td> <input type="text" id="quantity" name="quantity"
-                                                        placeholder="Your quantity.." value="   <%= ele.quantity %>">
+                                                <td> <input type="text" id="quantity_<%= ele._id %>" name="quantity"
+                                                        placeholder="Your quantity.." value="<%= ele.quantity %>">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td> <label for="country">descriptionDetails</label></td>
-                                                <td><input type="text" id="descriptionDetails" name="descriptionDetails"
+                                                <td><input type="text" id="descriptionDetails_<%= ele._id %>"
+                                                        name="descriptionDetails"
                                                         placeholder="Your descriptionDetails.."
                                                         value="<%= ele.prd_key %>"></td>
                                             </tr>
@@ -248,14 +248,14 @@
                                                     <label for="country">rate</label>
                                                 </td>
                                                 <td>
-                                                    <input type="text" id="rate" name="rate" placeholder="Your rate.."
-                                                        value="  <%= ele.rate %>">
+                                                    <input type="text" id="rate_<%= ele._id %>" name="rate"
+                                                        placeholder="Your rate.." value="  <%= ele.rate %>">
 
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td> <label for="prd_key">prd_key</label></td>
-                                                <td> <textarea id="prd_key" name="prd_key"
+                                                <td> <textarea id="prd_key_<%= ele._id %>" name="prd_key"
                                                         placeholder="Write something.."
                                                         style="height:200px"><%= ele.descriptionDetails %></textarea>
                                                 </td>
@@ -264,9 +264,9 @@
                                                 <td>
                                                     <form class="listImg" action="/multiple-upload" method="POST"
                                                         enctype="multipart/form-data">
-                                                        <p><input type="file" accept="image/*" name="image" id="file"
-                                                                onchange="loadFile(event)" style="display: none;"
-                                                                multiple>
+                                                        <p><input type="file" accept="image/*" name="image"
+                                                                id="file_<%= ele._id %>" onchange="loadFile(event)"
+                                                                style="display: none;" multiple>
                                                         </p>
                                                         <p><label for="file" style="cursor: pointer;">Upload
                                                                 Image</label>
