@@ -17,7 +17,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cookieParser());
 
-//ejs
 app.set("view engine", "ejs");
 app.set("views", "views");
 
@@ -47,9 +46,10 @@ app.get("/admin/login", async (req, res) => {
 });
 app.get("/admin", async (req, res) => {
   try {
-    res.render("admin/widget");
+    res.render("admin/login");
   } catch {}
 });
+
 app.get("/404", (req, res) => {
   try {
     res.render("admin/404");

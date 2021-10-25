@@ -28,7 +28,7 @@ async function checkLogin(req, res, next) {
 }
 
 async function checkAdmin(req, res, next) {
-  if (req.role === "admin") {
+  if (req.role == "admin") {
     next();
   } else {
     res.json({ status: 400, mess: "khong co quyen admin" });

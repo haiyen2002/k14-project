@@ -1,42 +1,4 @@
-<script>
-
-
-    var delete_cookie = function (name) {
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-    };
-
-    function logout() {
-        delete_cookie("user");
-        window.location.href = "/admin/login";
-    }
-    function getCookie(cname) {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(";");
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == " ") {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-    function checklogin() {
-        const cookie = getCookie("user");
-        if (cookie == "") {
-            window.location.href = "/admin/login";
-            return;
-        }
-    }
-    checklogin();
-
-</script>
-
-<script src="../../public/assets/js/bootstrap.min.js"></script>
 <script src="../../public/assets/js/jquery.nicescroll.js"></script>
 <script src="../../public/assets/js/scripts.js"></script>
 <script src="../../public/assets/js/bootstrap.min.js"></script>
-<!-- <script src="../../public/assets/js/login-admin.js"></script> -->
+<script src="../../public/assets/js/login-admin.js"></script>
