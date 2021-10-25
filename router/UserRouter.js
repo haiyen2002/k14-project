@@ -110,8 +110,11 @@ router.post("/login", async (req, res) => {
           expiresIn: "30d",
         });
         const id = jwt.verify(token, "Auth").id;
-        const resultdata = await UserModel.accountmodel.findOne({ _id: id });
-        res.json({ status: 200, id: token, mess: "ok" });
+        const resultdata = await UserModel.accountmodel.findOne({ _id: id })
+        .populate("Cart.productId")
+        if(resultdata){
+            res.json({ status: 200, id: token, mess: "ok", data: resultdata });
+        }
       } else {
         res.json({ status: 400, mess: "sai password" });
       }
@@ -132,7 +135,8 @@ router.post("/checkLogin", async (req, res) => {
         res.json({ mess: "cookie bị hạn chế", status: 400 });
       } else {
         const id = jwt.verify(token, "Auth").id;
-        const checkUser = await UserModel.accountmodel.findOne({ _id: id });
+        const checkUser = await UserModel.accountmodel.findOne({ _id: id })
+        .populate("Cart.productId")
         if (checkUser) {
           // return res.render("components/login-signup", {
           //   string: "Donguyen",

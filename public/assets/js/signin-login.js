@@ -115,7 +115,23 @@ async function login() {
     });
     if (res.status === 200) {
       setCookie("user", res.id, 30);
-      $(".close").click();
+      alert(res.mess);
+
+      console.log(191, res.data.Cart);
+      const cart = res.data.Cart;
+      let productInCart = [];
+      for (let i = 0; i < cart.length; i++) {
+        let obj = {
+          basePrice: parseInt(cart[i].productId.price.split(",").join("")),
+          count: cart[i].quantity,
+          id: cart[i].productId._id,
+          name: cart[i].productId.name,
+          price: parseInt(cart[i].productId.price.split(",").join("")),
+          image: cart[i].productId.img[0],
+        };
+        productInCart.push(obj);
+      }
+      localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
       window.location.href = "/";
     } else {
       $(".modal-body").append(
@@ -124,6 +140,7 @@ async function login() {
     }
   } catch (error) {
     window.location.href = "/500";
+    console.log(error);
   }
 }
 
@@ -146,16 +163,16 @@ function checklogin() {
   })
     .then((data) => {
       if (data.status === 200) {
-        $(".add-to-cart").css("display", "block")
-        $(".to-add").css("display", "block")
+        $(".add-to-cart").css("display", "block");
+        $(".to-add").css("display", "block");
         $(".header-top_account").html("");
         const IdAccount = data.id;
         $.ajax({
           url: "/user/" + IdAccount,
           type: "GET",
         }).then((resultdata) => {
-            $(".header-top_account").html("");
-        let user = ` 
+          $(".header-top_account").html("");
+          let user = ` 
         <button style = "display: flex;
         width: auto;  z-index: 12;
         padding-left: 10px;
@@ -185,8 +202,9 @@ function checklogin() {
             <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
         </li>
         </ul> </button>`;
-        $(".header-top_account").append(user)
+          $(".header-top_account").append(user);
         });
+        console.log(data);
       } else {
         // $(".pb-modalreglog-submit")[0].click();
       }
@@ -208,6 +226,7 @@ async function logout() {
     if (res.status === 200) {
       delete_cookie("user");
       window.location.href = "/";
+      localStorage.removeItem("shoppingCart");
     }
   } catch (error) {
     window.location.href = "/500";
@@ -217,7 +236,7 @@ async function logout() {
 async function checkuser() {
   const input = $("#inputEmail").val();
   const result = await $.ajax({
-    url: "user/available",
+    url: "/user/available",
     type: "POST",
     data: { username: input },
   });

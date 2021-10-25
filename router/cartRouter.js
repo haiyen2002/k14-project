@@ -2,8 +2,11 @@ const router = require("express").Router();
 const path = require("path");
 const controller = require("../controllers/cartController");
 
-// tạo đơn hàng
+// update Cart
 
-router.post("/order/", controller.postCart);
+router.put("/cart/", controller.postCart);
+
+//create order
+router.post("/order/", controller.postOrder);
 
 module.exports = router;

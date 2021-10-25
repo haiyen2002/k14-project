@@ -20,6 +20,15 @@ const account = new Schema(
     },
     createdAt: Date,
     role: { type: String, default: "user" },
+    Cart: [
+      {
+        productId: {
+          type: String,
+          ref: "Products",
+        },
+        quantity: Number,
+      },
+    ],
   },
   { collection: "account" }
 );
@@ -38,39 +47,38 @@ const Products = new Schema(
     prd_key: String,
     descriptionDetails: String,
     rate: String,
-    
   },
   {
     collection: "Products",
   }
 );
 
-const Cart = new Schema(
-  {
-    product: [
-      {
-        productId: {
-          type: String,
-          ref: "Products",
-        },
-        quantity: Number,
-      },
-    ],
-    userId: {
-      type: String,
-      ref: "account",
-    },
-    status: {
-      type: String,
-      default: "Wait for Pay!"
-    }
-  },
-  { collection: "Cart" }
-);
+// const Cart = new Schema(
+//   {
+//     product: [
+//       {
+//         productId: {
+//           type: String,
+//           ref: "Products",
+//         },
+//         quantity: Number,
+//       },
+//     ],
+//     userId: {
+//       type: String,
+//       ref: "account",
+//     },
+//     status: {
+//       type: String,
+//       default: "Wait for Pay!"
+//     }
+//   },
+//   { collection: "Cart" }
+// );
 
 const orders = new Schema(
   {
-    product: [{ type: String, ref: "selectedProduct" }],
+    product: [{ type: String, ref: "Products" }],
     address: {
       type: String,
       ref: "useraddress",
@@ -84,25 +92,22 @@ const orders = new Schema(
       default: "shipping...",
     },
     orderDate: Date,
-    totalPrice: Number,
+    totalPrice: String,
   },
   { collection: "orders" }
 );
 
 const BlackListSchema = mongoose.Schema(
-    {
-      token: String,
-    },
-    { collection: "blackList" }
-  );
-  
+  {
+    token: String,
+  },
+  { collection: "blackList" }
+);
 
-  
-const BlackListModel = mongoose.model("blackList", BlackListSchema); 
+const BlackListModel = mongoose.model("blackList", BlackListSchema);
 const ProductModel = mongoose.model("Products", Products);
 const accountmodel = mongoose.model("account", account);
-const cartModel = mongoose.model("Cart", Cart);
+// const cartModel = mongoose.model("Cart", Cart);
 const orderssModel = mongoose.model("orders", orders);
 
-
-module.exports = { ProductModel, accountmodel, cartModel, orderssModel , BlackListModel};
+module.exports = { ProductModel, accountmodel, orderssModel, BlackListModel };

@@ -1,10 +1,15 @@
 const router = require("express").Router();
 var path = require("path");
 var productController = require("../controllers/ProductsController");
-const controller = require("../controllers/prdController")
+const controller = require("../controllers/prdController");
 const {
-  cartModel, BlackListModel, ProductModel, accountmodel,
+  cartModel,
+  BlackListModel,
+  ProductModel,
+  accountmodel,
+  orderssModel,
 } = require("../models/db_mongoose");
+const UserAddressModel = require("../models/addressModel");
 
 router.get("/", (req, res) => {
   productController
@@ -38,34 +43,33 @@ router.post("/", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-
-router.get("/cart",  (req, res) => {
-    productController
-      .getAllProduct()
-      .then((products) => {
-        productController.getTypePrd().then((types) => {
-          res.render("Order-Cart/cart", {
-            products: products,
-            types: types,
-          });
+router.get("/cart", (req, res) => {
+  productController
+    .getAllProduct()
+    .then((products) => {
+      productController.getTypePrd().then((types) => {
+        res.render("Order-Cart/cart", {
+          products: products,
+          types: types,
         });
-      })
-      .catch((err) => console.log(err));
-  });
+      });
+    })
+    .catch((err) => console.log(err));
+});
 
-router.get("/order",   (req, res) => {
-    productController
-      .getAllProduct()
-      .then((products) => {
-        productController.getTypePrd().then((types) => {
-          res.render("Order-Cart/order", {
-            products: products,
-            types: types,
-          });
+router.get("/order", (req, res) => {
+  productController
+    .getAllProduct()
+    .then((products) => {
+      productController.getTypePrd().then((types) => {
+        res.render("Order-Cart/order", {
+          products: products,
+          types: types,
         });
-      })
-      .catch((err) => console.log(err));
-  });
+      });
+    })
+    .catch((err) => console.log(err));
+});
 
 router.get("/about-us/", controller.about_Us);
 
@@ -75,5 +79,17 @@ router.get("/contact", controller.contact);
 
 router.get("/store/", controller.store);
 
-
+router.get("/show", (req, res) => {
+  accountmodel
+    .find()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res, json(err);
+    });
+});
+router.get("/show", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views/showdata.html"));
+});
 module.exports = router;

@@ -1,28 +1,23 @@
-async function order() {  
+async function updatedataCart() {
   try {
     var product = JSON.parse(localStorage.getItem("shoppingCart"));
-    console.log(4,product);
-    var arr = []
+    var arr = [];
     for (let i = 0; i < product.length; i++) {
-      let obj = {productId :product[i].id, quantity: product[i].count};
-      arr[i] = obj
+      let obj = { productId: product[i].id, quantity: product[i].count };
+      arr[i] = obj;
     }
-    console.log(10, arr);
-    var comment = $("#order-comment").val();
-    console.log(comment);
     const data = await $.ajax({
-      url: "/cart/order",
-      type: "post",
+      url: "/cart/cart",
+      type: "put",
       data: {
         prd: arr,
-        status: comment,
       },
     });
     if (data.status == 200) {
       alert(data.mess);
+      window.location.href = "";
     }
   } catch (error) {
     console.log(error);
   }
 }
-
