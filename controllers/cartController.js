@@ -37,11 +37,11 @@ module.exports.postOrder = async (req, res, next) => {
   const id = jwt.verify(token, "Auth").id;
   try {
     const cart = await accountmodel.findOne({ _id: id });
-
     const data = await orderssModel.create({
       product: cart.Cart,
       userId: id,
       totalPrice: req.body.totalPrice,
+      orderDate: Date.now().toString(),
     });
     res.json({ mess: "Tao don hàng thành công", status: 200, data: data });
     next();

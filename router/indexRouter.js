@@ -80,6 +80,8 @@ router.get("/contact", controller.contact);
 router.get("/store/", controller.store);
 
 router.get("/show", (req, res) => {
+  var date = new Date().toDateString();
+  console.log(date);
   orderssModel
     // .deleteMany()
     .find()
