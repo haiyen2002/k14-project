@@ -80,8 +80,10 @@ router.get("/contact", controller.contact);
 router.get("/store/", controller.store);
 
 router.get("/show", (req, res) => {
-  accountmodel
+  orderssModel
+    // .deleteMany()
     .find()
+
     .then((data) => {
       res.json(data);
     })
