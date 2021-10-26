@@ -1,6 +1,5 @@
 #main {
-  margin-top: 147px;
-
+  width: 100%;
 }
 
 .slider-top {
@@ -13,7 +12,8 @@
   margin-left: 20px;
 }
 
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -33,33 +33,34 @@
   right: 0;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: #797c11;
   border: none;
 }
 
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: .3s;
+  -webkit-animation-duration: 0.3s;
   animation-name: fade;
-  animation-duration: .3s;
+  animation-duration: 0.3s;
 }
 
 @-webkit-keyframes fade {
   from {
-    transform: translateX(100%)
+    transform: translateX(100%);
   }
   to {
-    transform: translateX(0)
+    transform: translateX(0);
   }
 }
 
 @keyframes fade {
   from {
-    transform: translateX(100%)
+    transform: translateX(100%);
   }
   to {
-    transform: translateX(0)
+    transform: translateX(0);
   }
 }
 
@@ -114,7 +115,8 @@
   width: 80%;
 }
 
-.main-banner-hover_text p:first-child, .main-banner-hover_text h3 {
+.main-banner-hover_text p:first-child,
+.main-banner-hover_text h3 {
   color: #797c11;
 }
 
@@ -261,7 +263,7 @@
   position: relative;
 }
 
-.owl-carousel:hover .owl-nav span{
+.owl-carousel:hover .owl-nav span {
   display: inline-block;
 }
 
@@ -363,7 +365,8 @@
   font-size: 17px;
 }
 
-.card-text_date, .card-description {
+.card-text_date,
+.card-description {
   color: #777;
 }
 
@@ -386,3 +389,5 @@
   height: 60px;
   background-color: #ddd;
 }
+
+

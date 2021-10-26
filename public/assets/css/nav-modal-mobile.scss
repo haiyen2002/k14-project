@@ -1,0 +1,230 @@
+.modal-nav-mobile {
+    position: relative;
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.2);
+    @media screen and (min-width: 849px) {
+        display: none;
+    }
+    .modal-mobile-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      .btn-mobile-close {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: none;
+        font-size: 32px;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+    .modal-mobile {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 300px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      z-index: 3;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 10px;
+        height: 5px;
+        background: #fff;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #e4e6eb;
+      }
+      .container-mobile {
+        width: 100%;
+        padding: 30px 0;
+        .nav-mobile {
+          width: 100%;
+          .nav-mobile-search {
+            display: flex;
+            width: 100%;
+            padding: 20px;
+            border-bottom: 1px solid #ececec;
+            #search-mobile-op {
+              width: 70px;
+              padding: 6px;
+              color: #777;
+              border-radius: 15px;
+              margin-right: 10px;
+              border: none;
+              font-size: 16px;
+              outline: none;
+              border: 1px solid #ececec;
+              background: rgba(175, 170, 170, 0.055);
+            }
+            .search-mobile {
+              position: relative;
+              font-size: 16px;
+              display: flex;
+              #search-mobile-input {
+                width: 150px;
+                border-radius: 15px;
+                outline: none;
+                border: none;
+                font-size: 16px;
+                background: rgba(175, 170, 170, 0.055);
+                padding: 0 20px;
+                border: 1px solid #ececec;
+              }
+              .search-mobile-icon {
+                position: absolute;
+                top: 17%;
+                right: 5%;
+              }
+            }
+          }
+          .nav-mobile-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            border-bottom: 1px solid #ececec;
+            &:hover .img-mobile-hover {
+              display: block !important;
+            }
+            &:hover .mobile-link {
+              color: #4267b2;
+            }
+            .nav-item {
+              display: flex;
+              width: 100%;
+              height: 100%;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 10px;
+              .mobile-link {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 20px;
+                text-decoration: none;
+                color: #777;
+                .img-mobile-nav {
+                  position: relative;
+                  display: flex;
+                  .img-mobile-hover {
+                    position: absolute;
+                    display: none;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                  }
+                }
+              }
+              .more {
+                display: flex;
+                position: relative;
+                margin-right: 10px;
+                margin-bottom: 10px;
+  
+                .more-link-item1,
+                .more-link-item2,
+                .more-link-item3 {
+                  position: absolute;
+                  border: none;
+                  font-size: 20px;
+                  background: none;
+                  color: #777;
+                  cursor: pointer;
+                }
+                .more-link-item-click1,
+                .more-link-item-click2,
+                .more-link-item-click3 {
+                  position: absolute;
+                  display: none;
+                  border: none;
+                  font-size: 20px;
+                  background: none;
+                  transform: rotateX(180deg);
+                  color: #777;
+                  cursor: pointer;
+                  animation: ani-xoay 0.2s linear 1;
+  
+                  @keyframes ani-xoay {
+                    0% {
+                      transform: rotate(0deg);
+                    }
+                    100% {
+                      transform: rotate(-180deg);
+                    }
+                  }
+                }
+              }
+            }
+            .children1,
+            .children2,
+            .children3 {
+              display: none;
+  
+              width: 100%;
+              .children-item {
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                .children-link {
+                  text-decoration: none;
+                  color: #777;
+                  padding: 10px;
+                }
+                .children-link:nth-child(1) {
+                  font-weight: bolder;
+                }
+              }
+            }
+          }
+          .nav-mobile-login {
+            display: flex;
+            width: 100%;
+            padding: 20px;
+            border-bottom: 1px solid #ececec;
+            .mobile-login {
+              border: none;
+              background: none;
+              font-size: 16px;
+              color: #777;
+              cursor: pointer;
+            }
+          }
+          .nav-mobile-link {
+            display: flex;
+            width: 100%;
+            padding: 20px;
+            gap: 10px;
+            border-bottom: 1px solid #ececec;
+            .link-web {
+              text-decoration: none;
+              color: #777;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modal-mobile::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+    background: #fff;
+  }
+  .modal-mobile::-webkit-scrollbar-thumb {
+    background-color: #e4e6eb;
+  }

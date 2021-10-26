@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-order {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  padding: 30px;
+}
+
+@media screen and (max-width: 800px) {
+  .main-order {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 30px;
+    padding: 0;
+  }
+}
+
+.main-order .main-order-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-right: 1px solid #b2bec3;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .main-order .main-order-left {
+    border-right: none;
+    width: 100%;
+  }
+}
+
+.main-order .main-order-left .bill-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 3px solid #b2bec3;
+  gap: 16px;
+  padding: 20px;
+}
+
+.main-order .main-order-left .bill-info .bill-content {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #797c11;
+}
+
+.main-order .main-order-left .bill-info .name-client {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+.main-order .main-order-left .bill-info .name-client .name-client-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 48%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 16px;
+}
+
+.main-order .main-order-left .bill-info .name-client .name-client-item #firstName,
+.main-order .main-order-left .bill-info .name-client .name-client-item #lastName {
+  width: 100%;
+  padding: 10px 20px;
+  border: none;
+  border: 1px solid #b2bec3;
+  outline: none;
+  font-size: 14px;
+}
+
+.main-order .main-order-left .bill-info #address,
+.main-order .main-order-left .bill-info #Phone,
+.main-order .main-order-left .bill-info #Email {
+  padding: 10px 20px;
+  border: none;
+  border: 1px solid #b2bec3;
+  outline: none;
+  font-size: 14px;
+}
+
+.main-order .main-order-left .bill-info #order-comment {
+  padding: 10px 20px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  border: 1px solid #b2bec3;
+}
+
+.main-order .main-order-right {
+  padding: 0 20px;
+}
+
+.main-order .main-order-right .container-order {
+  padding: 20px;
+  border: 3px solid #b2bec3;
+}
+
+.main-order .main-order-right .container-order .container-order-content {
+  text-transform: uppercase;
+  color: #797c11;
+  margin-bottom: 20px;
+}
+
+.main-order .main-order-right .container-order .content-items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+}
+
+.main-order .main-order-right .container-order .prd-buy-items {
+  width: 100%;
+}
+
+.main-order .main-order-right .container-order .prd-buy-items .prd-buy-item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+}
+
+.main-order .main-order-right .container-order .prd-buy-items .prd-buy-item .buy-item-count::before {
+  content: "x ";
+  font-weight: 600;
+}
+
+.main-order .main-order-right .container-order .total-price {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+  padding: 10px 0;
+}
+
+.main-order .main-order-right .container-order .total-price .total-txt {
+  color: #797c11;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.main-order .main-order-right .container-order .total-price .total-end {
+  color: #797c11;
+  font-weight: 600;
+}
+
+.main-order .main-order-right .container-order .ok-order {
+  width: 100%;
+  height: 45px;
+  background: #797c11;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.main-order .main-order-right .container-order .ok-order:hover {
+  opacity: 0.6;
+}
+/*# sourceMappingURL=mainOrder.css.map */

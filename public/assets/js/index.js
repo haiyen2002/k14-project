@@ -12,6 +12,10 @@ window.addEventListener("scroll", () => {
   }
 });
 
+window.addEventListener("scroll", () => {
+  $(".header-bottom").toggleClass("sticky", window.scrollY > 100);
+});
+
 // headerUp:
 $(window).scroll(function() {
     var top = $(this).scrollTop()
@@ -200,7 +204,7 @@ function showResult(inputdata) {
         if (result.length > 0) {
           for (var i = 0; i < result.length; i++) {
             var template = `
-                            <a href="/products/${result[i]._id}" class="search-result-item">
+                            <a href="/product/detail/${result[i]._id}" class="search-result-item">
                                 <div><img src = "${result[i].img[0]}" > </div>
                                 <div>${result[i].name} </div>
                                 <div>${result[i].price} </div>
@@ -217,3 +221,86 @@ function showResult(inputdata) {
       .catch((err) => console.log(err));
   }
 }
+
+// MODAL-MOBILE**********
+
+$(".main-mobile-item").on("click", () => {
+  $(".modal-nav-mobile").css("display", "flex");
+  $(".main-mobile-item").css("display", "none");
+});
+function offModalMobile() {
+  $(".modal-nav-mobile").css("display", "none");
+  $(".main-mobile-item").css("display", "block");
+}
+$(".modal-nav-mobile").on("click", offModalMobile);
+$(".modal-mobile").on("click", (event) => {
+  event.stopPropagation();
+});
+
+// SHOW CHILREN //
+for (let i = 1; i < 4; i++) {
+  $(`.more-link-item${i}`).on("click", () => {
+    $(`.children${i}`).css("display", "block");
+    $(`.more-link-item${i}`).css("display", "none");
+    $(`.more-link-item-click${i}`).css("display", "block");
+  });
+  $(`.more-link-item-click${i}`).on("click", () => {
+    $(`.children${i}`).css("display", "none");
+    $(`.more-link-item${i}`).css("display", "block");
+    $(`.more-link-item-click${i}`).css("display", "none");
+  });
+}
+function checklogin() {
+  $.ajax({
+    url: "/user/checkLogin",
+    type: "POST",
+    headers: {},
+  })
+    .then((data) => {
+      if (data.status === 200) {
+        $(".header-top_account").html("");
+        const IdAccount = data.id;
+        $.ajax({
+          url: "user/" + IdAccount,
+          type: "GET",
+        }).then((resultdata) => {
+          $(".header-top_account").html(` 
+            <button style = "    display: flex;
+            width: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: black;
+            border: none;
+            background-color: white;"><a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+            data-mdb-toggle="dropdown" aria-expanded="false">
+            <img src="${
+              resultdata.avatar
+            }" class="rounded-circle" height="30" width="30" alt=""
+                loading="lazy"/>
+            </a>
+            <span data-mdb-toggle="dropdown" style="line-height: 30px;">${
+              resultdata.firstname
+            } ${` `}${resultdata.lastname}</span>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+            <i class="fas fa-users"></i>
+                <a class="dropdown-item" href="/changeprofile" >Change Profile</a>
+            </li>
+            <li>
+            <i class="fas fa-lock-open"></i>
+                <a class="dropdown-item" href="/changepass" >Change Password</a>
+            </li>
+            <li>
+            <i class="fas fa-sign-out-alt"></i>
+                <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+            </li>
+            </ul> </button>`);
+        });
+      }
+    })
+    .catch((err) => {
+      window.location.href = "/500";
+    });
+}
+
+checklogin();

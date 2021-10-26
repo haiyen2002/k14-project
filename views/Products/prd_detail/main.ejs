@@ -1,0 +1,41 @@
+<div class="product-main">
+    <div class="container-product">
+      <!-- SEARCH AND CATELOG -->
+      <%- include('../form/search&catelog.ejs') %>
+  
+      <!-- DETAIL -->
+      <div class="container-product-right">
+        <div class="product-detail">
+          <div class="prd-detail-left">
+            <img
+              class="prd-detail-img"
+              src="<%= prd_detail.img[0] %>"
+              alt=""
+            />
+          </div>
+          <div class="prd-detail-right">
+            <div class="prd-detail-name"><%= prd_detail.name %></div>
+            <div class="prd-detail-price"><%= prd_detail.price %></div>
+            <div class="prd-detail-add">
+              <button class="to-add" data-prd-id="<%= prd_detail._id %>">
+                <i class="fas fa-cart-plus"></i> THÊM VÀO GIỎ
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="prd-description">
+          <h3>MÔ TẢ</h3>
+          <p><%= prd_detail.descriptionDetails %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="more-products">
+    <h3 class="more-prd-content">SẢN PHẨM TƯƠNG TỰ</h3>
+    <div class="more-product">
+      <!-- Set up your HTML -->
+      <div class="owl-one owl-carousel owl-theme">
+        
+      </div>
+    </div>
+  </div>

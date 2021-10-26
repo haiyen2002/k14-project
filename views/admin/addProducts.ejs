@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script
+        type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="/public/assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="/public/assets/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="/public/assets/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet'
+        type='text/css'>
+    <!-- lined-icons -->
+    <link rel="stylesheet" href="/public/assets/css/icon-font.min.css" type='text/css' />
+    <!-- //lined-icons -->
+    <script src="/public/assets/js/jquery-1.10.2.min.js"></script>
+    <!--skycons-icons-->
+    <script src="/public/assets/js/skycons.js"></script>
+    <!--//skycons-icons-->
+</head>
+
+<body>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -60px;
+
+            /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+    </style>
+
+    <div class="page-container">
+        <div style="background-color: white;" class="left-content">
+            <div class="inner-content">
+                <div class="outter-wp">
+                    <div class="sub-heard-part">
+                        <ol class="breadcrumb m-b-0">
+                            <h1 style="text-align: center; color: rgba(255, 60, 0, 0.918);margin-bottom: 30px;">Add
+                                product to list products</h1>
+                        </ol>
+                        <div class="container">
+                            <label for="fname">Name</label>
+                            <input type="text" id="fname" name="namePrd" placeholder="Your name..">
+
+                            <label for="lname">codeProduct</label>
+                            <input type="text" id="codeproduct" name="codeproduct" placeholder="Your codeproduct..">
+
+                            <label for="country">price</label>
+                            <input type="text" id="price" name="price" placeholder="Your price..">
+
+                            <label for="country">quantity</label>
+                            <input type="text" id="quantity" name="quantity" placeholder="Your quantity..">
+
+                            <label for="country">descriptionDetails</label>
+                            <input type="text" id="descriptionDetails" name="descriptionDetails"
+                                placeholder="Your descriptionDetails..">
+
+                            <label for="country">rate</label>
+                            <input type="text" id="rate" name="rate" placeholder="Your rate..">
+
+                            <label for="prd_key"> prd_key</label>
+                            <textarea id="prd_key" name="prd_key" placeholder="Write something.."
+                                style="height:200px"></textarea>
+
+
+
+                            <form class="listImg" action="/multiple-upload" method="POST" enctype="multipart/form-data">
+                                <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)"
+                                        style="display: none;" multiple></p>
+                                <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+                                <p>
+                                <div id="output"></div>
+                                </p>
+                            </form>
+                            <button
+                                style="width: 100%; padding: 10px;background-color: chartreuse; border: none;outline: none;"
+                                onclick="ClikSend()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p>@ Project Team k14-Nodemy</p>
+                </footer>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <header class="logo">
+                <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <span style="display: flex;"
+                    id="logo">
+                    <img src="../../public/images/Untitled-1-Recovered.png" alt="" height="50px">
+                    <h2
+                        style="margin: 0;text-transform: uppercase;line-height: 35px;font-size: 23px;color: white;margin-left: 7px;">
+                        dashboard</h2>
+                </span>
+                </a>
+            </header>
+            <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+            <div class="down">
+                <a href="#"><img style="position: unset;height: 70px; border-radius: 40%;border: none;"
+                        src="https://thumbs.dreamstime.com/b/businessman-profile-icon-male-portrait-flat-design-vector-illustration-47075259.jpg"
+                        alt=""></a>
+                <a href="#"><span class="name-caret">Admin</span></a>
+                <ul>
+                    <li><a class="tooltips" href="#" onclick="logout()"><span>Log out</span><i
+                                class="lnr lnr-power-switch"></i></a></li>
+                </ul>
+            </div>
+            <div class="menu">
+                <ul id="menu">
+                    <li title="User ListTable" id="menu-academico"><a href="/check/listuser"><i class="fa fa-table"></i>
+                            <span>User List Table</span></a>
+                    </li>
+                    <li title="Products List Table"><a href="/check/listProducts"><i class="lnr lnr-pencil"></i>
+                            <span>Products
+                                List Table</span></a>
+                    </li>
+                    <li title="Add Product to list"><a href="/check/addProducts"><i class="fa fa-plus"></i> <span>Add
+                                Product to
+                                list</span></a>
+                    </li>
+                    <li title="List Orders"><a href="/check/listOrders"><i class="fa fa-shopping-cart"></i> <span>List
+                                Orders</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+</body>
+
+<%- include('../Components/scriptadmin'); -%>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({ "position": "absolute" });
+            }
+            else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({ "position": "relative" });
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <script>
+
+        var loadFile = function (event) {
+            var image = $('#output');
+            for (let i = 0; i < event.target.files.length; i++) {
+                image.append(`<img src="${URL.createObjectURL(event.target.files[i])}" alt="" height="75px" style="margin-left:10px">`);
+            }
+
+        };
+
+    </script>
+    <script src="../../public/assets/js/Adminedit.js"></script>
+
+</html>

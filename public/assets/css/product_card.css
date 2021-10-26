@@ -1,49 +1,92 @@
 .product-card {
-    width: 20%;
-    padding-top: 10px;
-    
+  position: relative;
+  width: 20%;
+  padding-top: 10px;
 }
 
 .product-card_info {
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 .product-card:hover {
-    box-shadow: 0px 0px 10px #ddd;
-    z-index: 1;
+  box-shadow: 0px 0px 10px #ddd;
+  z-index: 1;
 }
 
 .product-card a {
-    color: #797c11;
-    text-decoration: none;
+  color: #797c11;
+  text-decoration: none;
 }
 
-.product-card:hover.product-card a{
-    color: #555;
+.product-card:hover.product-card a {
+  color: #555;
 }
 
 .product-card_img {
-    width: 100%;
+  width: 100%;
 }
 
 .product-card_img img {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .product-card_text {
-    padding: 10px 10px 20px;
+  padding: 10px 10px 20px;
 }
 
-.product-card_title, .product-card_price {
-    margin-bottom: 12px;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 700;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+.product-card_title,
+.product-card_price {
+  margin-bottom: 12px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.product-filter__card {
+  text-decoration: none;
+  color: #555;
+}
+
+.product-card_item:hover .add-to-cart {
+  animation: btn_scale 0.5s ease;
+}
+@keyframes prd_scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+.product-card_item:hover {
+  animation: prd_scale 1s ease;
+}
+.add-to-cart {
+  position: absolute;
+  display: none;
+  width: 140px;
+  height: 40px;
+  margin: 0 auto;
+  background: #4267b2;
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.63);
+}
+@keyframes btn_scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

@@ -1,11 +1,18 @@
-<div class="filter-col filter-col-3 currProduct">   
-    <div class="product-filter__card">
-        <div class="product-filter-card__top">
-            <img src="<%= image %>" alt="">
-        </div>
-        <div class="product-filter-card__bottom">
-            <div class="product-filter-card__name"><%= name %></div>
-            <div class="product-filter-card__price"><%= price %></div>
-        </div>
-    </div>          
+<div class="filter-col filter-col-3 currProduct product-card_item">
+  <a class="product-filter__card" href="/product/detail/<%= id %>">
+    <div class="product-filter-card__top">
+      <img class="img-prd" src="<%= image %>" alt="" />
+    </div>
+    <div class="product-filter-card__bottom">
+      <div class="product-filter-card__name product-card_title">
+        <%= name %>
+      </div>
+      <div class="product-filter-card__price product-card_price">
+        <%= price %>
+      </div>
+    </div>
+  </a>
+  <button class="add-to-cart" data-product-id="<%= id %>">
+    <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+  </button>
 </div>
