@@ -1,33 +1,35 @@
 <div class="main-order">
   <div class="main-order-left">
-    <div class="bill-info">
-      <h3 class="bill-content">Thông tin thanh toán</h3>
-      <div class="name-client">
-        <div class="name-client-item">
-          <label for="firstName">Họ *</label>
-          <input type="text" id="firstName" placeholder="FirstName" />
-        </div>
-        <div class="name-client-item">
-          <label for="lastName">Tên *</label>
-          <input type="text" id="lastName" placeholder="LastName" />
-        </div>
-      </div>
-      <label for="address">Địa chỉ *</label>
-      <input type="text" id="address" placeholder="Địa chỉ" />
-      <label for="Phone">Số điện thoại *</label>
-      <input type="tel" id="Phone" placeholder="Số điện thoại" />
-      <label for="Email">Địa chỉ email *</label>
-      <input type="text" id="Email" placeholder="Địa chỉ email" />
-      <h3 class="bill-content">Thông tin bổ sung</h3>
-      <label for="#order-comment">Ghi chú đơn hàng (tùy chọn)</label>
-      <textarea
-        name=""
-        id="order-comment"
-        cols="40"
-        rows="10"
-        placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn."
-      ></textarea>
-    </div>
+
+        <div class="bill-info">
+            <h3 class="bill-content">Thông tin thanh toán</h3>
+            <div class="name-client">
+              <div class="name-client-item">
+                <label for="firstName">Họ *</label>
+                <input type="text" id="firstName" placeholder="FirstName" value="<%= acc.firstname %>" />
+              </div>
+              <div class="name-client-item">
+                <label for="lastName">Tên *</label>
+                <input type="text" id="lastName" placeholder="LastName" value="<%= acc.lastname %>" />
+              </div>
+            </div>
+            <label for="address">Địa chỉ *</label>
+            <input type="text" id="address" placeholder="Địa chỉ" />
+            <label for="Phone">Số điện thoại *</label>
+            <input type="tel" id="Phone" placeholder="Số điện thoại"  value="<%= acc.phone %>" />
+            <label for="Email">Địa chỉ email *</label>
+            <input type="text" id="Email" placeholder="Địa chỉ email"   value="<%= acc.email %>"  />
+            <h3 class="bill-content">Thông tin bổ sung</h3>
+            <label for="#order-comment">Ghi chú đơn hàng (tùy chọn)</label>
+            <textarea
+              name=""
+              id="order-comment"
+              cols="40"
+              rows="10"
+              placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn."
+            ></textarea>
+          </div>
+
   </div>
   <div class="main-order-right">
     <div class="container-order">

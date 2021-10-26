@@ -1,5 +1,6 @@
 const router = require("express").Router();
 var path = require("path");
+const jwt = require("jsonwebtoken")
 var productController = require("../controllers/ProductsController");
 const controller = require("../controllers/prdController");
 const {
@@ -62,10 +63,18 @@ router.get("/order", (req, res) => {
     .getAllProduct()
     .then((products) => {
       productController.getTypePrd().then((types) => {
-        res.render("Order-Cart/order", {
-          products: products,
-          types: types,
-        });
+            const token = req.cookies.user;
+            const id = jwt.verify(token, "Auth").id
+            console.log(id);
+            accountmodel.findOne({_id: id})
+            .then(acc => {
+                res.render("Order-Cart/order", {
+                    products: products,
+                    types: types,
+                    acc: acc,
+                  });
+            })
+  
       });
     })
     .catch((err) => console.log(err));
