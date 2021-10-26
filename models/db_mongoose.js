@@ -80,7 +80,7 @@ const orders = new Schema(
     },
     status: {
       type: String,
-      default: "shipping...",
+      default: "Pending...",
     },
     orderDate: Date,
     totalPrice: Number,
