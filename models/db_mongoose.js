@@ -12,7 +12,7 @@ const account = new Schema(
     phone: String,
     gender: String,
     email: String,
-    birthday: Date,
+    birthday: String,
     avatar: {
       type: String,
       default: "https://hook.finance/sites/default/files/user.png",

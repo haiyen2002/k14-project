@@ -193,7 +193,7 @@ function showResult(inputdata) {
         if (result.length > 0) {
           for (var i = 0; i < result.length; i++) {
             var template = `
-                            <a href="/products/${result[i]._id}" class="search-result-item">
+                            <a href="/product/detail/${result[i]._id}" class="search-result-item">
                                 <div><img src = "${result[i].img[0]}" > </div>
                                 <div>${result[i].name} </div>
                                 <div>${result[i].price} </div>

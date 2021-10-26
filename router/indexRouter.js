@@ -94,7 +94,7 @@ router.get("/show", (req, res) => {
 router.get("/delete", (req, res) => {
   ProductModel
     // .deleteMany()
-    .deleteOne({ _id: "6176dca5e132451858e09d45" })
+    .deleteOne({ _id: "6177fe1701a2678db9c197f8" })
 
     .then((data) => {
       res.json(data);
