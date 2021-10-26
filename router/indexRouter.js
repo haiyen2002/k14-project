@@ -80,9 +80,7 @@ router.get("/contact", controller.contact);
 router.get("/store/", controller.store);
 
 router.get("/show", (req, res) => {
-  var date = new Date().toDateString();
-  console.log(date);
-  orderssModel
+  ProductModel
     // .deleteMany()
     .find()
 
@@ -93,7 +91,17 @@ router.get("/show", (req, res) => {
       res, json(err);
     });
 });
-router.get("/show", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/showdata.html"));
+router.get("/delete", (req, res) => {
+  ProductModel
+    // .deleteMany()
+    .deleteOne({ _id: "6176dca5e132451858e09d45" })
+
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res, json(err);
+    });
 });
+
 module.exports = router;

@@ -14,7 +14,6 @@ async function updatedataCart() {
       },
     });
     if (data.status == 200) {
-      alert(data.mess);
       window.location.href = "";
     }
   } catch (error) {

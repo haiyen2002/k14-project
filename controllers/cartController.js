@@ -43,7 +43,7 @@ module.exports.postOrder = async (req, res, next) => {
       totalPrice: req.body.totalPrice,
       orderDate: Date.now().toString(),
     });
-    res.json({ mess: "Tao don hàng thành công", status: 200, data: data });
+    res.json({ mess: "Tạo đơn hàng thành công", status: 200, data: data });
     next();
   } catch (error) {
     res.json(error);

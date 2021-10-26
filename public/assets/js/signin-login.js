@@ -115,8 +115,6 @@ async function login() {
     });
     if (res.status === 200) {
       setCookie("user", res.id, 30);
-      alert(res.mess);
-
       console.log(191, res.data.Cart);
       const cart = res.data.Cart;
       let productInCart = [];
