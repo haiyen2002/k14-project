@@ -139,11 +139,12 @@ $(".owl-carousel").owlCarousel({
   loop: true,
   margin: 10,
   slideBy: 3,
+  nav: true,
   navText: [
     '<span><i class="fas fa-angle-left"></i></span>',
     '<span><i class="fas fa-angle-right"></i></span>',
   ],
-  nav: true,
+  dots: false,
   responsive: {
     0: {
       items: 1,
@@ -152,10 +153,12 @@ $(".owl-carousel").owlCarousel({
       items: 3,
     },
     1000: {
-      items: 3,
+        nav:true,
+      items: 5,
     },
   },
 });
+
 
 //search
 const inputdata = document.getElementById("input_search");

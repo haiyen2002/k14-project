@@ -15,6 +15,17 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+@media screen and (max-width: 800px) {
+    body::-webkit-scrollbar {
+        width: 0px;
+        height: 5px;
+        background: #fff;
+      }
+      body::-webkit-scrollbar-thumb {
+        background-color: #e4e6eb;
+      }
+}
+
 .grid-rows {
     display: flex;
     margin-left: -15px;

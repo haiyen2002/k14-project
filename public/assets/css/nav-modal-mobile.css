@@ -1,6 +1,7 @@
 .modal-nav-mobile {
   position: relative;
   display: none;
+  width: 100%;
   top: 0;
   left: 0;
   bottom: 0;
@@ -10,12 +11,6 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (min-width: 849px) {
-  .modal-nav-mobile {
-    display: none;
-  }
-}
-
 .modal-nav-mobile .modal-mobile-close {
   position: absolute;
   top: 0;
@@ -23,6 +18,7 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
+  z-index: 99;
 }
 
 .modal-nav-mobile .modal-mobile-close .btn-mobile-close {
@@ -33,6 +29,13 @@
   font-size: 32px;
   color: #fff;
   cursor: pointer;
+  z-index: 99;
+}
+
+@media screen and (max-width: 600px) {
+  .modal-nav-mobile .modal-mobile-close {
+    background: #777;
+  }
 }
 
 .modal-nav-mobile .modal-mobile {
@@ -57,6 +60,12 @@
 
 .modal-nav-mobile .modal-mobile::-webkit-scrollbar-thumb {
   background-color: #e4e6eb;
+}
+
+@media screen and (max-width: 600px) {
+  .modal-nav-mobile .modal-mobile {
+    width: 100%;
+  }
 }
 
 .modal-nav-mobile .modal-mobile .container-mobile {

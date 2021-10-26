@@ -124,14 +124,14 @@
                         <% types.forEach(type=> { %>
                             <li class="nav-product-popular__item">
                                 <a>
-                                    <%= type.split(",")[0] %>
+                                    <%= type.split(",")[1] %>
                                 </a>
                             </li>
                             <% }) %>
                     </ul>
                 </div>
                 <% types.forEach(type=> { %>
-                    <div class="section-list-product">
+                    <div class="owl-carousel owl-theme section-list-product ">
                         <% products.forEach(product=> { %>
                             <% if (product.prd_key==type ){ %>
                                 <div class="product-card product-card_item">

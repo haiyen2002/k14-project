@@ -127,10 +127,30 @@
 }
 
 .main-banner__contact {
-  max-width: 1230px;
-  margin: 0 auto;
-  display: flex;
-  padding-top: 50px;
+    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 40px 60px;
+}
+
+@media screen and (max-width: 888px) {
+    .main-banner__contact{
+        grid-template-columns: 1fr 1fr;
+        padding: 30px;
+    }
+    .main-content_banner{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+}
+@media screen and (max-width: 600px) {
+    .main-banner__contact{
+        grid-template-columns: 1fr;
+    }
+    .main-banner__image{
+        flex-direction: column;
+    }
 }
 
 .main-banner__contact___card {
@@ -200,11 +220,11 @@
 
 .section-list-product {
   padding-top: 16px;
-  display: none;
+  display: none !important;
 }
 
-.section-list-product.active {
-  display: flex;
+.active {
+  display: block !important;
 }
 
 .nav-product-popular ul {
@@ -387,5 +407,3 @@
   height: 60px;
   background-color: #ddd;
 }
-
-

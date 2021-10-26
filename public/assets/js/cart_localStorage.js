@@ -23,32 +23,32 @@ const order_buy = document.querySelector(".prd-buy-items");
 const order_price = document.querySelector(".total-price");
 
 // PRODUCT - DETAIL //
-const prd_detail = document.querySelector(".product-detail");
+// const prd_detail = document.querySelector(".product-detail");
 
-if (prd_detail != null) {
-  prd_detail.addEventListener("click", (event) => {
-    if (event.target.classList.contains("to-add")) {
-      const prdID = event.target.dataset.prdId;
-      const prdName = prd_detail.querySelector(".prd-detail-name").innerHTML;
-      const prdImg = prd_detail.querySelector(".prd-detail-img").src;
-      const prdPriceS = prd_detail.querySelector(".prd-detail-price").innerHTML;
-      const prdPrice = parseInt(prdPriceS.split(",").join(""));
-      let product = {
-        name: prdName,
-        image: prdImg,
-        id: prdID,
-        count: 1,
-        price: prdPrice,
-        basePrice: prdPrice,
-      };
-      updateProductsInCart(product);
-      updateShoppingCartHTML();
-      if (prdCart != null) {
-        updateCart();
-      }
-    }
-  });
-}
+// if (prd_detail != null) {
+//   prd_detail.addEventListener("click", (event) => {
+//     if (event.target.classList.contains("to-add")) {
+//       const prdID = event.target.dataset.prdId;
+//       const prdName = prd_detail.querySelector(".prd-detail-name").innerHTML;
+//       const prdImg = prd_detail.querySelector(".prd-detail-img").src;
+//       const prdPriceS = prd_detail.querySelector(".prd-detail-price").innerHTML;
+//       const prdPrice = parseInt(prdPriceS.split(",").join(""));
+//       let product = {
+//         name: prdName,
+//         image: prdImg,
+//         id: prdID,
+//         count: 1,
+//         price: prdPrice,
+//         basePrice: prdPrice,
+//       };
+//       updateProductsInCart(product);
+//       updateShoppingCartHTML();
+//       if (prdCart != null) {
+//         updateCart();
+//       }
+//     }
+//   });
+// }
 
 //   1
 products.forEach((ele) => {
@@ -175,6 +175,7 @@ const updateCart = function () {
         <button class="button-plus" data-id="${product.id}">+</button>
       </div>
       <div class="item-td price">${product.price.toLocaleString() + "đ"}</div>
+      <div class="item-td"><button class="prd-cart_delete" data-id="${product.id}">Xóa</button></div>
     </div>
     <hr />
       `;
@@ -187,6 +188,7 @@ const updateCart = function () {
     <div class="item-td">Đơn giá</div>
     <div class="item-td">Số lượng</div>
     <div class="item-td">Tạm tính</div>
+    <div class="item-td">Xóa</div>
   </div>
     `;
     prdTotal.innerHTML = `
@@ -295,6 +297,7 @@ parentElement.addEventListener("click", (event) => {
   }
 });
 
+
 // MINUS , PLUS COUNT //
 if (prdCart != null) {
   prdCart.addEventListener("click", (event) => {
@@ -321,6 +324,23 @@ if (prdCart != null) {
   });
 }
 
+// BUTTON DELETE
+if (prdCart != null) {
+prdCart.addEventListener("click", (event) => {
+    const prd_delete = event.target.classList.contains("prd-cart_delete");
+    if(prd_delete){
+        for (let i = 0; i < productsInCart.length; i++) {
+            if(productsInCart[i].id == event.target.dataset.id){
+                productsInCart.splice(i, 1);
+            }
+            
+        }
+        updateShoppingCartHTML();
+        updateCart();
+    }
+
+  });
+}
 // console.log(order_buy);
 if (order_buy != null) {
   updateOder();
