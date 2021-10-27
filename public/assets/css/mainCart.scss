@@ -2,6 +2,9 @@
   width: 100%;
   padding: 30px 40px;
 
+  @media screen and (max-width: 800px) {
+    padding: 30px 10px;
+  }
   .main-cart {
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -93,13 +96,17 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 50px;
+                width: 30px;
                 height: 30px;
-                border-radius: 10px;
-                font-size: 20px;
-                color: #fff;
-                background: #797c11;
+                border-radius: 50%;
                 border: none;
+                color: #0097e6;
+                border: 2px solid #0097e6;
+                font-weight: 600;
+                &:hover{
+                    color: #4cd137;
+                    border: 2px solid #4cd137;
+                }
             }
           }
           
@@ -120,14 +127,6 @@
         padding: 10px;
         text-transform: uppercase;
         gap: 20px;
-        .update_cart{
-            width: 100%;
-            font-size: 18px;
-            border: none;
-            background: #797c11;
-            color: #fff;
-            padding: 5px;
-        }
         .go-buy {
           text-decoration: none;
           margin-left: 20px;

@@ -58,26 +58,36 @@ router.get("/cart", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/order", (req, res) => {
-  productController
-    .getAllProduct()
-    .then((products) => {
-      productController.getTypePrd().then((types) => {
+router.get("/order", async (req, res) => {  
+    try {
+        // console.log(63, req.cookies.user);
+        if(req.cookies.user != undefined){
             const token = req.cookies.user;
             const id = jwt.verify(token, "Auth").id
-            console.log(id);
-            accountmodel.findOne({_id: id})
-            .then(acc => {
-                res.render("Order-Cart/order", {
-                    products: products,
-                    types: types,
-                    acc: acc,
-                  });
-            })
-  
-      });
-    })
-    .catch((err) => console.log(err));
+            const products = await productController
+            .getAllProduct();
+            const types = await productController.getTypePrd();
+            const acc = await accountmodel.findOne({_id: id});
+            res.render("Order-Cart/order", {
+                products: products,
+                types: types,
+                acc: acc,
+              });
+        }else{
+            const products = await productController
+            .getAllProduct();
+            const types = await productController.getTypePrd();
+            const acc = {}
+            res.render("Order-Cart/order", {
+                products: products,
+                types: types,
+                acc: acc
+              });
+        }
+        
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 router.get("/about-us/", controller.about_Us);
@@ -101,9 +111,9 @@ router.get("/show", (req, res) => {
     });
 });
 router.get("/delete", (req, res) => {
-  ProductModel
+  orderssModel
     // .deleteMany()
-    .deleteOne({ _id: "6177fe1701a2678db9c197f8" })
+    .deleteMany()
 
     .then((data) => {
       res.json(data);

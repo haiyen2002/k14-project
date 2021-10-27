@@ -16,7 +16,10 @@ async function listorder() {
     if (data.status == 200) {
       alert(data.mess);
       localStorage.removeItem("shoppingCart");
-      window.location.href = "";
+      window.location.href = "/"
+    }else if(data.status == 400){
+        alert(data.mess)
+        window.location.href = "/"
     }
   } catch (error) {
     console.log(error);
@@ -48,3 +51,14 @@ async function updatedataCart() {
 }
 
 updatedataCart();
+
+$.ajax({
+    url: "/order",
+    type: "get"
+}).then(data=>{
+    if(data.status == 400){
+        window.location.href = "/"
+    }
+}).catch(err=>{
+    console.log(err);
+})

@@ -69,10 +69,11 @@ products.forEach((ele) => {
       };
       updateProductsInCart(product);
       updateShoppingCartHTML();
-
+      updatedataCart();
       if (prdCart != null) {
         updateCart();
       }
+
     }
   });
 });
@@ -175,7 +176,7 @@ const updateCart = function () {
         <button class="button-plus" data-id="${product.id}">+</button>
       </div>
       <div class="item-td price">${product.price.toLocaleString() + "đ"}</div>
-      <div class="item-td"><button class="prd-cart_delete" data-id="${product.id}">Xóa</button></div>
+      <div class="item-td"><button class="prd-cart_delete" data-id="${product.id}">X</button></div>
     </div>
     <hr />
       `;
@@ -293,7 +294,10 @@ parentElement.addEventListener("click", (event) => {
       }
     }
     updateShoppingCartHTML();
-    updateCart();
+    if (prdCart != null) {
+        updateCart();
+      }
+    updatedataCart();
   }
 });
 
@@ -319,7 +323,8 @@ if (prdCart != null) {
         }
       }
       updateShoppingCartHTML();
-      updateCart();
+        updateCart();
+      updatedataCart();
     }
   });
 }
@@ -337,16 +342,46 @@ prdCart.addEventListener("click", (event) => {
         }
         updateShoppingCartHTML();
         updateCart();
+        updatedataCart()
     }
 
   });
 }
-// console.log(order_buy);
+
 if (order_buy != null) {
   updateOder();
 }
 
+// console.log(prdCart);
 if (prdCart != null) {
   updateCart();
 }
+
+
 updateShoppingCartHTML();
+
+async function updatedataCart() {
+    try {
+      var product = JSON.parse(localStorage.getItem("shoppingCart"));
+      var arr = [];
+      for (let i = 0; i < product.length; i++) {
+        let obj = { productId: product[i].id, quantity: product[i].count };
+        arr[i] = obj;
+      }
+      const data = await $.ajax({
+        url: "/cart/cart",
+        type: "put",
+        data: {
+          prd: arr,
+        },
+        header: {},
+      });
+      if (data.status == 200) {
+        console.log(data.mess);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+

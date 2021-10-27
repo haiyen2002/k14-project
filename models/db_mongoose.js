@@ -77,7 +77,15 @@ const Products = new Schema(
 
 const orders = new Schema(
   {
-    product: [{ type: String, ref: "Products" }],
+    product: [
+        {
+          productId: {
+            type: String,
+            ref: "Products",
+          },
+          quantity: Number,
+        },
+      ],
     address: {
       type: String,
       ref: "useraddress",
