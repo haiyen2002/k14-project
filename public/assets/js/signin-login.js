@@ -115,7 +115,7 @@ async function login() {
     });
     if (res.status === 200) {
       setCookie("user", res.id, 30);
-      console.log(191, res.data.Cart);
+    //   console.log(191, res.data.Cart);
       const cart = res.data.Cart;
       let productInCart = [];
       for (let i = 0; i < cart.length; i++) {
@@ -202,7 +202,6 @@ function checklogin() {
         </ul> </button>`;
           $(".header-top_account").append(user);
         });
-        console.log(data);
       } else {
         // $(".pb-modalreglog-submit")[0].click();
       }

@@ -52,29 +52,6 @@ const Products = new Schema(
   }
 );
 
-// const Cart = new Schema(
-//   {
-//     product: [
-//       {
-//         productId: {
-//           type: String,
-//           ref: "Products",
-//         },
-//         quantity: Number,
-//       },
-//     ],
-//     userId: {
-//       type: String,
-//       ref: "account",
-//     },
-//     status: {
-//       type: String,
-//       default: "Wait for Pay!"
-//     }
-//   },
-//   { collection: "Cart" }
-// );
-
 const orders = new Schema(
   {
     product: [
@@ -114,7 +91,6 @@ const BlackListSchema = mongoose.Schema(
 const BlackListModel = mongoose.model("blackList", BlackListSchema);
 const ProductModel = mongoose.model("Products", Products);
 const accountmodel = mongoose.model("account", account);
-// const cartModel = mongoose.model("Cart", Cart);
 const orderssModel = mongoose.model("orders", orders);
 
 module.exports = { ProductModel, accountmodel, orderssModel, BlackListModel };

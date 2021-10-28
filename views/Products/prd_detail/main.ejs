@@ -16,6 +16,9 @@
           <div class="prd-detail-right">
             <div class="prd-detail-name product-card_title"><%= prd_detail.name %></div>
             <div class="prd-detail-price product-card_price"><%= prd_detail.price %></div>
+            <div class="product-card_quantity">
+                Còn <%= prd_detail.quantity %> sản phẩm
+             </div>
             <div class="prd-detail-add">
               <button class="add-to-cart to-add" data-prd-id="<%= prd_detail._id %>">
                 <i class="fas fa-cart-plus"></i> THÊM VÀO GIỎ

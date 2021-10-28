@@ -34,7 +34,8 @@
 }
 
 .product-card_title,
-.product-card_price {
+.product-card_price,
+.product-card_quantity{
   margin-bottom: 12px;
   width: 100%;
   text-align: center;
@@ -45,6 +46,9 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+}
+.product-card_quantity{
+    color: red;
 }
 
 .product-filter__card {

@@ -109,6 +109,7 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({ id: checkUser._id }, "Auth", {
           expiresIn: "30d",
         });
+        console.log(checkPassword);
         const id = jwt.verify(token, "Auth").id;
         const resultdata = await UserModel.accountmodel.findOne({ _id: id })
         .populate("Cart.productId")

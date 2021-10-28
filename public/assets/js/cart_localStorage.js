@@ -53,40 +53,69 @@ const order_price = document.querySelector(".total-price");
 //   1
 products.forEach((ele) => {
   ele.addEventListener("click", (event) => {
-    if (event.target.classList.contains("add-to-cart")) {
-      const productID = event.target.dataset.productId;
-      const productName = ele.querySelector(".product-card_title").innerHTML;
-      const productPriceS = ele.querySelector(".product-card_price").innerHTML;
-      const productImg = ele.querySelector(".img-prd").src;
-      const productPrice = parseInt(productPriceS.split(",").join(""));
-      let product = {
-        name: productName,
-        image: productImg,
-        id: productID,
-        count: 1,
-        price: productPrice,
-        basePrice: productPrice,
-      };
-      updateProductsInCart(product);
-      updateShoppingCartHTML();
-      updatedataCart();
-      if (prdCart != null) {
-        updateCart();
+      if(ele.querySelector(".product-card_quantity") != null){
+        const solg = parseInt(ele.querySelector(".product-card_quantity").innerHTML.trim().split(" ")[1])
+        if( solg > 0){
+          if (event.target.classList.contains("add-to-cart")) {
+              const productID = event.target.dataset.productId;
+              const productName = ele.querySelector(".product-card_title").innerHTML;
+              const productPriceS = ele.querySelector(".product-card_price").innerHTML;
+              const productImg = ele.querySelector(".img-prd").src;
+              const productPrice = parseInt(productPriceS.split(",").join(""));
+              let product = {
+                name: productName,
+                image: productImg,
+                id: productID,
+                count: 1,
+                price: productPrice,
+                basePrice: productPrice,
+              };
+              updateProductsInCart(product);
+              updateShoppingCartHTML();
+              updatedataCart();
+              if (prdCart != null) {
+                updateCart();
+              }
+        
+            }
+        }
+      }else{
+          console.log("het hang");
       }
 
-    }
+
   });
 });
 
 //   2 UPDATE - PRODUCT IN CART //
 function updateProductsInCart(product) {
   for (let i = 0; i < productsInCart.length; i++) {
+    // function setCount(id) {
+    //     try {       
+    //             $.ajax({
+    //             url: "/product/find",
+    //             type: "post",
+    //             data: {
+    //                 id: id
+    //             }
+    //         }).then(data=> {
+    //             let sum = 0;
+    //             sum = parseInt(data.quantity)
+        
+    //         });
+               
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+    // setCount(productsInCart[i].id); 
+
     if (productsInCart[i].id == product.id) {
-      productsInCart[i].count += 1;
-      productsInCart[i].price =
-        productsInCart[i].count * productsInCart[i].basePrice;
-      return productsInCart[i];
-    }
+        productsInCart[i].count += 1;
+        productsInCart[i].price =
+          productsInCart[i].count * productsInCart[i].basePrice;
+        return productsInCart[i];
+      }   
   }
   productsInCart.push(product);
 }
@@ -278,20 +307,47 @@ const countTheSumPrice = function () {
 parentElement.addEventListener("click", (event) => {
   const isPlusButton = event.target.classList.contains("button-plus");
   const isMinusButton = event.target.classList.contains("button-minus");
+  
   if (isPlusButton || isMinusButton) {
     for (let i = 0; i < productsInCart.length; i++) {
-      if (productsInCart[i].id == event.target.dataset.id) {
-        if (isPlusButton) {
-          productsInCart[i].count += 1;
-        } else if (isMinusButton) {
-          productsInCart[i].count -= 1;
+        function setCount(id) {
+            try {       
+                    $.ajax({
+                    url: "/product/find",
+                    type: "post",
+                    data: {
+                        id: id
+                    }
+                }).then(data=> {
+                    let sum = 0;
+                    sum = parseInt(data.quantity)
+                    // console.log(sum);
+                    if (productsInCart[i].id == event.target.dataset.id && productsInCart[i].count < sum) {
+                        if (isPlusButton) {
+                          productsInCart[i].count += 1;
+                        }
+                        productsInCart[i].price =
+                          productsInCart[i].basePrice * productsInCart[i].count;
+                      }
+                      if (productsInCart[i].id == event.target.dataset.id && productsInCart[i].count <= sum) {
+                        if (isMinusButton) {
+                          productsInCart[i].count -= 1;
+                        }
+                        productsInCart[i].price =
+                          productsInCart[i].basePrice * productsInCart[i].count;
+                      }
+                      if (productsInCart[i].count <= 0) {
+                        productsInCart.splice(i, 1);
+                      }
+
+                 });
+               
+            } catch (error) {
+                console.log(error);
+            }
         }
-        productsInCart[i].price =
-          productsInCart[i].basePrice * productsInCart[i].count;
-      }
-      if (productsInCart[i].count <= 0) {
-        productsInCart.splice(i, 1);
-      }
+        setCount(productsInCart[i].id);
+      
     }
     updateShoppingCartHTML();
     if (prdCart != null) {
@@ -302,6 +358,10 @@ parentElement.addEventListener("click", (event) => {
 });
 
 
+ 
+
+
+
 // MINUS , PLUS COUNT //
 if (prdCart != null) {
   prdCart.addEventListener("click", (event) => {
@@ -309,18 +369,44 @@ if (prdCart != null) {
     const isMinusButton = event.target.classList.contains("button-minus");
     if (isPlusButton || isMinusButton) {
       for (let i = 0; i < productsInCart.length; i++) {
-        if (productsInCart[i].id == event.target.dataset.id) {
-          if (isPlusButton) {
-            productsInCart[i].count += 1;
-          } else if (isMinusButton) {
-            productsInCart[i].count -= 1;
-          }
-          productsInCart[i].price =
-            productsInCart[i].basePrice * productsInCart[i].count;
+
+        function setCount(id) {
+            try {       
+                    $.ajax({
+                    url: "/product/find",
+                    type: "post",
+                    data: {
+                        id: id
+                    }
+                }).then(data=> {
+                    let sum = 0;
+                    sum = parseInt(data.quantity)
+                    // console.log(sum);
+                    if (productsInCart[i].id == event.target.dataset.id && productsInCart[i].count < sum) {
+                        if (isPlusButton) {
+                          productsInCart[i].count += 1;
+                        } 
+                        productsInCart[i].price =
+                          productsInCart[i].basePrice * productsInCart[i].count;
+                      }
+                    if (productsInCart[i].id == event.target.dataset.id && productsInCart[i].count <= sum) {
+                        if (isMinusButton) {
+                          productsInCart[i].count -= 1;
+                        }
+                        productsInCart[i].price =
+                          productsInCart[i].basePrice * productsInCart[i].count;
+                      }
+                      if (productsInCart[i].count <= 0) {
+                        productsInCart.splice(i, 1);
+                      }
+                });
+               
+            } catch (error) {
+                console.log(error);
+            }
         }
-        if (productsInCart[i].count <= 0) {
-          productsInCart.splice(i, 1);
-        }
+        setCount(productsInCart[i].id);
+        
       }
       updateShoppingCartHTML();
         updateCart();

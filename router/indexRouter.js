@@ -98,29 +98,29 @@ router.get("/contact", controller.contact);
 
 router.get("/store/", controller.store);
 
-router.get("/show", (req, res) => {
-  ProductModel
-    // .deleteMany()
-    .find()
+// router.get("/show", (req, res) => {
+//   accountmodel
+//     // .deleteMany()
+//     .find()
 
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res, json(err);
-    });
-});
-router.get("/delete", (req, res) => {
-  orderssModel
-    // .deleteMany()
-    .deleteMany()
+//     .then((data) => {
+//       res.json(data);
+//     })
+//     .catch((err) => {
+//       res, json(err);
+//     });
+// });
+// router.get("/delete", (req, res) => {
+//   accountmodel
+//     // .deleteMany()
+//     .findByIdAndUpdate({_id: "61767be2cf8c0dabf39cfbb0"}, {role: "admin"})
 
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res, json(err);
-    });
-});
+//     .then((data) => {
+//       res.json(data);
+//     })
+//     .catch((err) => {
+//       res, json(err);
+//     });
+// });
 
 module.exports = router;

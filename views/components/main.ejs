@@ -147,6 +147,15 @@
                                                 <div class="product-card_price">
                                                     <%= product.price %>
                                                 </div>
+                                                <% if( product.quantity > 0 ){ %>
+                                                    <div class="product-card_quantity">
+                                                       Còn <%= product.quantity %> sản phẩm                                                                                                                                              
+                                                    </div>
+                                                    <% }else{ %>
+                                                        <div>
+                                                            Hết hàng                                                                                                                                             
+                                                         </div>
+                                                    <% } %>
                                             </div>
                                         </div>
                                     </a>
@@ -206,6 +215,15 @@
                                                                         <div class="product-card_price">
                                                                             <%= product.price %>
                                                                         </div>
+                                                                        <% if( product.quantity > 0 ){ %>
+                                                                        <div class="product-card_quantity">
+                                                                           Còn <%= product.quantity %> sản phẩm                                                                                                                                             
+                                                                        </div>
+                                                                        <% }else{ %>
+                                                                            <div>
+                                                                                Hết hàng                                                                                                                                             
+                                                                             </div>
+                                                                        <% } %>
                                                                     </div>
                                                                 </div>
                                                             </a>

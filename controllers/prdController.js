@@ -1,33 +1,15 @@
 const { ProductModel, accountmodel } = require("../models/db_mongoose");
 
-
-// module.exports.getOrder = async (req, res) => {
-    
-//   try {
-//     const token = req.cookies.user;
-//     const id = jwt.verify(token, "Auth").id
-//     const acc = await accountmodel.findById({_id: id})
-//     console.log(acc);
-//     const types = await ProductModel.distinct("prd_key");
-//     res.render("Order-Cart/order", {
-//       types: types,
-//       acc : acc,
-//     });
-//   } catch (error) {
-//     res.json(error);
-//   }
-// };
-
-// module.exports.getCart = async (req, res) => {
-//   try {
-//     const types = await ProductModel.distinct("prd_key");
-//     res.render("Order-Cart/cart", {
-//       types: types,
-//     });
-//   } catch (error) {
-//     res.json(error);
-//   }
-// };
+module.exports.findPrd = async (req, res)=>{
+    try {
+        const id = req.body.id
+        const data = await ProductModel.findOne({_id: id})
+        res.json(data)
+        
+    } catch (error) {
+        res.json(error)
+    }
+}
 
 module.exports.prdDetail = async (req, res) => {
   const id = req.params.id;

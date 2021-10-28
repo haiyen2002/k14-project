@@ -86,7 +86,6 @@ function removeClass() {
 
 //carousel:
 $("#owl-0").owlCarousel({
-  loop: true,
   margin: 10,
   nav: true,
   navText: [
@@ -110,7 +109,6 @@ $("#owl-0").owlCarousel({
 });
 
 $("#owl-1").owlCarousel({
-  loop: true,
   margin: 10,
   nav: true,
   navText: [
@@ -136,7 +134,6 @@ $("#owl-1").owlCarousel({
 // $('.owl-nav').removeClass('disabled')
 //news carousel
 $(".owl-carousel").owlCarousel({
-  loop: true,
   margin: 10,
   slideBy: 3,
   nav: true,
