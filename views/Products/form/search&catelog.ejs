@@ -7,12 +7,12 @@
       <div class="catelog-prd">DANH MỤC SẢN PHẨM</div>
       <ul class="catelog-items">
   
-          <% var types = [] %>
-          <% var type = [] %>
-              <% prd_key.forEach(ele => { %>
-                   <% types.push(ele.split(",")[0].trim()) %>
+          <% var distinct = [] %>
+          <% var distinct1 = [] %>
+              <% types.forEach(ele => { %>
+                   <% distinct.push(ele.split(",")[0].trim()) %>
                       <% }) %>
-                          <% var uniques = types.map(ele => ele).filter((value, index, arr)=> arr.indexOf(value) ===  index) %> 
+                          <% var uniques = distinct.map(ele => ele).filter((value, index, arr)=> arr.indexOf(value) ===  index) %> 
                               <% uniques.forEach(ele=> { %>
                                   <li class="catelog-item">
                                       <div class="catelog-item-prd">
@@ -23,10 +23,10 @@
                                         </span>
                                       </div>
                                       <ul class="children-item show_children">
-                                          <% prd_key.forEach(ele1 => { %>
-                                              <% type.push(ele1) %>
+                                          <% types.forEach(ele1 => { %>
+                                              <% distinct1.push(ele1) %>
                                                   <% }) %>
-                                          <% var unique = type.map(ele1 => ele1).filter((value, index, arr)=> arr.indexOf(value) ===  index) %> 
+                                          <% var unique = distinct1.map(ele1 => ele1).filter((value, index, arr)=> arr.indexOf(value) ===  index) %> 
                                               <% unique.forEach(ele1=> { %>
                                                   <% if(ele1.split(",")[0] === ele){ %>
                                                   <li class="children-link-item">

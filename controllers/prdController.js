@@ -15,12 +15,9 @@ module.exports.prdDetail = async (req, res) => {
   const id = req.params.id;
   try {
     const types = await ProductModel.distinct("prd_key");
-    const prd_key = await ProductModel.distinct("prd_key");
-    console.log(prd_key);
     const prd_detail = await ProductModel.findOne({ _id: id });
     res.render("Products/product_Detail", {
       prd_detail,
-      prd_key,
       types,
     });
   } catch (error) {

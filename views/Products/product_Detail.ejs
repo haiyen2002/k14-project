@@ -32,12 +32,9 @@
   <script src="/public/assets/js/cart_localStorage.js"></script>
   <script>
         //SHOW-CHILDREN-ITEM-NAV-MOBILE -1
-
         const more = document.querySelectorAll(".more-item")
         const more_link = document.querySelectorAll(".more-item-click")
         const chid = document.querySelectorAll(".show_children")
-
-
         for (let i = 0; i < more.length; i++) {
             more[i].addEventListener("click", ()=>{
                 chid[i].style.display = 'block';

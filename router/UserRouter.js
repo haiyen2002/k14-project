@@ -28,8 +28,6 @@ router.get("/", Check.checkAdmin, async (req, res) => {
   }
 });
 
-
-
 router.post("/signup", async (req, res) => {
   try {
     console.log(req.body);
@@ -109,12 +107,10 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({ id: checkUser._id }, "Auth", {
           expiresIn: "30d",
         });
-        console.log(checkPassword);
         const id = jwt.verify(token, "Auth").id;
-        const resultdata = await UserModel.accountmodel.findOne({ _id: id })
-        .populate("Cart.productId")
-        if(resultdata){
-            res.json({ status: 200, id: token, mess: "ok", data: resultdata });
+        const resultdata = await UserModel.accountmodel.findOne({ _id: id });
+        if (resultdata) {
+          res.json({ status: 200, id: token, mess: "ok", data: resultdata });
         }
       } else {
         res.json({ status: 400, mess: "sai password" });
@@ -136,13 +132,8 @@ router.post("/checkLogin", async (req, res) => {
         res.json({ mess: "cookie bị hạn chế", status: 400 });
       } else {
         const id = jwt.verify(token, "Auth").id;
-        const checkUser = await UserModel.accountmodel.findOne({ _id: id })
-        .populate("Cart.productId")
+        const checkUser = await UserModel.accountmodel.findOne({ _id: id });
         if (checkUser) {
-          // return res.render("components/login-signup", {
-          //   string: "Donguyen",
-          //   checkUser: checkUser,
-          // });
           return res.json({
             mess: "user da dang nhap",
             id,
@@ -216,14 +207,14 @@ router.post("/unlink", async (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-    UserModel.accountmodel
-      .findOne({ _id: req.params.id })
-      .then(function (data) {
-        res.json(data);
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
-  });
+  UserModel.accountmodel
+    .findOne({ _id: req.params.id })
+    .then(function (data) {
+      res.json(data);
+    })
+    .catch(function (err) {
+      res.json(err);
+    });
+});
 
 module.exports = router;

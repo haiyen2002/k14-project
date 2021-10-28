@@ -53,69 +53,55 @@ const order_price = document.querySelector(".total-price");
 //   1
 products.forEach((ele) => {
   ele.addEventListener("click", (event) => {
-      if(ele.querySelector(".product-card_quantity") != null){
-        const solg = parseInt(ele.querySelector(".product-card_quantity").innerHTML.trim().split(" ")[1])
-        if( solg > 0){
-          if (event.target.classList.contains("add-to-cart")) {
-              const productID = event.target.dataset.productId;
-              const productName = ele.querySelector(".product-card_title").innerHTML;
-              const productPriceS = ele.querySelector(".product-card_price").innerHTML;
-              const productImg = ele.querySelector(".img-prd").src;
-              const productPrice = parseInt(productPriceS.split(",").join(""));
-              let product = {
-                name: productName,
-                image: productImg,
-                id: productID,
-                count: 1,
-                price: productPrice,
-                basePrice: productPrice,
-              };
-              updateProductsInCart(product);
-              updateShoppingCartHTML();
-              updatedataCart();
-              if (prdCart != null) {
-                updateCart();
-              }
-        
-            }
+    if (ele.querySelector(".product-card_quantity") != null) {
+      const solg = parseInt(
+        ele
+          .querySelector(".product-card_quantity")
+          .innerHTML.trim()
+          .split(" ")[1]
+      );
+      if (solg > 0) {
+        if (event.target.classList.contains("add-to-cart")) {
+          const productID = event.target.dataset.productId;
+          const productName = ele.querySelector(
+            ".product-card_title"
+          ).innerHTML;
+          const productPriceS = ele.querySelector(
+            ".product-card_price"
+          ).innerHTML;
+          const productImg = ele.querySelector(".img-prd").src;
+          const productPrice = parseInt(productPriceS.split(",").join(""));
+          let product = {
+            name: productName,
+            image: productImg,
+            id: productID,
+            count: 1,
+            price: productPrice,
+            basePrice: productPrice,
+          };
+          updateProductsInCart(product);
+          updateShoppingCartHTML();
+          updatedataCart();
+          if (prdCart != null) {
+            updateCart();
+          }
         }
-      }else{
-          console.log("het hang");
       }
-
-
+    } else {
+      console.log("het hang");
+    }
   });
 });
 
 //   2 UPDATE - PRODUCT IN CART //
 function updateProductsInCart(product) {
   for (let i = 0; i < productsInCart.length; i++) {
-    // function setCount(id) {
-    //     try {       
-    //             $.ajax({
-    //             url: "/product/find",
-    //             type: "post",
-    //             data: {
-    //                 id: id
-    //             }
-    //         }).then(data=> {
-    //             let sum = 0;
-    //             sum = parseInt(data.quantity)
-        
-    //         });
-               
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-    // setCount(productsInCart[i].id); 
-
     if (productsInCart[i].id == product.id) {
-        productsInCart[i].count += 1;
-        productsInCart[i].price =
-          productsInCart[i].count * productsInCart[i].basePrice;
-        return productsInCart[i];
-      }   
+      productsInCart[i].count += 1;
+      productsInCart[i].price =
+        productsInCart[i].count * productsInCart[i].basePrice;
+      return productsInCart[i];
+    }
   }
   productsInCart.push(product);
 }
@@ -205,7 +191,9 @@ const updateCart = function () {
         <button class="button-plus" data-id="${product.id}">+</button>
       </div>
       <div class="item-td price">${product.price.toLocaleString() + "đ"}</div>
-      <div class="item-td"><button class="prd-cart_delete" data-id="${product.id}">X</button></div>
+      <div class="item-td"><button class="prd-cart_delete" data-id="${
+        product.id
+      }">X</button></div>
     </div>
     <hr />
       `;
@@ -307,60 +295,58 @@ const countTheSumPrice = function () {
 parentElement.addEventListener("click", (event) => {
   const isPlusButton = event.target.classList.contains("button-plus");
   const isMinusButton = event.target.classList.contains("button-minus");
-  
+
   if (isPlusButton || isMinusButton) {
     for (let i = 0; i < productsInCart.length; i++) {
-        function setCount(id) {
-            try {       
-                    $.ajax({
-                    url: "/product/find",
-                    type: "post",
-                    data: {
-                        id: id
-                    }
-                }).then(data=> {
-                    let sum = 0;
-                    sum = parseInt(data.quantity)
-                    // console.log(sum);
-                    if (productsInCart[i].id == event.target.dataset.id && productsInCart[i].count < sum) {
-                        if (isPlusButton) {
-                          productsInCart[i].count += 1;
-                        }
-                        productsInCart[i].price =
-                          productsInCart[i].basePrice * productsInCart[i].count;
-                      }
-                      if (productsInCart[i].id == event.target.dataset.id && productsInCart[i].count <= sum) {
-                        if (isMinusButton) {
-                          productsInCart[i].count -= 1;
-                        }
-                        productsInCart[i].price =
-                          productsInCart[i].basePrice * productsInCart[i].count;
-                      }
-                      if (productsInCart[i].count <= 0) {
-                        productsInCart.splice(i, 1);
-                      }
-
-                 });
-               
-            } catch (error) {
-                console.log(error);
+      function setCount(id) {
+        try {
+          $.ajax({
+            url: "/product/find",
+            type: "post",
+            data: {
+              id: id,
+            },
+          }).then((data) => {
+            let sum = 0;
+            sum = parseInt(data.quantity);
+            // console.log(sum);
+            if (
+              productsInCart[i].id == event.target.dataset.id &&
+              productsInCart[i].count < sum
+            ) {
+              if (isPlusButton) {
+                productsInCart[i].count += 1;
+              }
+              productsInCart[i].price =
+                productsInCart[i].basePrice * productsInCart[i].count;
             }
+            if (
+              productsInCart[i].id == event.target.dataset.id &&
+              productsInCart[i].count <= sum
+            ) {
+              if (isMinusButton) {
+                productsInCart[i].count -= 1;
+              }
+              productsInCart[i].price =
+                productsInCart[i].basePrice * productsInCart[i].count;
+            }
+            if (productsInCart[i].count <= 0) {
+              productsInCart.splice(i, 1);
+            }
+          });
+        } catch (error) {
+          console.log(error);
         }
-        setCount(productsInCart[i].id);
-      
+      }
+      setCount(productsInCart[i].id);
     }
     updateShoppingCartHTML();
     if (prdCart != null) {
-        updateCart();
-      }
+      updateCart();
+    }
     updatedataCart();
   }
 });
-
-
- 
-
-
 
 // MINUS , PLUS COUNT //
 if (prdCart != null) {
@@ -369,47 +355,50 @@ if (prdCart != null) {
     const isMinusButton = event.target.classList.contains("button-minus");
     if (isPlusButton || isMinusButton) {
       for (let i = 0; i < productsInCart.length; i++) {
-
         function setCount(id) {
-            try {       
-                    $.ajax({
-                    url: "/product/find",
-                    type: "post",
-                    data: {
-                        id: id
-                    }
-                }).then(data=> {
-                    let sum = 0;
-                    sum = parseInt(data.quantity)
-                    // console.log(sum);
-                    if (productsInCart[i].id == event.target.dataset.id && productsInCart[i].count < sum) {
-                        if (isPlusButton) {
-                          productsInCart[i].count += 1;
-                        } 
-                        productsInCart[i].price =
-                          productsInCart[i].basePrice * productsInCart[i].count;
-                      }
-                    if (productsInCart[i].id == event.target.dataset.id && productsInCart[i].count <= sum) {
-                        if (isMinusButton) {
-                          productsInCart[i].count -= 1;
-                        }
-                        productsInCart[i].price =
-                          productsInCart[i].basePrice * productsInCart[i].count;
-                      }
-                      if (productsInCart[i].count <= 0) {
-                        productsInCart.splice(i, 1);
-                      }
-                });
-               
-            } catch (error) {
-                console.log(error);
-            }
+          try {
+            $.ajax({
+              url: "/product/find",
+              type: "post",
+              data: {
+                id: id,
+              },
+            }).then((data) => {
+              let sum = 0;
+              sum = parseInt(data.quantity);
+              // console.log(sum);
+              if (
+                productsInCart[i].id == event.target.dataset.id &&
+                productsInCart[i].count < sum
+              ) {
+                if (isPlusButton) {
+                  productsInCart[i].count += 1;
+                }
+                productsInCart[i].price =
+                  productsInCart[i].basePrice * productsInCart[i].count;
+              }
+              if (
+                productsInCart[i].id == event.target.dataset.id &&
+                productsInCart[i].count <= sum
+              ) {
+                if (isMinusButton) {
+                  productsInCart[i].count -= 1;
+                }
+                productsInCart[i].price =
+                  productsInCart[i].basePrice * productsInCart[i].count;
+              }
+              if (productsInCart[i].count <= 0) {
+                productsInCart.splice(i, 1);
+              }
+            });
+          } catch (error) {
+            console.log(error);
+          }
         }
         setCount(productsInCart[i].id);
-        
       }
       updateShoppingCartHTML();
-        updateCart();
+      updateCart();
       updatedataCart();
     }
   });
@@ -417,20 +406,18 @@ if (prdCart != null) {
 
 // BUTTON DELETE
 if (prdCart != null) {
-prdCart.addEventListener("click", (event) => {
+  prdCart.addEventListener("click", (event) => {
     const prd_delete = event.target.classList.contains("prd-cart_delete");
-    if(prd_delete){
-        for (let i = 0; i < productsInCart.length; i++) {
-            if(productsInCart[i].id == event.target.dataset.id){
-                productsInCart.splice(i, 1);
-            }
-            
+    if (prd_delete) {
+      for (let i = 0; i < productsInCart.length; i++) {
+        if (productsInCart[i].id == event.target.dataset.id) {
+          productsInCart.splice(i, 1);
         }
-        updateShoppingCartHTML();
-        updateCart();
-        updatedataCart()
+      }
+      updateShoppingCartHTML();
+      updateCart();
+      updatedataCart();
     }
-
   });
 }
 
@@ -443,31 +430,28 @@ if (prdCart != null) {
   updateCart();
 }
 
-
 updateShoppingCartHTML();
 
 async function updatedataCart() {
-    try {
-      var product = JSON.parse(localStorage.getItem("shoppingCart"));
-      var arr = [];
-      for (let i = 0; i < product.length; i++) {
-        let obj = { productId: product[i].id, quantity: product[i].count };
-        arr[i] = obj;
-      }
-      const data = await $.ajax({
-        url: "/cart/cart",
-        type: "put",
-        data: {
-          prd: arr,
-        },
-        header: {},
-      });
-      if (data.status == 200) {
-        console.log(data.mess);
-      }
-    } catch (error) {
-      console.log(error);
+  try {
+    var product = JSON.parse(localStorage.getItem("shoppingCart"));
+    var arr = [];
+    for (let i = 0; i < product.length; i++) {
+      let obj = { productId: product[i].id, quantity: product[i].count };
+      arr[i] = obj;
     }
+    const data = await $.ajax({
+      url: "/cart/cart",
+      type: "put",
+      data: {
+        prd: arr,
+      },
+      header: {},
+    });
+    if (data.status == 200) {
+      console.log(data.mess);
+    }
+  } catch (error) {
+    console.log(error);
   }
-  
-
+}

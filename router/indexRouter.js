@@ -1,6 +1,6 @@
 const router = require("express").Router();
 var path = require("path");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 var productController = require("../controllers/ProductsController");
 const controller = require("../controllers/prdController");
 const {
@@ -58,36 +58,33 @@ router.get("/cart", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/order", async (req, res) => {  
-    try {
-        // console.log(63, req.cookies.user);
-        if(req.cookies.user != undefined){
-            const token = req.cookies.user;
-            const id = jwt.verify(token, "Auth").id
-            const products = await productController
-            .getAllProduct();
-            const types = await productController.getTypePrd();
-            const acc = await accountmodel.findOne({_id: id});
-            res.render("Order-Cart/order", {
-                products: products,
-                types: types,
-                acc: acc,
-              });
-        }else{
-            const products = await productController
-            .getAllProduct();
-            const types = await productController.getTypePrd();
-            const acc = {}
-            res.render("Order-Cart/order", {
-                products: products,
-                types: types,
-                acc: acc
-              });
-        }
-        
-    } catch (error) {
-        console.log(error);
+router.get("/order", async (req, res) => {
+  try {
+    // console.log(63, req.cookies.user);
+    if (req.cookies.user != undefined) {
+      const token = req.cookies.user;
+      const id = jwt.verify(token, "Auth").id;
+      const products = await productController.getAllProduct();
+      const types = await productController.getTypePrd();
+      const acc = await accountmodel.findOne({ _id: id });
+      res.render("Order-Cart/order", {
+        products: products,
+        types: types,
+        acc: acc,
+      });
+    } else {
+      const products = await productController.getAllProduct();
+      const types = await productController.getTypePrd();
+      const acc = {};
+      res.render("Order-Cart/order", {
+        products: products,
+        types: types,
+        acc: acc,
+      });
     }
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.get("/about-us/", controller.about_Us);
@@ -98,18 +95,18 @@ router.get("/contact", controller.contact);
 
 router.get("/store/", controller.store);
 
-// router.get("/show", (req, res) => {
-//   accountmodel
-//     // .deleteMany()
-//     .find()
+router.get("/show", (req, res) => {
+  accountmodel
+    // .deleteMany()
+    .find()
 
-//     .then((data) => {
-//       res.json(data);
-//     })
-//     .catch((err) => {
-//       res, json(err);
-//     });
-// });
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res, json(err);
+    });
+});
 // router.get("/delete", (req, res) => {
 //   accountmodel
 //     // .deleteMany()

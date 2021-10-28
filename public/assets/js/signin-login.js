@@ -75,7 +75,7 @@ async function sigup() {
     }
   } catch (error) {
     console.log(error);
-    // window.location.href = "/500";
+    window.location.href = "/500";
   }
 }
 function validate(password) {
@@ -113,25 +113,33 @@ async function login() {
       type: "POST",
       data: { username, password },
     });
-    if (res.status === 200) {
+    if (res) {
       setCookie("user", res.id, 30);
-    //   console.log(191, res.data.Cart);
-      const cart = res.data.Cart;
-      let productInCart = [];
-      for (let i = 0; i < cart.length; i++) {
-        let obj = {
-          basePrice: parseInt(cart[i].productId.price.split(",").join("")),
-          count: cart[i].quantity,
-          id: cart[i].productId._id,
-          name: cart[i].productId.name,
-          price: parseInt(cart[i].productId.price.split(",").join("")),
-          image: cart[i].productId.img[0],
-        };
-        productInCart.push(obj);
+      console.log(118, res.data._id);
+      const test = await $.ajax({
+        url: "/cart/check",
+        type: "post",
+        data: {
+          id: res.data._id,
+        },
+      });
+      if (test.status == 200) {
+        console.log(127, test.data.Cart);
+        const cart = test.data.Cart;
+        let productInCart = [];
+        for (let i = 0; i < cart.length; i++) {
+          let obj = {
+            basePrice: parseInt(cart[i].productId.price.split(",").join("")),
+            count: cart[i].quantity,
+            id: cart[i].productId._id,
+            name: cart[i].productId.name,
+            price: parseInt(cart[i].productId.price.split(",").join("")),
+            image: cart[i].productId.img[0],
+          };
+          productInCart.push(obj);
+        }
+        localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
       }
-      localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
-      // *******
-      
       $(".close").click();
       window.location.href = "/";
     } else {
@@ -211,6 +219,7 @@ function checklogin() {
     })
     .catch((err) => {
       window.location.href = "/500";
+      console.log(err);
     });
 }
 
@@ -225,8 +234,8 @@ async function logout() {
     });
     if (res.status === 200) {
       delete_cookie("user");
-      window.location.href = "/";
       localStorage.removeItem("shoppingCart");
+      window.location.href = "/";
     }
   } catch (error) {
     window.location.href = "/500";
