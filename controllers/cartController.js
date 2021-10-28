@@ -45,6 +45,8 @@ module.exports.postCart = async (req, res) => {
 // create order
 
 module.exports.postOrder = async (req, res, next) => {
+    var address = req.body.address;
+    var status = req.body.status;
   try {
     if (req.cookies.user != undefined) {
       const token = req.cookies.user;
@@ -57,6 +59,8 @@ module.exports.postOrder = async (req, res, next) => {
           userId: id,
           totalPrice: req.body.totalPrice,
           orderDate: Date.now().toString(),
+          address: address,
+          status: status,
         });
         if (data) {
           let prds = data.product;
@@ -79,33 +83,6 @@ module.exports.postOrder = async (req, res, next) => {
       } else {
         res.json({ status: 400, mess: "Chưa có sản phẩm trong giỏ hàng" });
       }
-    }
-  } catch (error) {
-    res.json(error);
-  }
-};
-
-module.exports.postAddress = async (req, res, next) => {
-  const address = req.body.address;
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  const phone = req.body.phone;
-  const token = req.cookies.user;
-  const id = jwt.verify(token, "Auth").id;
-
-  try {
-    const addressData = await UserAddressModel.findOne({ userId: id });
-    if (addressData) {
-      next();
-    } else {
-      UserAddressModel.create({
-        userId: id,
-        address: address,
-        firstName: firstName,
-        lastName: lastName,
-        phone: phone,
-      });
-      next();
     }
   } catch (error) {
     res.json(error);

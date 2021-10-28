@@ -170,11 +170,12 @@
           }
         }
         .prd-detail-right {
-            width: 100%;
-          display: grid;
-          grid-template-rows: 2fr 1fr 1fr 1fr;
+           display: flex;
+           flex-direction: column;
+           justify-content: space-around;
+           align-items: flex-start;
           .prd-detail-name {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
           }
           .prd-detail-price {
@@ -185,13 +186,20 @@
           .prd-detail-quantity {
             font-size: 16px;
             font-weight: 600;
-            color: #878929;
+            color: red;
+          }
+          .not_prd-detail{
+            font-size: 16px;
+            font-weight: 600;
+            color: #777;
           }
           
           .prd-detail-add {
             display: flex;
             width: 100%;
             height: 40px;
+            justify-content: center;
+            gap: 30px;
             .to-add {
                width: 200px;
               display: none;

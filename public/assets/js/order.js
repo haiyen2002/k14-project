@@ -5,12 +5,16 @@ async function listorder() {
     total += product[i].price;
   }
   //   console.log(total);
+  var address = $("#address").val()
+  var status = $("#order-comment").val()
   try {
     const data = await $.ajax({
       url: "/cart/order",
       type: "post",
       data: {
         totalPrice: total,
+        address: address,
+        status: status,
       },
     });
     if (data.status == 200) {

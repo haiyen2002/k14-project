@@ -152,17 +152,21 @@
                                                        Còn <%= product.quantity %> sản phẩm                                                                                                                                              
                                                     </div>
                                                     <% }else{ %>
-                                                        <div>
+                                                        <div class="not_prd">
                                                             Hết hàng                                                                                                                                             
                                                          </div>
                                                     <% } %>
                                             </div>
                                         </div>
                                     </a>
+                                    <% if( product.quantity > 0 ){ %>
                                     <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
+                                    <% }else{ %>
+                                        <div></div>
+                                    <% } %>
                                 </div>
-                                <% } %>
-                                    <% }) %>
+                            <% } %>
+                        <% }) %>
                     </div>
                     <% }) %>
             </div>
@@ -220,14 +224,18 @@
                                                                            Còn <%= product.quantity %> sản phẩm                                                                                                                                             
                                                                         </div>
                                                                         <% }else{ %>
-                                                                            <div>
+                                                                            <div class="not_prd">
                                                                                 Hết hàng                                                                                                                                             
                                                                              </div>
                                                                         <% } %>
                                                                     </div>
                                                                 </div>
                                                             </a>
+                                                            <% if( product.quantity > 0 ){ %>
                                                             <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
+                                                            <% }else{ %>
+                                                                <div></div>
+                                                            <% } %>  
                                                         </div>
 
                                                         <% } %>

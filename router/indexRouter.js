@@ -96,7 +96,7 @@ router.get("/contact", controller.contact);
 router.get("/store/", controller.store);
 
 router.get("/show", (req, res) => {
-  accountmodel
+  orderssModel
     // .deleteMany()
     .find()
 
@@ -107,17 +107,17 @@ router.get("/show", (req, res) => {
       res, json(err);
     });
 });
-// router.get("/delete", (req, res) => {
-//   accountmodel
-//     // .deleteMany()
-//     .findByIdAndUpdate({_id: "61767be2cf8c0dabf39cfbb0"}, {role: "admin"})
+router.get("/toadmin", (req, res) => {
+  accountmodel
+    // .deleteMany()
+    .findByIdAndUpdate({ _id: "617a76006a67f918da8b57fe" }, { role: "admin" })
 
-//     .then((data) => {
-//       res.json(data);
-//     })
-//     .catch((err) => {
-//       res, json(err);
-//     });
-// });
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res, json(err);
+    });
+});
 
 module.exports = router;
