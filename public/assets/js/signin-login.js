@@ -130,6 +130,7 @@ async function login() {
         productInCart.push(obj);
       }
       localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
+      $(".close").click();
       window.location.href = "/";
     } else {
       $(".modal-body").append(
