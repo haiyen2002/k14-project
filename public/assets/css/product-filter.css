@@ -92,3 +92,25 @@
 .display {
   display: none;
 }
+
+/* css pagination */
+.box-btnPage {
+  text-align: center;
+}
+
+.pagination > li > a, .pagination > li > span {
+  padding:14px 16px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  color: black !important;
+  font-weight: 600 !important;
+  background-color:white !important;
+}
+
+.pagination > li > a:hover {
+  background-color: #878929 !important;
+}
+
+.page-item.active .page-link{
+  background-color: #878929 !important;
+}
