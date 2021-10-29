@@ -43,6 +43,22 @@ router.post("/", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+router.post("/allproduct", (req, res) => {
+    const products = productController.getAllProduct()
+    .then(products => {
+      res.status(200).json({
+        products,
+        message: 'success'
+      })
+    })
+    .catch(err => {
+      res.status(500).json({
+        err: false,
+        message: 'Loi server'
+      })
+    })
+})
+
 router.get("/cart", (req, res) => {
   productController
     .getAllProduct()

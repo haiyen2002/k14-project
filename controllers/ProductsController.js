@@ -16,9 +16,21 @@ function findPrdByUserData(type, name){
 function findPrdByType(type){
     return ProductModel.find( { prd_key: { $regex: type, $options: 'i'}})
 }
+
+
+function customProduct(type, min, max){
+        return ProductModel.find({
+            $and: [
+                {prd_key: { $regex: type, $options: 'i'}},
+                {price: {$gte: min}},
+                {price: {$lt: max}}
+            ]
+        })
+}
 module.exports = {
     getAllProduct,
     getTypePrd,
     findPrdByUserData,
-    findPrdByType
+    findPrdByType,
+    customProduct
 }

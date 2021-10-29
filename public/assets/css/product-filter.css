@@ -20,10 +20,10 @@
   width: 80%;
 }
 
-.filter-col-3 {
+.filter-col-4 {
   display: flex;
   flex-direction: column;
-  width: 25%;
+  width: 33.333%;
 }
 
 /* filter left */

@@ -1,80 +1,111 @@
 <div class="products-filter__container">
-    <div class="filter-row">
-        <div class="filter-col filter-col-2-4">
-            <h4 class="title">Thể loại</h4>
-            <form action="">
-                <div class="filter-item">
-                    <input type="radio" name="category" id="" value='' class="filter-checkbox" checked >
-                    <label for="">All</label>
-                </div> 
-                    <% var distinct=[] %>
-                    <% types.forEach(type=> { %>
-                        <% distinct.push(type.split(",")[0]) %>
-                            <% }) %>
-                                <% var uniques=distinct.map(item=> item).filter((value, index, self) => self.indexOf(value) === index) %>
-                                   
-                    <% uniques.forEach(unique => { %>
-                        <div class="filter-item">
-                            <input type="radio" name="category" id="" value='<%= unique %>' class="filter-checkbox" >
-                            <label for=""><%= unique %></label>
-                        </div>
-                  <%  }) %>
-            </form>
-            <h4 class="title">Giá</h4>
-            <div class="price-filter">
-                <div class="filter-item">                
-                    <input type="radio" min="0" max="99999" name="price" id="vl1" class="price-checkbox">                     
-                    <label for="vl1">Dưới 100.000</label>
-                </div>
-                <div class="filter-item">
-                    <input type="radio"  min="100000" max="499999" name="price" id="vl2" class="price-checkbox">                     
-                    <label for="vl2">Từ 100.000 đến 500.000</label>
-                </div>
-                <div class="filter-item">
-                    <input type="radio"  min="500000" max="999999" name="price" id="vl3" class="price-checkbox">                     
-                    <label for="vl3">Từ 500.000 đến 1.000.000</label>
-                </div>
-                <div class="filter-item">
-                    <input type="radio" min="1000000" max="9999999" name="price" id="" class="price-checkbox"> 
-                    <label for="">Trên 1.000.000</label>
-                </div>
-            </div>
-            <h4 class="title">Thương hiệu</h4>
-            <div class="filter-item">
-                <input type="checkbox" name="" id="">
-                <label for="">HACHI</label>
-            </div>
-            <h4 class="title">Dung Tích</h4>
-            <div class="filter-item">
-                <div>
-                    <input type="checkbox" name="" id="">
-                <label for="">350ml</label>
-                </div>
-               <div>
-                <input type="checkbox" name="" id="">
-                <label for="">500ml</label>
-               </div>
-              <div>
-                <input type="checkbox" name="" id="">
-                <label for="">800ml</label>
-              </div>
-            </div>
+  <div class="filter-row">
+    <div class="filter-col filter-col-2-4">
+      <h4 class="title">Thể loại</h4>
+      <form action="">
+        <div class="filter-item">
+          <input
+            type="radio"
+            name="category"
+            id="all"
+            value=""
+            class="filter-checkbox"
+            checked
+          />
+          <label for="">All</label>
         </div>
-        <div class="filter-col filter-col-9-6">
-            <div class="product-filter__heading">
-                <h1>Danh Sách Sản Phẩm</h1>
-            </div>
-            <div class="filter-row filter-product-results">
-                <% products.forEach( product => { %>
-                    <%- include('../components/filter_product_card',
-                    {   image: product.img[0],
-                        name: product.name,
-                        price: product.price,
-                        id: product._id
-                    }
-                    ) -%>
-                <%}) %>
-            </div>
+        <% var distinct=[] %> <% types.forEach(type=> { %> <%
+        distinct.push(type.split(",")[0]) %> <% }) %> <% var
+        uniques=distinct.map(item=> item).filter((value, index, self) =>
+        self.indexOf(value) === index) %> <% uniques.forEach(unique => { %>
+        <div class="filter-item">
+          <input
+            type="radio"
+            name="category"
+            id=""
+            value="<%= unique %>"
+            class="filter-checkbox"
+          />
+          <label for=""><%= unique %></label>
         </div>
+        <% }) %>
+      </form>
+      <h4 class="title">Giá</h4>
+      <div class="price-filter">
+        <div class="filter-item">
+          <input
+            type="radio"
+            min="0"
+            max="99999"
+            name="price"
+            id="vl1"
+            class="price-checkbox"
+          />
+          <label for="vl1">Dưới 100.000</label>
+        </div>
+        <div class="filter-item">
+          <input
+            type="radio"
+            min="100000"
+            max="499999"
+            name="price"
+            id="vl2"
+            class="price-checkbox"
+          />
+          <label for="vl2">Từ 100.000 đến 500.000</label>
+        </div>
+        <div class="filter-item">
+          <input
+            type="radio"
+            min="500000"
+            max="999999"
+            name="price"
+            id="vl3"
+            class="price-checkbox"
+          />
+          <label for="vl3">Từ 500.000 đến 1.000.000</label>
+        </div>
+        <div class="filter-item">
+          <input
+            type="radio"
+            min="1000000"
+            max="9999999"
+            name="price"
+            id=""
+            class="price-checkbox"
+          />
+          <label for="">Trên 1.000.000</label>
+        </div>
+      </div>
+      <h4 class="title">Thương hiệu</h4>
+      <div class="filter-item">
+        <input type="checkbox" name="" id="" />
+        <label for="">HACHI</label>
+      </div>
+      <h4 class="title">Dung Tích</h4>
+      <div class="filter-item">
+        <div>
+          <input type="checkbox" name="" id="" />
+          <label for="">350ml</label>
+        </div>
+        <div>
+          <input type="checkbox" name="" id="" />
+          <label for="">500ml</label>
+        </div>
+        <div>
+          <input type="checkbox" name="" id="" />
+          <label for="">800ml</label>
+        </div>
+      </div>
     </div>
+    <div class="filter-col filter-col-9-6">
+      <div class="product-filter__heading">
+        <h1>Danh Sách Sản Phẩm</h1>
+      </div>
+      <div class="filter-row filter-product-results"></div>
+      <div class="row"></div>
+     
+    </div>
+  </div>
 </div>
+

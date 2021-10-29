@@ -109,6 +109,11 @@
   align-items: center;
 }
 
+.logo-header img {
+  height: 130px;
+  margin-bottom: -8px;
+}
+
 .main-right {
   display: flex;
   height: 100%;

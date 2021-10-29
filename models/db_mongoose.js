@@ -41,7 +41,7 @@ const Products = new Schema(
       },
     ],
     codeProduct: String,
-    price: String,
+    price: Number,
     quantity: String,
     prd_key: String,
     descriptionDetails: String,
