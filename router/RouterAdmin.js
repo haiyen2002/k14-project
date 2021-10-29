@@ -33,13 +33,83 @@ router.get("/listuser", async (req, res) => {
 });
 
 router.get("/listProducts", async (req, res) => {
-  const Showproduct = await model.ProductModel.find();
+  const Showproduct = await model.ProductModel.find().limit(9);
   if (Showproduct) {
     return res.render("admin/listProducts", {
       Showproduct,
     });
   }
 });
+
+router.get("/getPrd", async (req, res) => {
+  const resultPrd = await model.ProductModel.find();
+  if (resultPrd) {
+    return res.json(resultPrd.length);
+  }
+});
+router.get("/listProducts/pagination/", async (req, res) => {
+  let perPage = 9;
+  let page = req.query.page;
+  const Showproduct = await model.ProductModel.find()
+    .skip(perPage * page - perPage)
+    .limit(perPage);
+  if (Showproduct) {
+    return res.render("components/viewProducts", {
+      Showproduct,
+    });
+  }
+});
+
+router.get(
+  "/listProducts/:key",
+  check.checkLogin,
+  check.checkAdmin,
+  async (req, res) => {
+    if (req.params.key == "Tất cả") {
+      req.params.key = "";
+    }
+    const Showproduct = await model.ProductModel.find({
+      prd_key: { $regex: req.params.key },
+    });
+    if (Showproduct) {
+      return res.render("components/viewProducts", {
+        Showproduct,
+      });
+    }
+  }
+);
+
+router.get(
+  "/searchprd/:key",
+  check.checkLogin,
+  check.checkAdmin,
+  async (req, res) => {
+    const Showproduct = await model.ProductModel.find({
+      name: { $regex: req.params.key },
+    });
+    if (Showproduct.length == 0) {
+      return res.render("components/viewProducts", { Showproduct });
+    }
+    if (Showproduct.length != 0) {
+      return res.render("components/viewProducts", {
+        Showproduct,
+      });
+    }
+  }
+);
+router.get(
+  "/searchprd",
+  check.checkLogin,
+  check.checkAdmin,
+  async (req, res) => {
+    const Showproduct = await model.ProductModel.find({});
+    if (Showproduct) {
+      return res.render("components/viewProducts", {
+        Showproduct,
+      });
+    }
+  }
+);
 
 router.get("/addProducts", async (req, res) => {
   return res.render("admin/addProducts");
@@ -92,15 +162,6 @@ router.post("/updatenew", async (req, res) => {
     res.json({ status: 400, mess: "ok", dataressult });
   }
 });
-
-// router.post("/getdata", async (req, res) => {
-//   const checkdata = await model.ProductModel.findOne({
-//     _id: req.body._id,
-//   });
-//   if (checkdata) {
-//     res.json({ status: 200, mess: "Ok", checkdata });
-//   }
-// });
 
 router.delete("/:id", check.checkLogin, check.checkAdmin, async (req, res) => {
   try {
