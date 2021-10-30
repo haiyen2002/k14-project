@@ -21,7 +21,7 @@ $(".price-checkbox").each(function () {
 
 async function render(page) {
   // $(this).css("background-color","#878929 !important");
-  console.log(this);
+  // console.log(this);
   const res = await $.ajax({
     url: `filter/${page}`,
     type: "POST",

@@ -1,0 +1,25 @@
+.filter-mobile-head {
+    text-align: center;
+}
+
+.filter-head__nav span {
+    color: black;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.filter-head__nav a {
+    color: rgba(102,102,102,0.7);
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.filter-head__box {
+    margin: 20px;
+}
+
+@media (max-width: 849px) {
+    .filter-col.filter-col-2-4 {
+       display: none;
+   }
+  }

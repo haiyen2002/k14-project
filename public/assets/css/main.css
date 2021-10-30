@@ -407,6 +407,11 @@
 @media (max-width: 549px) {
   .main-banner .main-banner__image {
     display: block !important;
+    margin-top: -20px;
+  }
+
+  .product-card_item {
+    width: 100% !important;
   }
 
   .main-banner__image a {
