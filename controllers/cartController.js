@@ -9,9 +9,8 @@ const jwt = require("jsonwebtoken");
 // update cart
 module.exports.postCart = async (req, res) => {
   try {
-    if (req.cookies.user) {
-      const token = req.cookies.user;
-      const id = jwt.verify(token, "Auth").id;
+    const userId = req.user._id;
+    if (userId) {
       const keys = Object.keys(req.body);
       const productInfo = keys.filter((ele) => {
         return ele.includes("prd");
@@ -24,7 +23,7 @@ module.exports.postCart = async (req, res) => {
         });
       }
       const data = await accountmodel.findOneAndUpdate(
-        { _id: id },
+        { _id: userId },
         {
           Cart: product,
         }
@@ -45,22 +44,17 @@ module.exports.postCart = async (req, res) => {
 // create order
 
 module.exports.postOrder = async (req, res, next) => {
-    var address = req.body.address;
-    var status = req.body.status;
   try {
-    if (req.cookies.user != undefined) {
-      const token = req.cookies.user;
-      const id = jwt.verify(token, "Auth").id;
-      const cart = await accountmodel.findOne({ _id: id });
-      //   console.log(cart.Cart.length);
-      if (cart.Cart.length > 0) {
+    const userId = req.user._id;
+    if (userId) {
+      const user = await accountmodel.findOne({ _id: userId });
+      if (user.Cart.length > 0) {
         const data = await orderssModel.create({
-          product: cart.Cart,
-          userId: id,
+          product: user.Cart,
+          userId: userId,
           totalPrice: req.body.totalPrice,
           orderDate: Date.now().toString(),
-          address: address,
-          status: status,
+          address: req.body.address,
         });
         if (data) {
           let prds = data.product;
