@@ -66,28 +66,28 @@ async function render(page) {
   if(pages > 0){
     $('.row').append(`
       <nav class="mx-auto">
-      <ul class="pagination" style="margin-top: 2rem">
+      <ul class="pagination-filter" style="margin-top: 2rem">
       </ul>
       </nav>
     `);
     //first item
     if(current == 1){
-      $('.pagination').append(`
+      $('.pagination-filter').append(`
       <li class="page-item disabled">
-        <a class="page-link">First</a>
+        <a class="page-link"><i class="fas fa-fast-backward"></i></a>
       </li>
       `)
     }else{
-      $('.pagination').append(`
+      $('.pagination-filter').append(`
       <li class="page-item">
-        <a class="page-link" onclick="render(1)">First</a>
+        <a class="page-link" onclick="render(1)"><i class="fas fa-fast-backward"></i></a>
       </li>
       `)
     }
     //item
     var i = (Number(current) > 2 ? Number(current) - 1 : 1);
     if(i !== 1) {
-      $('.pagination').append(`
+      $('.pagination-filter').append(`
       <li class="page-item disabled">
         <a class="page-link">...</a>
       </li>
@@ -95,13 +95,13 @@ async function render(page) {
     }
     for(; i <= (Number(current) + 1) && i <= pages; i++) {
       if(i == current) {
-        $('.pagination').append(`
+        $('.pagination-filter').append(`
         <li class="page-item active">
           <a class="page-link" onclick="render(${i})"> ${i} </a>
         </li>
         `)
       }else {
-        $('.pagination').append(`
+        $('.pagination-filter').append(`
         <li class="page-item">
           <a class="page-link" onclick="render(${i})"> ${i} </a>
         </li>
@@ -118,15 +118,15 @@ async function render(page) {
     }
     //last item
     if(current == pages) {
-      $('.pagination').append(`
+      $('.pagination-filter').append(`
       <li class="page-item disabled">
-        <a class="page-link"> Last </a>
+        <a class="page-link"> <i class="fas fa-fast-forward"></i> </a>
       </li>
       `)
     }else{
-      $('.pagination').append(`
+      $('.pagination-filter').append(`
       <li class="page-item">
-        <a class="page-link" onclick="render(${pages})"> Last </a>
+        <a class="page-link" onclick="render(${pages})"> <i class="fas fa-fast-forward"></i> </a>
       </li>
       `)
     }

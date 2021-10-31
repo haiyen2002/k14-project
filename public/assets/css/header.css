@@ -322,6 +322,9 @@
 }
 
 @media (max-width: 849px) {
+  .nav_item_icon {
+    display: inline-block;
+  }
   .header-top_wrap {
     display: none;
   }
@@ -391,6 +394,9 @@
     padding: 70px 15px 0;
     max-width: 849px;
     margin: 0 auto;
+  }
+  .nav_item_icon {
+    display: inline-block;
   }
 }
 

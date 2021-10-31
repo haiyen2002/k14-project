@@ -45,7 +45,6 @@ router.post("/:page", async (req, res) => {
     const max = req.body.max;
 
     //get all type
-
     //lay product ung vơi type min max
     productController
       .customProduct(type, min, max)

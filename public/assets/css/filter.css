@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.filter-head__nav {
+    text-align: left;
+    padding-left: 30px;
+}
+
 .filter-head__nav span {
     color: black;
     font-weight: normal;
@@ -16,10 +21,19 @@
 
 .filter-head__box {
     margin: 20px;
+    display: none;
 }
 
 @media (max-width: 849px) {
     .filter-col.filter-col-2-4 {
        display: none;
    }
+
+   .search-mobile-filter {
+       margin: 0;
+   }
+
+   .filter-head__box {
+    display: block;
+}
   }
