@@ -133,28 +133,32 @@
                         <% }) %>
                     </ul>
                 </div>
-                <% types.forEach(type=> { %>
+                <% uniques.forEach(type=> { %>
                     <div class="section-list-product">
+                        <% var count = 1 %> 
                         <% products.forEach(product=> { %>
-                            <% if (product.prd_key==type ){ %>
-                                <div class="product-card product-card_item">
-                                    <a   href="/product/detail/<%= product._id %>">
-                                        <div class="product-card_info">
-                                            <div class="product-card_img">
-                                                <img class="img-prd" src=<%=product.img[0] %> alt="">
-                                            </div>
-                                            <div class="product-card_text">
-                                                <div class="product-card_title">
-                                                    <%= product.name %>
+                            <% if (product.prd_key.includes(type) ){ %>
+                                <% count++ %>
+                                <% if(count <=6 ){ %>
+                                    <div class="product-card product-card_item">
+                                        <a   href="/product/detail/<%= product._id %>">
+                                            <div class="product-card_info">
+                                                <div class="product-card_img">
+                                                    <img class="img-prd" src=<%=product.img[0] %> alt="">
                                                 </div>
-                                                <div class="product-card_price">
-                                                    <%= product.price.toLocaleString() %>đ
+                                                <div class="product-card_text">
+                                                    <div class="product-card_title">
+                                                        <%= product.name %>
+                                                    </div>
+                                                    <div class="product-card_price">
+                                                        <%= product.price.toLocaleString() %>đ
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                    <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
-                                </div>
+                                        </a>
+                                        <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
+                                    </div>
+                                <% } %>  
                                 <% } %>
                                     <% }) %>
                     </div>
@@ -375,3 +379,4 @@
 
     </div>
 </div>
+
