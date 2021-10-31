@@ -166,6 +166,22 @@ $(".owl-carousel").owlCarousel({
   },
 });
 
+//search
+const inputdata = document.getElementById("input_search");
+var selected = $(".select-box").val();
+
+$(".select-box").on("change", () => {
+  selected = $(".select-box").val();
+});
+inputdata.addEventListener("keyup", (e) => {
+  $(".select-overlay-bottom").html("");
+  showResult(e.target.value);
+});
+
+//resize with select type
+// $("#width_tmp_option").html($('.select-box').find(':selected').text());
+// $('.select-box').width(60);
+
 // MODAL-MOBILE**********
 
 $(".main-mobile-item").on("click", () => {
