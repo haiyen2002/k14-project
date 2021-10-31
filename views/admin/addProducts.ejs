@@ -193,8 +193,18 @@
             }
 
         };
-
     </script>
     <script src="../../public/assets/js/Adminedit.js"></script>
+    <script>
+        if (window.screen.availWidth < 1920) {
+            try {
+                const resultbtn = $(".sidebar-icon")[0];
+                resultbtn.click();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+    </script>
 
 </html>

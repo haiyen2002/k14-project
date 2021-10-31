@@ -43,7 +43,23 @@ async function getusername() {
     window.location.href = "/500";
   }
 }
-
+async function logout() {
+  try {
+    const res = await $.ajax({
+      url: "/user/logout",
+      type: "POST",
+    });
+    if (res.status === 200) {
+      delete_cookie("user");
+      window.location.href = "/";
+    }
+  } catch (error) {
+    window.location.href = "/500";
+  }
+}
+function delete_cookie(name) {
+  document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+}
 async function update() {
   const usernamefocus = await getusername().then((data) => {
     return data;
@@ -66,7 +82,16 @@ async function update() {
       data: { username: usernamefocus, password: passnew },
     });
     if (changepass) {
-      window.location.href = "/";
+      try {
+        const res = await $.ajax({
+          url: "/user/logout",
+          type: "POST",
+        });
+        if (res.status == 200) {
+          delete_cookie("user");
+          window.location.href = "/";
+        }
+      } catch (error) {}
     }
   }
 }

@@ -39,14 +39,19 @@ async function ClikSend() {
 }
 
 async function Update_Role(id) {
-  const roleUpdate = await $("select[name='role'] option:selected")
-    .text()
-    .replace("user", "");
+  const roleUpdate = await $("select[id='role'] option:selected").text();
+  var role = "";
+  if (roleUpdate.includes("user")) {
+    role = "user";
+  } else {
+    role = "admin";
+  }
   const result = await $.ajax({
     url: "/check/updateUser/" + id,
     type: "PUT",
-    data: { role: roleUpdate },
+    data: { role: role },
   });
+  console.log(result);
   if (result.status == 200) {
     $(".modal__close")[0].click();
     window.location.reload();
@@ -147,3 +152,84 @@ async function deleteProduct(id) {
     alert(result.mess);
   }
 }
+
+async function changevalue() {
+  const datavalueselect =
+    document.querySelector("#classify_prd")[
+      document.querySelector("#classify_prd").selectedIndex
+    ].text;
+  if (datavalueselect == "Chăm sóc da") {
+    $(".pageList").html("");
+    const getresult = await $.ajax({
+      type: "GET",
+      url: "/check/listProducts/" + datavalueselect,
+    });
+    $(".showPrds").html(getresult);
+  } else if (datavalueselect == "Chăm sóc tóc") {
+    $(".pageList").html("");
+    const getresult = await $.ajax({
+      type: "GET",
+      url: "/check/listProducts/" + datavalueselect,
+    });
+    $(".showPrds").html(getresult);
+  } else if (datavalueselect == "Tất cả") {
+    render();
+  }
+}
+async function searchPrd() {
+  if ($("input").val() != "") {
+    $(".pageList").html("");
+    const result = await $.ajax({
+      type: "GET",
+      url: "/check/searchprd/" + $("input").val().toUpperCase(),
+    });
+    console.log(result);
+    $(".showPrds").html(result);
+    if ($("tr").length <= 1) {
+      $(".show_prds").append(
+        `<span style ="display: block;padding: 70px 0;text-align: center; font-size: xx-large;margin: auto;" class="ouput_search"> No valid data found  </span>`
+      );
+    }
+  }
+  if ($("input").val() == "") {
+    render();
+    changePage(1);
+  }
+}
+
+async function render() {
+  const renderdata = await $.ajax({
+    type: "GET",
+    url: "/check/getPrd",
+  });
+  if (renderdata) {
+    const totalPage = Math.ceil(renderdata / 9);
+    $(".pageList").html("");
+    for (let i = 1; i <= totalPage; i++) {
+      const pageButton = `
+        <button onclick='changePage(${i})'>${i}</button>
+        `;
+      $(".pageList").append(pageButton);
+    }
+  }
+}
+render();
+changePage(1);
+async function changePage(page) {
+  try {
+    const search =
+      document.querySelector("#classify_prd")[
+        document.querySelector("#classify_prd").selectedIndex
+      ].text;
+    const data = await $.ajax({
+      url: `/check/listProducts/pagination/?page=${page}&search=${search}`,
+      type: "GET",
+    });
+    console.log(data);
+    $(".showPrds").html(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function kiemtrahang() {}

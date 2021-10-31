@@ -36,7 +36,6 @@
                         <h3>Sản phẩm chăm sóc da chiết xuất từ thiên nhiên</h3>
                         <p>xem thêm</p>
                     </div>
-
                 </div>
             </a>
             <a href="">
@@ -99,11 +98,7 @@
                     </div>
                 </a>
             </div>
-
         </div>
-
-
-
     </div>
     <div class="line-devide"></div>
 
@@ -121,13 +116,21 @@
             <div class="section-body">
                 <div class="nav-product-popular">
                     <ul>
+                        <% var distinct=[] %>
                         <% types.forEach(type=> { %>
+                            <%type = type.trim()%>
+                            <% distinct.push(type.split(",")[0]) %>
+                                <% }) %>
+                                    <% var uniques=distinct.map(item=> item) .filter((value, index, self) =>
+                                        self.indexOf(value) === index) %>
+                                    %>
+                        <% uniques.forEach(type=> { %>
                             <li class="nav-product-popular__item">
                                 <a>
-                                    <%= type.split(",")[1] %>
+                                    <%= type %>
                                 </a>
                             </li>
-                            <% }) %>
+                        <% }) %>
                     </ul>
                 </div>
                 <% types.forEach(type=> { %>
@@ -145,7 +148,7 @@
                                                     <%= product.name %>
                                                 </div>
                                                 <div class="product-card_price">
-                                                    <%= product.price %>
+                                                    <%= product.price.toLocaleString() %>đ
                                                 </div>
                                                 <% if( product.quantity > 0 ){ %>
                                                     <div class="product-card_quantity">
@@ -181,73 +184,49 @@
         </div>
         <div class="section">
             <div class="section-body">
-                <% var distinct=[] %>
-                    <% types.forEach(type=> { %>
-                        <% distinct.push(type.split(",")[0]) %>
-                            <% }) %>
-                                <% var uniques=distinct.map(item=> item) .filter((value, index, self) =>
-                                    self.indexOf(value) === index) %>
-                                    %>
-                                    <div id="slider">
-                                        <% uniques.forEach((unique,index)=> { %>
-                                            <div class="section-head">
-                                                <div class="section-title">
-                                                    <h1>
-                                                        <%= unique %>
-                                                    </h1>
-                                                </div>
-                                                <div class="sub-title">
-                                                    Sản phẩm <%= unique %> nổi bật, chiết xuất thiên nhiên
-                                                </div>
-                                                <div class="line"></div>
-                                            </div>
-                                            <div id="owl-<%= index %>" class="owl-carousel owl-theme">
-
-                                                <% products.forEach(product=> { %>
-
-                                                    <% if(product.prd_key.split(",")[0]==unique){ %>
-                                                        <div class="item product-card_item">
-                                                            <a href="/product/detail/<%= product._id %>">
-                                                                <div class="product-card_info">
-                                                                    <div class="product-card_img">
-                                                                        <img class="img-prd" src=<%=product.img[0] %>>
-                                                                    </div>
-                                                                    <div class="product-card_text">
-                                                                        <div class="product-card_title">
-                                                                            <%= product.name %>
-                                                                        </div>
-                                                                        <div class="product-card_price">
-                                                                            <%= product.price %>
-                                                                        </div>
-                                                                        <% if( product.quantity > 0 ){ %>
-                                                                        <div class="product-card_quantity">
-                                                                           Còn <%= product.quantity %> sản phẩm                                                                                                                                             
-                                                                        </div>
-                                                                        <% }else{ %>
-                                                                            <div class="not_prd">
-                                                                                Hết hàng                                                                                                                                             
-                                                                             </div>
-                                                                        <% } %>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <% if( product.quantity > 0 ){ %>
-                                                            <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
-                                                            <% }else{ %>
-                                                                <div></div>
-                                                            <% } %>  
+                <div id="slider">
+                    <% uniques.forEach((unique,index)=> { %>
+                        <div class="section-head">
+                            <div class="section-title">
+                                <h1>
+                                    <%= unique %>
+                                    </h1>
+                            </div>
+                            <div class="sub-title">
+                                Sản phẩm <%= unique %> nổi bật, chiết xuất thiên nhiên
+                            </div>
+                            <div class="line"></div>
+                            </div>
+                                <div id="owl-<%= index %>" class="owl-carousel owl-theme">
+                                    <% products.forEach(product=> { %>
+                                        <% if(product.prd_key.split(",")[0]==unique){ %>
+                                            <div class="item product-card_item">
+                                                <a href="/product/detail/<%= product._id %>">
+                                                    <div class="product-card_info">
+                                                        <div class="product-card_img">
+                                                            <img class="img-prd" src=<%=product.img[0] %>>
                                                         </div>
+                                                        <div class="product-card_text">
+                                                            <div class="product-card_title">
+                                                                <%= product.name %>
+                                                            </div>
+                                                        <div class="product-card_price">
+                                                            <%= product.price.toLocaleString() %>đ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                             <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
+                                        </div>
 
-                                                        <% } %>
-                                                            <% }) %>
-                                            </div>
-                                            <% }) %>
-
+                                            <% } %>
+                                        <% }) %>
                                     </div>
+                                <% }) %>
+                                 </div>
+                            </div>
 
-            </div>
-
-        </div>
+                        </div>
 
         <div class="section">
             <div class="section-head">
