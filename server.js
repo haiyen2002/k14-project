@@ -2,23 +2,27 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const {
-    ProductModel,
-    accountmodel,
-    cartModel,
-    orderssModel,
-  } = require("./models/db_mongoose");
+  ProductModel,
+  accountmodel,
+  cartModel,
+  orderssModel,
+} = require("./models/db_mongoose");
 var cookieParser = require("cookie-parser");
 // const bodyParser = require("body-parser");
 var multer = require("multer");
 require("dotenv").config();
 var port = 3000;
 app.set("view engine", "ejs");
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
 app.set("view engine", "ejs");
 app.set("views", "views");
+
+const { checkUser } = require("./middlewares/checkUser");
+// user = req.user
+app.use(checkUser);
 
 var indexRouter = require("./router/indexRouter");
 var filterRouter = require("./router/filterRouter");
@@ -37,7 +41,6 @@ app.use("/user", UserRouter);
 app.use("/product", productRouter);
 app.use("/admin", RouterHome);
 app.use("/check", Router);
-
 
 app.get("/admin/login", async (req, res) => {
   try {

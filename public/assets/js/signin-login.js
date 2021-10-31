@@ -115,6 +115,7 @@ async function login() {
     });
     if (res) {
       setCookie("user", res.id, 30);
+      alert("ok");
       console.log(118, res.data._id);
       const test = await $.ajax({
         url: "/cart/check",
@@ -129,11 +130,11 @@ async function login() {
         let productInCart = [];
         for (let i = 0; i < cart.length; i++) {
           let obj = {
-            basePrice: parseInt(cart[i].productId.price.split(",").join("")),
+            basePrice: parseInt(cart[i].productId.price.replace(/,/g, "")),
             count: cart[i].quantity,
             id: cart[i].productId._id,
             name: cart[i].productId.name,
-            price: parseInt(cart[i].productId.price.split(",").join("")),
+            price: parseInt(cart[i].productId.price.replace(/,/g, "")),
             image: cart[i].productId.img[0],
           };
           productInCart.push(obj);

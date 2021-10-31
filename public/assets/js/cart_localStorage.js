@@ -22,73 +22,29 @@ const order_content = document.querySelector(".content-items");
 const order_buy = document.querySelector(".prd-buy-items");
 const order_price = document.querySelector(".total-price");
 
-// PRODUCT - DETAIL //
-// const prd_detail = document.querySelector(".product-detail");
-
-// if (prd_detail != null) {
-//   prd_detail.addEventListener("click", (event) => {
-//     if (event.target.classList.contains("to-add")) {
-//       const prdID = event.target.dataset.prdId;
-//       const prdName = prd_detail.querySelector(".prd-detail-name").innerHTML;
-//       const prdImg = prd_detail.querySelector(".prd-detail-img").src;
-//       const prdPriceS = prd_detail.querySelector(".prd-detail-price").innerHTML;
-//       const prdPrice = parseInt(prdPriceS.split(",").join(""));
-//       let product = {
-//         name: prdName,
-//         image: prdImg,
-//         id: prdID,
-//         count: 1,
-//         price: prdPrice,
-//         basePrice: prdPrice,
-//       };
-//       updateProductsInCart(product);
-//       updateShoppingCartHTML();
-//       if (prdCart != null) {
-//         updateCart();
-//       }
-//     }
-//   });
-// }
-
 //   1
 products.forEach((ele) => {
   ele.addEventListener("click", (event) => {
-    if (ele.querySelector(".product-card_quantity") != null) {
-      const solg = parseInt(
-        ele
-          .querySelector(".product-card_quantity")
-          .innerHTML.trim()
-          .split(" ")[1]
-      );
-      if (solg > 0) {
-        if (event.target.classList.contains("add-to-cart")) {
-          const productID = event.target.dataset.productId;
-          const productName = ele.querySelector(
-            ".product-card_title"
-          ).innerHTML;
-          const productPriceS = ele.querySelector(
-            ".product-card_price"
-          ).innerHTML;
-          const productImg = ele.querySelector(".img-prd").src;
-          const productPrice = parseInt(productPriceS.split(",").join(""));
-          let product = {
-            name: productName,
-            image: productImg,
-            id: productID,
-            count: 1,
-            price: productPrice,
-            basePrice: productPrice,
-          };
-          updateProductsInCart(product);
-          updateShoppingCartHTML();
-          updatedataCart();
-          if (prdCart != null) {
-            updateCart();
-          }
-        }
+    if (event.target.classList.contains("add-to-cart")) {
+      const productID = event.target.dataset.productId;
+      const productName = ele.querySelector(".product-card_title").innerHTML;
+      const productPriceS = ele.querySelector(".product-card_price").innerHTML;
+      const productImg = ele.querySelector(".img-prd").src;
+      const productPrice = parseInt(productPriceS.replace(/,/g, ""));
+      let product = {
+        name: productName,
+        image: productImg,
+        id: productID,
+        count: 1,
+        price: productPrice,
+        basePrice: productPrice,
+      };
+      updateProductsInCart(product);
+      updateShoppingCartHTML();
+      updatedataCart();
+      if (prdCart != null) {
+        updateCart();
       }
-    } else {
-      console.log("het hang");
     }
   });
 });
@@ -97,9 +53,9 @@ products.forEach((ele) => {
 function updateProductsInCart(product) {
   for (let i = 0; i < productsInCart.length; i++) {
     if (productsInCart[i].id == product.id) {
-      productsInCart[i].count += 1;
-      productsInCart[i].price =
-        productsInCart[i].count * productsInCart[i].basePrice;
+      productsInCart[i].count += 0;
+      //   productsInCart[i].price =
+      //     productsInCart[i].count * productsInCart[i].basePrice;
       return productsInCart[i];
     }
   }
@@ -338,7 +294,7 @@ parentElement.addEventListener("click", (event) => {
           console.log(error);
         }
       }
-      setCount(productsInCart[i].id);
+      setCount(event.target.dataset.id);
     }
     updateShoppingCartHTML();
     if (prdCart != null) {
