@@ -78,6 +78,7 @@ async function update() {
         return data;
       });
       const linkavt = ("/" + res.link).replace(`\\`, "/");
+      console.log(linkavt);
       const dataresults = await $.ajax({
         url: "/user/updatenew",
         type: "POST",

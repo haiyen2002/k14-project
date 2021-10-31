@@ -36,7 +36,6 @@
                         <h3>Sản phẩm chăm sóc da chiết xuất từ thiên nhiên</h3>
                         <p>xem thêm</p>
                     </div>
-
                 </div>
             </a>
             <a href="">
@@ -99,11 +98,7 @@
                     </div>
                 </a>
             </div>
-
         </div>
-
-
-
     </div>
     <div class="line-devide"></div>
 
@@ -121,13 +116,21 @@
             <div class="section-body">
                 <div class="nav-product-popular">
                     <ul>
+                        <% var distinct=[] %>
                         <% types.forEach(type=> { %>
+                            <%type = type.trim()%>
+                            <% distinct.push(type.split(",")[0]) %>
+                                <% }) %>
+                                    <% var uniques=distinct.map(item=> item) .filter((value, index, self) =>
+                                        self.indexOf(value) === index) %>
+                                    %>
+                        <% uniques.forEach(type=> { %>
                             <li class="nav-product-popular__item">
                                 <a>
                                     <%= type.split(",")[1] %>
                                 </a>
                             </li>
-                            <% }) %>
+                        <% }) %>
                     </ul>
                 </div>
                 <% types.forEach(type=> { %>
@@ -145,7 +148,7 @@
                                                     <%= product.name %>
                                                 </div>
                                                 <div class="product-card_price">
-                                                    <%= product.price %>
+                                                    <%= product.price.toLocaleString() %>đ
                                                 </div>
                                                 <% if( product.quantity > 0 ){ %>
                                                     <div class="product-card_quantity">
@@ -237,17 +240,27 @@
                                                                 <div></div>
                                                             <% } %>  
                                                         </div>
+                                                        <div class="product-card_text">
+                                                            <div class="product-card_title">
+                                                                <%= product.name %>
+                                                            </div>
+                                                        <div class="product-card_price">
+                                                            <%= product.price.toLocaleString() %>đ
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                             <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
+                                        </div>
 
-                                                        <% } %>
-                                                            <% }) %>
-                                            </div>
-                                            <% }) %>
-
+                                            <% } %>
+                                        <% }) %>
                                     </div>
+                                <% }) %>
+                                 </div>
+                            </div>
 
-            </div>
-
-        </div>
+                        </div>
 
         <div class="section">
             <div class="section-head">

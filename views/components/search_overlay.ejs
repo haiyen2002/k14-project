@@ -5,7 +5,7 @@
     <div class="select-overlay-top">
         <div class="select-types">
             <select class="select-box">
-                <option>All</option>
+                <option value="">All</option>
                 <% var distinct=[] %>
                     <% types.forEach(type=> { %>
                         <% distinct.push(type.split(",")[0]) %>
@@ -14,14 +14,14 @@
                                     self.indexOf(value) === index) %>
                                     %>
                                     <% uniques.forEach(type=> { %>
-                                        <option class="list-option">
+                                        <option value='<%= type.split(",")[0] %>' class="list-option">
                                             <%= type.split(",")[0] %>
                                         </option>
                                         <% }) %>
             </select>
         </div>
         <div class="input-groups">
-            <input id="input_search" autocomplete="off" type="text" placeholder="Tìm kiếm" >
+            <input id="input_search" autocomplete="off" type="text" placeholder="Tìm kiếm">
             <span><i class="fas fa-search"></i></span>
         </div>
     </div>
