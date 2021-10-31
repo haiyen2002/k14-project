@@ -207,6 +207,10 @@ function checklogin() {
             <a class="dropdown-item" href="/changepass" >Change Password</a>
         </li>
         <li>
+        <i class="fas fa-shopping-bag"></i>
+            <a class="dropdown-item" href="/user-order" >Đơn mua</a>
+        </li>
+        <li>
         <i class="fas fa-sign-out-alt"></i>
             <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
         </li>

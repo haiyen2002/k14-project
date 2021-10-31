@@ -10,12 +10,24 @@
       <div class="product-filter-card__price product-card_price">
         <%= price %>
       </div>
+      <% if( quantity > 0 ){ %>
       <div class="product-card_quantity">
         Còn <%= quantity %> sản phẩm
      </div>
+     <% }else{ %>
+        <div class="product-card_quantity not_prd-detail">
+            Hết hàng                                                                                                                                             
+        </div>
+    <% } %>
     </div>
   </a>
+  <% if( quantity > 0 ){ %>
   <button class="add-to-cart" data-product-id="<%= id %>">
     <i class="fas fa-cart-plus"></i> Thêm vào giỏ
   </button>
+  <% }else{ %>
+    <div>
+                                                                                                                                               
+    </div>
+<% } %>
 </div>

@@ -46,7 +46,7 @@ router.get("/addProducts", async (req, res) => {
 });
 
 router.get("/listOrders", async (req, res) => {
-  const showorders = await model.orderssModel.find();
+  const showorders = await model.orderssModel.find().populate("userId");
   const prd = await model.ProductModel.find();
   const address = await addressUser.find();
   if (showorders) {
