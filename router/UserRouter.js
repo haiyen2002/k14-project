@@ -10,7 +10,7 @@ const fs = require("fs");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../public/uploads"));
+    cb(null, path.join(__dirname, "../public/images/"));
   },
   filename: function (req, file, cb) {
     const ext = path.extname(file.originalname);
@@ -173,8 +173,9 @@ router.post(
   upload.single("thumbnail"),
   async function (req, res, next) {
     try {
-      let index = req.file.path.split("uploads");
-      let link = "public/uploads" + index[1];
+      let index = req.file.path.split("images");
+      let link = "public/images" + index[1];
+      console.log(link);
       res.json({ status: 200, mess: "success", link });
     } catch (error) {
       res.json({ status: 500, mess: "loi server", error });
