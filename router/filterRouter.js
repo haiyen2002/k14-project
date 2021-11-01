@@ -43,16 +43,17 @@ router.post("/:page", async (req, res) => {
     const type = req.body.type;
     const min = req.body.min;
     const max = req.body.max;
-
+    const textF = req.body.textF;
+  
     //get all type
     //lay product ung vơi type min max
     productController
-      .customProduct(type, min, max)
+      .customProduct(type, min, max, textF)
       .skip(perPage * page - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
       .limit(perPage)
       .exec((err, products) => {
         productController
-          .customProduct(type, min, max)
+          .customProduct(type, min, max, textF)
           .countDocuments((err, count) => {
             // đếm để tính có bao nhiêu trang
             // if (err) return next(err);
