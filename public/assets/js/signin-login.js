@@ -193,7 +193,7 @@ function checklogin() {
         background-color: white;"><a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
         data-mdb-toggle="dropdown" aria-expanded="false">
         <img src="${resultdata.avatar}" style="margin-right: 10px;
-        height: 30px;" class="rounded-circle" height="25" alt=""
+        height: 30px; width: 30px" class="rounded-circle" height="25" alt=""
             loading="lazy"/>
         </a>
         <span data-mdb-toggle="dropdown" style="line-height: 30px;">${
