@@ -109,7 +109,7 @@ const updateShoppingCartHTML = function () {
       <div class="buy-sumPrice">${countTheSumPrice() + "đ"}</div>
       </div>
     `;
-    countSumCart.innerHTML = countTheSumPrd();
+    countSumCart.innerHTML = productsInCart.length;
   } else {
     parentElement.innerHTML = `
     <div class="empty">
