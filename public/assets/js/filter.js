@@ -2,6 +2,7 @@ var type = "";
 var min = 0;
 var max = 100000000;
 var page = 1;
+var textF = "";
 
 $(".filter-checkbox").each(function () {
   document.getElementById("all").click();
@@ -19,6 +20,12 @@ $(".price-checkbox").each(function () {
   });
 });
 
+$(".search-icon-filter").on('click',()=>{
+  textF = $("input#search-input-filter").val()
+  render(page);
+})
+
+
 async function render(page) {
   // $(this).css("background-color","#878929 !important");
   // console.log(this);
@@ -29,6 +36,7 @@ async function render(page) {
       type,
       min,
       max,
+      textF
     },
   });
   //lấy sản phẩm trả về tương ứng với page, type, min , max

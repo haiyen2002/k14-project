@@ -18,12 +18,13 @@ function findPrdByType(type){
 }
 
 
-function customProduct(type, min, max){
+function customProduct(type, min, max, textF){
         return ProductModel.find({
             $and: [
                 {prd_key: { $regex: type, $options: 'i'}},
                 {price: {$gte: min}},
-                {price: {$lt: max}}
+                {price: {$lt: max}},
+                {name: { $regex: textF, $options: 'i'}}
             ]
         })
 }
