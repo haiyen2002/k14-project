@@ -1,63 +1,134 @@
-$(document).ready(function () {
-  var type = "";
-  var priceMin = 0;
-  var priceMax = 100000000;
-  var products;
-  $.ajax({
-    url: `/filter/`,
-    method: "POST",
-    data: { type },
-  })
-    .then((res) => {
-      products = res.products;
-    })
-    .catch((err) => console.log(err));
-  $(".filter-checkbox").each(function () {
-    $(this).on("click", () => {
-      type = $(this).val();
-      $.ajax({
-        url: `/filter/`,
-        method: "POST",
-        data: { type },
-      })
-        .then((res) => {
-          products = res.products;
-          render();
-        })
-        .catch((err) => console.log(err));
-    });
+var type = "";
+var min = 0;
+var max = 100000000;
+var page = 1;
+
+$(".filter-checkbox").each(function () {
+  document.getElementById("all").click();
+  $(this).on("click", () => {
+    type = $(this).val();
+    render(page);
   });
-  $(".price-checkbox").each(function () {
-    $(this).on("click", () => {
-      priceMin = $(this).attr("min");
-      priceMax = $(this).attr("max");
-      render();
-    });
+});
+
+$(".price-checkbox").each(function () {
+  $(this).on("click", () => {
+    min = $(this).attr("min");
+    max = $(this).attr("max");
+    render(page);
+  });
+});
+
+async function render(page) {
+  // $(this).css("background-color","#878929 !important");
+  // console.log(this);
+  const res = await $.ajax({
+    url: `filter/${page}`,
+    type: "POST",
+    data: {
+      type,
+      min,
+      max,
+    },
+  });
+  //lấy sản phẩm trả về tương ứng với page, type, min , max
+  const products = res.products;
+  //làm trống phần sản phẩm
+  $(".filter-product-results").html("");
+  products.forEach((product) => {
+    var pPrice = product.price
+    pPrice = pPrice.toLocaleString()
+    $(".filter-product-results").append(`
+    <div class="filter-col filter-col-4 currProduct product-card_item">
+    <a class="product-filter__card" href="/product/detail/${product._id}">
+      <div class="product-filter-card__top">
+        <img class="img-prd" src="${product.img[0]}" alt="" />
+      </div>
+      <div class="product-filter-card__bottom">
+        <div class="product-filter-card__name product-card_title">
+          ${product.name}
+        </div>
+        <div class="product-filter-card__price product-card_price">
+          ${pPrice}đ
+        </div>
+      </div>
+    </a>
+    <button class="add-to-cart" data-product-id="${product._id}">
+      <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+    </button>
+  </div>
+    `);
   });
 
-  function render() {
-    $(".filter-product-results").empty();
-    for (var i = 0; i < products.length; i++) {
-      var price = products[i].price.split(",").join("");
-      if (parseInt(price) <= priceMax && parseInt(price) >= priceMin) {
-        var productItem = `
-                                <div class="filter-col filter-col-3 currProduct product-card_item">   
-                                    <a class="product-filter__card" href="/product/detail/${products[i]._id}">
-                                        <div class="product-filter-card__top">
-                                            <img class="img-prd" src="${products[i].img[0]}" alt="">
-                                        </div>
-                                        <div class="product-filter-card__bottom">
-                                            <div class="product-filter-card__name product-card_title">${products[i].name}</div>
-                                            <div class="product-filter-card__price product-card_price">${products[i].price}</div>
-                                        </div>
-                                    </a>          
-                                    <button class="add-to-cart" data-product-id="${products[i]._id}">
-                                        <i class="fas fa-cart-plus"></i> Thêm vào giỏ
-                                    </button>
-                                </div>
-                                `;
-        $(".filter-product-results").append(productItem);
+  const pages = res.pages;
+  const current = res.current;
+  $('.row').html('')
+  if(pages > 0){
+    $('.row').append(`
+      <nav class="mx-auto">
+      <ul class="pagination-filter" style="margin-top: 2rem">
+      </ul>
+      </nav>
+    `);
+    //first item
+    if(current == 1){
+      $('.pagination-filter').append(`
+      <li class="page-item disabled">
+        <a class="page-link"><i class="fas fa-fast-backward"></i></a>
+      </li>
+      `)
+    }else{
+      $('.pagination-filter').append(`
+      <li class="page-item">
+        <a class="page-link" onclick="render(1)"><i class="fas fa-fast-backward"></i></a>
+      </li>
+      `)
+    }
+    //item
+    var i = (Number(current) > 2 ? Number(current) - 1 : 1);
+    if(i !== 1) {
+      $('.pagination-filter').append(`
+      <li class="page-item disabled">
+        <a class="page-link">...</a>
+      </li>
+      `)
+    }
+    for(; i <= (Number(current) + 1) && i <= pages; i++) {
+      if(i == current) {
+        $('.pagination-filter').append(`
+        <li class="page-item active">
+          <a class="page-link" onclick="render(${i})"> ${i} </a>
+        </li>
+        `)
+      }else {
+        $('.pagination-filter').append(`
+        <li class="page-item">
+          <a class="page-link" onclick="render(${i})"> ${i} </a>
+        </li>
+        `)
       }
+      if (i == Number(current) + 2 && i < pages) {
+        $('.pagination').append(`
+        <li class="page-item disabled">
+          <a class="page-link">...</a>
+        </li>
+        `)
+      }
+      
+    }
+    //last item
+    if(current == pages) {
+      $('.pagination-filter').append(`
+      <li class="page-item disabled">
+        <a class="page-link"> <i class="fas fa-fast-forward"></i> </a>
+      </li>
+      `)
+    }else{
+      $('.pagination-filter').append(`
+      <li class="page-item">
+        <a class="page-link" onclick="render(${pages})"> <i class="fas fa-fast-forward"></i> </a>
+      </li>
+      `)
     }
   }
-});
+}
