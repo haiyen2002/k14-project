@@ -116,32 +116,32 @@ async function login() {
     if (res) {
       setCookie("user", res.id, 30);
       alert("ok");
-        if(res.data.Cart.quantity){
-            const test = await $.ajax({
-              url: "/cart/check",
-              type: "post",
-              data: {
-                id: res.data._id,
-              },
-            });
-            if (test.status == 200) {
-              console.log(127, test.data.Cart);
-              const cart = test.data.Cart;
-              let productInCart = [];
-              for (let i = 0; i < cart.length; i++) {
-                let obj = {
-                  basePrice: parseInt(cart[i].productId.price.replace(/,/g, "")),
-                  count: cart[i].quantity,
-                  id: cart[i].productId._id,
-                  name: cart[i].productId.name,
-                  price: parseInt(cart[i].productId.price.replace(/,/g, "")),
-                  image: cart[i].productId.img[0],
-                };
-                productInCart.push(obj);
-              }
-              localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
-            }
+      if (res.data.Cart.quantity) {
+        const test = await $.ajax({
+          url: "/cart/check",
+          type: "post",
+          data: {
+            id: res.data._id,
+          },
+        });
+        if (test.status == 200) {
+          console.log(127, test.data.Cart);
+          const cart = test.data.Cart;
+          let productInCart = [];
+          for (let i = 0; i < cart.length; i++) {
+            let obj = {
+              basePrice: parseInt(cart[i].productId.price.replace(/,/g, "")),
+              count: cart[i].quantity,
+              id: cart[i].productId._id,
+              name: cart[i].productId.name,
+              price: parseInt(cart[i].productId.price.replace(/,/g, "")),
+              image: cart[i].productId.img[0],
+            };
+            productInCart.push(obj);
+          }
+          localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
         }
+      }
       $(".close").click();
       window.location.href = "/";
     } else {
@@ -185,7 +185,7 @@ function checklogin() {
           $(".header-top_account").html("");
           let user = ` 
         <button style = "display: flex;
-        width: auto;  z-index: 12;
+        width: auto;  z-index: 99;
         padding-left: 10px;
         padding-right: 10px;
         color: black;
@@ -210,7 +210,7 @@ function checklogin() {
         </li>
         <li>
         <i class="fas fa-shopping-bag"></i>
-            <a class="dropdown-item" href="/user-order" >Đơn mua</a>
+            <a class="dropdown-item" href="/myOrder" >Đơn mua</a>
         </li>
         <li>
         <i class="fas fa-sign-out-alt"></i>

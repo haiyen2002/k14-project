@@ -68,55 +68,31 @@ body {
   color: #797c11;
 }
 
-.main-order .main-order-left .bill-info .name-client {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.main-order .main-order-left .bill-info .name-client-item {
   width: 100%;
-  gap: 10px;
-}
-
-.main-order .main-order-left .bill-info .name-client .name-client-item {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 48%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 16px;
 }
 
-.main-order .main-order-left .bill-info .name-client .name-client-item #firstName,
-.main-order .main-order-left .bill-info .name-client .name-client-item #lastName {
-  width: 100%;
-  padding: 10px 20px;
-  border: none;
-  border: 1px solid #b2bec3;
-  outline: none;
-  font-size: 14px;
+.main-order .main-order-left .bill-info .name-client-item label {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-.main-order .main-order-left .bill-info #address,
-.main-order .main-order-left .bill-info #Phone,
-.main-order .main-order-left .bill-info #Email {
-  padding: 10px 20px;
-  border: none;
-  border: 1px solid #b2bec3;
-  outline: none;
-  font-size: 14px;
+.main-order .main-order-left .bill-info .name-client-item input {
+  padding: 10px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.main-order .main-order-left .bill-info #order-comment {
-  padding: 10px 20px;
-  font-size: 14px;
-  outline: none;
-  border: none;
-  border: 1px solid #b2bec3;
+.main-order .main-order-left .bill-info .name-client-item .form-message {
+  margin-top: 5px;
+  color: red;
 }
 
 .main-order .main-order-right {

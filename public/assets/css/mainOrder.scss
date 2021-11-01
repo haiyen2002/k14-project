@@ -38,42 +38,23 @@ body {
         margin-bottom: 20px;
         color: #797c11;
       }
-      .name-client {
-        display: flex;
-        justify-content: space-between;
+      .name-client-item {
         width: 100%;
-        gap: 10px;
-        .name-client-item {
-          display: flex;
-          width: 48%;
-          flex-direction: column;
-          gap: 16px;
-          #firstName,
-          #lastName {
-            width: 100%;
-            padding: 10px 20px;
-            border: none;
-            border: 1px solid #b2bec3;
-            outline: none;
-            font-size: 14px;
-          }
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        label {
+          font-size: 16px;
+          margin-bottom: 10px;
         }
-      }
-      #address,
-      #Phone,
-      #Email {
-        padding: 10px 20px;
-        border: none;
-        border: 1px solid #b2bec3;
-        outline: none;
-        font-size: 14px;
-      }
-      #order-comment {
-        padding: 10px 20px;
-        font-size: 14px;
-        outline: none;
-        border: none;
-        border: 1px solid #b2bec3;
+        input {
+          padding: 10px 15px;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        .form-message {
+          margin-top: 5px;
+          color: red;
+        }
       }
     }
   }

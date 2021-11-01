@@ -45,20 +45,21 @@ router.post("/", (req, res) => {
 });
 
 router.post("/allproduct", (req, res) => {
-    const products = productController.getAllProduct()
-    .then(products => {
+  const products = productController
+    .getAllProduct()
+    .then((products) => {
       res.status(200).json({
         products,
-        message: 'success'
-      })
+        message: "success",
+      });
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json({
         err: false,
-        message: 'Loi server'
-      })
-    })
-})
+        message: "Loi server",
+      });
+    });
+});
 
 router.get("/cart", (req, res) => {
   productController
@@ -72,6 +73,29 @@ router.get("/cart", (req, res) => {
       });
     })
     .catch((err) => console.log(err));
+});
+
+router.get("/myOrder", async (req, res) => {
+  try {
+    if (req.cookies.user != undefined) {
+      const token = req.cookies.user;
+      const id = jwt.verify(token, "Auth").id;
+      const products = await productController.getAllProduct();
+      const types = await productController.getTypePrd();
+      const acc = await accountmodel.findOne({ _id: id });
+      const myorder = await orderssModel
+        .find({ userId: id })
+        .populate("product.productId");
+      res.render("user/myOrder", {
+        products: products,
+        types: types,
+        acc: acc,
+        myorder: myorder,
+      });
+    }
+  } catch (error) {
+    res.json(error);
+  }
 });
 
 router.get("/order", async (req, res) => {
@@ -123,6 +147,7 @@ router.get("/show", (req, res) => {
       res, json(err);
     });
 });
+
 router.get("/toadmin", (req, res) => {
   accountmodel
     // .deleteMany()
