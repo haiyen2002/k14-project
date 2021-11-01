@@ -116,31 +116,32 @@ async function login() {
     if (res) {
       setCookie("user", res.id, 30);
       alert("ok");
-      console.log(118, res.data._id);
-      const test = await $.ajax({
-        url: "/cart/check",
-        type: "post",
-        data: {
-          id: res.data._id,
-        },
-      });
-      if (test.status == 200) {
-        console.log(127, test.data.Cart);
-        const cart = test.data.Cart;
-        let productInCart = [];
-        for (let i = 0; i < cart.length; i++) {
-          let obj = {
-            basePrice: parseInt(cart[i].productId.price.replace(/,/g, "")),
-            count: cart[i].quantity,
-            id: cart[i].productId._id,
-            name: cart[i].productId.name,
-            price: parseInt(cart[i].productId.price.replace(/,/g, "")),
-            image: cart[i].productId.img[0],
-          };
-          productInCart.push(obj);
+        if(res.data.Cart.quantity){
+            const test = await $.ajax({
+              url: "/cart/check",
+              type: "post",
+              data: {
+                id: res.data._id,
+              },
+            });
+            if (test.status == 200) {
+              console.log(127, test.data.Cart);
+              const cart = test.data.Cart;
+              let productInCart = [];
+              for (let i = 0; i < cart.length; i++) {
+                let obj = {
+                  basePrice: parseInt(cart[i].productId.price.replace(/,/g, "")),
+                  count: cart[i].quantity,
+                  id: cart[i].productId._id,
+                  name: cart[i].productId.name,
+                  price: parseInt(cart[i].productId.price.replace(/,/g, "")),
+                  image: cart[i].productId.img[0],
+                };
+                productInCart.push(obj);
+              }
+              localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
+            }
         }
-        localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
-      }
       $(".close").click();
       window.location.href = "/";
     } else {
