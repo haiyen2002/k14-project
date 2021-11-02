@@ -8,13 +8,13 @@ async function updatedataCart() {
     }
     const data = await $.ajax({
       url: "/cart/cart",
-      type: "put",
+      type: "PUT",
       data: {
         prd: arr,
       },
     });
     if (data.status == 200) {
-      window.location.href = "/";
+      console.log(data.mess);
     }
   } catch (error) {
     console.log(error);

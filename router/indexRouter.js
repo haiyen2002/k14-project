@@ -141,7 +141,7 @@ router.get("/store/", controller.store);
 router.get("/show", (req, res) => {
   orderssModel
     // .deleteMany()
-    .find()
+    .deleteMany()
 
     .then((data) => {
       res.json(data);

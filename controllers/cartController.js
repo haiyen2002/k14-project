@@ -2,12 +2,13 @@ const {
   accountmodel,
   orderssModel,
   ProductModel,
-} = require("../models/db_mongoose");
+} = require("../models/db_mongoose")
 
 // update cart
 module.exports.postCart = async (req, res) => {
   try {
     const userId = req.user._id;
+    console.log(11, req.body);
     if (userId) {
       const keys = Object.keys(req.body);
       const productInfo = keys.filter((ele) => {
@@ -87,7 +88,7 @@ module.exports.getCart = (req, res) => {
     .findOne({ _id: id })
     .populate("Cart.productId")
     .then((data) => {
-      res.json({ data: data, mess: "cập nhật cart về local", status: 200 });
+      res.json({ data: data, mess: "cập nhật", status: 200 });
     })
     .catch((err) => {
       res.json(err);

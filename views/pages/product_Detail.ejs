@@ -50,10 +50,42 @@
   </div>
   <div class="more-products">
     <h3 class="more-prd-content">SẢN PHẨM TƯƠNG TỰ</h3>
-    <div class="more-product">
+
       <!-- Set up your HTML -->
       <div class="owl-one owl-carousel owl-theme">
-        
+        <% productss.forEach(product=>{ %>
+            <div class="item product-card_item">
+                <a href="/product/detail/<%= product._id %>">
+                    <div class="product-card_info">
+                        <div class="product-card_img">
+                            <img class="img-prd" src=<%=product.img[0] %>>
+                        </div>
+                        <div class="product-card_text">
+                            <div class="product-card_title">
+                                <%= product.name %>
+                            </div>
+                            <div class="product-card_price">
+                                <%= product.price %>
+                            </div>
+                            <% if( product.quantity > 0 ){ %>
+                            <div class="product-card_quantity">
+                               Còn <%= product.quantity %> sản phẩm                                                                                                                                             
+                            </div>
+                            <% }else{ %>
+                                <div class="not_prd">
+                                    Hết hàng                                                                                                                                             
+                                 </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </a>
+                <% if( product.quantity > 0 ){ %>
+                <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
+                <% }else{ %>
+                    <div></div>
+                <% } %>  
+        </div>
+       <% }) %>
       </div>
-    </div>
+
   </div>

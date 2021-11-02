@@ -96,20 +96,19 @@
   <script src="/public/assets/js/form_page.js"></script>
   <script src="/public/assets/js/cart_localStorage.js"></script>
   <script src="/public/assets/js/signin-login.js"></script>
-  <script src="/public/assets/js/search-product.js"></script>
-  <% if(content == 'cart' || content == 'order'){ %>
-        
-  <script>
+  <script src="/public/assets/js/search-product.js"></script>   
+
+     <% if(content == 'cart' || content == 'order'){ %>        
+     <script>
     $(".container-cart").css("display", "none");
-  </script>
+    </script>
     <% } %>
 
-    <% if( content == 'order'){ %>
-        
+    <% if( content == 'order'){ %>       
         <script src="/public/assets/js/order.js"></script>
+    <% } %>
 
-        <% } %>
-  <% if(content == 'prd_detail' ){ %>
+   <% if(content == 'prd_detail' ){ %>
         
     <script>
         //SHOW-CHILDREN-ITEM-NAV-MOBILE -1
@@ -129,9 +128,28 @@
             })
             
         }
-  </script>
+
+        $(".owl-carousel").owlCarousel({
+        margin: 10,
+        slideBy: 3,
+        dots: false,
+        responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    },
+    1000: {
+      nav: true,
+      items: 5,
+    },
+  },
+});
+    </script>
 
     <% } %>
     <script src="/public/assets/js/product_detail.js"></script>
+    <script src="/public/assets/js/cart.js"></script>
   <!-- <script src="/public/assets/js/cart.js"></script> -->
 </html>

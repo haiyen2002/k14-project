@@ -16,10 +16,12 @@ module.exports.prdDetail = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
     const prd_detail = await ProductModel.findOne({ _id: id });
+    const productss = await ProductModel.find({prd_key: prd_detail.prd_key})
     res.render("pages/Base_pages", {
         content: 'prd_detail',
-      prd_detail,
-      types,
+      prd_detail : prd_detail,
+      types: types,
+      productss:productss
     });
   } catch (error) {
     res.json(error);

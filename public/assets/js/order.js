@@ -62,15 +62,6 @@ async function updatedataCart() {
 
 updatedataCart();
 
-$.ajax({
-  url: "/order",
-  type: "get",
-})
-  .then((data) => {
-    if (data.status == 400) {
-      window.location.href = "/";
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+
+
+  

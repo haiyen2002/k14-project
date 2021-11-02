@@ -295,6 +295,7 @@
 .product-main .container-product .container-product-right .product-detail .prd-detail-right .form-input input {
   width: 30px;
   height: 30px;
+  text-align: center;
 }
 
 .product-main .container-product .container-product-right .product-detail .prd-detail-right .form-input input[type=number]::-webkit-inner-spin-button,

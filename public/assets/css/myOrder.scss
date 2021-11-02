@@ -6,6 +6,10 @@
   background: #f5f5f5;
   overflow-x: hidden;
   overflow-y: hidden;
+  @media screen and (max-width: 992px) {
+      display: flex;
+      flex-direction: column;
+  }
   .main-left {
     display: flex;
     flex-direction: column;
@@ -39,7 +43,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      background: #fff;
+      background: #eaeaea;
       .item {
           text-decoration: none;
         width: 100%;
@@ -51,10 +55,13 @@
     }
   }
   .main-right {
-    margin-top: 50px;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    @media screen and (max-width: 992px) {
+        margin-top: 10px;
+    }
 
     .search-order {
       display: flex;
@@ -91,6 +98,11 @@
           background: #eaeaea;
           padding: 20px;
           border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          @media screen and (max-width: 992px) {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
         }
         .body-order {
           position: relative;
@@ -100,12 +112,16 @@
           border-bottom: 1px solid rgba(0, 0, 0, 0.2);
           .order-item {
             width: 100%;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
             padding: 10px;
             border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
             &:nth-last-child(1){
                 border-bottom: none;
+            }
+            @media screen and (max-width: 992px) {
+                display: flex;
+                flex-direction: column;
             }
             .order-item_left {
               display: flex;
@@ -123,12 +139,13 @@
                 flex-direction: column;
                 justify-content: center;
                 gap: 10px;
-                align-items: flex-start;
                 .title-name {
+                    text-align: start;
                   color: #777;
                   font-size: 16px;
                 }
                 .title-quantity {
+                    text-align: start;
                   color: #777;
                   font-size: 16px;
                 }
@@ -136,12 +153,15 @@
             }
             .order-item_right {
               display: flex;
-              .item-price {
+              align-items: center;
+              @media screen and (max-width: 992px) {
                 display: flex;
-                align-items: center;
+                justify-content: end;
+            }
+              .item-price {
+                text-align: center;
                 color: #777;
                 font-size: 16px;
-                justify-content: end;
               }
             }
           }
