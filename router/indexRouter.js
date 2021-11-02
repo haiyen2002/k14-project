@@ -87,7 +87,8 @@ router.get("/myOrder", async (req, res) => {
       const myorder = await orderssModel
         .find({ userId: id })
         .populate("product.productId");
-      res.render("pages/Base_pages", {
+        console.log(myorder[0].product)
+         res.render("pages/Base_pages", {
         content: 'myOrder',
         products: products,
         types: types,

@@ -201,7 +201,7 @@
 
 .section-list-product {
   padding-top: 16px;
-  display: none !important;
+    display: none !important;
 }
 
 .section-list-product.active {
