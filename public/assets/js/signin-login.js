@@ -115,8 +115,8 @@ async function login() {
     });
     if (res) {
       setCookie("user", res.id, 30);
-      alert("ok");
-      if (res.data.Cart.quantity) {
+      console.log(res.data);
+      if (res.data.Cart != undefined) {
         const test = await $.ajax({
           url: "/cart/check",
           type: "post",
@@ -128,19 +128,22 @@ async function login() {
           console.log(127, test.data.Cart);
           const cart = test.data.Cart;
           let productInCart = [];
+          console.log(typeof cart[0].productId.price);
           for (let i = 0; i < cart.length; i++) {
             let obj = {
-              basePrice: parseInt(cart[i].productId.price.replace(/,/g, "")),
+              basePrice: cart[i].productId.price,
               count: cart[i].quantity,
               id: cart[i].productId._id,
               name: cart[i].productId.name,
-              price: parseInt(cart[i].productId.price.replace(/,/g, "")),
+              price: cart[i].productId.price,
               image: cart[i].productId.img[0],
             };
             productInCart.push(obj);
           }
           localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
         }
+      }else{
+        window.location.href = "/";
       }
       $(".close").click();
       window.location.href = "/";
@@ -150,7 +153,7 @@ async function login() {
       );
     }
   } catch (error) {
-    window.location.href = "/500";
+    // window.location.href = "/500";
     console.log(error);
   }
 }

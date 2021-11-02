@@ -66,7 +66,8 @@ router.get("/cart", (req, res) => {
     .getAllProduct()
     .then((products) => {
       productController.getTypePrd().then((types) => {
-        res.render("Order-Cart/cart", {
+        res.render("pages/Base_pages", {
+            content: 'cart',
           products: products,
           types: types,
         });
@@ -87,6 +88,7 @@ router.get("/myOrder", async (req, res) => {
         .find({ userId: id })
         .populate("product.productId");
       res.render("user/myOrder", {
+        content: 'myOrder',
         products: products,
         types: types,
         acc: acc,
@@ -107,7 +109,8 @@ router.get("/order", async (req, res) => {
       const products = await productController.getAllProduct();
       const types = await productController.getTypePrd();
       const acc = await accountmodel.findOne({ _id: id });
-      res.render("Order-Cart/order", {
+      res.render("pages/Base_pages", {
+        content: 'order',
         products: products,
         types: types,
         acc: acc,

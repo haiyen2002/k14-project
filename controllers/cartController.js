@@ -3,8 +3,6 @@ const {
   orderssModel,
   ProductModel,
 } = require("../models/db_mongoose");
-const UserAddressModel = require("../models/addressModel");
-const jwt = require("jsonwebtoken");
 
 // update cart
 module.exports.postCart = async (req, res) => {
@@ -89,7 +87,7 @@ module.exports.getCart = (req, res) => {
     .findOne({ _id: id })
     .populate("Cart.productId")
     .then((data) => {
-      res.json({ data: data, mes: "ok", status: 200 });
+      res.json({ data: data, mess: "cập nhật cart về local", status: 200 });
     })
     .catch((err) => {
       res.json(err);

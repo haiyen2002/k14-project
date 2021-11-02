@@ -1,9 +1,8 @@
 const router = require("express").Router();
-var path = require("path");
-const controller = require("../controllers/prdController");
+const prdController = require("../controllers/prdController");
 
-router.post("/find", controller.findPrd)
+router.post("/find", prdController.findPrd)
 
-router.get("/detail/:id", controller.prdDetail);
+router.get("/detail/:id", prdController.prdDetail);
 
 module.exports = router;

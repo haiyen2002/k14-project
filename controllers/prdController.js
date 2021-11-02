@@ -16,7 +16,8 @@ module.exports.prdDetail = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
     const prd_detail = await ProductModel.findOne({ _id: id });
-    res.render("Products/product_Detail", {
+    res.render("pages/Base_pages", {
+        content: 'prd_detail',
       prd_detail,
       types,
     });
@@ -29,6 +30,7 @@ module.exports.about_Us = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
     res.render("home/about_us", {
+        content: 'about_us',
       types: types,
     });
   } catch (error) {
@@ -40,6 +42,7 @@ module.exports.slogan = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
     res.render("home/slogan", {
+        content: 'slogan',
       types: types,
     });
   } catch (error) {
@@ -50,6 +53,7 @@ module.exports.contact = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
     res.render("home/contact", {
+        content: 'contact',
       types: types,
     });
   } catch (error) {
@@ -61,6 +65,7 @@ module.exports.store = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
     res.render("home/store", {
+        content: 'store',
       types: types,
     });
   } catch (error) {
