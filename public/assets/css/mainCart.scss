@@ -37,6 +37,9 @@
           width: 100%;
           height: 60px;
           color: #797c11;
+          @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+        }
 
           .item-td {
             display: flex;
@@ -44,6 +47,11 @@
             align-items: center;
             flex: 1;
             font-weight: 600;
+          }
+          .prices{
+              @media screen and (max-width: 768px) {
+                  display: none;
+              }
           }
         }
       }
@@ -58,6 +66,9 @@
         .buy-table-item {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+        }
 
           .item-td {
             display: flex;
@@ -109,6 +120,11 @@
                 }
             }
           }
+          .prices{
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
           
         }
         .empty-left {

@@ -146,7 +146,7 @@ const updateCart = function () {
         <span class="countOfProduct">${product.count}</span>
         <button class="button-plus" data-id="${product.id}">+</button>
       </div>
-      <div class="item-td price">${product.price.toLocaleString() + "đ"}</div>
+      <div class="item-td prices">${product.price.toLocaleString() + "đ"}</div>
       <div class="item-td"><button class="prd-cart_delete" data-id="${
         product.id
       }">X</button></div>
@@ -161,7 +161,7 @@ const updateCart = function () {
     <div class="item-td"></div>
     <div class="item-td">Đơn giá</div>
     <div class="item-td">Số lượng</div>
-    <div class="item-td">Tạm tính</div>
+    <div class="item-td prices">Tạm tính</div>
     <div class="item-td">Xóa</div>
   </div>
     `;

@@ -29,7 +29,7 @@ module.exports.prdDetail = async (req, res) => {
 module.exports.about_Us = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
-    res.render("home/about_us", {
+    res.render("pages/Base_pages", {
         content: 'about_us',
       types: types,
     });
@@ -41,7 +41,7 @@ module.exports.about_Us = async (req, res) => {
 module.exports.slogan = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
-    res.render("home/slogan", {
+    res.render("pages/Base_pages", {
         content: 'slogan',
       types: types,
     });
@@ -52,7 +52,7 @@ module.exports.slogan = async (req, res) => {
 module.exports.contact = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
-    res.render("home/contact", {
+    res.render("pages/Base_pages", {
         content: 'contact',
       types: types,
     });
@@ -64,7 +64,7 @@ module.exports.contact = async (req, res) => {
 module.exports.store = async (req, res) => {
   try {
     const types = await ProductModel.distinct("prd_key");
-    res.render("home/store", {
+    res.render("pages/Base_pages", {
         content: 'store',
       types: types,
     });

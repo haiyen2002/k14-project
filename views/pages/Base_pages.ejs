@@ -18,6 +18,10 @@
         
         <link rel="stylesheet" href="/public/assets/css/prd_detail.css" />
     <% } %>
+    <% if(content == 'myOrder'){ %>
+        
+        <link rel="stylesheet" href="/public/assets/css/myOrder.css" />
+    <% } %>
 
 
   </head>
@@ -47,6 +51,33 @@
         
     <% } %>
 
+
+    <% if(content == 'myOrder'){ %>
+        <%- include('./myOrder') %>
+        
+    <% } %>
+
+    <% if(content == 'about_us'){ %>
+        <%- include('./about_us') %>
+        
+    <% } %>
+
+    <% if(content == 'contact'){ %>
+        <%- include('./contact') %>
+        
+    <% } %>
+
+
+    <% if(content == 'store'){ %>
+        <%- include('./store') %>
+        
+    <% } %>
+
+    <% if(content == 'slogan'){ %>
+        <%- include('./slogan') %>
+        
+    <% } %>
+
     <!-- -------------------------- -->
 
     <!-- FOOTER -->
@@ -72,6 +103,12 @@
     $(".container-cart").css("display", "none");
   </script>
     <% } %>
+
+    <% if( content == 'order'){ %>
+        
+        <script src="/public/assets/js/order.js"></script>
+
+        <% } %>
   <% if(content == 'prd_detail' ){ %>
         
     <script>
