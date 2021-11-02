@@ -15,7 +15,7 @@
           </div>
           <div class="prd-detail-right">
             <div class="prd-detail-name product-card_title"><p><%= prd_detail.name %></p></div>
-            <div class="prd-detail-price product-card_price"><%= prd_detail.price %> đ</div>
+            <div class="prd-detail-price product-card_price"><%= prd_detail.price.toLocaleString() %> đ</div>
             <% if( prd_detail.quantity > 0 ){ %>
                 <div class="product-card_quantity prd-detail-quantity ">
                 Còn <%= prd_detail.quantity %> sản phẩm
