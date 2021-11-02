@@ -151,17 +151,6 @@ router.get("/show", (req, res) => {
     });
 });
 
-router.get("/toadmin", (req, res) => {
-  accountmodel
-    // .deleteMany()
-    .findByIdAndUpdate({ _id: "617a76006a67f918da8b57fe" }, { role: "admin" })
 
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res, json(err);
-    });
-});
 
 module.exports = router;

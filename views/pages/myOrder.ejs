@@ -30,7 +30,7 @@
         <div class="container-order">
           <div class="header-order">
             <div class="order-id">Id: <%= ele._id %></div>
-            <div class="date_order"><%= ele.orderDate %></div>
+            <div class="date_order">Ngày đặt hàng: <%= ele.orderDate.toLocaleString() %></div>
             <div class="order-status">
               Trạng thái đơn hàng : <%= ele.status %>
             </div>
