@@ -82,15 +82,19 @@ module.exports.postOrder = async (req, res, next) => {
   }
 };
 
-module.exports.getCart = (req, res) => {
-  const id = req.body.id;
-  accountmodel
-    .findOne({ _id: id })
-    .populate("Cart.productId")
-    .then((data) => {
-      res.json({ data: data, mess: "cập nhật", status: 200 });
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-};
+module.exports.getUpCart = async (req, res)=>{
+    try {
+        const userId = req.user._id
+        if(userId){
+            const data = await accountmodel.findById(userId)
+            .populate("Cart.productId")
+            if(data){
+                res.json({mess: "update", data:data, status: 200})
+            }else{
+                res.json({status: 400, mess: "loi"})
+            }
+        }
+    } catch (error) {
+        res.json(error)
+    }
+}

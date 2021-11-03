@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="/public/assets/css/admin_listUser.css" />
         <link rel="stylesheet" href="/public/assets/css/modal_Delete.css">
         <link rel="stylesheet" href="/public/assets/css/modal_Role.css">
+        <link rel="stylesheet" href="/public/assets/css/modal_viewUser.css">
     <% } %>
 
     
@@ -28,7 +29,7 @@
 
     <% if( content == 'ListOrder' ){ %>
         <link rel="stylesheet" href="/public/assets/css/admin_listOrder.css">
-
+        <link rel="stylesheet" href="/public/assets/css/modal_Status.css">
     <% } %>
   </head>
   <body>
@@ -62,6 +63,7 @@
             <%- include('../Admin_pages/Customers') %>
             <%- include('../components/admin/modal_Role') %>
             <%- include('../components/admin/modal_DeleteUser') %>
+            <%- include('../components/admin/modal_viewUser') %>
  
 
             <div class="listBtn">
@@ -78,6 +80,7 @@
         <% if( content == 'ListOrder' ){ %>
             <!-- details -->
             <%- include('../Admin_pages/ListOrder') %>
+            <%- include('../components/admin/modal_Status') %>
             <div class="listBtn">
           
             </div>
@@ -112,12 +115,14 @@
     <script src="/public/assets/js/admin_Role.js"></script>
     <script src="/public/assets/js/admin_pavigationUser.js"></script>
     <script src="/public/assets/js/admin_deleteUser.js"></script>
+    <script src="/public/assets/js/admin_viewUser.js"></script>
 
     <% } %>
 
     <% if( content == 'ListOrder' ){ %>
 
         <script src="/public/assets/js/admin_pavigationOrder.js"></script>
+        <script src="/public/assets/js/admin_Status.js"></script>
     
         <% } %>
 

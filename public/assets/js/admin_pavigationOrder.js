@@ -21,7 +21,7 @@ async function render(){
                 <td>${ele.orderDate}</td>
                 <td>${ele.address}</td>
                 <td>${ele.totalPrice.toLocaleString() + 'đ'}</td>
-                <td>${ele.status}</td>
+                <td><span class="status_style">${ele.status}</span></td>
                 <td><a href="#${ele._id}" class="btn_fix"  onclick="edit('${ele._id}')">edit</a></td>
                 <td><a href="#${ele._id}"  class="btn_delete"  onclick="view('${ele._id}')">view</a></td>
               </tr>
@@ -56,7 +56,7 @@ async function changePage(page){
                 <td>${ele.orderDate}</td>
                 <td>${ele.address}</td>
                 <td>${ele.totalPrice.toLocaleString() + 'đ'}</td>
-                <td>${ele.status}</td>
+                <td><span class="status_style">${ele.status}</span></td>
                 <td><a href="#${ele._id}" class="btn_fix"  onclick="edit('${ele._id}')">edit</a></td>
                 <td><a href="#${ele._id}"  class="btn_delete"  onclick="view('${ele._id}')">view</a></td>
               </tr>
@@ -74,6 +74,7 @@ async function changePage(page){
 
 render()
 
-var x = new Date().toUTCString()
 
-console.log(89, x);
+const abc = document.querySelector(".number").innerHTML
+console.log(abc);
+

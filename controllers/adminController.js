@@ -43,7 +43,9 @@ const {
     try {
       const user = await accountmodel.find();
       const product = await ProductModel.find();
-      const order = await orderssModel.find();
+      const order = await orderssModel.find()
+      .populate("userId")
+      .populate("product.productId")
       res.render("Admin_pages/Admin_base", {
         content: "Dashboard",
         user: user,

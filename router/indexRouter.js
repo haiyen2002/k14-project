@@ -87,14 +87,24 @@ router.get("/myOrder", async (req, res) => {
       const myorder = await orderssModel
         .find({ userId: id })
         .populate("product.productId");
-        console.log(myorder[0].product)
-         res.render("pages/Base_pages", {
-        content: 'myOrder',
-        products: products,
-        types: types,
-        acc: acc,
-        myorder: myorder,
-      });
+        if(myorder){
+            res.render("pages/Base_pages", {
+           content: 'myOrder',
+           products: products,
+           types: types,
+           acc: acc,
+           myorder: myorder,
+         });
+        }else if(!myorder){
+            res.render("pages/Base_pages", {
+                content: 'myOrder',
+                products: products,
+                types: types,
+                acc: acc,
+             
+              });
+        }
+      
     }
   } catch (error) {
     res.json(error);

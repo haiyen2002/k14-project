@@ -234,7 +234,11 @@
   }
 }
 
-* body .container .main .cardBox .card {
+* body .container .main .cardBox a {
+  text-decoration: none;
+}
+
+* body .container .main .cardBox a .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -249,33 +253,33 @@
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-* body .container .main .cardBox .card:hover {
+* body .container .main .cardBox a .card:hover {
   background: #03a9f4;
 }
 
-* body .container .main .cardBox .card:hover .numbers {
+* body .container .main .cardBox a .card:hover .numbers {
   color: #fff;
 }
 
-* body .container .main .cardBox .card:hover .iconBox {
+* body .container .main .cardBox a .card:hover .iconBox {
   color: #fff;
 }
 
-* body .container .main .cardBox .card:hover .cardName {
+* body .container .main .cardBox a .card:hover .cardName {
   color: #f1f1f1;
 }
 
-* body .container .main .cardBox .card div .numbers {
+* body .container .main .cardBox a .card div .numbers {
   font-weight: 600;
   font-size: 24px;
   color: #03a9f4;
 }
 
-* body .container .main .cardBox .card div .cardName {
+* body .container .main .cardBox a .card div .cardName {
   color: #999;
 }
 
-* body .container .main .cardBox .card .iconBox {
+* body .container .main .cardBox a .card .iconBox {
   font-size: 32px;
   color: #03a9f4;
 }

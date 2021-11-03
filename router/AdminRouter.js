@@ -3,7 +3,7 @@ const path = require("path");
 const multer = require("multer");
 const jwt = require("jsonwebtoken");
 const controllerAdmin = require("../controllers/adminController");
-const { ProductModel, accountmodel } = require("../models/db_mongoose");
+const { ProductModel, accountmodel, orderssModel } = require("../models/db_mongoose");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -151,6 +151,22 @@ router.put("/updateRole/:id", async (req, res)=>{
         )
         if(result){
             res.json({mess: "update Role compelete", status: 200, data: result})
+        }else{
+            res.json({mess: "not update compelete", status: 400})
+        }
+        
+    } catch (error) {
+        res.json({ status: 500, mess: "loi server", error });
+    }
+})
+router.put("/updateStatus/:id", async (req, res)=>{
+    try {
+        const result = await orderssModel.findByIdAndUpdate(
+            {_id: req.params.id}, 
+            {status: req.body.status}
+        )
+        if(result){
+            res.json({mess: "update Status compelete", status: 200, data: result})
         }else{
             res.json({mess: "not update compelete", status: 400})
         }

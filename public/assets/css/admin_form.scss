@@ -161,41 +161,45 @@
             @media screen and (max-width: 480px) {
               grid-template-columns: 1fr !important;
             }
-            .card {
-              display: flex;
-              justify-content: space-between;
-              width: 100%;
-              padding: 20px;
-              background: #fff;
-              border-radius: 20px;
-              box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-              &:hover {
-                  background: #03a9f4;
-              }
-              &:hover .numbers{
-                  color: #fff;
-              }
-              &:hover .iconBox{
-                  color: #fff;
-              }
-              &:hover .cardName{
-                  color: #f1f1f1;
-              }
-              div {
-                .numbers {
-                  font-weight: 600;
-                  font-size: 24px;
-                  color: #03a9f4;
-                }
-                .cardName {
-                  color: #999;
-                }
-              }
-              .iconBox {
-                font-size: 32px;
-                color: #03a9f4;
-              }
+            a{
+                text-decoration: none;
+                .card {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding: 20px;
+                    background: #fff;
+                    border-radius: 20px;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                    &:hover {
+                        background: #03a9f4;
+                    }
+                    &:hover .numbers{
+                        color: #fff;
+                    }
+                    &:hover .iconBox{
+                        color: #fff;
+                    }
+                    &:hover .cardName{
+                        color: #f1f1f1;
+                    }
+                    div {
+                      .numbers {
+                        font-weight: 600;
+                        font-size: 24px;
+                        color: #03a9f4;
+                      }
+                      .cardName {
+                        color: #999;
+                      }
+                    }
+                    .iconBox {
+                      font-size: 32px;
+                      color: #03a9f4;
+                    }
+                  } 
             }
+           
           }
         }
         .main.active {

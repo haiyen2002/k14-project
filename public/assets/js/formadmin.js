@@ -62,7 +62,29 @@ function toggleMenu() {
 //       $(".change_Role").attr("onclick", `RoleUpdate('${id}')`)
 //   }
   
-  
+function OffmodalStatus(){
+    $(".modal_Status").css("display", "none")
+}
+
+$(".modalStatus_close").on("click", OffmodalStatus)
+$(".modal_Status").on("click", OffmodalStatus)
+
+$(".modal_statusBox").on("click", (event) => {
+    event.stopPropagation();
+});
+
+//
+
+function OffmodalView(){
+    $(".modal_viewUser").css("display", "none")
+}
+
+$(".close_view").on("click", OffmodalView)
+$(".modal_viewUser").on("click", OffmodalView)
+
+$(".box_viewUser").on("click", (event) => {
+    event.stopPropagation();
+});
   
   
   

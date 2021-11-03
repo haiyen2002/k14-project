@@ -116,37 +116,10 @@ async function login() {
     if (res) {
       setCookie("user", res.id, 30);
       console.log(res.data);
-      if (res.data.Cart != undefined) {
-        const test = await $.ajax({
-          url: "/cart/check",
-          type: "post",
-          data: {
-            id: res.data._id,
-          },
-        });
-        if (test.status == 200) {
-          console.log(127, test.data.Cart);
-          const cart = test.data.Cart;
-          let productInCart = [];
-          console.log(typeof cart[0].productId.price);
-          for (let i = 0; i < cart.length; i++) {
-            let obj = {
-              basePrice: cart[i].productId.price,
-              count: cart[i].quantity,
-              id: cart[i].productId._id,
-              name: cart[i].productId.name,
-              price: cart[i].productId.price,
-              image: cart[i].productId.img[0],
-            };
-            productInCart.push(obj);
-          }
-          localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
-        }
-      }else{
-        window.location.href = "/";
-      }
       $(".close").click();
+      upCart()
       window.location.href = "/";
+
     } else {
       $(".modal-body").append(
         `<div class="err" style="color:red"> sai tài khoản hoặc mật khẩu </div>`
@@ -275,3 +248,37 @@ checklogin();
     window.location.href = "/";
   });
 })();
+
+
+
+
+async function upCart(){
+    try {
+        const res = await $.ajax({
+            url: "/cart/check",
+            type: "GET"
+        })
+        if(res.status == 200 ){
+            const cart = res.data.Cart
+            let productInCart = [];
+            for (let i = 0; i < cart.length; i++) {
+                let obj = {
+                  basePrice: cart[i].productId.price,
+                  count: cart[i].quantity,
+                  id: cart[i].productId._id,
+                  name: cart[i].productId.name,
+                  price: cart[i].productId.price,
+                  image: cart[i].productId.img[0],
+                };
+                productInCart.push(obj);
+              }
+              localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
+        }else{
+            console.log(res.mess);
+        }
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
