@@ -35,10 +35,12 @@
 
         td,
         th {
-            border: 1px solid #dddddd;
-            text-align: left;
             padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
+
+
 
         .btnChange a {
             margin-left: 10px;
@@ -117,11 +119,213 @@
             text-decoration: none;
         }
 
-        .page-container {
+        .border-table {
+            border: 1px solid rgb(0 0 0 / 10%);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 5px;
+            box-shadow: 0 5px 5px rgb(0 0 0 / 10%);
+            height: 680px;
+        }
+
+        td>button {
+            font-size: 15px;
+            border-radius: 10px;
+            border: none;
+            color: blue;
+            background-color: lawngreen;
+            width: 75px;
+        }
+
+        td>a>button {
+            font-size: 15px;
+            border-radius: 10px;
+            border: none;
+            color: blue;
+            background-color: lawngreen;
+            width: 75px;
+        }
+
+        td>a {
+            border-radius: 10px;
+        }
+
+
+        td>a>button:focus {
+            outline: none;
+        }
+
+        ._1MmTVs {
+            padding: 12px 0;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 1px 0 rgb(0 0 0 / 5%);
+            color: #212121;
+            background: #eaeaea;
+            border-radius: 10px;
+        }
+
+        ._1MmTVs>input {
+            flex: 1;
+            font-size: 14px;
+            line-height: 16px;
+            border: 0;
+            outline: none;
+            background-color: inherit;
+        }
+
+        ._1MmTVs>svg {
+            margin: 0 15px;
+            stroke: #bbb;
+        }
+
+
+        .box {
+            width: 40%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 35px;
+            border: 2px solid #fff;
+            border-radius: 20px/50px;
+            background-clip: padding-box;
+            text-align: center;
+        }
+
+
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            overflow: auto;
+            height: 70%;
+            margin: 70px auto;
+            padding: 20px;
+            background: rgb(112, 157, 47);
+            border-radius: 10px;
+            width: 30%;
+            position: relative;
+            transition: all 5s ease-in-out;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        .popup .close {
             position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .popup .close:hover {
+            color: #06D85F;
+        }
+
+        .popup .content {
+            overflow: auto;
+        }
+
+        .listOrder {
+            width: auto;
+            margin-top: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #5de6de;
+            background-image: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+            border: none;
+            border-radius: 50%;
+            transition: 200ms;
+        }
+
+        button:hover {
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateX(-50%) translateY(-50%)
+            }
+
+            25% {
+                transform: translateX(-50%) translateY(-65%)
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-50%)
+            }
+
+            75% {
+                transform: translateX(-50%) translateY(-35%)
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(-50%)
+            }
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .top-message {
+            z-index: 9999;
+            background: #e44f3d;
+            padding-top: 10px;
+            padding-bottom: 13px;
+            color: #fff;
+            font-weight: 400;
+            font-size: 16px;
+            position: fixed;
+            width: 100%;
+        }
+
+        .top-message-content {
+            position: relative;
+        }
+
+        .top-message-content .glyphicon {
+            margin-right: 7px;
+        }
+
+        .top-message-icon {
+            padding: 15px;
+            background: #e44f3d;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: -12px;
+            right: 15px;
         }
     </style>
+    <div class="mess_tb">
 
+    </div>
     <div class="page-container">
         <div class="left-content">
             <div class="inner-content">
@@ -131,84 +335,32 @@
                             <h1 style="text-align: center; color: rgba(255, 60, 0, 0.918);margin-bottom: 30px;">List
                                 User
                                 Account </h1>
-                            <table>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>User Orders</th>
-                                    <th>Product Orders</th>
-                                    <th>Date Orders</th>
-                                    <th>Address Orders</th>
-                                    <th>Total Price</th>
-                                    <th>Status </th>
-                                    <th>#</th>
-                                </tr>
-                                <% showorders.map((ele , index)=>{ %>
-                                    <tr>
-                                        <td>
-                                            <%= index%>
-                                        </td>
-                                        <td>
-                                            <%= ele.userId %>
-                                        </td>
-                                        <td>
-                                            <%= ele.product %>
-                                        </td>
-                                        <td>
-                                            <%= ele.orderDate %>
-                                        </td>
-                                        <td>
-                                            <%= ele.address %>
-                                        </td>
-                                        <td>
-                                            <%= ele.totalPrice %>
-                                        </td>
-                                        <td>
-                                            <%= ele.status %>
-                                        </td>
+                            <div class="_1MmTVs"><svg width="19px" height="19px" viewBox="0 0 19 19">
+                                    <g id="Search-New" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="my-purchase-copy-27" transform="translate(-399.000000, -221.000000)"
+                                            stroke-width="2">
+                                            <g id="Group-32" transform="translate(400.000000, 222.000000)">
+                                                <circle id="Oval-27" cx="7" cy="7" r="7"></circle>
+                                                <path d="M12,12 L16.9799555,16.919354" id="Path-184"
+                                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg><input autocomplete="off"
+                                    placeholder="Tìm kiếm theo tên sản phẩm hoặc ID đơn hàng" onchange="searchOr()"
+                                    value=""></div>
+                            <div class="border-table">
+                                <%- include('../Components/ViewsOrdersAdmin'); -%>
+                            </div>
+                            <div class="list" style="position: relative;">
+                                <div style="text-align: center;position: fixed; bottom: 50px;width: 100%;height: 60px;"
+                                    class="listpage">
+                                </div>
 
-                                        <td>
-                                            <div class="btnChange" style="display: flex;">
-
-                                                <a href="#demo-modal_<%= ele._id %>" id="open-button" class="btn_edit"
-                                                    style="background-color: transparent !important; border : none ; outline: none;
-                                                    box-shadow: none;" title="Edit Orders"><i class="fa fa-edit"></i>
-                                                </a>
-                                                <a class="btn_edit" style="background-color: transparent !important; border : none ; outline: none;
-                                                    box-shadow: none;" onclick="deleteorders('<%= ele._id %>')"
-                                                    title="Delete orders"><i class="fa fa-minus-circle"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <% }) %>
-
-
-                            </table>
+                            </div>
                         </ol>
                     </div>
                 </div>
-                <!-- <% showorders.map((ele , index)=>{ %>
-                    <div id="demo-modal_<%= ele._id %>" class="modal">
-                        <div class="modal__content">
-                            <h1 style="text-align: center; color: darkred;">Edit Role User</h1>
-                            <div>
-                                <label for="" style="margin-right:10px">Role </label>
-                                <select name="role" id="role" style="margin-right:10px">
-                                    <option value="user">user</option>
-                                    <option value="admin">admin</option>
-                                </select>
-                                <button class="save" onclick="Update_Role('<%= ele._id %>')">Update</button>
-                            </div>
-                            <a href="#" class="modal__close">&times;</a>
-                        </div>
-                    </div>
-                    <div id="demo-modal_2_<%= ele._id %>" class="modal">
-                        <div class="modal__content">
-                            <h1 style="text-align: center; margin-bottom: 40px;color: darkred;">List Orders User</h1>
-                            <a href="#" class="modal__close">&times;</a>
-                        </div>
-                    </div>
-                    <% }) %> -->
                 <footer>
                     <p>@ Project Team k14-Nodemy</p>
                 </footer>

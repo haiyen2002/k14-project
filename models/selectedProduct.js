@@ -1,4 +1,4 @@
-const mongoose = require("/dbconnect");
+const mongoose = require("../models/dbconnect");
 const Schema = mongoose.Schema;
 
 let SelectedProduct = new Schema(

@@ -3,68 +3,76 @@
         <ol class="breadcrumb m-b-0">
 
             <div class="show_prds">
-                <table>
-                    <tr>
-                        <th>STT</th>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th>codeProduct</th>
-                        <th>price</th>
-                        <th>quantity</th>
-                        <th>prd_key</th>
-                        <th>descriptionDetails</th>
-                        <th>rate</th>
-                        <th></th>
-                    </tr>
-                    <% Showproduct.map((ele , index)=>{ %>
+                <div style="height : 680px; border: 1px solid rgb(0 0 0 / 10%); border-radius: 15px;padding: 15px;box-shadow: 5px;box-shadow: 0 5px 5px rgb(0 0 0 / 10%);"
+                    class="border-table">
+                    <table>
                         <tr>
-                            <td>
-                                <%= index%>
-                            </td>
-                            <td>
-                                <%= ele.name.substring(0,30) +`...` %>
-                            </td>
-                            <td>
-                                <div class="listImg" style="display:flex">
-                                    <% ele.img.map((eles , index2)=>{ %>
-                                        <img src="<%= eles %>" alt="" width="50" height="50">
-                                        <% }) %>
-                                </div>
-                            </td>
-                            <td>
-                                <%= ele.codeProduct %>
-                            </td>
-                            <td>
-                                <%= ele.price %>
-                            </td>
-                            <td>
-                                <%= ele.quantity %>
-                            </td>
-                            <td>
-                                <%= ele.prd_key %>
-                            </td>
-
-                            <td>
-                                <%= ele.descriptionDetails.substring(0,50) +`...` %>
-                            </td>
-                            <td>
-                                <%= ele.rate %>
-                            </td>
-                            <td>
-                                <div class="btnChange" style="display: flex;" id="<%= ele._id %>">
-                                    <a href="#demo-modal_<%= ele._id %>" id="open-button" class="btn_edit" style="background-color: transparent !important; border : none ; outline: none;
-                                    box-shadow: none;" title="Edit data"><i class="fa fa-edit"></i>
-                                    </a>
-                                    <a class="btn_edit" style="background-color: transparent !important; border : none ; outline: none;
-                                    box-shadow: none;" onclick="deleteProduct('<%= ele._id %>')" title="Delete User"><i
-                                            class="fa fa-minus-circle"></i>
-                                    </a>
-                                </div>
-                            </td>
+                            <th>STT</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>codeProduct</th>
+                            <th>price</th>
+                            <th>quantity</th>
+                            <th>prd_key</th>
+                            <th>descriptionDetails</th>
+                            <th>rate</th>
+                            <th></th>
                         </tr>
+                        <% Showproduct.map((ele , index)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= index%>
+                                </td>
+                                <td>
+                                    <%= ele.name.substring(0,30) +`...` %>
+                                </td>
+                                <td>
+                                    <div class="listImg" style="display:flex">
+                                        <% ele.img.map((eles , index2)=>{ %>
+                                            <img src="<%= eles %>" alt="" width="50" height="50">
+                                            <% }) %>
+                                    </div>
+                                </td>
+                                <td>
+                                    <%= ele.codeProduct %>
+                                </td>
+                                <td>
+                                    <%= ele.price.toLocaleString() +` VNĐ` %>
+                                </td>
+                                <td>
+                                    <%if(parseInt(ele.quantity)> 0){%>
+                                        <%= ele.quantity %>
+                                            <%}else{%>
+                                                <span style="color: red;">Hết hàng</span>
+                                                <% }%>
 
-                        <% }) %>
-                </table>
+                                </td>
+                                <td>
+                                    <%= ele.prd_key %>
+                                </td>
+
+                                <td>
+                                    <%= ele.descriptionDetails.substring(0,50) +`...` %>
+                                </td>
+                                <td>
+                                    <%= ele.rate %>
+                                </td>
+                                <td>
+                                    <div class="btnChange" style="display: flex;" id="<%= ele._id %>">
+                                        <a href="#demo-modal_<%= ele._id %>" id="open-button" class="btn_edit" style="background-color: transparent !important; border : none ; outline: none;
+                                    box-shadow: none;" title="Edit data"><i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="btn_edit" style="background-color: transparent !important; border : none ; outline: none;
+                                    box-shadow: none;" onclick="deleteProduct('<%= ele._id %>')" title="Delete User"><i
+                                                class="fa fa-minus-circle"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <% }) %>
+                    </table>
+                </div>
             </div>
         </ol>
     </div>

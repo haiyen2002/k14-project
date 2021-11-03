@@ -32,12 +32,30 @@ async function ClikSend() {
       },
     });
     if (result) {
-      alert("add finish");
-      window.location.reload();
+      setTimeout(() => {
+        hidetb();
+        window.location.reload();
+      }, 1500);
+      $(".mess_tb").append(`<div id="top-mess" class="top-message">
+      <div class="top-message-content text-center">
+          <span class="glyphicon glyphicon-bullhorn"></span> Add Success.
+          <span onclick="hidetb()" id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span></div></div>`);
     }
   }
 }
-
+async function changePage(page) {
+  const search =
+    document.querySelector("#classify_prd")[
+      document.querySelector("#classify_prd").selectedIndex
+    ].text;
+  const datas = await $.ajax({
+    url: "/check/change/pagination?page=" + page,
+    type: "GET",
+  });
+  if (datas) {
+    $(".showPrds").html(datas);
+  }
+}
 async function Update_Role(id) {
   const roleUpdate = await $("select[id='role'] option:selected").text();
   var role = "";
@@ -51,12 +69,24 @@ async function Update_Role(id) {
     type: "PUT",
     data: { role: role },
   });
-  console.log(result);
   if (result.status == 200) {
     $(".modal__close")[0].click();
-    window.location.reload();
+    setTimeout(() => {
+      hidetb();
+      window.location.reload();
+    }, 1500);
+    $(".mess_tb").append(`<div id="top-mess" class="top-message">
+    <div class="top-message-content container text-center">
+        <span class="glyphicon glyphicon-bullhorn"></span> Update Success.
+        <span onclick="hidetb()" id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span></div></div>`);
   } else {
     alert(result.mess);
+  }
+}
+
+function hidetb() {
+  if ($("#top-mess").is(":visible")) {
+    $("#top-mess").slideUp("fast");
   }
 }
 
@@ -66,7 +96,14 @@ async function deleteUser(id) {
     type: "DELETE",
   });
   if (result.status == 200) {
-    window.location.reload();
+    setTimeout(() => {
+      hidetb();
+      window.location.reload();
+    }, 1500);
+    $(".mess_tb").append(`<div id="top-mess" class="top-message">
+    <div class="top-message-content container text-center">
+        <span class="glyphicon glyphicon-bullhorn"></span> Delete User Success.
+        <span onclick="hidetb()" id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span></div></div>`);
   } else {
     alert(result.mess);
   }
@@ -110,7 +147,14 @@ async function editproduct(id) {
         });
         if (updatePrd.mess == "finish") {
           $(".modal__close")[0].click();
-          window.location.reload();
+          setTimeout(() => {
+            hidetb();
+            window.location.reload();
+          }, 1500);
+          $(".mess_tb").append(`<div id="top-mess" class="top-message">
+          <div class="top-message-content container text-center">
+              <span class="glyphicon glyphicon-bullhorn"></span> Edit Product Success.
+              <span onclick="hidetb()" id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span></div></div>`);
         }
       } catch (err) {
         console.log(err);
@@ -133,7 +177,14 @@ async function editproduct(id) {
       });
       if (updatePrd.mess == "finish") {
         $(".modal__close")[0].click();
-        window.location.reload();
+        setTimeout(() => {
+          hidetb();
+          window.location.reload();
+        }, 1500);
+        $(".mess_tb").append(`<div id="top-mess" class="top-message">
+        <div class="top-message-content container text-center">
+            <span class="glyphicon glyphicon-bullhorn"></span> Edit Product Success.
+            <span onclick="hidetb()" id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span></div></div>`);
       }
     } catch (err) {
       console.log(err);
@@ -146,13 +197,27 @@ async function deleteProduct(id) {
     url: "/check/deletePrd/" + id,
     type: "DELETE",
   });
+  console.log(result);
   if (result.status == 200) {
-    window.location.reload();
+    setTimeout(() => {
+      hidetb();
+      window.location.reload();
+    }, 1500);
+    $(".mess_tb").append(`<div id="top-mess" class="top-message">
+    <div class="top-message-content container text-center">
+        <span class="glyphicon glyphicon-bullhorn"></span>Delete Product Success.
+        <span onclick="hidetb()" id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span></div></div>`);
   } else {
-    alert(result.mess);
+    setTimeout(() => {
+      hidetb();
+      window.location.reload();
+    }, 1500);
+    $(".mess_tb").append(`<div id="top-mess" class="top-message">
+    <div class="top-message-content container text-center">
+        <span class="glyphicon glyphicon-bullhorn"></span>${result.mess}
+        <span onclick="hidetb()" id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span></div></div>`);
   }
 }
-
 async function changevalue() {
   const datavalueselect =
     document.querySelector("#classify_prd")[
@@ -174,8 +239,10 @@ async function changevalue() {
     $(".showPrds").html(getresult);
   } else if (datavalueselect == "Tất cả") {
     render();
+    changePage(1);
   }
 }
+
 async function searchPrd() {
   if ($("input").val() != "") {
     $(".pageList").html("");
@@ -213,23 +280,75 @@ async function render() {
     }
   }
 }
-render();
-changePage(1);
-async function changePage(page) {
-  try {
-    const search =
-      document.querySelector("#classify_prd")[
-        document.querySelector("#classify_prd").selectedIndex
-      ].text;
-    const data = await $.ajax({
-      url: `/check/listProducts/pagination/?page=${page}&search=${search}`,
-      type: "GET",
-    });
-    console.log(data);
-    $(".showPrds").html(data);
-  } catch (error) {
-    console.log(error);
+
+if (window.location.href.includes("listProducts")) {
+  render();
+
+  changePage(1);
+}
+
+async function ShowOrdersUser(id) {
+  window.open(
+    window.location.origin + `/check/views/oduser/?id=${id}`,
+    "_blank"
+  );
+}
+
+if (window.location.href.includes("listOrders")) {
+  $.ajax({
+    type: "GET",
+    url: "/check/getOrders",
+  }).then((data) => {
+    const totalPage = Math.ceil(data / 9);
+    $(".listpage").html("");
+    for (let i = 1; i <= totalPage; i++) {
+      const pageButton = `
+        <button onclick='changePageorders(${i})'>${i}</button>
+        `;
+      $(".listpage").append(pageButton);
+    }
+  });
+  changePageorders(1);
+}
+async function changePageorders(page) {
+  const result = await $.ajax({
+    type: "GET",
+    url: "/check/pageNext?page=" + page,
+  });
+  if (result) {
+    $(".border-table").html(result);
   }
 }
 
-function kiemtrahang() {}
+async function Editorders(id) {
+  console.log(id);
+  $(".btn_edit--order_" + id).attr("style", "display: none");
+  $(".changeEdit_" + id).append(`<div class="showedit">
+  <a onclick="changeOrder('${id}' ,'Pending' )" style= "background-color : white !important">Pending</a>
+  <a onclick="changeOrder('${id}' ,'Shipping' )" style= "background-color : white !important">shipping</a>
+  <a onclick="changeOrder('${id}' ,'Delivered' )" style= "background-color : white !important">delivered</a>
+</div>`);
+}
+
+async function changeOrder(id, status) {
+  console.log(id);
+  console.log(status);
+
+  try {
+    const result = await $.ajax({
+      url: "/check/update_status_order",
+      type: "POST",
+      data: { id, status },
+    });
+    if (result.status == 200) {
+      setTimeout(() => {
+        hidetb();
+        window.location.reload();
+      }, 1500);
+      $(".mess_tb").append(`<div id="top-mess" class="top-message">
+      <div class="top-message-content container text-center">
+          <span class="glyphicon glyphicon-bullhorn"></span>${result.mess}
+          <span onclick="hidetb()" id="top-mess-hide" class="top-message-icon glyphicon glyphicon-chevron-up hidden-xs"></span></div></div>`);
+    }
+  } catch (error) {}
+}
