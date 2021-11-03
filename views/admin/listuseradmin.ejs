@@ -25,6 +25,75 @@
 	<script src="/public/assets/js/skycons.js"></script>
 	<!--//skycons-icons-->
 </head>
+<style>
+	.top-message {
+		background: #e44f3d;
+		padding-top: 10px;
+		padding-bottom: 13px;
+		color: #fff;
+		font-weight: 400;
+		font-size: 16px;
+
+	}
+
+	.top-message-content {
+		position: relative;
+	}
+
+	.top-message-content .glyphicon {
+		margin-right: 7px;
+	}
+
+	.top-message-icon {
+		padding: 15px;
+		background: #e44f3d;
+		color: #fff;
+		cursor: pointer;
+		position: absolute;
+		top: -12px;
+		right: 15px;
+	}
+
+	button {
+		cursor: pointer;
+		background-color: #5de6de;
+		background-image: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+		border: none;
+		border-radius: 50%;
+		transition: 200ms;
+	}
+
+	button:hover {
+		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+
+	}
+
+	@keyframes bounce {
+		0% {
+			transform: translateX(-50%) translateY(-50%)
+		}
+
+		25% {
+			transform: translateX(-50%) translateY(-65%)
+		}
+
+		50% {
+			transform: translateX(-50%) translateY(-50%)
+		}
+
+		75% {
+			transform: translateX(-50%) translateY(-35%)
+		}
+
+		100% {
+			transform: translateX(-50%) translateY(-50%)
+		}
+	}
+
+	button:focus {
+		outline: none;
+	}
+</style>
 
 <body>
 	<%- include('../Components/bodyhome'); -%>

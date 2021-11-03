@@ -6,9 +6,11 @@ const addressUser = require("../models/addressModel");
 const bcrypt = require("bcrypt");
 const check = require("../controllers/checkAuth");
 require("dotenv").config({ path: "../.env" });
+const product = model.ProductModel;
 
 const multer = require("multer");
 const fs = require("fs");
+const UserModel = require("../models/backlist");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -32,6 +34,61 @@ router.get("/listuser", async (req, res) => {
   }
 });
 
+router.get("/views/oduser/", async (req, res) => {
+  const result = await model.orderssModel
+    .find({
+      userId: req.query.id,
+    })
+    .populate("product.productId");
+  if (result) {
+    return res.render("components/viewOrders", {
+      result,
+    });
+  }
+});
+router.post(
+  "/searchUserOrder",
+  check.checkLogin,
+  check.checkAdmin,
+  async (req, res) => {
+    var result = [];
+    const resultdata = await model.orderssModel
+      .find({
+        userId: req.body.id,
+      })
+      .populate("product.productId");
+    for (let i = 0; i < resultdata.length; i++) {
+      if (resultdata[i]._id.toString().includes(req.body.search)) {
+        result.push(resultdata[i]);
+      }
+    }
+    if (resultdata) {
+      return res.render("components/showOrderUs", {
+        result,
+      });
+    }
+  }
+);
+
+router.get(
+  "/listProducts/:key",
+  check.checkLogin,
+  check.checkAdmin,
+  async (req, res) => {
+    if (req.params.key == "Tất cả") {
+      req.params.key = "";
+    }
+    const Showproduct = await model.ProductModel.find({
+      prd_key: { $regex: req.params.key },
+    });
+    if (Showproduct) {
+      return res.render("components/viewProducts", {
+        Showproduct,
+      });
+    }
+  }
+);
+
 router.get("/listProducts", async (req, res) => {
   const Showproduct = await model.ProductModel.find().limit(9);
   if (Showproduct) {
@@ -47,12 +104,45 @@ router.get("/getPrd", async (req, res) => {
     return res.json(resultPrd.length);
   }
 });
-router.get("/listProducts/pagination/", async (req, res) => {
+
+router.get("/getOrders", async (req, res) => {
+  const resultod = await model.orderssModel.find();
+  if (resultod) {
+    return res.json(resultod.length);
+  }
+});
+
+router.get("/pageNext", async (req, res) => {
   let perPage = 9;
-  let page = req.query.page;
+  const showorders = await model.orderssModel
+    .find()
+    .skip((req.query.page - 1) * perPage)
+    .limit(perPage * 1)
+    .populate("userId")
+    .populate("product.productId");
+  if (showorders) {
+    return res.render("components/ViewsOrdersAdmin", {
+      showorders,
+    });
+  }
+});
+
+router.get("/editOrders", async (req, res) => {
+  const resultdata = await model.orderssModel.find({
+    _id: req.params.id,
+  });
+  if (resultdata) {
+    return res.render("components/ViewsOrdersAdmin", {
+      showorders,
+    });
+  }
+});
+
+router.get("/change/pagination", async (req, res) => {
+  let perPage = 9;
   const Showproduct = await model.ProductModel.find()
-    .skip(perPage * page - perPage)
-    .limit(perPage);
+    .skip((req.query.page - 1) * perPage)
+    .limit(perPage * 1);
   if (Showproduct) {
     return res.render("components/viewProducts", {
       Showproduct,
@@ -97,6 +187,7 @@ router.get(
     }
   }
 );
+
 router.get(
   "/searchprd",
   check.checkLogin,
@@ -116,14 +207,13 @@ router.get("/addProducts", async (req, res) => {
 });
 
 router.get("/listOrders", async (req, res) => {
-  const showorders = await model.orderssModel.find().populate("userId");
-  const prd = await model.ProductModel.find();
-  const address = await addressUser.find();
+  const showorders = await model.orderssModel
+    .find()
+    .populate("userId")
+    .populate("product.productId");
   if (showorders) {
     return res.render("admin/orders", {
       showorders,
-      prd,
-      address,
     });
   }
 });
@@ -167,7 +257,6 @@ router.delete("/:id", check.checkLogin, check.checkAdmin, async (req, res) => {
   try {
     const userID = req.params.id;
     const result = await model.accountmodel.deleteOne({ _id: userID });
-    console.log(result);
     if (result.deletedCount !== 0) {
       res.json({ status: 200, mess: "delete finish", result });
     } else {
@@ -268,18 +357,74 @@ router.delete(
   check.checkLogin,
   check.checkAdmin,
   async (req, res) => {
+    let checks = false;
     try {
       const PRDID = req.params.id;
-      const result = await model.ProductModel.deleteOne({ _id: PRDID });
-      console.log(result);
-      if (result.deletedCount !== 0) {
-        res.json({ status: 200, mess: "delete finish", result });
-      } else {
-        res.json({ status: 400, mess: "not find data" });
+      const checkorders = await model.orderssModel
+        .find({})
+        .populate("product.productId");
+
+      for (let i = 0; i < checkorders.length; i++) {
+        if (checkorders[i].product[0].productId._id.toString() == PRDID) {
+          checks = true;
+        }
+      }
+      if ((checks = true)) {
+        res.json({
+          status: 204,
+          mess: "sản phẩm tồn tại trong orders",
+        });
+      }
+      if ((checks = false)) {
+        const result = await model.ProductModel.deleteOne({ _id: PRDID });
+        if (result.deletedCount !== 0) {
+          res.json({ status: 200, mess: "delete finish", result });
+        } else {
+          res.json({ status: 400, mess: "not find data" });
+        }
       }
     } catch (err) {
-      res.json({ status: 500, mess: "error server" });
+      res.json({ status: 500, mess: "error server", err });
     }
+  }
+);
+
+router.get(
+  "/userorders/:id",
+  check.checkLogin,
+  check.checkAdmin,
+  async (req, res) => {
+    try {
+      const result = await model.orderssModel.find({
+        userId: req.params.id,
+      });
+      if (result) {
+        res.json({ status: 200, result });
+      } else {
+        res.json({ status: 300, mess: "user not orders" });
+      }
+    } catch (error) {
+      res.json({ status: 500, mess: "Err server" + error });
+    }
+  }
+);
+
+router.post(
+  "/update_status_order",
+  check.checkLogin,
+  check.checkAdmin,
+  async (req, res) => {
+    try {
+      const result = await model.orderssModel.findByIdAndUpdate(
+        { _id: req.body.id },
+        {
+          status: req.body.status,
+        }
+      );
+      if (result) {
+        res.json({ status: 200, mess: "finish", result });
+      }
+    } catch (error) {}
   }
 );
 

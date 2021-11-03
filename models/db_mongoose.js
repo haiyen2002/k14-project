@@ -1,6 +1,4 @@
 const mongoose = require("./dbconnect");
-// const useraddress = require("../models/addressModel");
-// const selectedProduct = require("../models/selectedProduct");
 const Schema = mongoose.Schema;
 
 const account = new Schema(
