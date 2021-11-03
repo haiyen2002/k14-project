@@ -17,6 +17,7 @@
       padding: 20px;
       border-radius: 20px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      overflow-x: auto;
       @media screen and (max-width: 768px) {
         overflow-x: auto;
       }
@@ -48,7 +49,7 @@
               border: 1px solid rgba(0, 0, 0, 0.1);
               font-weight: 600;
               padding: 10px 5px;
-              font-size: 14px;
+              font-size: 13px;
               &:last-child {
                 text-align: right;
               }
@@ -119,7 +120,7 @@
             td {
               padding: 10px 5px;
               border: 1px solid rgba(0, 0, 0, 0.1);
-              font-size: 14px;
+              font-size: 13px;
               white-space: pre-line;
               &:last-child {
                 text-align: right;
@@ -202,4 +203,23 @@
       }
     }
   }
-  
+  .listBtn{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  //   position: fixed;
+  //   gap: 10px;
+  //   bottom: 10px;
+  //   left: 50%;
+  //   transform: translate(-50%, 0);
+    button{
+        width: 30px;
+        height: 30px;
+        background: #03a9f4;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+    }
+}

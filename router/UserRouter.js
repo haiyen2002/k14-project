@@ -47,7 +47,7 @@ router.post("/signup", async (req, res) => {
         gender: req.body.gender,
         email: "",
         phone: "",
-        createdAt: Date.now().toString(),
+        createdAt: new Date().toUTCString(),
       });
       if (newuser) {
         res.json({ status: 200, mess: "success" });

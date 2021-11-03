@@ -57,10 +57,10 @@ function toggleMenu() {
       event.stopPropagation();
     });
   
-  function changeRole(id){
-      $(".modal_Role").css("display", "flex")
-      $(".change_Role").attr("onclick", `RoleUpdate('${id}')`)
-  }
+//   function changeRole(id){
+//       $(".modal_Role").css("display", "flex")
+//       $(".change_Role").attr("onclick", `RoleUpdate('${id}')`)
+//   }
   
   
   

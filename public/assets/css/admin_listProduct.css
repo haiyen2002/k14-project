@@ -185,4 +185,25 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.listBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.listBtn button {
+  width: 30px;
+  height: 30px;
+  background: #03a9f4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
 /*# sourceMappingURL=admin_listProduct.css.map */

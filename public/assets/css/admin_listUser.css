@@ -25,6 +25,7 @@
   border-radius: 20px;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -73,7 +74,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   font-weight: 600;
   padding: 10px 5px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .details .rencentOrder table thead tr td:last-child {
@@ -173,7 +174,7 @@
 .details .rencentOrder table tbody tr td {
   padding: 10px 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 14px;
+  font-size: 13px;
   white-space: pre-line;
 }
 
@@ -283,5 +284,26 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+.listBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.listBtn button {
+  width: 30px;
+  height: 30px;
+  background: #03a9f4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
 }
 /*# sourceMappingURL=admin_listUser.css.map */

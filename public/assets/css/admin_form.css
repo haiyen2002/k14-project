@@ -283,6 +283,7 @@
 * body .container .main.active {
   width: calc(100% - 60px) !important;
   left: 60px;
+  overflow-x: auto;
 }
 
 @media screen and (max-width: 992px) {

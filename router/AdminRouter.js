@@ -3,7 +3,7 @@ const path = require("path");
 const multer = require("multer");
 const jwt = require("jsonwebtoken");
 const controllerAdmin = require("../controllers/adminController");
-const { ProductModel } = require("../models/db_mongoose");
+const { ProductModel, accountmodel } = require("../models/db_mongoose");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -143,6 +143,23 @@ router.delete("/deleteProduct/:id", async (req, res)=>{
     }
 })
 
+router.put("/updateRole/:id", async (req, res)=>{
+    try {
+        const result = await accountmodel.findByIdAndUpdate(
+            {_id: req.params.id}, 
+            {role: req.body.role}
+        )
+        if(result){
+            res.json({mess: "update Role compelete", status: 200, data: result})
+        }else{
+            res.json({mess: "not update compelete", status: 400})
+        }
+        
+    } catch (error) {
+        res.json({ status: 500, mess: "loi server", error });
+    }
+})
+
 
 
 router.get("/", controllerAdmin.adminHome);
@@ -158,5 +175,13 @@ router.get("/addProduct", controllerAdmin.adminaddProduct);
 router.get("/changePass", controllerAdmin.adminchangePass);
 
 router.get("/changeProfile", controllerAdmin.adminchangeProfile);
+
+router.get("/getPrd", controllerAdmin.getProduct)
+
+router.get("/getUser", controllerAdmin.getUser)
+
+router.get("/pavigationProduct", controllerAdmin.pavigationProduct)
+
+router.get("/pavigationUser", controllerAdmin.pavigationUser)
 
 module.exports = router;

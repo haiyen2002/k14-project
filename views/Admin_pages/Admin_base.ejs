@@ -47,13 +47,20 @@
             <%- include('../Admin_pages/ListProduct.ejs') %>
             <%- include('../components/admin/modal_Delete') %>
             <%- include('../components/admin/modal_FixProduct') %>
+            <div class="listBtn">
+          
+            </div>
         <% } %>
 
         <% if( content == 'Customers' ){ %>
             <!-- details -->
             <%- include('../Admin_pages/Customers') %>
             <%- include('../components/admin/modal_Role') %>
-            <%- include('../components/admin/modal_Delete') %>
+ 
+
+            <div class="listBtn">
+          
+            </div>
         <% } %>
 
         <% if( content == 'addProduct' ){ %>
@@ -76,12 +83,19 @@
 
     <script src="/public/assets/js/admin_fixProduct.js"></script>
     <script src="/public/assets/js/admin_deleteProduct.js"></script>
+    <script src="/public/assets/js/admin_pavigationProduct.js"></script>
 
     <% } %>
 
   <% if( content == 'addProduct' ){ %>
 
     <script src="/public/assets/js/admin_addproduct.js"></script>
+
+    <% } %>
+  <% if( content == 'Customers' ){ %>
+
+    <script src="/public/assets/js/admin_Role.js"></script>
+    <script src="/public/assets/js/admin_pavigationUser.js"></script>
 
     <% } %>
 

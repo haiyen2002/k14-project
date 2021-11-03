@@ -119,3 +119,49 @@ const {
     }
   };
   
+
+  module.exports.getProduct = (req, res)=>{
+      ProductModel.find()
+      .then(data=>{
+          res.json({mess: "show data", data: data, status: 200})
+      })
+      .catch(err=>{
+          res.json({mess: "loi sever", err: err, status: 500})
+      })
+  }
+
+  module.exports.pavigationProduct = async (req, res)=>{
+      try {
+          const data = await ProductModel.find()
+          .skip(parseInt((req.query.page - 1) * 6))
+          .limit(6)
+          if(data){
+              res.json({status: 200, data:data, mess: "ok"})
+          }
+      } catch (error) {
+          res.json(error)
+      }
+  }
+
+  module.exports.getUser = (req, res)=>{
+    accountmodel.find()
+    .then(data=>{
+        res.json({mess: "show data", data: data, status: 200})
+    })
+    .catch(err=>{
+        res.json({mess: "loi sever", err: err, status: 500})
+    })
+}
+
+module.exports.pavigationUser = async (req, res)=>{
+    try {
+        const data = await accountmodel.find()
+        .skip(parseInt((req.query.page - 1) * 6))
+        .limit(6)
+        if(data){
+            res.json({status: 200, data:data, mess: "ok"})
+        }
+    } catch (error) {
+        res.json(error)
+    }
+}
