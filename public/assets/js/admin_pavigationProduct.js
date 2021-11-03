@@ -26,9 +26,10 @@ async function render(){
                 $(".listBtn").append(btnPage)
             }
             const newdata = res.data.slice(0, 6)
-            newdata.map((ele) =>{
+            newdata.map((ele, index) =>{
                 let itemStart = `
                 <tr>
+                <td>${index + 1}</td>
                 <td>${ele._id}</td>
                 <td>
                   <div class="img_Product">               
@@ -75,9 +76,10 @@ async function changePage(page){
         if(res.status == 200){
             $('tbody').html("") 
             let newdata = res.data
-            newdata.map((ele) =>{
+            newdata.map((ele, index) =>{
                 let itemStart = `
                 <tr>
+                <td>${index + 1}</td>
                 <td>${ele._id}</td>
                 <td>
                   <div class="img_Product">               

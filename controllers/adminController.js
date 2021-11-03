@@ -59,7 +59,9 @@ const {
     try {
       const user = await accountmodel.find();
       const product = await ProductModel.find();
-      const order = await orderssModel.find();
+      const order = await orderssModel.find()
+      .populate("userId")
+      .populate("product.productId")
       res.render("Admin_pages/Admin_base", {
         content: "ListOrder",
         user: user,
@@ -156,6 +158,33 @@ const {
 module.exports.pavigationUser = async (req, res)=>{
     try {
         const data = await accountmodel.find()
+        .skip(parseInt((req.query.page - 1) * 6))
+        .limit(6)
+        if(data){
+            res.json({status: 200, data:data, mess: "ok"})
+        }
+    } catch (error) {
+        res.json(error)
+    }
+}
+
+module.exports.getOrder = (req, res)=>{
+    orderssModel.find()
+    .populate("userId")
+    .populate("product.productId")
+    .then(data=>{
+        res.json({mess: "show data", data: data, status: 200})
+    })
+    .catch(err=>{
+        res.json({mess: "loi sever", err: err, status: 500})
+    })
+}
+
+module.exports.pavigationOrder = async (req, res)=>{
+    try {
+        const data = await orderssModel.find()
+        .populate("userId")
+        .populate("product.productId")
         .skip(parseInt((req.query.page - 1) * 6))
         .limit(6)
         if(data){

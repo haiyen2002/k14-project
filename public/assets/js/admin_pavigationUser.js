@@ -13,9 +13,10 @@ async function render(){
                 $(".listBtn").append(btnPage)
             }
             const newdata = res.data.slice(0, 6)
-            newdata.map((ele) =>{
+            newdata.map((ele, index) =>{
                 let item = `
                 <tr>
+                <td>${index + 1}</td>
                 <td>${ele.username}</td>
                 <td><span>******</span></td>
                 <td>${ele.firstname}</td>
@@ -27,7 +28,7 @@ async function render(){
                 <td>${ele.createdAt}</td>
                 <td>${ele.role}</td>
                 <td><a href="#${ele._id}" class="btn_delete" onclick="deleteUser('${ele._id}')">Delete</a></td>
-                <td><a href="#${ele._id}" class="btn_order"  onclick="checkOrder('${ele._id}')">Order</a></td>
+                <td><a href="#${ele._id}" class="btn_order"  onclick="viewsUser('${ele._id}')">Views</a></td>
                 <td><a href="#${ele._id}" class="btn_role"  onclick="changeRole('${ele._id}')">Role</a></td>
               </tr>
                 `;
@@ -53,9 +54,10 @@ async function changePage(page){
         if(res.status == 200){
             $('tbody').html("") 
             let newdata = res.data
-            newdata.map((ele) =>{
+            newdata.map((ele, index) =>{
                 let item = `
                 <tr>
+                <td>${index + 1}</td>
                 <td>${ele.username}</td>
                 <td><span>******</span></td>
                 <td>${ele.firstname}</td>
@@ -67,7 +69,7 @@ async function changePage(page){
                 <td>${ele.createdAt}</td>
                 <td>${ele.role}</td>
                 <td><a href="#${ele._id}" class="btn_delete" onclick="deleteUser('${ele._id}')">Delete</a></td>
-                <td><a href="#${ele._id}" class="btn_order"  onclick="checkOrder('${ele._id}')">Order</a></td>
+                <td><a href="#${ele._id}" class="btn_order"  onclick="viewsUser('${ele._id}')">Views</a></td>
                 <td><a href="#${ele._id}" class="btn_role"  onclick="changeRole('${ele._id}')">Role</a></td>
               </tr>
                 `;

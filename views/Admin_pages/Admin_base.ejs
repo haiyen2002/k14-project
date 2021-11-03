@@ -25,6 +25,11 @@
         <link rel="stylesheet" href="/public/assets/css/admin_addProduct.css">
 
     <% } %>
+
+    <% if( content == 'ListOrder' ){ %>
+        <link rel="stylesheet" href="/public/assets/css/admin_listOrder.css">
+
+    <% } %>
   </head>
   <body>
     <div class="container">
@@ -56,6 +61,7 @@
             <!-- details -->
             <%- include('../Admin_pages/Customers') %>
             <%- include('../components/admin/modal_Role') %>
+            <%- include('../components/admin/modal_DeleteUser') %>
  
 
             <div class="listBtn">
@@ -66,6 +72,15 @@
         <% if( content == 'addProduct' ){ %>
             <!-- details -->
             <%- include('../Admin_pages/addProduct.ejs') %>
+ 
+        <% } %>
+
+        <% if( content == 'ListOrder' ){ %>
+            <!-- details -->
+            <%- include('../Admin_pages/ListOrder') %>
+            <div class="listBtn">
+          
+            </div>
  
         <% } %>
   
@@ -96,8 +111,15 @@
 
     <script src="/public/assets/js/admin_Role.js"></script>
     <script src="/public/assets/js/admin_pavigationUser.js"></script>
+    <script src="/public/assets/js/admin_deleteUser.js"></script>
 
     <% } %>
+
+    <% if( content == 'ListOrder' ){ %>
+
+        <script src="/public/assets/js/admin_pavigationOrder.js"></script>
+    
+        <% } %>
 
 
 </html>

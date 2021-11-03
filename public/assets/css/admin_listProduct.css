@@ -161,6 +161,7 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .details .rencentOrder table tbody tr td .btn_delete {
@@ -169,6 +170,7 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .details .rencentOrder table tbody tr td .img_Product {

@@ -160,6 +160,22 @@ router.put("/updateRole/:id", async (req, res)=>{
     }
 })
 
+router.delete("/deleteUser/:id", async (req, res)=>{
+    try {
+        const result = await accountmodel.findByIdAndDelete(
+            {_id: req.params.id},           
+        )
+        if(result.deletedCount !== 0){
+            res.json({mess: "delete compelete", status: 200})
+        }else{
+            res.json({mess: "delete not compelete", status: 400})
+        }
+        
+    } catch (error) {
+        res.json({ status: 500, mess: "loi server", error });
+    }
+})
+
 
 
 router.get("/", controllerAdmin.adminHome);
@@ -180,8 +196,14 @@ router.get("/getPrd", controllerAdmin.getProduct)
 
 router.get("/getUser", controllerAdmin.getUser)
 
+router.get("/getOrder", controllerAdmin.getOrder)
+
 router.get("/pavigationProduct", controllerAdmin.pavigationProduct)
 
 router.get("/pavigationUser", controllerAdmin.pavigationUser)
+
+router.get("/pavigationOrder", controllerAdmin.pavigationOrder)
+
+
 
 module.exports = router;
