@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- head -->
+    <%- include('../components/admin/head.ejs') %>
+
+    <% if( content == 'Dashboard' ){ %>
+        <link rel="stylesheet" href="/public/assets/css/admin_home.css" />
+    <% } %>
+
+    <% if( content == 'ListProduct' ){ %>
+        <link rel="stylesheet" href="/public/assets/css/admin_listProduct.css" />
+        <link rel="stylesheet" href="/public/assets/css/modal_Delete.css">
+        <link rel="stylesheet" href="/public/assets/css/modal_FixProduct.css">
+    <% } %>
+
+    <% if( content == 'Customers' ){ %>
+        <link rel="stylesheet" href="/public/assets/css/admin_listUser.css" />
+        <link rel="stylesheet" href="/public/assets/css/modal_Delete.css">
+        <link rel="stylesheet" href="/public/assets/css/modal_Role.css">
+    <% } %>
+
+    
+    <% if( content == 'addProduct' ){ %>
+        <link rel="stylesheet" href="/public/assets/css/admin_addProduct.css">
+
+    <% } %>
+  </head>
+  <body>
+    <div class="container">
+      <!-- navigation -->
+      <%- include('../components/admin/navigation.ejs') %>
+      <div class="main">
+        <!-- topbar -->
+        <%- include('../components/admin/topbar.ejs') %>
+        <!-- cardBox -->
+        <%- include('../components/admin/cardBox.ejs') %>
+
+        <% if( content == 'Dashboard' ){ %>
+            <!-- details -->
+            <%- include('../Admin_pages/Dashboard.ejs') %>
+ 
+        <% } %>
+
+        <% if( content == 'ListProduct' ){ %>
+            <!-- details -->
+            <%- include('../Admin_pages/ListProduct.ejs') %>
+            <%- include('../components/admin/modal_Delete') %>
+            <%- include('../components/admin/modal_FixProduct') %>
+        <% } %>
+
+        <% if( content == 'Customers' ){ %>
+            <!-- details -->
+            <%- include('../Admin_pages/Customers') %>
+            <%- include('../components/admin/modal_Role') %>
+            <%- include('../components/admin/modal_Delete') %>
+        <% } %>
+
+        <% if( content == 'addProduct' ){ %>
+            <!-- details -->
+            <%- include('../Admin_pages/addProduct.ejs') %>
+ 
+        <% } %>
+  
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="/public/assets/js/formadmin.js"></script>
+  <% if( content == 'ListProduct' ){ %>
+
+    <script src="/public/assets/js/admin_fixProduct.js"></script>
+    <script src="/public/assets/js/admin_deleteProduct.js"></script>
+
+    <% } %>
+
+  <% if( content == 'addProduct' ){ %>
+
+    <script src="/public/assets/js/admin_addproduct.js"></script>
+
+    <% } %>
+
+
+</html>

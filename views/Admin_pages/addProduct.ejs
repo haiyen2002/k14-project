@@ -1,0 +1,42 @@
+<div class="details">
+    <div class="container_detail">
+         <div class="content-detail">
+             <h2>Add Product</h2>
+         </div>
+         <form id="form-addProduct" method="POST" action="" enctype="multipart/form-data">
+             <div class="form-items">
+                 <div class="form-item">
+                     <label for="imgProduct">imgProduct</label>
+                     <input type="file" id="imgProduct" multiple name="products" >
+                 </div>
+                 <div class="form-item">
+                     <label for="name">Name</label>
+                     <input type="text" id="name" name="name">
+                 </div>
+                 <div class="form-item">
+                     <label for="">prd-key</label>
+                     <input type="text" id="prd_key" name="prd_key">
+                 </div>
+                 <div class="form-item">
+                     <label for="price">price</label>
+                     <input type="text" id="price" name="price">
+                 </div>
+                 <div class="form-item">
+                     <label for="quantity">quantity</label>
+                     <input type="text" id="quantity" name="quantity">
+                 </div>
+                 <div class="form-item">
+                     <label for="codeProduct">codeProduct</label>
+                     <input type="text" id="codeProduct" name="codeProduct">
+                 </div>
+                 <div class="form-item">
+                     <label for="descriptionDetails">descriptionDetails</label>
+                     <textarea name="descriptionDetails" id="descriptionDetails" cols="30" rows="10"></textarea>
+                 </div>
+             </div>
+         </form>
+         <div class="btns_add">
+             <button class="btn_add" onclick="addProduct()">Add</button>
+         </div>
+    </div>
+ </div>

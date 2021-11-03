@@ -31,6 +31,7 @@ var UserRouter = require("./router/UserRouter");
 var productRouter = require("./router/productRouter");
 const RouterHome = require("./router/RouterHomeAdmin");
 const Router = require("./router/RouterAdmin");
+const AdminRouter = require("./router/AdminRouter");
 
 app.use("/public", express.static(path.join(__dirname, "./public")));
 
@@ -41,6 +42,7 @@ app.use("/user", UserRouter);
 app.use("/product", productRouter);
 app.use("/admin", RouterHome);
 app.use("/check", Router);
+app.use("/admin", AdminRouter);
 
 app.get("/admin/login", async (req, res) => {
   try {

@@ -1,0 +1,83 @@
+.details{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    .container_detail{
+        position: relative;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        .content-detail{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        #form-addProduct{
+            position: relative;
+            width: 100%;   
+            .form-items{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
+                gap: 20px;
+                @media screen and (max-width: 768px) {
+                    grid-template-columns: 1fr;
+                }
+                .form-item{
+                    width: 100%;
+                    input{
+                        width: 100%;
+                        outline: none;
+                        padding: 10px 15px;
+                        border: 1px solid rgba(0, 0, 0, 0.2);
+                        border-radius: 10px;
+                        font-size: 14px;
+                        &:focus{
+                            border: 1px solid #03a9f4;
+
+                        }
+                    }
+                    input[type="file"]{
+                        &:focus{
+                            background: #03a9f4;
+                            color: #fff;
+                        }
+                    }
+                    label{
+                        margin-bottom: 10px;
+                    }
+                    textarea{
+                        width: 100% !important;
+                        max-height: 80px !important;
+                        outline: none;
+                        padding: 10px 15px;
+                        border-radius: 10px;
+                        border: 1px solid rgba(0, 0, 0, 0.2);
+                        &:focus{
+                            border: 1px solid #03a9f4;
+
+                        }
+                    }
+                }
+            }
+        }
+        .btns_add{
+            width: 100%;
+            .btn_add{
+                width: 80px;
+                padding: 10px;
+                cursor: pointer;
+                background: #4cd137;
+                color: #fff;
+                font-size: 20px;
+                border: none;
+                border-radius: 10px;
+
+            }
+        }
+    }
+ 
+
+}
