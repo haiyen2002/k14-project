@@ -201,7 +201,7 @@
 
 .section-list-product {
   padding-top: 16px;
-  display: none !important;
+  display: none ;
 }
 
 .section-list-product.active {
@@ -422,7 +422,14 @@
 
   .main-banner__contact___card {
     flex: none;
-    width: 45%;
+    width: 90%;
+  }
+  .main-banner__contact___card .icon-box-image {
+    padding: 22px 0;
+  }
+
+  .main-banner__contact___card .icon-box-image img {
+    width: 30px;
   }
 
   .main-banner__contact {
