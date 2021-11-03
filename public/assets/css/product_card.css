@@ -28,6 +28,7 @@
 
 .product-card_img img {
   display: block;
+  width: 100%;
 }
 
 .product-card_text {

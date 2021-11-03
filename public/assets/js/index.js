@@ -96,6 +96,7 @@ function removeClass() {
 
 //carousel:
 $("#owl-0").owlCarousel({
+  loop: true,
   margin: 10,
   nav: true,
   navText: [
@@ -119,6 +120,7 @@ $("#owl-0").owlCarousel({
 });
 
 $("#owl-1").owlCarousel({
+  loop: true,
   margin: 10,
   nav: true,
   navText: [
@@ -144,6 +146,7 @@ $("#owl-1").owlCarousel({
 // $('.owl-nav').removeClass('disabled')
 //news carousel
 $(".owl-carousel").owlCarousel({
+  loop: true,
   margin: 10,
   slideBy: 3,
   nav: true,
@@ -157,11 +160,11 @@ $(".owl-carousel").owlCarousel({
       items: 1,
     },
     600: {
-      items: 3,
+      items: 2,
     },
     1000: {
       nav: true,
-      items: 5,
+      items: 3,
     },
   },
 });
