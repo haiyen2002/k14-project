@@ -30,6 +30,7 @@
     <% if( content == 'ListOrder' ){ %>
         <link rel="stylesheet" href="/public/assets/css/admin_listOrder.css">
         <link rel="stylesheet" href="/public/assets/css/modal_Status.css">
+        <link rel="stylesheet" href="/public/assets/css/modal_viewOrder.css">
     <% } %>
   </head>
   <body>
@@ -81,6 +82,8 @@
             <!-- details -->
             <%- include('../Admin_pages/ListOrder') %>
             <%- include('../components/admin/modal_Status') %>
+            <%- include('../components/admin/modal_viewOrder') %>
+
             <div class="listBtn">
           
             </div>
@@ -123,6 +126,7 @@
 
         <script src="/public/assets/js/admin_pavigationOrder.js"></script>
         <script src="/public/assets/js/admin_Status.js"></script>
+        <script src="/public/assets/js/admin_viewOrder.js"></script>
     
         <% } %>
 

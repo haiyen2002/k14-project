@@ -208,17 +208,17 @@ router.get("/changePass", controllerAdmin.adminchangePass);
 
 router.get("/changeProfile", controllerAdmin.adminchangeProfile);
 
-router.get("/getPrd", controllerAdmin.getProduct)
+router.post("/getPrd", controllerAdmin.getProduct)
 
-router.get("/getUser", controllerAdmin.getUser)
+router.post("/getUser", controllerAdmin.getUser)
 
-router.get("/getOrder", controllerAdmin.getOrder)
+router.post("/getOrder", controllerAdmin.getOrder)
 
-router.get("/pavigationProduct", controllerAdmin.pavigationProduct)
+router.post("/pavigationProduct", controllerAdmin.pavigationProduct)
 
-router.get("/pavigationUser", controllerAdmin.pavigationUser)
+router.post("/pavigationUser", controllerAdmin.pavigationUser)
 
-router.get("/pavigationOrder", controllerAdmin.pavigationOrder)
+router.post("/pavigationOrder", controllerAdmin.pavigationOrder)
 
 
 

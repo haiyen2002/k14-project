@@ -1,11 +1,16 @@
 async function render(){
     try {
+        let username = $("#search").val();
         const res = await $.ajax({
             url: "/admin/getUser",
-            type: "GET"
+            type: "POST",
+            data: {
+                username: username
+            }
         })
         if(res.status == 200){
             const totalPage = Math.ceil(res.data.length / 6);
+            $(".listBtn").html("")
             for (let i = 1; i <= totalPage; i++) {
                 const btnPage = `
                 <button onclick="changePage(${i})">${i}</button>
@@ -13,6 +18,7 @@ async function render(){
                 $(".listBtn").append(btnPage)
             }
             const newdata = res.data.slice(0, 6)
+            $('tbody').html("") 
             newdata.map((ele, index) =>{
                 let item = `
                 <tr>
@@ -46,10 +52,14 @@ async function render(){
 
 async function changePage(page){
     try {
+        let username = $("#search").val();
         console.log(page);
         const res = await $.ajax({
             url: `/admin/pavigationUser?page=${page}`,
-            type: "GET"
+            type: "POST",
+            data:{
+                username: username
+            }
         })
         if(res.status == 200){
             $('tbody').html("") 
