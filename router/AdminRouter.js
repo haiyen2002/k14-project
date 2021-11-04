@@ -4,6 +4,7 @@ const multer = require("multer");
 const jwt = require("jsonwebtoken");
 const controllerAdmin = require("../controllers/adminController");
 const { ProductModel, accountmodel, orderssModel } = require("../models/db_mongoose");
+const check = require("../controllers/checkAuth")
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -192,21 +193,72 @@ router.delete("/deleteUser/:id", async (req, res)=>{
     }
 })
 
+router.post("/changeProfile", upload.single("thumbnail"), async (req, res) => {
+    try {
+      if (req.cookies.user) {
+        const token = req.cookies.user;
+        const id = jwt.verify(token, "Auth").id;
+        // console.log(req.file);
+        if (req.file != undefined) {
+          let index = req.file.path.indexOf("upload");
+          let link =
+            "/public/" + req.file.path.slice(index, req.file.path.length);
+          const data = await accountmodel.findByIdAndUpdate(
+            { _id: id },
+            {
+              firstname: req.body.firstname,
+              lastname: req.body.lastname,
+              phone: req.body.phone,
+              email: req.body.email,
+              birthday: req.body.birthday,
+              avatar: link,
+            }
+          );
+          if (data) {
+            res.json({
+              status: 200,
+              mess: "change profile compelete",
+              data: data,
+            });
+          }
+        } else {
+          const data = await accountmodel.findByIdAndUpdate(
+            { _id: id },
+            {
+              firstname: req.body.firstname,
+              lastname: req.body.lastname,
+              phone: req.body.phone,
+              email: req.body.email,
+              birthday: req.body.birthday,
+            }
+          );
+          if (data) {
+            res.json({
+              status: 200,
+              mess: "change profile compelete",
+              data: data,
+            });
+          }
+        }
+      }
+    } catch (error) {
+      res.json({ status: 500, mess: "loi server", error });
+    }
+  });
 
+router.get("/", check.checkLogin, check.checkAdmin , controllerAdmin.adminHome);
 
-router.get("/", controllerAdmin.adminHome);
+router.get("/listUser", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminlistUser);
 
-router.get("/listUser", controllerAdmin.adminlistUser);
+router.get("/listOrder", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminlistOrder);
 
-router.get("/listOrder", controllerAdmin.adminlistOrder);
+router.get("/listProduct", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminlistProduct);
 
-router.get("/listProduct", controllerAdmin.adminlistProduct);
+router.get("/addProduct", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminaddProduct);
 
-router.get("/addProduct", controllerAdmin.adminaddProduct);
+router.get("/changePass", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminchangePass);
 
-router.get("/changePass", controllerAdmin.adminchangePass);
-
-router.get("/changeProfile", controllerAdmin.adminchangeProfile);
+router.get("/changeProfile", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminchangeProfile);
 
 router.post("/getPrd", controllerAdmin.getProduct)
 
@@ -219,6 +271,8 @@ router.post("/pavigationProduct", controllerAdmin.pavigationProduct)
 router.post("/pavigationUser", controllerAdmin.pavigationUser)
 
 router.post("/pavigationOrder", controllerAdmin.pavigationOrder)
+
+router.put("/changePass", controllerAdmin.postChangePass)
 
 
 

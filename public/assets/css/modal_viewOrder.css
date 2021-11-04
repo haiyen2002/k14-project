@@ -18,7 +18,13 @@
   position: relative;
   width: 500px;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.9);
+  background: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .modal_viewOrder .box_viewOrder {
+    width: 100%;
+  }
 }
 
 .modal_viewOrder .box_viewOrder .close_viewOrder {
