@@ -21,15 +21,29 @@ async function render(){
                 <td>${ele.orderDate}</td>
                 <td>${ele.address}</td>
                 <td>${ele.totalPrice.toLocaleString() + 'đ'}</td>
-                <td><span class="status_style">${ele.status}</span></td>
-                <td><a href="#${ele._id}" class="btn_fix"  onclick="edit('${ele._id}')">edit</a></td>
-                <td><a href="#${ele._id}"  class="btn_delete"  onclick="view('${ele._id}')">view</a></td>
+                <td><span class="status">${ele.status}</span></td>
+                <td><a href="#${ele._id}" class="btn_edit"  onclick="edit('${ele._id}')">edit</a></td>
+                <td><a href="#${ele._id}"  class="btn_view"  onclick="view('${ele._id}')">view</a></td>
               </tr>
                 `;
 
                              
                 $('tbody').append(item)               
             })
+            const status = document.querySelectorAll(".status")
+            for (let i = 0; i < status.length; i++) {
+                if(status[i].innerHTML == 'Shipping'){
+                    status[i].classList.add("shipping")
+                }else if(status[i].innerHTML == 'Pending...'){
+                    status[i].classList.add("pending")
+                }
+                else if(status[i].innerHTML == 'Delivered'){
+                    status[i].classList.add("delivered")
+                }
+                
+            }
+            
+            
          
         }
         
@@ -56,15 +70,29 @@ async function changePage(page){
                 <td>${ele.orderDate}</td>
                 <td>${ele.address}</td>
                 <td>${ele.totalPrice.toLocaleString() + 'đ'}</td>
-                <td><span class="status_style">${ele.status}</span></td>
-                <td><a href="#${ele._id}" class="btn_fix"  onclick="edit('${ele._id}')">edit</a></td>
-                <td><a href="#${ele._id}"  class="btn_delete"  onclick="view('${ele._id}')">view</a></td>
+                <td><span class="status">${ele.status}</span></td>
+                <td><a href="#${ele._id}" class="btn_edit"  onclick="edit('${ele._id}')">edit</a></td>
+                <td><a href="#${ele._id}"  class="btn_view"  onclick="view('${ele._id}')">view</a></td>
               </tr>
                 `;
 
                              
                 $('tbody').append(item)               
             })
+            const status = document.querySelectorAll(".status")
+            for (let i = 0; i < status.length; i++) {
+                if(status[i].innerHTML == 'Shipping'){
+                    status[i].classList.add("shipping")
+                }else if(status[i].innerHTML == 'Pending...'){
+                    status[i].classList.add("pending")
+                }
+                else if(status[i].innerHTML == 'Delivered'){
+                    status[i].classList.add("delivered")
+                }
+                
+            }
+            
+
         }
     } catch (error) {
         console.log(error);
@@ -75,6 +103,5 @@ async function changePage(page){
 render()
 
 
-const abc = document.querySelector(".number").innerHTML
-console.log(abc);
+
 

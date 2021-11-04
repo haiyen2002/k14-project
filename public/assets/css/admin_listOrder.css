@@ -155,16 +155,16 @@
   text-align: right;
 }
 
-.details .rencentOrder table tbody tr td .btn_fix {
+.details .rencentOrder table tbody tr td .btn_edit {
   text-decoration: none;
-  background: #4cd137;
+  background: #e74c3c;
   color: #fff;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
 }
 
-.details .rencentOrder table tbody tr td .btn_delete {
+.details .rencentOrder table tbody tr td .btn_view {
   background: #03a9f4;
   color: #fff;
   border: none;
@@ -186,6 +186,27 @@
   height: 60px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.details .rencentOrder table tbody tr td .pending {
+  background: #f9ca3f !important;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.details .rencentOrder table tbody tr td .delivered {
+  background: #4cd137 !important;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.details .rencentOrder table tbody tr td .shipping {
+  background: #03a9f4 !important;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
 }
 
 .listBtn {

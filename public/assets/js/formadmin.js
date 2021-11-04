@@ -87,4 +87,15 @@ $(".box_viewUser").on("click", (event) => {
 });
   
   
-  
+const status = document.querySelectorAll(".status")
+            for (let i = 0; i < status.length; i++) {
+                if(status[i].innerHTML == 'Shipping'){
+                    status[i].classList.add("shipping")
+                }else if(status[i].innerHTML == 'Pending...'){
+                    status[i].classList.add("pending")
+                }
+                else if(status[i].innerHTML == 'Delivered'){
+                    status[i].classList.add("delivered")
+                }
+                
+            }  

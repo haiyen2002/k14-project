@@ -107,15 +107,15 @@
               &:nth-child(7) {
                 text-align: right;
               }
-              .btn_fix {
+              .btn_edit {
                 text-decoration: none;
-                background: #4cd137;
+                background: #e74c3c;
                 color: #fff;
                 border: none;
                 padding: 5px 10px;
                 cursor: pointer;
               }
-              .btn_delete {
+              .btn_view {
                 background: #03a9f4;
                 color: #fff;
                 border: none;
@@ -133,6 +133,24 @@
                   object-fit: cover;
                 }
               }
+              .pending{
+                background: #f9ca3f !important;
+                color: #fff;
+                padding: 4px;
+                border-radius: 4px;
+              }
+              .delivered{
+                  background: #4cd137 !important;
+                  color: #fff;
+                  padding: 4px;
+                  border-radius: 4px;
+              }
+              .shipping{
+                background: #03a9f4 !important;
+                color: #fff;
+                padding: 4px;
+                border-radius: 4px;
+            }
             }
           }
         }
