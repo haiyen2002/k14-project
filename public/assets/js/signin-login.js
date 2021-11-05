@@ -122,7 +122,7 @@ async function login() {
 
     } else if(res.status == 400){
         alert(res.mess)
-        window.location.href = ""
+        // window.location.href = ""
       $(".modal-body").append(
         `<div class="err" style="color:red"> sai tài khoản hoặc mật khẩu </div>`
       );
