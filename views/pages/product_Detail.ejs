@@ -1,51 +1,34 @@
 <div class="product-main">
+  <div class="product-main-head">
+    <a href="/">Trang chủ</a><span><i class="fas fa-angle-double-right"></i> </span>
+    <a href="/">Dầu gội</a><span><i class="fas fa-angle-double-right"></i></span>
+    <span><%= prd_detail.name%></span>
+  </div>
     <div class="container-product">
       <!-- SEARCH AND CATELOG -->
       <%- include('./search&catelog') %>
   
       <!-- DETAIL -->
-      <div class="container-product-right">
-        <div class="product-detail product-card_item">
-          <div class="prd-detail-left">
-            <img
-              class="prd-detail-img img-prd"
-              src="<%= prd_detail.img[0] %>"
-              alt=""
-            />
+      <div class=" container-product-right ">
+        <div class="product-detail product-card_item mainphoto">
+          <div class=" prd-detail-left main-image zoom">
+                <img
+                  class=" prd-detail-img active"
+                  src="<%= prd_detail.img[0] %>"
+                  alt=""
+                  data-zoom="<%= prd_detail.img[0] %>"
+                />
+
           </div>
-          <div class="prd-detail-right">
-            <div class="prd-detail-name product-card_title"><p><%= prd_detail.name %></p></div>
-            <div class="prd-detail-price product-card_price"><%= prd_detail.price.toLocaleString() %> đ</div>
-            <% if( prd_detail.quantity > 0 ){ %>
-                <div class="product-card_quantity prd-detail-quantity ">
-                Còn <%= prd_detail.quantity %> sản phẩm
-                </div>
-             <% }else{ %>
-                <div class="product-card_quantity not_prd-detail">
-                    Hết hàng                                                                                                                                             
-                </div>
-            <% } %>
-            <div class="form-input">
-                <input type="button" value="-" onclick="minus()">
-                <input type="number" id="solg" value="1" min="1" max="<%= prd_detail.quantity %>">
-                <input type="button" value="+" onclick="plus()">
-            </div>
-            <div class="prd-detail-add">
-                <% if( prd_detail.quantity > 0 ){ %>
-              <button class="to-add" data-product-id="<%= prd_detail._id %>">
-                <i class="fas fa-cart-plus"></i> Mua
-              </button>
-              <% }else{ %>
-                <div></div>
-            <% } %>  
-            </div>
-          </div>
+       
         </div>
         <div class="prd-description">
           <h3>MÔ TẢ</h3>
           <p><%= prd_detail.descriptionDetails %></p>
         </div>
       </div>
+      <!-- PRODUCT CONTENT -->
+      <%- include('./prd-content') %>
     </div>
   </div>
   <div class="more-products">
@@ -89,3 +72,4 @@
       </div>
 
   </div>
+

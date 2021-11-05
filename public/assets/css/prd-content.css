@@ -1,0 +1,60 @@
+.productDetail-content {
+    padding-left: 40px;
+}
+
+.prd-detail-name p{
+    color: #4267b2;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+}
+
+.prd-detail-img.active {
+    display: block;
+}
+
+.share-prd-social {
+
+}
+
+.share-prd-social span {
+    display: inline-block;
+    padding: 10px 5px;
+}
+
+.share-prd-social span i{
+    font-size: 20px;
+}
+
+.tiktok{
+   color: blueviolet;
+  }
+
+.prd-detail-price.product-card_price {
+    color: #4267b2;
+    text-align: left;
+}
+
+.product-card_quantity.prd-detail-quantity {
+    text-align: left;
+    color: #4267b2;
+}
+
+.prd-detail-img {
+    display: none;
+}
+
+.container-product-left-img__img.border-img {
+    border: 1px solid #797c11;
+}
+
+
+
+/* .img-prd-0 {
+    display: block;
+} */
+
+.prd-detail-name.prd-card-detail_title {
+  
+}
+
