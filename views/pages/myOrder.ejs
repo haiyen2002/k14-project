@@ -1,87 +1,107 @@
-<div class="body_main">
-    <div class="main-left">
-      <div class="profile">
-        <div class="img_user">
-          <img src="<%= acc.avatar %>" alt="" />
+<div class="body_container">
+
+    <div class="body_main">
+        <div class="main-left">
+          <div class="profile">
+            <div class="img_user">
+              <img src="<%= acc.avatar %>" alt="" />
+            </div>
+            <div class="name_user">
+              <h3><%= acc.firstname %> <%= acc.lastname %></h3>
+            </div>
+          </div>
+          <div class="main-left_items">
+            <a class="item" href="#"><span class="icon"><i class="far fa-user"></i></span> Tài khoản của tôi</a>
+            <a class="item" href="/myOrder"><span class="icon"><i class="fas fa-clipboard"></i></span> Đơn mua</a>
+            <a class="item" href="/changeprofile"><span class="icon"><i class="fas fa-key"></i></span> Thay đổi mật khẩu</a>
+          </div>
         </div>
-        <div class="name_user">
-          <h3><%= acc.firstname %> <%= acc.lastname %></h3>
-        </div>
-      </div>
-      <div class="main-left_items">
-        <a class="item" href="#"><i class="far fa-user"></i> Tài khoản của tôi</a>
-        <a class="item" href="/myOrder"><i class="fas fa-clipboard"></i> Đơn mua</a>
-        <a class="item" href="/changeprofile"><i class="fas fa-key"></i> Thay đổi mật khẩu</a>
-      </div>
-    </div>
-    <div class="main-right">
-      <!-- <div class="search-order">
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="Tìm kiếm theo id hoặc tên sản phẩm"
-        />
-      </div> -->
-     
-
-     
-      <div class="container-orders">
-        <% if(myorder) { %>
-
-            <% myorder.forEach( (ele) => { %>
-
-                <div class="container-order">
-                  <div class="header-order">
-                    <div class="order-id">Id: <%= ele._id %></div>
-                    <div class="date_order">Ngày đặt hàng: <%= ele.orderDate.toLocaleString() %></div>
-                    <div class="order-status">
-                      Trạng thái đơn hàng : <%= ele.status %>
-                    </div>
-                  </div>
-                  <div class="body-order">
-                    <!-- //item -->
-                    <% var prds = ele.product %>
-                    <!-- item -->
-                    <% prds.map(prd =>{ %>
-                    <div class="order-item">
-                      <div class="order-item_left">
-                        <div class="item-img">
-                          <img class="img" src="<%= prd.productId.img[0] %>" alt="" />
+        <div class="main-right">
+          <!-- <div class="search-order">
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Tìm kiếm theo id hoặc tên sản phẩm"
+            />
+          </div> -->
+         
+    
+         
+          <div class="container-orders">
+              <div class="content">
+                  <h2>Đơn hàng của bạn</h2>
+              </div>
+            <% if(myorder) { %>
+    
+                <% myorder.forEach( (ele) => { %>
+    
+                    <div class="container-order">
+                      <div class="header-order">
+                        <div class="order-id">Id: <%= ele._id %></div>
+                        <div class="date_order">Ngày đặt hàng: <%= ele.orderDate.toLocaleString() %></div>
+                        <div class="order-status">
+                          Trạng thái đơn hàng : <%= ele.status %>
                         </div>
-                        <div class="item-title">
-                          <div class="title-name"><%= prd.productId.name %></div>
-                          <div class="title-quantity">
-                            Số lượng : <%= prd.quantity %>
+                      </div>
+                      <div class="body-order">
+                        <!-- //item -->
+                        <% var prds = ele.product %>
+                        <!-- item -->
+                        <% prds.map(prd =>{ %>
+                        <div class="order-item">
+                          <div class="order-item_left">
+                            <div class="item-img">
+                              <img class="img" src="<%= prd.productId.img[0] %>" alt="" />
+                            </div>
+                            <div class="item-title">
+                              <div class="title-name"><%= prd.productId.name %></div>
+                              <div class="title-quantity">
+                                Số lượng : <%= prd.quantity %>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="order-item_right">
+                            <div class="item-price">
+                              <span
+                                >Đơn giá : <%= prd.productId.price.toLocaleString() %> đ
+                              </span>
+                            </div>
                           </div>
                         </div>
+                        <% }) %>
                       </div>
-                      <div class="order-item_right">
-                        <div class="item-price">
-                          <span
-                            >Đơn giá : <%= prd.productId.price.toLocaleString() %> đ
-                          </span>
+                      <div class="total-money">
+    
+                        <% if(ele.status != 'Delivered'){ %>
+    
+                            <div class="canCel">
+                                <button class="cancelOrder" onclick="cancelOrder(`<%= ele._id %>`)">Hủy Đơn</button>
+                            </div>
+        
+                          <% } %>
+    
+                        <div class="total">
+                            <span>Tổng tiền : <%= ele.totalPrice.toLocaleString() %> đ</span>
                         </div>
                       </div>
+                     
+    
                     </div>
-                    <% }) %>
-                  </div>
-                  <div class="total-money">
-                    Tổng tiền : <%= ele.totalPrice.toLocaleString() %> đ
-                  </div>
+                   
+    
+            <% }) %>
+            <% } else{ %>
+                <div>
+                    <img src="/public/images/Screenshot 2021-11-02 161827.png" alt="">
                 </div>
-               
-
-        <% }) %>
-        <% } else{ %>
-            <div>
-                <img src="/public/images/Screenshot 2021-11-02 161827.png" alt="">
-            </div>
-       <% } %>
-
-  
-      </div>
-
- 
+           <% } %>
+    
+      
+          </div>
+    
+     
+        </div>
     </div>
-  </div>
+
+</div>

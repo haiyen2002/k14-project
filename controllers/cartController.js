@@ -8,7 +8,6 @@ const {
 module.exports.postCart = async (req, res) => {
   try {
     const userId = req.user._id;
-    console.log(11, req.body);
     if (userId) {
       const keys = Object.keys(req.body);
       const productInfo = keys.filter((ele) => {
@@ -96,5 +95,41 @@ module.exports.getUpCart = async (req, res)=>{
         }
     } catch (error) {
         res.json(error)
+    }
+}
+
+
+module.exports.cancelOrder = async (req, res, next)=>{
+    try {
+        const orderId = req.params.id
+        console.log(orderId);
+        const data = await orderssModel.findById(orderId)
+        if(data){
+            let products = data.product;
+            for (let i = 0; i < products.length; i++) {
+                let productBuy = await ProductModel.findById(products[i].productId)
+                if(productBuy){
+                    let checkCount = parseInt(productBuy.quantity) + parseInt(products[i].quantity)
+                    let update = await ProductModel.findByIdAndUpdate(
+                        { _id: productBuy._id },
+                        { quantity: checkCount }
+                        )
+                }
+                
+            }
+            let xoa = await orderssModel.deleteOne({_id: orderId})
+           
+
+            res.json({
+                mess: "Hủy đơn hàng thành công",
+                status: 200,
+            
+              });
+        }else {
+            res.json({ status: 400, mess: "Không tìm thấy đơn hàng" });
+          }
+        
+    } catch (error) {
+        res.json({status: 500, error: error, mess: "lỗi sever"})
     }
 }

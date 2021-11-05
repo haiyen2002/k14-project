@@ -28,6 +28,14 @@
   overflow-x: auto;
 }
 
+.details .rencentOrder::-webkit-scrollbar {
+  width: 10px;
+}
+
+.details .rencentOrder::-webkit-scrollbar-thumb {
+  background: #eee;
+}
+
 @media screen and (max-width: 768px) {
   .details .rencentOrder {
     overflow-x: auto;
@@ -269,6 +277,7 @@
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 4px;
 }
 
 .details .rencentOrder table tbody tr td .btn_delete {
@@ -278,6 +287,7 @@
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 4px;
 }
 
 .details .rencentOrder table tbody tr td .btn_role {
@@ -287,6 +297,7 @@
   padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 4px;
 }
 
 .listBtn {

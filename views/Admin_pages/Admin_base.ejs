@@ -30,6 +30,10 @@
     <% if( content == 'ListOrder' ){ %>
         <link rel="stylesheet" href="/public/assets/css/admin_listOrder.css">
         <link rel="stylesheet" href="/public/assets/css/modal_Status.css">
+        <link rel="stylesheet" href="/public/assets/css/modal_viewOrder.css">
+    <% } %>
+    <% if( content == 'changeProfile' || content == 'changePass' ){ %>
+        <link rel="stylesheet" href="/public/assets/css/admin_changeProfile.css">
     <% } %>
   </head>
   <body>
@@ -81,10 +85,21 @@
             <!-- details -->
             <%- include('../Admin_pages/ListOrder') %>
             <%- include('../components/admin/modal_Status') %>
+            <%- include('../components/admin/modal_viewOrder') %>
+
             <div class="listBtn">
           
             </div>
  
+        <% } %>
+
+        <% if( content == 'changeProfile' ){ %>
+            <%- include('../Admin_pages/changeProfile') %>
+        <% } %>
+
+
+        <% if( content == 'changePass' ){ %>
+            <%- include('../Admin_pages/changePass') %>
         <% } %>
   
       </div>
@@ -123,6 +138,18 @@
 
         <script src="/public/assets/js/admin_pavigationOrder.js"></script>
         <script src="/public/assets/js/admin_Status.js"></script>
+        <script src="/public/assets/js/admin_viewOrder.js"></script>
+    
+        <% } %>
+
+    <% if( content == 'changeProfile' ){ %>
+
+        <script src="/public/assets/js/admin_changeProfile.js"></script>
+    
+        <% } %>
+    <% if( content == 'changePass' ){ %>
+
+        <script src="/public/assets/js/admin_changePass.js"></script>
     
         <% } %>
 

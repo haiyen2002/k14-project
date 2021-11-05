@@ -17,7 +17,7 @@
 .modal_viewUser .box_viewUser {
   position: relative;
   width: 300px;
-  background: rgba(255, 255, 255, 0.911);
+  background: #fff;
   padding: 30px;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);

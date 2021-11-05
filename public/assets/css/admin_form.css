@@ -3,7 +3,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "Roboto", sans-serif;
 }
 
 * body {
@@ -180,29 +180,58 @@
   width: 100%;
   height: 40px;
   border-radius: 40px;
-  padding: 5px 40px;
+  padding: 5px 30px;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.3);
   font-size: 16px;
 }
 
-* body .container .main .topbar .search label .fa-search {
+* body .container .main .topbar .search label .btn_search {
   position: absolute;
-  left: 15px;
-  top: 0px;
-  font-size: 16px;
+  right: 10px;
+  top: -2px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+* body .container .main .topbar .search label .btn_search .fa-search {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 * body .container .main .topbar .user {
-  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  width: 20%;
   height: 50px;
   border-radius: 50%;
   margin-right: 20px;
 }
 
+* body .container .main .topbar .user .name_admin {
+  font-weight: bold;
+  font-size: 18px;
+  color: #03a9f4;
+}
+
+@media screen and (max-width: 768px) {
+  * body .container .main .topbar .user .name_admin {
+    display: none;
+  }
+}
+
 * body .container .main .topbar .user .user_img {
-  width: 100%;
-  height: 100%;
+  width: 50px;
+  height: 50px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -302,5 +331,19 @@
     left: 85%;
     color: #fff;
   }
+}
+
+p,
+span {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
 }
 /*# sourceMappingURL=admin_form.css.map */
