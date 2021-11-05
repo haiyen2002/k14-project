@@ -226,7 +226,7 @@
                                                     </div>
                                                 </a>
                                                 <% if( product.quantity > 0 ){ %>
-                                                <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Mua Ngay</button>
+                                                <a  href="/product/detail/<%= product._id %>" class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Mua Ngay</a>
                                                 <% }else{ %>
                                                     <div></div>
                                                 <% } %>  

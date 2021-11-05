@@ -323,7 +323,7 @@
   color: #555;
 }
 
-@media (max-width: 849px) {
+@media (max-width: 992px) {
   .nav_item_icon {
     display: inline-block;
   }
@@ -399,7 +399,8 @@
     display: block;
   }
   .logo-header img {
-    height: 60px;
+    height: 50px;
+    width: 150px;
     object-fit: cover;
 }
 }

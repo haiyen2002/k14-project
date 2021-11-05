@@ -115,14 +115,13 @@ async function login() {
     });
     if (res.status == 200) {
       setCookie("user", res.id, 30);
-      console.log(res.data);
       $(".close").click();
       upCart()
       window.location.href = "/";
 
     } else if(res.status == 400){
         alert(res.mess)
-        window.location.href = ""
+        // window.location.href = ""
       $(".modal-body").append(
         `<div class="err" style="color:red"> sai tài khoản hoặc mật khẩu </div>`
       );
@@ -151,7 +150,6 @@ function checklogin() {
     headers: {},
   })
     .then((data) => {
-        console.log(data);
       if (data.status == 200) {
         $(".add-to-cart").css("display", "block");
         $(".to-add").css("display", "block");

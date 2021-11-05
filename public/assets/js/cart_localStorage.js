@@ -356,8 +356,7 @@ if (prdCart != null) {
               let sum = 0;
               sum = parseInt(data.quantity);
               // console.log(sum);
-              if (
-                productsInCart[i].id == event.target.dataset.id &&
+              if (productsInCart[i].id == event.target.dataset.id &&
                 productsInCart[i].count < sum
               ) {
                 if (isPlusButton) {
