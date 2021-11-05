@@ -105,7 +105,8 @@
               flex-direction: column;
               width: 100%;
               background: #fff;
-              border: 2px dashed #4267b2;
+              border: 2px solid #4267b2;
+              cursor: pointer;
               .header-order {
                 position: relative;
                 width: 100%;
@@ -114,7 +115,6 @@
                 color: #4267b2;
                 background: #eaeaea;
                 padding: 20px;
-                border-bottom: 1px dashed #4267b2;
                 @media screen and (max-width: 992px) {
                   display: flex;
                   flex-direction: column;
@@ -123,16 +123,15 @@
               }
               .body-order {
                 position: relative;
-                display: flex;
+                display: none;
                 flex-direction: column;
                 padding-bottom: 0;
-                border-bottom: 1px dashed #4267b2;
+                border-bottom: 1px solid #4267b2;
                 .order-item {
                   width: 100%;
                   display: grid;
                   grid-template-columns: 3fr 1fr;
-                  padding: 10px;
-                  border-bottom: 1px dashed #4267b2;
+                  border-bottom: 1px solid #4267b2;
                   &:nth-last-child(1){
                       border-bottom: none;
                   }
@@ -144,10 +143,10 @@
                     display: flex;
                     gap: 20px;
                     .item-img {
-                      height: 100px;
+                      height: 60px;
                       .img {
-                        height: 100px;
-                        width: 100px;
+                        height: 60px;
+                        width: 60px;
                         object-fit: cover;
                       }
                     }
@@ -159,12 +158,12 @@
                       .title-name {
                           text-align: start;
                         color: #777;
-                        font-size: 16px;
+                        font-size: 14px;
                       }
                       .title-quantity {
                           text-align: start;
                         color: #777;
-                        font-size: 16px;
+                        font-size: 14px;
                       }
                     }
                   }
@@ -178,22 +177,26 @@
                     .item-price {
                       text-align: center;
                       color: #777;
-                      font-size: 16px;
+                      font-size: 14px;
                     }
                   }
                 }
               }
               .total-money {
-                display: flex;
+                display: none;
                 justify-content: space-between;
-                padding: 20px;
+                align-items: center;
                 color: #4267b2;
-                font-size: 20px;
+                font-size: 16px;
+                padding: 10px;
                 .canCel{
-                    font-size: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 16px;
                     .cancelOrder{
-                        font-size: 20px;
-                        padding: 10px;
+                        font-size: 16px;
+                        padding: 5px 10px;
                         background: #e74c3c;
                         border: none;
                         color: #fff;
@@ -209,4 +212,11 @@
           }
         }
       }
+}
+
+.show{
+    display: flex !important;
+}
+.fade{
+    display: none;
 }

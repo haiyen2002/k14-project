@@ -37,37 +37,37 @@
                 <% myorder.forEach( (ele) => { %>
     
                     <div class="container-order">
-                      <div class="header-order">
-                        <div class="order-id">Id: <%= ele._id %></div>
-                        <div class="date_order">Ngày đặt hàng: <%= ele.orderDate.toLocaleString() %></div>
-                        <div class="order-status">
-                          Trạng thái đơn hàng : <%= ele.status %>
-                        </div>
-                      </div>
-                      <div class="body-order">
+                         <div class="header-order">
+                            <div class="order-id">Id: <%= ele._id %></div>
+                            <div class="date_order">Ngày đặt hàng: <%= ele.orderDate.toLocaleString() %></div>
+                            <div class="order-status">
+                                Trạng thái đơn hàng : <%= ele.status %>
+                            </div>
+                         </div>
+                        <div class="body-order">
                         <!-- //item -->
                         <% var prds = ele.product %>
                         <!-- item -->
                         <% prds.map(prd =>{ %>
                         <div class="order-item">
-                          <div class="order-item_left">
-                            <div class="item-img">
-                              <img class="img" src="<%= prd.productId.img[0] %>" alt="" />
+                            <div class="order-item_left">
+                                <div class="item-img">
+                                    <img class="img" src="<%= prd.productId.img[0] %>" alt="" />
+                                </div>
+                                <div class="item-title">
+                                    <div class="title-name"><%= prd.productId.name %></div>
+                                    <div class="title-quantity">
+                                        Số lượng : <%= prd.quantity %>
+                                    </div>
+                                </div>
+                             </div>
+                            <div class="order-item_right">
+                                <div class="item-price">
+                                    <span>
+                                  Đơn giá : <%= parseInt(prd.productId.price).toLocaleString() %> đ
+                                    </span>
+                                </div>
                             </div>
-                            <div class="item-title">
-                              <div class="title-name"><%= prd.productId.name %></div>
-                              <div class="title-quantity">
-                                Số lượng : <%= prd.quantity %>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="order-item_right">
-                            <div class="item-price">
-                              <span
-                                >Đơn giá : <%= prd.productId.price.toLocaleString() %> đ
-                              </span>
-                            </div>
-                          </div>
                         </div>
                         <% }) %>
                       </div>
@@ -75,18 +75,18 @@
     
                         <% if(ele.status != 'Delivered'){ %>
     
-                            <div class="canCel">
+                        <div class="canCel">
                                 <button class="cancelOrder" onclick="cancelOrder(`<%= ele._id %>`)">Hủy Đơn</button>
-                            </div>
+                        </div>
         
                           <% } %>
     
                         <div class="total">
-                            <span>Tổng tiền : <%= ele.totalPrice.toLocaleString() %> đ</span>
+                            <span>Tổng tiền : <%= parseInt(ele.totalPrice).toLocaleString() %> đ</span>
                         </div>
-                      </div>
-                     
-    
+
+                        </div>
+                        
                     </div>
                    
     

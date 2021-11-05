@@ -33,7 +33,7 @@ async function render() {
                 </td>
                 <td>${ele.name}</td>
                 <td>${ele.prd_key}</td>
-                <td>${ele.price.toLocaleString() + "đ"}</td>
+                <td>${parseInt(ele.price).toLocaleString() + "đ"}</td>
                 <td>${ele.quantity}</td>
                 <td><a href="#${
                   ele._id
@@ -69,7 +69,6 @@ async function render() {
 async function changePage(page) {
   try {
     let name = $("#search").val();
-    console.log(page);
     const res = await $.ajax({
       url: `/admin/pavigationProduct?page=${page}`,
       type: "POST",
@@ -93,7 +92,7 @@ async function changePage(page) {
                 </td>
                 <td>${ele.name}</td>
                 <td>${ele.prd_key}</td>
-                <td>${ele.price.toLocaleString() + "đ"}</td>
+                <td>${parseInt(ele.price).toLocaleString() + "đ"}</td>
                 <td>${ele.quantity}</td>
                 <td><a href="#${
                   ele._id

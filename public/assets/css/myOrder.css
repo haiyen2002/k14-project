@@ -179,7 +179,8 @@
           flex-direction: column;
   width: 100%;
   background: #fff;
-  border: 2px dashed #4267b2;
+  border: 2px solid #4267b2;
+  cursor: pointer;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .header-order {
@@ -194,7 +195,6 @@
   color: #4267b2;
   background: #eaeaea;
   padding: 20px;
-  border-bottom: 1px dashed #4267b2;
 }
 
 @media screen and (max-width: 992px) {
@@ -212,15 +212,13 @@
 
 .body_container .body_main .main-right .container-orders .container-order .body-order {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 0;
-  border-bottom: 1px dashed #4267b2;
+  border-bottom: 1px solid #4267b2;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item {
@@ -229,8 +227,7 @@
   display: grid;
   -ms-grid-columns: 3fr 1fr;
       grid-template-columns: 3fr 1fr;
-  padding: 10px;
-  border-bottom: 1px dashed #4267b2;
+  border-bottom: 1px solid #4267b2;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item:nth-last-child(1) {
@@ -257,12 +254,12 @@
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item .order-item_left .item-img {
-  height: 100px;
+  height: 60px;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item .order-item_left .item-img .img {
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -284,13 +281,13 @@
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item .order-item_left .item-title .title-name {
   text-align: start;
   color: #777;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item .order-item_left .item-title .title-quantity {
   text-align: start;
   color: #777;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item .order-item_right {
@@ -316,28 +313,38 @@
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item .order-item_right .item-price {
   text-align: center;
   color: #777;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .total-money {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #4267b2;
-  font-size: 20px;
+  font-size: 16px;
+  padding: 10px;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .total-money .canCel {
-  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .total-money .canCel .cancelOrder {
-  font-size: 20px;
-  padding: 10px;
+  font-size: 16px;
+  padding: 5px 10px;
   background: #e74c3c;
   border: none;
   color: #fff;
@@ -353,5 +360,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.show {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.fade {
+  display: none;
 }
 /*# sourceMappingURL=myOrder.css.map */

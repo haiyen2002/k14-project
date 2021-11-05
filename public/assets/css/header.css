@@ -42,7 +42,7 @@
 
 .header-top_contact span a {
   text-decoration: none;
-  color: #111;
+  color: #777;
   font-weight: 300;
 }
 
@@ -79,7 +79,7 @@
 
 .header-bottom {
   width: 100%;
-  height: 96px;
+  height: 80px;
   z-index: 10;
   box-shadow: 1px 6px 6px rgb(0 0 0 / 10%);
 }
@@ -94,7 +94,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 96px;
+  height: 80px;
   z-index: 10;
   background: rgba(255, 255, 255, 0.897);
   box-shadow: 1px 6px 6px rgb(0 0 0 / 10%);
@@ -110,8 +110,10 @@
 }
 
 .logo-header img {
-  height: 130px;
-  margin-bottom: -8px;
+  height: 70px;
+  object-fit: cover;
+  object-position: center;
+  z-index: 99;
 }
 
 .main-right {
@@ -187,7 +189,7 @@
   height: 20px;
   border-radius: 50%;
   color: #fff;
-  background-color: #878929;
+  background-color: #4267b2;
   text-align: center;
   line-height: 20px;
   font-weight: bold;
@@ -234,7 +236,7 @@
 }
 
 .nav__item_title:hover span {
-  color: #878929;
+  color: #4267b2;
 }
 
 .list-product {
@@ -271,7 +273,7 @@
 }
 
 .list-product_item > a:hover {
-  color: #878929;
+  color: #4267b2;
   background-color: #ddd;
 }
 
@@ -398,6 +400,7 @@
   }
   .logo-header img {
     height: 60px;
+    object-fit: cover;
 }
 }
 
@@ -411,7 +414,7 @@
     display: inline-block;
   }
   .logo-header img {
-    margin-bottom: 15px;
+
 }
 }
 

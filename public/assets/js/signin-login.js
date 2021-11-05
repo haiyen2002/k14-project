@@ -151,32 +151,34 @@ function checklogin() {
     headers: {},
   })
     .then((data) => {
-      if (data.status === 200) {
+        console.log(data);
+      if (data.status == 200) {
         $(".add-to-cart").css("display", "block");
         $(".to-add").css("display", "block");
+        // $(".header-top_account").html("");
+        // const IdAccount = data.id;
+        // $.ajax({
+        //   url: "/user/" + IdAccount,
+        //   type: "GET",
+        // }).then((resultdata) => {
         $(".header-top_account").html("");
-        const IdAccount = data.id;
-        $.ajax({
-          url: "/user/" + IdAccount,
-          type: "GET",
-        }).then((resultdata) => {
-          $(".header-top_account").html("");
-          let user = ` 
+        let user = ` 
         <button style = "display: flex;
         width: auto;  z-index: 99;
         padding-left: 10px;
         padding-right: 10px;
         color: black;
         border: none;
-        background-color: white;"><a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
+        background-color: white;">
+        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
         data-mdb-toggle="dropdown" aria-expanded="false">
-        <img src="${resultdata.avatar}" style="margin-right: 10px;
+        <img src="${data.checkUser.avatar}" style="margin-right: 10px;
         height: 30px; width: 30px" class="rounded-circle" height="25" alt=""
             loading="lazy"/>
         </a>
-        <span data-mdb-toggle="dropdown" style="line-height: 30px;">${
-          resultdata.firstname
-        } ${` `}${resultdata.lastname}</span>
+        <span data-mdb-toggle="dropdown" style="line-height: 30px; color: #777"> ${
+          data.checkUser.firstname
+        } ${` `}${data.checkUser.lastname}</span>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
         <li>
         <i class="fas fa-users"></i>
@@ -195,10 +197,11 @@ function checklogin() {
             <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
         </li>
         </ul> </button>`;
-          $(".header-top_account").append(user);
-        });
-      } else {
-        // $(".pb-modalreglog-submit")[0].click();
+        $(".header-top_account").append(user);
+    //     });
+    //   } else {
+    //     // $(".pb-modalreglog-submit")[0].click();
+    //     console.log(100);
       }
     })
     .catch((err) => {
