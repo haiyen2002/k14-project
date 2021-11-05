@@ -115,7 +115,6 @@ async function login() {
     });
     if (res.status == 200) {
       setCookie("user", res.id, 30);
-      console.log(res.data);
       $(".close").click();
       upCart()
       window.location.href = "/";
@@ -151,7 +150,6 @@ function checklogin() {
     headers: {},
   })
     .then((data) => {
-        console.log(data);
       if (data.status == 200) {
         $(".add-to-cart").css("display", "block");
         $(".to-add").css("display", "block");

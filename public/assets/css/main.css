@@ -33,7 +33,7 @@
 
 .prev:hover,
 .next:hover {
-  background-color: #4267b2;
+  background-color: #096d89;
   border: none;
 }
 
@@ -115,7 +115,7 @@
 
 .main-banner-hover_text p:first-child,
 .main-banner-hover_text h3 {
-  color: #4267b2;
+  color: #096d89;
 }
 
 .main-banner-hover_text p:nth-child(3) {
@@ -157,7 +157,7 @@
 }
 
 .icon-box-text h3 {
-  color: #4267b2;
+  color: #096d89;
 }
 
 .icon-box-text p {
@@ -178,7 +178,7 @@
 
 .section-head {
   text-align: center;
-  color: #4267b2;
+  color: #096d89;
   padding: 50px 0 0;
 }
 
@@ -193,7 +193,7 @@
 .line {
   width: 150px;
   height: 2px;
-  background-color: #4267b2;
+  background-color: #096d89;
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 50px;
@@ -224,15 +224,15 @@
 }
 
 .nav-product-popular ul li:hover {
-  border-color: #4267b2;
+  border-color: #096d89;
 }
 
 .nav-product-popular ul li.active {
-  border-color: #4267b2;
+  border-color: #096d89;
 }
 
 .nav-product-popular ul li.active a {
-  color: #4267b2;
+  color: #096d89;
 }
 
 .nav-product-popular ul li a {
@@ -245,7 +245,7 @@
 }
 
 .nav-product-popular ul li a:hover {
-  color: #4267b2;
+  color: #096d89;
   cursor: pointer;
 }
 
@@ -295,7 +295,7 @@
 }
 
 .owl-prev span:hover {
-  background-color: #4267b2;
+  background-color: #096d89;
   color: #fff;
 }
 
@@ -311,7 +311,7 @@
 }
 
 .owl-next span:hover {
-  background-color: #4267b2;
+  background-color: #096d89;
   color: #fff;
 }
 
@@ -330,7 +330,7 @@
 
 .owl-carousel a {
   text-decoration: none;
-  color: #4267b2;
+  color: #096d89;
 }
 
 .box-card {

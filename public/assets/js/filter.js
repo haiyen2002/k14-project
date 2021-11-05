@@ -78,6 +78,7 @@ async function render(page) {
       </ul>
       </nav>
     `);
+    checklogin()
     //first item
     if(current == 1){
       $('.pagination-filter').append(`
