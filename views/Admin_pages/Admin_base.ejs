@@ -23,18 +23,25 @@
 
     
     <% if( content == 'addProduct' ){ %>
+
         <link rel="stylesheet" href="/public/assets/css/admin_addProduct.css">
 
     <% } %>
 
     <% if( content == 'ListOrder' ){ %>
+
         <link rel="stylesheet" href="/public/assets/css/admin_listOrder.css">
         <link rel="stylesheet" href="/public/assets/css/modal_Status.css">
         <link rel="stylesheet" href="/public/assets/css/modal_viewOrder.css">
+
     <% } %>
+
     <% if( content == 'changeProfile' || content == 'changePass' ){ %>
+
         <link rel="stylesheet" href="/public/assets/css/admin_changeProfile.css">
+
     <% } %>
+
   </head>
   <body>
     <div class="container">
@@ -112,7 +119,7 @@
     referrerpolicy="no-referrer"
   ></script>
   <script src="/public/assets/js/formadmin.js"></script>
-  <% if( content == 'ListProduct' ){ %>
+    <% if( content == 'ListProduct' ){ %>
 
     <script src="/public/assets/js/admin_fixProduct.js"></script>
     <script src="/public/assets/js/admin_deleteProduct.js"></script>
@@ -120,12 +127,13 @@
 
     <% } %>
 
-  <% if( content == 'addProduct' ){ %>
+    <% if( content == 'addProduct' ){ %>
 
     <script src="/public/assets/js/admin_addproduct.js"></script>
 
     <% } %>
-  <% if( content == 'Customers' ){ %>
+
+    <% if( content == 'Customers' ){ %>
 
     <script src="/public/assets/js/admin_Role.js"></script>
     <script src="/public/assets/js/admin_pavigationUser.js"></script>
@@ -140,18 +148,21 @@
         <script src="/public/assets/js/admin_Status.js"></script>
         <script src="/public/assets/js/admin_viewOrder.js"></script>
     
-        <% } %>
+    <% } %>
 
     <% if( content == 'changeProfile' ){ %>
 
         <script src="/public/assets/js/admin_changeProfile.js"></script>
     
-        <% } %>
+    <% } %>
+
     <% if( content == 'changePass' ){ %>
 
         <script src="/public/assets/js/admin_changePass.js"></script>
     
-        <% } %>
+    <% } %>
+
+
 
 
 </html>

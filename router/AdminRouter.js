@@ -30,7 +30,6 @@ const storage = multer.diskStorage({
                   "/public/" + req.files[i].path.slice(index, req.files[i].path.length);    
                 arr.push(link)
             }
-            console.log(arr);
                                      
                 const data = await ProductModel.create(
                     {
@@ -61,7 +60,7 @@ const storage = multer.diskStorage({
     
         
     } catch (error) {
-        res.json({ status: 500, mess: "loi server", error });
+        res.json({ status: 500, mess: "lỗi sever", error });
     }
 })
 
@@ -122,7 +121,7 @@ router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => 
         }
 
     } catch (error) {
-      res.json({ status: 500, mess: "loi server", error });
+      res.json({ status: 500, mess: "lỗi sever", error });
     }
   });
 
@@ -130,17 +129,39 @@ router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => 
 
 router.delete("/deleteProduct/:id", async (req, res)=>{
     try {
-        const result = await ProductModel.findByIdAndDelete(
-            {_id: req.params.id},           
-        )
-        if(result.deletedCount !== 0){
-            res.json({mess: "delete compelete", status: 200})
+        const order = await orderssModel.find()
+        .populate("product.productId")
+        // console.log(order.length);
+        if(order.length > 0 ){
+            const result = await ProductModel.findOne(
+                {_id: req.params.id},           
+            )
+            var test = 0 ;
+            for (let i = 0; i < order.length; i++) {
+                let products = order[i].product                
+                for (let j = 0; j < products.length; j++) {
+                    let prdId = products[j].productId._id                   
+                    if(String(prdId) == result._id){
+                        test += 1          
+                        break;                       
+                    }               
+                }              
+            }     
+            // console.log(157, test);
+            if(test == 0){
+                await ProductModel.deleteOne(
+                    {_id: req.params.id},           
+                )
+                res.json({mess: "xóa sản phẩm thành công", status: 200})  
+            }else{
+                res.json({mess: "sản phẩm đang có trong 1 order", status: 400})
+            }
         }else{
-            res.json({mess: "delete not compelete", status: 400})
-        }
-        
+            await ProductModel.findByIdAndDelete({_id: req.params.id})
+            res.json({mess: "xóa sản phẩm thành công", status: 200})
+        }      
     } catch (error) {
-        res.json({ status: 500, mess: "loi server", error });
+        res.json({ status: 500, mess: "lỗi sever", error });
     }
 })
 
@@ -157,9 +178,10 @@ router.put("/updateRole/:id", async (req, res)=>{
         }
         
     } catch (error) {
-        res.json({ status: 500, mess: "loi server", error });
+        res.json({ status: 500, mess: "lỗi sever", error });
     }
 })
+
 router.put("/updateStatus/:id", async (req, res)=>{
     try {
         const result = await orderssModel.findByIdAndUpdate(
@@ -173,7 +195,7 @@ router.put("/updateStatus/:id", async (req, res)=>{
         }
         
     } catch (error) {
-        res.json({ status: 500, mess: "loi server", error });
+        res.json({ status: 500, mess: "lỗi sever", error });
     }
 })
 
@@ -189,7 +211,7 @@ router.delete("/deleteUser/:id", async (req, res)=>{
         }
         
     } catch (error) {
-        res.json({ status: 500, mess: "loi server", error });
+        res.json({ status: 500, mess: "lỗi sever", error });
     }
 })
 
@@ -242,7 +264,7 @@ router.post("/changeProfile", upload.single("thumbnail"), async (req, res) => {
         }
       }
     } catch (error) {
-      res.json({ status: 500, mess: "loi server", error });
+      res.json({ status: 500, mess: "lỗi sever", error });
     }
   });
 
@@ -273,7 +295,5 @@ router.post("/pavigationUser", controllerAdmin.pavigationUser)
 router.post("/pavigationOrder", controllerAdmin.pavigationOrder)
 
 router.put("/changePass", controllerAdmin.postChangePass)
-
-
 
 module.exports = router;

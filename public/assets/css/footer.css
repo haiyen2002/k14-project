@@ -38,7 +38,7 @@
 }
 
 #footer a:hover {
-    color: #b9d141 !important;
+    color: #4267b2 !important;
 }
 
 .footer-content .icon+div {
@@ -51,7 +51,7 @@
 
 .footer-content .icon div i {
     font-size: 16px;
-    color: #b9d141;
+    color: #4267b2;
 }
 
 .footer-item {
@@ -101,7 +101,7 @@
 
 .form-groups button {
     border-radius: 7px;
-    background-color: #b9d141;
+    background-color: #4267b2;
     border: none;
     padding: 0px 7px;
     cursor: pointer;

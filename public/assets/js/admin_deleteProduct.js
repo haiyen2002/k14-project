@@ -7,9 +7,11 @@ async function comfirmDelete(id){
     try {
         const data = $.ajax({
             url: `/admin/deleteProduct/${id}`,
-            type: "delete"
+            type: "DELETE",
         })
-        window.location.href = ""
+        console.log(data);
+        // alert(data.mess)      
+        // window.location.href = "";
     } catch (error) {
         console.log(error);
     }

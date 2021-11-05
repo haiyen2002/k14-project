@@ -96,6 +96,3 @@ async function changePage(page){
 
 render()
 
-var x = new Date().toUTCString()
-
-console.log(89, x);

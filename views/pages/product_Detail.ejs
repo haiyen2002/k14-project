@@ -63,7 +63,7 @@
                     </div>
                 </a>
                 <% if( product.quantity > 0 ){ %>
-                <button class="add-to-cart" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</button>
+                <a class="add-to-cart"  href="/product/detail/<%= product._id %>" data-product-id="<%= product._id %>"><i class="fas fa-cart-plus"></i> Thêm vào giỏ</a>
                 <% }else{ %>
                     <div></div>
                 <% } %>  

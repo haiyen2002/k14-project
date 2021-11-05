@@ -114,7 +114,7 @@ module.exports.adminaddProduct = async (req, res) => {
         .find()
         .populate("userId")
         .populate("product.productId");
-      res.render("Admin_pages/Admin_base", {
+        res.render("Admin_pages/Admin_base", {
         content: "addProduct",
         user: user,
         product: product,
@@ -164,7 +164,7 @@ module.exports.adminchangeProfile = async (req, res) =>{
           .find()
           .populate("userId")
           .populate("product.productId");
-        res.render("Admin_pages/Admin_base", {
+            res.render("Admin_pages/Admin_base", {
           content: "changeProfile",
           user: user,
           product: product,
