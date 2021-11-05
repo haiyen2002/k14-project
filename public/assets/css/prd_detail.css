@@ -458,10 +458,19 @@
   cursor: pointer;
 }
 
+
+
 /*# sourceMappingURL=prd_detail.css.map */
 
 @media (max-width: 849px) {
   .form-input-group {
     width: 50%;
+  }
+  .product-main .container-product .container-product-right{
+    border: none;
+  }
+
+  .prd-detail-name p{
+    font-size: 15px;
   }
 }
