@@ -38,7 +38,7 @@
 }
 
 #footer a:hover {
-    color: #4267b2 !important;
+    color: #006885 !important;
 }
 
 .footer-content .icon+div {
@@ -51,7 +51,7 @@
 
 .footer-content .icon div i {
     font-size: 16px;
-    color: #4267b2;
+    color: #006885;
 }
 
 .footer-item {
@@ -101,14 +101,14 @@
 
 .form-groups button {
     border-radius: 7px;
-    background-color: #4267b2;
+    background-color: #006885;
     border: none;
     padding: 0px 7px;
     cursor: pointer;
 }
 
 .form-groups button:hover {
-    background-color: #797c11;
+    background-color: #006885;
 }
 
 .form-groups i {
@@ -139,7 +139,7 @@
 }
 
 .footer-copyright span {
-    color: #797c11 !important;
+    color: #006885 !important;
     font-weight: bolder;
 }
 
@@ -168,7 +168,7 @@
 }
 
 .go-top:hover {
-    background-color: #797c11;
+    background-color: #006885;
     color: #fff;
 }
 

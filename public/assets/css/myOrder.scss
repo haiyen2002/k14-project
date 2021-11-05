@@ -96,7 +96,7 @@
            
             .content{
                 h2{
-                    color:  #4267b2;
+                    color:  #006885;
                 }
             }
             .container-order {
@@ -105,14 +105,14 @@
               flex-direction: column;
               width: 100%;
               background: #fff;
-              border: 2px solid #4267b2;
+              border: 2px solid #006885;
               cursor: pointer;
               .header-order {
                 position: relative;
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
-                color: #4267b2;
+                color: #006885;
                 background: #eaeaea;
                 padding: 20px;
                 @media screen and (max-width: 992px) {
@@ -126,12 +126,12 @@
                 display: none;
                 flex-direction: column;
                 padding-bottom: 0;
-                border-bottom: 1px solid #4267b2;
+                border-bottom: 1px solid #006885;
                 .order-item {
                   width: 100%;
                   display: grid;
                   grid-template-columns: 3fr 1fr;
-                  border-bottom: 1px solid #4267b2;
+                  border-bottom: 1px solid #006885;
                   &:nth-last-child(1){
                       border-bottom: none;
                   }
@@ -186,7 +186,7 @@
                 display: none;
                 justify-content: space-between;
                 align-items: center;
-                color: #4267b2;
+                color: #006885;
                 font-size: 16px;
                 padding: 10px;
                 .canCel{

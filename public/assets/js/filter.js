@@ -27,7 +27,7 @@ $(".search-icon-filter").on('click',()=>{
 
 
 async function render(page) {
-  // $(this).css("background-color","#878929 !important");
+  // $(this).css("background-color","#006885 !important");
   // console.log(this);
   const res = await $.ajax({
     url: `filter/${page}`,
@@ -62,7 +62,7 @@ async function render(page) {
       </div>
     </a>
     <button class="add-to-cart" data-product-id="${product._id}">
-      <i class="fas fa-cart-plus"></i> Thêm vào giỏ
+      <i class="fas fa-cart-plus"></i> Mua hàng
     </button>
   </div>
     `);

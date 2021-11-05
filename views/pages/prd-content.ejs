@@ -31,7 +31,8 @@
     <% } %>
     <div class="form-input">
       Số Lượng:
-      <input type="button" value="-" onclick="minus()" />
+      <div class="form-input-group">
+        <input type="button" value="-" onclick="minus()" />
       <input
         type="number"
         id="solg"
@@ -40,11 +41,12 @@
         max="<%= prd_detail.quantity %>"
       />
       <input  class="button-plus"  type="button" value="+" onclick="plus()" />
+      </div>
     </div>
     <div class="prd-detail-add">
       <% if( prd_detail.quantity > 0 ){ %>
         <!-- <a class="" href="/order/">   -->
-            <button class="" data-product-id="<%= prd_detail._id %>">
+            <button class="prd-detail-add-gotoPay" data-product-id="<%= prd_detail._id %>">
                 <i class="fas fa-cart-plus"></i> Tiến hành thanh toán
             </button>
         <!-- </a>    -->

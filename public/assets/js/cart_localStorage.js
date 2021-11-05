@@ -85,7 +85,7 @@ if(prd_detail != null){
 function updateProductsInCart(product) {
   for (let i = 0; i < productsInCart.length; i++) {
     if (productsInCart[i].id == product.id) {
-      productsInCart[i].count += product.count;
+      productsInCart[i].count = parseInt(productsInCart[i].count) + parseInt(product.count);
         productsInCart[i].price =
           productsInCart[i].count * productsInCart[i].basePrice;
       return productsInCart[i];
@@ -263,10 +263,11 @@ const updateOder = function () {
 
 // đếm số lượng sản phẩm
 const countTheSumPrd = function () {
-  let sum = 0;
-  productsInCart.forEach((item) => {
-    sum += item.count;
-  });
+  // let sum = 0;
+  // productsInCart.forEach((item) => {
+  //   sum += item.count;
+  // });
+ let sum = productsInCart.length;
   return sum;
 };
 

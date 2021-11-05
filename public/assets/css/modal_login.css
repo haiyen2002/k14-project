@@ -68,7 +68,7 @@
 
 .modal-login .box-login .form-login h2 {
   text-align: center;
-  color: #4267b2;
+  color: #006885;
   margin-bottom: 16px;
 }
 
@@ -78,7 +78,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #4267b2;
+  color: #006885;
 }
 
 .modal-login .box-login .form-login .input_box .input_icon {
@@ -95,35 +95,35 @@
   border: none;
   font-size: 15px;
   letter-spacing: 2px;
-  color: #4267b2;
+  color: #006885;
   background: none;
   border: none;
-  border-bottom: 1px solid #4267b2;
+  border-bottom: 1px solid #006885;
 }
 
 .modal-login .box-login .form-login .input_box #user::-webkit-input-placeholder,
 .modal-login .box-login .form-login .input_box #pass::-webkit-input-placeholder {
-  color: #4267b2;
+  color: #006885;
 }
 
 .modal-login .box-login .form-login .input_box #user:-ms-input-placeholder,
 .modal-login .box-login .form-login .input_box #pass:-ms-input-placeholder {
-  color: #4267b2;
+  color: #006885;
 }
 
 .modal-login .box-login .form-login .input_box #user::-ms-input-placeholder,
 .modal-login .box-login .form-login .input_box #pass::-ms-input-placeholder {
-  color: #4267b2;
+  color: #006885;
 }
 
 .modal-login .box-login .form-login .input_box #user::placeholder,
 .modal-login .box-login .form-login .input_box #pass::placeholder {
-  color: #4267b2;
+  color: #006885;
 }
 
 .modal-login .box-login .form-login .input_box #user:focus,
 .modal-login .box-login .form-login .input_box #pass:focus {
-  color: #4267b2;
+  color: #006885;
   border-bottom: 1px solid #e74c3c;
 }
 
@@ -132,7 +132,7 @@
   text-align: center;
   text-decoration: none;
   margin-bottom: 16px;
-  color: #4267b2;
+  color: #006885;
 }
 
 .modal-login .box-login .form-login .on-regiser:hover {
@@ -144,9 +144,9 @@
   padding: 12px 20px;
   margin-bottom: 16px;
   border: none;
-  border: 1px solid #4267b2;
+  border: 1px solid #006885;
   background: none;
-  color: #4267b2;
+  color: #006885;
   cursor: pointer;
   font-size: 15px;
   letter-spacing: 2px;

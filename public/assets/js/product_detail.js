@@ -21,7 +21,13 @@ function minus() {
 
 
 function changeImage(){
+  $($(".container-product-left-img__img")[0]).addClass('border-active');
   $(".container-product-left-img__img").click(function () {
+   
+    $(".container-product-left-img__img").each(function(){
+      $(this).removeClass('border-active')
+    })
+    $(this).addClass('border-active');
     $('.main-image img').attr('src', $(this).attr('src'))
     $('.main-image img').attr('data-zoom', $(this).attr('src'))
   })
@@ -61,7 +67,8 @@ function addPrdCheckout(){
       
       if(result.status == 200){
         window.location.href = '/cart'
-        productsInCart.push(product)
+        updateProductsInCart(product)
+        // productsInCart.push(product)
         localStorage.setItem("shoppingCart", JSON.stringify(productsInCart));
       }
       

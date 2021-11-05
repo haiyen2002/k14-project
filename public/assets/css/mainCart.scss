@@ -36,7 +36,7 @@
           grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
           width: 100%;
           height: 60px;
-          color: #4267b2;
+          color: #006885;
           @media screen and (max-width: 768px) {
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
         }
@@ -95,7 +95,7 @@
               width: 30px;
               height: 30px;
               color: #fff;
-              background: #4267b2;
+              background: #006885;
               border: none;
               font-size: 20px;
               cursor: pointer;
@@ -146,7 +146,7 @@
         .go-buy {
           text-decoration: none;
           margin-left: 20px;
-          color: #4267b2;
+          color: #006885;
           font-weight: 600;
           &:hover {
             opacity: 0.6;
@@ -168,7 +168,7 @@
         width: 100%;
         height: 61px;
         padding: 10px;
-        color: #4267b2;
+        color: #006885;
         font-weight: 600;
       }
       .total {
@@ -178,10 +178,10 @@
 
         width: 100%;
         .total-content {
-          color: #4267b2;
+          color: #006885;
         }
         .total-price {
-          color: #4267b2;
+          color: #006885;
         }
       }
       .total-end {
@@ -189,10 +189,10 @@
         grid-template-columns: 1fr 1fr;
         padding: 10px;
         .total-end-content {
-          color: #4267b2;
+          color: #006885;
         }
         .total-end-price {
-          color: #4267b2;
+          color: #006885;
         }
       }
       .pay {
@@ -201,7 +201,7 @@
         .pay-item {
           width: 100%;
           height: 40px;
-          background: #4267b2;
+          background: #006885;
           text-decoration: none;
           text-transform: uppercase;
           font-weight: 600;
