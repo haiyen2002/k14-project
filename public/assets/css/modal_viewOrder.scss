@@ -13,6 +13,7 @@
     width: 500px;
     padding: 30px;
     background: #fff;
+    z-index: 10 !important;
     @media screen and (max-width: 768px) {
       width: 100%;
     }
@@ -35,10 +36,10 @@
         gap: 8px;
         padding-bottom: 5px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-        .header_view-item {
-          .status {
-          }
-        }
+        // .header_view-item {
+        //   .status {
+        //   }
+        // }
       }
       .body_view {
         display: flex;

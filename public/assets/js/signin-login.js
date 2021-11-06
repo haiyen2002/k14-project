@@ -116,12 +116,11 @@ async function login() {
     if (res.status == 200) {
       setCookie("user", res.id, 30);
       $(".close").click();
-      upCart()
+      upCart();
       window.location.href = "/";
-
-    } else if(res.status == 400){
-        alert(res.mess)
-        // window.location.href = ""
+    } else if (res.status == 400) {
+      alert(res.mess);
+      // window.location.href = ""
       $(".modal-body").append(
         `<div class="err" style="color:red"> sai tài khoản hoặc mật khẩu </div>`
       );
@@ -188,7 +187,7 @@ function checklogin() {
         </li>
         <li>
         <i class="fas fa-shopping-bag"></i>
-            <a class="dropdown-item" href="/myOrder" >Đơn mua</a>
+            <a class="dropdown-item" href="/profile" >Tài khoản của tôi</a>
         </li>
         <li>
         <i class="fas fa-sign-out-alt"></i>
@@ -196,10 +195,10 @@ function checklogin() {
         </li>
         </ul> </button>`;
         $(".header-top_account").append(user);
-    //     });
-    //   } else {
-    //     // $(".pb-modalreglog-submit")[0].click();
-    //     console.log(100);
+        //     });
+        //   } else {
+        //     // $(".pb-modalreglog-submit")[0].click();
+        //     console.log(100);
       }
     })
     .catch((err) => {
@@ -252,36 +251,31 @@ checklogin();
   });
 })();
 
-
-
-
-async function upCart(){
-    try {
-        const res = await $.ajax({
-            url: "/cart/check",
-            type: "GET"
-        })
-        if(res.status == 200 ){
-            const cart = res.data.Cart
-            let productInCart = [];
-            for (let i = 0; i < cart.length; i++) {
-                let obj = {
-                  basePrice: cart[i].productId.price,
-                  count: cart[i].quantity,
-                  id: cart[i].productId._id,
-                  name: cart[i].productId.name,
-                  price: cart[i].productId.price,
-                  image: cart[i].productId.img[0],
-                };
-                productInCart.push(obj);
-              }
-              localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
-        }else{
-            console.log(res.mess);
-        }
-        
-    } catch (error) {
-        console.log(error);
+async function upCart() {
+  try {
+    const res = await $.ajax({
+      url: "/cart/check",
+      type: "GET",
+    });
+    if (res.status == 200) {
+      const cart = res.data.Cart;
+      let productInCart = [];
+      for (let i = 0; i < cart.length; i++) {
+        let obj = {
+          basePrice: cart[i].productId.price,
+          count: cart[i].quantity,
+          id: cart[i].productId._id,
+          name: cart[i].productId.name,
+          price: cart[i].productId.price,
+          image: cart[i].productId.img[0],
+        };
+        productInCart.push(obj);
+      }
+      localStorage.setItem("shoppingCart", JSON.stringify(productInCart));
+    } else {
+      console.log(res.mess);
     }
+  } catch (error) {
+    console.log(error);
+  }
 }
-

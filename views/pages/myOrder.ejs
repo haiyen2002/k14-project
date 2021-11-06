@@ -36,12 +36,13 @@
       <div class="container-orders">
         <div class="content">
           <h2>Đơn hàng của bạn</h2>
+          <hr />
         </div>
         <% if(myorder) { %> <% myorder.forEach( (ele) => { %>
 
-        <div class="container-order">
+        <a class="container-order" onclick="view('<%= ele._id %>')">
           <div class="header-order">
-            <div class="order-id">Id: <%= ele._id %></div>
+            <div class="order-id">Mã đơn hàng: <%= ele._id %></div>
             <div class="date_order">
               Ngày đặt hàng: <%= new Date(ele.orderDate).toLocaleDateString() %>
             </div>
@@ -49,56 +50,7 @@
               Trạng thái đơn hàng : <%= ele.status %>
             </div>
           </div>
-          <div class="body-order">
-            <!-- //item -->
-            <% var prds = ele.product %>
-            <!-- item -->
-            <% prds.map(prd =>{ %>
-            <div class="order-item">
-              <div class="order-item_left">
-                <div class="item-img">
-                  <img class="img" src="<%= prd.productId.img[0] %>" alt="" />
-                </div>
-                <div class="item-title">
-                  <div class="title-name"><%= prd.productId.name %></div>
-                  <div class="title-quantity">
-                    Số lượng : <%= prd.quantity %>
-                  </div>
-                </div>
-              </div>
-              <div class="order-item_right">
-                <div class="item-price">
-                  <span>
-                    Đơn giá : <%= parseInt(prd.productId.price).toLocaleString()
-                    %> đ
-                  </span>
-                </div>
-              </div>
-            </div>
-            <% }) %>
-          </div>
-          <div class="total-money">
-            <% if(ele.status != 'Delivered'){ %>
-
-            <div class="canCel">
-              <button
-                class="cancelOrder"
-                onclick="cancelOrder(`<%= ele._id %>`)"
-              >
-                Hủy Đơn
-              </button>
-            </div>
-
-            <% } %>
-
-            <div class="total">
-              <span
-                >Tổng tiền : <%= parseInt(ele.totalPrice).toLocaleString() %>
-                đ</span
-              >
-            </div>
-          </div>
-        </div>
+        </a>
 
         <% }) %> <% } else{ %>
         <div>

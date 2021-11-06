@@ -24,6 +24,7 @@
       <% if(content == 'myOrder'){ %>
         
         <link rel="stylesheet" href="/public/assets/css/myOrder.css" />
+        <link rel="stylesheet" href="/public/assets/css/modal_viewOrder.css">
         <% } %>
 
       <% if(content == 'profile'){ %>
@@ -63,6 +64,7 @@
 
     <% if(content == 'myOrder'){ %>
         <%- include('./myOrder') %>
+        <%- include('../components/modal_myOrder.ejs') %>
         
     <% } %>
 
@@ -172,6 +174,22 @@
   <% if(content == 'myOrder'){ %>
     <script src="/public/assets/js/cancelOrder.js"></script>
     <script src="/public/assets/js/myOrder.js"></script>
+    <script>
+    function OffmodalViewOrder(){
+    $(".modal_viewOrder").css("display", "none")
+    }
+
+    $(".close_viewOrder").on("click", OffmodalViewOrder)
+    $(".modal_viewOrder").on("click", OffmodalViewOrder)
+
+    $(".box_viewOrder").on("click", (event) => {
+    event.stopPropagation();
+    });
+    function view(id){
+    $(`#modal_viewOrder_${id}`).css("display", "flex")
+    
+    }
+    </script>
     
 <% } %>
 </html>
