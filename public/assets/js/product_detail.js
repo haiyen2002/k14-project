@@ -56,9 +56,13 @@ const prd_detail =document.querySelector('.product-main')
             price: productPrice,
             basePrice: productPrice,
           };
+          //update lên localstorage
           updateProductsInCart(product);
+          //update client hover cart
           updateShoppingCartHTML();
+          //update data lên Cart
           updatedataCart();
+          //update client cart
           if (prdCart != null) {
             updateCart();
           }

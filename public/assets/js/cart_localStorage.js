@@ -23,7 +23,7 @@ const order_buy = document.querySelector(".prd-buy-items");
 const order_price = document.querySelector(".total-price");
 
 
-// tính toán cập nhật số lượng và chỉnh tổng tiền từng sản phẩm trong giỏ hàng
+// tính toán cập nhật số lượng và chỉnh tổng tiền từng sản phẩm rồi push vào localStorage
 function updateProductsInCart(product) {
   for (let i = 0; i < productsInCart.length; i++) {
     if (productsInCart[i].id == product.id) {
@@ -36,7 +36,7 @@ function updateProductsInCart(product) {
   productsInCart.push(product);
 }
 
-// hiển thị ở client khi hover giỏ hàng
+// client khi hover giỏ hàng
 const updateShoppingCartHTML = function () {
   localStorage.setItem("shoppingCart", JSON.stringify(productsInCart));
 
@@ -95,7 +95,7 @@ const updateShoppingCartHTML = function () {
   }
 };
 
-// hiển thị trong giỏ hàng
+// client trong giỏ hàng
 const updateCart = function () {
   localStorage.setItem("shoppingCart", JSON.stringify(productsInCart));
   if (productsInCart.length > 0) {
@@ -170,7 +170,7 @@ const updateCart = function () {
   }
 };
 
-// hiển thị trong trang order
+// client trong trang order
 const updateOder = function () {
   localStorage.setItem("shoppingCart", JSON.stringify(productsInCart));
   if (productsInCart.length > 0) {
