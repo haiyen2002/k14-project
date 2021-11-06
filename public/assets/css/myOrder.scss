@@ -23,6 +23,7 @@
       padding-top: 60px;
       gap: 20px;
       padding-bottom: 10px;
+      min-height: 550px;
       background-image: linear-gradient(
           90deg,
           rgba(36, 44, 129, 0.6),
@@ -112,6 +113,7 @@
           display: flex;
           flex-direction: column;
           width: 100%;
+          text-decoration: none;
           background: #fff;
           border: 2px solid #006885;
           cursor: pointer;
@@ -123,99 +125,21 @@
             color: #006885;
             background: #eaeaea;
             padding: 20px;
+            &:hover{
+                background: linear-gradient(
+                    90deg,
+                    rgba(36, 44, 129, 0.6),
+                    rgba(224, 108, 209, 0.6)
+                  );
+                  color: #f1f1f1;
+            }
             @media screen and (max-width: 992px) {
               display: flex;
               flex-direction: column;
               gap: 10px;
             }
           }
-          .body-order {
-            position: relative;
-            display: none;
-            flex-direction: column;
-            padding-bottom: 0;
-            border-bottom: 1px solid #006885;
-            .order-item {
-              width: 100%;
-              display: grid;
-              grid-template-columns: 3fr 1fr;
-              border-bottom: 1px solid #006885;
-              &:nth-last-child(1) {
-                border-bottom: none;
-              }
-              @media screen and (max-width: 992px) {
-                display: flex;
-                flex-direction: column;
-              }
-              .order-item_left {
-                display: flex;
-                gap: 20px;
-                .item-img {
-                  height: 60px;
-                  .img {
-                    height: 60px;
-                    width: 60px;
-                    object-fit: cover;
-                  }
-                }
-                .item-title {
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                  gap: 10px;
-                  .title-name {
-                    text-align: start;
-                    color: #777;
-                    font-size: 14px;
-                  }
-                  .title-quantity {
-                    text-align: start;
-                    color: #777;
-                    font-size: 14px;
-                  }
-                }
-              }
-              .order-item_right {
-                display: flex;
-                align-items: center;
-                @media screen and (max-width: 992px) {
-                  display: flex;
-                  justify-content: end;
-                }
-                .item-price {
-                  text-align: center;
-                  color: #777;
-                  font-size: 14px;
-                }
-              }
-            }
-          }
-          .total-money {
-            display: none;
-            justify-content: space-between;
-            align-items: center;
-            color: #006885;
-            font-size: 16px;
-            padding: 10px;
-            .canCel {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              font-size: 16px;
-              .cancelOrder {
-                font-size: 16px;
-                padding: 5px 10px;
-                background: #e74c3c;
-                border: none;
-                color: #fff;
-              }
-            }
-            .total {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          }
+
         }
       }
     }
