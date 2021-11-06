@@ -18,7 +18,7 @@
         <tr>
           <td><%= ele.userId.username %></td>
           <td><%= parseInt(ele.totalPrice).toLocaleString() %>đ</td>
-          <td><%= ele.orderDate %></td>
+          <td><%= new Date(ele.orderDate).toLocaleDateString() %></td>
           <td><span class="status compelete"><%= ele.status %></span></td>
         </tr>
         <% }) %>

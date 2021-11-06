@@ -2,7 +2,7 @@
   display: none;
   position: absolute;
   position: fixed;
-  top: 15vh;
+  top: 12vh;
   right: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -14,8 +14,7 @@
   max-width: 400px;
   max-height: 60vh;
   z-index: 9;
-  border-radius: 10px !important;
-  background: #e4e6eb;
+  background: rgba(255, 255, 255, 0.9);
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   -webkit-animation: showcart 0.5s ease-out 1;

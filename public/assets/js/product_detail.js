@@ -36,50 +36,35 @@ changeImage()
 
 //end change image
 
-//add product and checkout
-function addPrdCheckout(){
-  $('.prd-detail-add button').click(async function(){
- 
-    try {
-   //lay id san pham
-      var id_prd = $(this).attr('data-product-id');
-      var quantity_prd = $("#solg").val()
-      var name_prd = $(".prd-detail-name p").text();
-      var image_prd = $(".prd-detail-img").attr('src');
-      var price_prd =parseInt($(".prd-detail-price span").text())*1000
-      var totalPrice_prd = price_prd*quantity_prd
-      let product = {
-        name: name_prd,
-        image: image_prd,
-        id: id_prd,
-        count: quantity_prd,
-        price: totalPrice_prd,
-        basePrice: price_prd,
-      };
-    
-      var arr = [{productId:id_prd,quantity:quantity_prd}]
-      const result =  await $.ajax({
-          url: '/cart/cart',
-          type:'PUT',
-          data: {prd: arr}
-      })
-      
-      
-      if(result.status == 200){
-        window.location.href = '/cart'
-        updateProductsInCart(product)
-        // productsInCart.push(product)
-        localStorage.setItem("shoppingCart", JSON.stringify(productsInCart));
-      }
-      
-    } catch (error) {
-      console.log(error);
-    }
-  })
-}
+const prd_detail =document.querySelector('.product-main')
 
-addPrdCheckout()
-
+// lấy thông tin tên, số lượng, giá tiền của sản phẩm muốn mua
+// if(prd_detail != null){
+    prd_detail.addEventListener("click", (event) => {
+        if (event.target.classList.contains("prd-detail-add-gotoPay")) {
+          const productID = event.target.dataset.productId;
+          const count = prd_detail.querySelector("#solg").value;
+          const productName = prd_detail.querySelector(".prd-detail-name p").innerHTML;
+          const productPriceS = prd_detail.querySelector(".product-card_price span").innerHTML;
+          const productImg = prd_detail.querySelector(".prd-detail-img").src;
+          const productPrice = parseInt(productPriceS.replace(/,/g, ""));
+          let product = {
+            name: productName,
+            image: productImg,
+            id: productID,
+            count: parseInt(count),
+            price: productPrice,
+            basePrice: productPrice,
+          };
+          updateProductsInCart(product);
+          updateShoppingCartHTML();
+          updatedataCart();
+          if (prdCart != null) {
+            updateCart();
+          }
+        }
+      });
+// }
 
 $(".owl-carousel").owlCarousel({
   loop: true,

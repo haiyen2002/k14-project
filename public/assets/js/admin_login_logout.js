@@ -44,7 +44,7 @@ function setCookie(cname, cvalue, exdays) {
   }
 
   function checkuser(item){
-      if(item == ""){
+      if(item.trim() == ""){
           $(".form-message-user").html("")
           $(".form-message-user").append("Vui lòng nhập trường này")
       }else{
@@ -53,7 +53,7 @@ function setCookie(cname, cvalue, exdays) {
   }
   function checkpass(item){
       
-      if(item == ""){
+      if(item.trim() == ""){
           $(".form-message-pass").html("")
           $(".form-message-pass").append("Vui lòng nhập trường này")
       }else{

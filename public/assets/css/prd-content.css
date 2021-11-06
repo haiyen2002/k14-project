@@ -53,6 +53,7 @@
 }
 
 .form-input-group {
+    display: flex;
     border: 1px #ddd solid;
     width: 120px;
 }

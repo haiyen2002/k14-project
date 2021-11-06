@@ -4,15 +4,14 @@
   display: none;
   position: absolute;
   position: fixed;
-  top: 15vh;
+  top: 12vh;
   right: 0;
   flex-direction: column;
   justify-content: space-between;
   max-width: 400px;
   max-height: 60vh;
   z-index: 9;
-  border-radius: 10px !important;
-  background: #e4e6eb;
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   animation: showcart 0.5s ease-out 1;
 

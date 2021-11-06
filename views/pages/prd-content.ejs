@@ -50,9 +50,10 @@
     <div class="prd-detail-add">
       <% if( prd_detail.quantity > 0 ){ %>
         <!-- <a class="" href="/order/">   -->
-            <button class="prd-detail-add-gotoPay" data-product-id="<%= prd_detail._id %>">
-                <i class="fas fa-cart-plus"></i> Tiến hành thanh toán
-            </button>
+            <a href="/cart" class="prd-detail-add-gotoPay to-add" data-product-id="<%= prd_detail._id %>">
+                <i class="fas fa-cart-plus"></i> Mua
+            </a>
+      
         <!-- </a>    -->
       <% }else{ %>
       <div></div>

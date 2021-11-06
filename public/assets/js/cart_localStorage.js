@@ -22,64 +22,6 @@ const order_content = document.querySelector(".content-items");
 const order_buy = document.querySelector(".prd-buy-items");
 const order_price = document.querySelector(".total-price");
 
-//
-const prd_detail =document.querySelector('.product-detail')
-
-// lấy thông tin số lượng hàng mua
-if(prd_detail != null){
-    prd_detail.addEventListener("click", (event) => {
-        if (event.target.classList.contains("to-add")) {
-          const productID = event.target.dataset.productId;
-          const count = prd_detail.querySelector("#solg").value;
-          const productName = prd_detail.querySelector(".product-card_title").innerHTML;
-          const productPriceS = prd_detail.querySelector(".product-card_price").innerHTML;
-          const productImg = prd_detail.querySelector(".img-prd").src;
-          const productPrice = parseInt(productPriceS.replace(/,/g, ""));
-          let product = {
-            name: productName,
-            image: productImg,
-            id: productID,
-            count: parseInt(count),
-            price: productPrice,
-            basePrice: productPrice,
-          };
-          updateProductsInCart(product);
-          updateShoppingCartHTML();
-          updatedataCart();
-          if (prdCart != null) {
-            updateCart();
-          }
-        }
-      });
-}
-
-//   1
-// products.forEach((ele) => {
-//   ele.addEventListener("click", (event) => {
-//     if (event.target.classList.contains("add-to-cart")) {
-//       const productID = event.target.dataset.productId;
-//       const productName = ele.querySelector(".product-card_title").innerHTML;
-//       const productPriceS = ele.querySelector(".product-card_price").innerHTML;
-//       const productImg = ele.querySelector(".img-prd").src;
-//       const productPrice = parseInt(productPriceS.replace(/,/g, ""));
-//       let product = {
-//         name: productName,
-//         image: productImg,
-//         id: productID,
-//         count: 1,
-//         price: productPrice,
-//         basePrice: productPrice,
-//       };
-//       updateProductsInCart(product);
-//       updateShoppingCartHTML();
-//       updatedataCart();
-//       if (prdCart != null) {
-//         updateCart();
-//       }
-//     }
-//   });
-// });
-
 
 // tính toán cập nhật số lượng và chỉnh tổng tiền từng sản phẩm trong giỏ hàng
 function updateProductsInCart(product) {
