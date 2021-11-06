@@ -61,9 +61,9 @@ async function render(page) {
         </div>
       </div>
     </a>
-    <button class="add-to-cart" data-product-id="${product._id}">
+    <a class="add-to-cart" href="/product/detail/${product._id}" data-product-id="${product._id}">
       <i class="fas fa-cart-plus"></i> Mua hàng
-    </button>
+    </a>
   </div>
     `);
   });

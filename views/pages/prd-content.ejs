@@ -3,10 +3,14 @@
     <div class="prd-detail-name prd-card-detail_title">
       <p><%= prd_detail.name %></p>
     </div>
+    <div class="prd-rate">
+      <span>Đánh giá: <%=prd_detail.rate%></span>
+    </div>
     <div class="prd-more-infor">
+     
       <span>Thương hiệu: Hachi |</span>
       <span>Loại: <%= prd_detail.prd_key %> |</span>
-      <span>Mã SP: <%= prd_detail.prd_code %></span>
+      <span>Mã SP: <%= prd_detail.codeProduct %></span>
     </div>
     <div class="share-prd-social">
       <span style="cursor: pointer"

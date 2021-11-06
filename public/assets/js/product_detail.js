@@ -79,3 +79,28 @@ function addPrdCheckout(){
 }
 
 addPrdCheckout()
+
+
+$(".owl-carousel").owlCarousel({
+  loop: true,
+  autoplay: true,
+  autoplayTimeout: 5000,
+  autoplayHoverPause: true,
+  nav: true,
+  items: 1,
+  // navText: [
+  //   '<span><i class="fas fa-angle-left"></i></span>',
+  //   '<span><i class="fas fa-angle-right"></i></span>',
+  // ],
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 3,
+    },
+    1000: {
+      items: 5,
+    },
+  },
+});

@@ -3,11 +3,13 @@
     <div class="container-product-left-img">
         <%var imgs = prd_detail.img%>
         <%for(var i =0; i<imgs.length;i++){%>
-          <img
+          <div>
+            <img
           class=" container-product-left-img__img prd-detail-img img-prd-<%=i%>"
           src="<%=imgs[i] %>"
           alt=""
         />
+          </div>
        <% }%>
     </div>
   
