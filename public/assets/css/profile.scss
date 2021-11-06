@@ -1,0 +1,97 @@
+.body_container{
+    position: relative;
+    width: 100%;
+    padding: 140px 80px;
+    background: #eaeff2;
+    @media screen and (max-width: 768px) {
+        padding: 20px 5px;
+    }
+    .body_main {
+        position: relative;
+        width: 100%;
+        display: flex;  
+        gap: 30px;      
+        @media screen and (max-width: 992px) {
+            display: flex;
+            flex-direction: column;
+        }
+        .main-left {
+
+            width: 30%;
+          display: flex;
+          flex-direction: column;
+          padding-top: 30px;
+          gap: 20px;
+          background-image:   linear-gradient(90deg, rgba(36, 44, 129, 0.6), rgba(224, 108, 209, 0.6) ), url("../img/silas-baisch--3vU48G830k-unsplash.jpg");
+          background-size: cover;
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+
+          @media screen and (max-width: 768px) {
+              position: relative !important;
+              width: 100%;
+          }
+          .profile {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            .img_user {
+              width: 100px;
+              height: 100px;
+              img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 50%;
+              }
+            }
+            .name_user {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: #fff;
+            }
+          }
+          .main-left_items {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            .item {
+                text-decoration: none;
+              width: 100%;
+              padding: 10px 20px;
+              cursor: pointer;
+              color: #fff;
+              font-size: 20px;
+              &:hover{
+                  background: #fff;
+                  color: #096d89;
+              }
+              .icon{
+                  width: 50px;
+                  height: 50px;
+                  padding-right: 20px;
+              }
+            }
+          }
+        }
+        .main-right {
+        width: 70%;
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+          gap: 10px;
+          overflow-y: auto;
+          @media screen and (max-width: 768px) {
+              margin-top: 10px;
+              width: 100% !important;
+              margin-left: 0;
+          }
+      
+ 
+        }
+      }
+}
+

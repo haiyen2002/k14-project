@@ -1,0 +1,157 @@
+.body_container {
+  position: relative;
+  width: 100%;
+  padding: 140px 80px;
+  background: #eaeff2;
+}
+
+@media screen and (max-width: 768px) {
+  .body_container {
+    padding: 20px 5px;
+  }
+}
+
+.body_container .body_main {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  .body_container .body_main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.body_container .body_main .main-left {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 30px;
+  gap: 20px;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(36, 44, 129, 0.6)), to(rgba(224, 108, 209, 0.6))), url("../img/silas-baisch--3vU48G830k-unsplash.jpg");
+  background-image: linear-gradient(90deg, rgba(36, 44, 129, 0.6), rgba(224, 108, 209, 0.6)), url("../img/silas-baisch--3vU48G830k-unsplash.jpg");
+  background-size: cover;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .body_container .body_main .main-left {
+    position: relative !important;
+    width: 100%;
+  }
+}
+
+.body_container .body_main .main-left .profile {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.body_container .body_main .main-left .profile .img_user {
+  width: 100px;
+  height: 100px;
+}
+
+.body_container .body_main .main-left .profile .img_user img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.body_container .body_main .main-left .profile .name_user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+
+.body_container .body_main .main-left .main-left_items {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.body_container .body_main .main-left .main-left_items .item {
+  text-decoration: none;
+  width: 100%;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+}
+
+.body_container .body_main .main-left .main-left_items .item:hover {
+  background: #fff;
+  color: #096d89;
+}
+
+.body_container .body_main .main-left .main-left_items .item .icon {
+  width: 50px;
+  height: 50px;
+  padding-right: 20px;
+}
+
+.body_container .body_main .main-right {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  gap: 10px;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .body_container .body_main .main-right {
+    margin-top: 10px;
+    width: 100% !important;
+    margin-left: 0;
+  }
+}
+/*# sourceMappingURL=profile.css.map */

@@ -25,6 +25,11 @@
         
         <link rel="stylesheet" href="/public/assets/css/myOrder.css" />
         <% } %>
+
+      <% if(content == 'profile'){ %>
+        
+        <link rel="stylesheet" href="/public/assets/css/profile.css" />
+        <% } %>
         
         <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/164071/drift-basic.css">
 
@@ -58,6 +63,11 @@
 
     <% if(content == 'myOrder'){ %>
         <%- include('./myOrder') %>
+        
+    <% } %>
+
+    <% if(content == 'profile'){ %>
+        <%- include('./profile') %>
         
     <% } %>
 

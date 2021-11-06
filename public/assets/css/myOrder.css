@@ -57,7 +57,7 @@
   }
 }
 
-.body_container .body_main .main-left .profile {
+.body_container .body_main .main-left .profile_user {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -75,12 +75,12 @@
   gap: 20px;
 }
 
-.body_container .body_main .main-left .profile .img_user {
+.body_container .body_main .main-left .profile_user .img_user {
   width: 100px;
   height: 100px;
 }
 
-.body_container .body_main .main-left .profile .img_user img {
+.body_container .body_main .main-left .profile_user .img_user img {
   width: 100px;
   height: 100px;
   -o-object-fit: cover;
@@ -88,7 +88,7 @@
   border-radius: 50%;
 }
 
-.body_container .body_main .main-left .profile .name_user {
+.body_container .body_main .main-left .profile_user .name_user {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

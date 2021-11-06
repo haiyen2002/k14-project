@@ -111,6 +111,8 @@ router.get("/myOrder", async (req, res) => {
   }
 });
 
+
+
 router.get("/order", async (req, res) => {
   try {
     // console.log(63, req.cookies.user);
@@ -138,8 +140,29 @@ router.get("/order", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+    res.json(error);
   }
 });
+
+router.get("/profile", async (req, res)=>{
+    try {
+        const userId = req.user._id;
+        if(userId){
+            const acc = await accountmodel.findById(userId);
+            const products = await productController.getAllProduct();
+            const types = await productController.getTypePrd();
+            res.render("pages/Base_pages", {
+                content: 'profile',
+                products: products,
+                types: types,
+                acc: acc,        
+              });
+        }
+        
+    } catch (error) {
+        res.json(error);
+    }
+})
 
 router.get("/about-us/", controller.about_Us);
 
@@ -158,7 +181,7 @@ router.get("/show", (req, res) => {
       res.json(data);
     })
     .catch((err) => {
-      res, json(err);
+      res.json(err);
     });
 });
 

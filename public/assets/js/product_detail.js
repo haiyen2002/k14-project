@@ -39,7 +39,7 @@ changeImage()
 const prd_detail =document.querySelector('.product-main')
 
 // lấy thông tin tên, số lượng, giá tiền của sản phẩm muốn mua
-// if(prd_detail != null){
+if(prd_detail != null){
     prd_detail.addEventListener("click", (event) => {
         if (event.target.classList.contains("prd-detail-add-gotoPay")) {
           const productID = event.target.dataset.productId;
@@ -68,7 +68,7 @@ const prd_detail =document.querySelector('.product-main')
           }
         }
       });
-// }
+}
 
 $(".owl-carousel").owlCarousel({
   loop: true,
