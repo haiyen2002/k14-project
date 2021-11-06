@@ -189,7 +189,7 @@
   height: 20px;
   border-radius: 50%;
   color: #fff;
-  background-color: #096d89;
+  background-color: #006885;
   text-align: center;
   line-height: 20px;
   font-weight: bold;
@@ -236,7 +236,7 @@
 }
 
 .nav__item_title:hover span {
-  color: #096d89;
+  color: #006885;
 }
 
 .list-product {
@@ -273,7 +273,7 @@
 }
 
 .list-product_item > a:hover {
-  color: #096d89;
+  color: #006885;
   background-color: #ddd;
 }
 
@@ -440,7 +440,7 @@
   text-decoration: none;
   height: 100%;
   font-size: 13px;
-  color: #096d89;
+  color: #006885;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -465,7 +465,7 @@
   font-weight: bold;
   margin-top: 6px;
   margin-left: 20px;
-  color: #096d89;
+  color: #006885;
 }
 .logout {
   display: none;
@@ -481,12 +481,12 @@
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   background: #fff;
   font-size: 14px;
-  color: #096d89;
+  color: #006885;
   outline: none;
   z-index: 11;
   cursor: pointer;
 }
 .logout:hover {
-  background: #096d89;
+  background: #006885;
   color: #fff;
 }

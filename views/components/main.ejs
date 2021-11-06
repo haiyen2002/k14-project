@@ -151,7 +151,7 @@
                                                         <%= product.name %>
                                                     </div>
                                                     <div class="product-card_price">
-                                                        <%= product.price %>
+                                                        <%= (product.price).toLocaleString()%><span>đ</span>
                                                     </div>
                                                 </div>
                                                 <% if( product.quantity > 0 ){ %>

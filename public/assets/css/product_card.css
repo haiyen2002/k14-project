@@ -16,7 +16,7 @@
 }
 
 .product-card a {
-  color: #797c11;
+  color: #006885;
   text-decoration: none;
 }
 
@@ -84,7 +84,7 @@
   padding: 10px;
   height: 40px;
   margin: 0 auto;
-  background: #096d89;
+  background: #006885;
   color: #fff !important;
   border: none;
   text-transform: uppercase;

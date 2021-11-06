@@ -62,7 +62,7 @@
 .filter-col-2-4 .title {
   padding: 6px;
     color: #fff;
-    background-color: #096d89;
+    background-color: #006885;
     display: block;
 }
 
@@ -170,10 +170,10 @@
 }
 
 .pagination-filter > li > a:hover {
-  background-color: #878929 !important;
+  background-color: #006885 !important;
   color: white;
 }
 
 .page-item.active .page-link{
-  background-color: #878929 !important;
+  background-color: #006885 !important;
 }

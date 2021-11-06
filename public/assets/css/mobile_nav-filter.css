@@ -61,7 +61,7 @@
    text-align: center;
    line-height: 32.2px;
    color: white;
-    background: #797c11;
+    background: #006885;
     cursor: pointer;
 }
 
@@ -82,7 +82,7 @@
 .mobile-item-filter h4 {
     padding: 6px;
     color: #fff;
-    background-color: #797c11;
+    background-color: #006885;
     display: block;
 }
 
@@ -116,5 +116,5 @@
 }
 
 .btn-mobile-close {
-    color: #4267b2 !important;
+    color: #006885 !important;
 }

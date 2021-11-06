@@ -65,7 +65,7 @@ body {
 .main-order .main-order-left .bill-info .bill-content {
   text-transform: uppercase;
   margin-bottom: 20px;
-  color: #4267b2;
+  color: #006885;
 }
 
 .main-order .main-order-left .bill-info .name-client-item {
@@ -106,7 +106,7 @@ body {
 
 .main-order .main-order-right .container-order .container-order-content {
   text-transform: uppercase;
-  color: #4267b2;
+  color: #006885;
   margin-bottom: 20px;
 }
 
@@ -146,20 +146,20 @@ body {
 }
 
 .main-order .main-order-right .container-order .total-price .total-txt {
-  color: #4267b2;
+  color: #006885;
   text-transform: uppercase;
   font-weight: 600;
 }
 
 .main-order .main-order-right .container-order .total-price .total-end {
-  color: #4267b2;
+  color: #006885;
   font-weight: 600;
 }
 
 .main-order .main-order-right .container-order .ok-order {
   width: 100%;
   height: 45px;
-  background: #4267b2;
+  background: #006885;
   color: #fff;
   border: none;
   font-size: 14px;

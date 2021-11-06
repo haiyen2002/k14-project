@@ -1,44 +1,17 @@
 <div class="container-product-left">
-    <div class="left-search">
-      <input class="search-prd" type="text" placeholder="Tìm kiếm" />
-      <span class="search-icon"><i class="fas fa-search"></i></span>
-    </div>
-    <div class="left-catelog-prd">
-      <div class="catelog-prd">DANH MỤC SẢN PHẨM</div>
-      <ul class="catelog-items">
-  
-          <% var distinct = [] %>
-          <% var distinct1 = [] %>
-              <% types.forEach(ele => { %>
-                   <% distinct.push(ele.split(",")[0].trim()) %>
-                      <% }) %>
-                          <% var uniques = distinct.map(ele => ele).filter((value, index, arr)=> arr.indexOf(value) ===  index) %> 
-                              <% uniques.forEach(ele=> { %>
-                                  <li class="catelog-item">
-                                      <div class="catelog-item-prd">
-                                        <a class="catelog-link" href="/product/danh-muc/<%= ele.split(",")[0].trim() %>"><%= ele.split(",")[0].trim() %></a>
-                                        <span class="catelog-item-icon">
-                                          <i class="fas fa-chevron-down more-item"></i>
-                                          <i class="fas fa-chevron-up more-item-click"></i>
-                                        </span>
-                                      </div>
-                                      <ul class="children-item show_children">
-                                          <% types.forEach(ele1 => { %>
-                                              <% distinct1.push(ele1) %>
-                                                  <% }) %>
-                                          <% var unique = distinct1.map(ele1 => ele1).filter((value, index, arr)=> arr.indexOf(value) ===  index) %> 
-                                              <% unique.forEach(ele1=> { %>
-                                                  <% if(ele1.split(",")[0] === ele){ %>
-                                                  <li class="children-link-item">
-                                                    <a class="children-link-item-a" href="/product/danh-muc/<%= ele1.split(",")[1].trim() %>"><%= ele1.split(",")[1].trim() %></a>
-                                                  </li>
-                                                  <% } %>
-                                              <% }) %>
-                                      </ul>
-                                  </li>
-                              <% }) %>
-        
-      </ul>
-    </div>
 
+    <div class="container-product-left-img">
+        <%var imgs = prd_detail.img%>
+        <%for(var i =0; i<imgs.length;i++){%>
+          <div>
+            <img
+          class=" container-product-left-img__img prd-detail-img img-prd-<%=i%>"
+          src="<%=imgs[i] %>"
+          alt=""
+        />
+          </div>
+       <% }%>
+    </div>
+  
+ 
   </div>

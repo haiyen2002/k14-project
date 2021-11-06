@@ -167,7 +167,7 @@
 }
 
 .body_container .body_main .main-right .container-orders .content h2 {
-  color: #096d89;
+  color: #006885;
 }
 
 .body_container .body_main .main-right .container-orders .container-order {
@@ -181,7 +181,7 @@
           flex-direction: column;
   width: 100%;
   background: #fff;
-  border: 2px solid #096d89;
+  border: 2px solid #006885;
   cursor: pointer;
 }
 
@@ -194,7 +194,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  color: #096d89;
+  color: #006885;
   background: #eaeaea;
   padding: 20px;
 }
@@ -220,7 +220,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 0;
-  border-bottom: 1px solid #096d89;
+  border-bottom: 1px solid #006885;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item {
@@ -229,7 +229,7 @@
   display: grid;
   -ms-grid-columns: 3fr 1fr;
       grid-template-columns: 3fr 1fr;
-  border-bottom: 1px solid #096d89;
+  border-bottom: 1px solid #006885;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item:nth-last-child(1) {
@@ -326,7 +326,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #096d89;
+  color: #006885;
   font-size: 16px;
   padding: 10px;
 }
