@@ -1,7 +1,7 @@
 .body_container {
   position: relative;
   width: 100%;
-  padding: 60px 80px;
+  padding: 140px 80px;
   background: #eaeff2;
 }
 
@@ -19,6 +19,7 @@
   display: flex;
   -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  height: 100vh;
 }
 
 @media screen and (max-width: 992px) {
@@ -44,8 +45,9 @@
           flex-direction: column;
   padding-top: 30px;
   gap: 20px;
-  background: #003147;
-  height: 450px;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(36, 44, 129, 0.6)), to(rgba(224, 108, 209, 0.6))), url("../img/silas-baisch--3vU48G830k-unsplash.jpg");
+  background-image: linear-gradient(90deg, rgba(36, 44, 129, 0.6), rgba(224, 108, 209, 0.6)), url("../img/silas-baisch--3vU48G830k-unsplash.jpg");
+  background-size: cover;
 }
 
 @media screen and (max-width: 768px) {
@@ -132,7 +134,6 @@
 
 .body_container .body_main .main-right {
   width: 70%;
-  padding-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -141,6 +142,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
+  overflow-y: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -165,7 +167,7 @@
 }
 
 .body_container .body_main .main-right .container-orders .content h2 {
-  color: #4267b2;
+  color: #096d89;
 }
 
 .body_container .body_main .main-right .container-orders .container-order {
@@ -179,7 +181,7 @@
           flex-direction: column;
   width: 100%;
   background: #fff;
-  border: 2px solid #4267b2;
+  border: 2px solid #096d89;
   cursor: pointer;
 }
 
@@ -192,7 +194,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  color: #4267b2;
+  color: #096d89;
   background: #eaeaea;
   padding: 20px;
 }
@@ -218,7 +220,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 0;
-  border-bottom: 1px solid #4267b2;
+  border-bottom: 1px solid #096d89;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item {
@@ -227,7 +229,7 @@
   display: grid;
   -ms-grid-columns: 3fr 1fr;
       grid-template-columns: 3fr 1fr;
-  border-bottom: 1px solid #4267b2;
+  border-bottom: 1px solid #096d89;
 }
 
 .body_container .body_main .main-right .container-orders .container-order .body-order .order-item:nth-last-child(1) {
@@ -324,7 +326,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #4267b2;
+  color: #096d89;
   font-size: 16px;
   padding: 10px;
 }

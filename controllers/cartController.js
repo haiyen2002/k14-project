@@ -110,14 +110,14 @@ module.exports.cancelOrder = async (req, res, next)=>{
                 let productBuy = await ProductModel.findById(products[i].productId)
                 if(productBuy){
                     let checkCount = parseInt(productBuy.quantity) + parseInt(products[i].quantity)
-                    let update = await ProductModel.findByIdAndUpdate(
+                    await ProductModel.findByIdAndUpdate(
                         { _id: productBuy._id },
                         { quantity: checkCount }
                         )
                 }
                 
             }
-            let xoa = await orderssModel.deleteOne({_id: orderId})
+            await orderssModel.deleteOne({_id: orderId})
            
 
             res.json({

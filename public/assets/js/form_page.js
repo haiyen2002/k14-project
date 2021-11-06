@@ -13,7 +13,7 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("scroll", () => {
-  $(".header-bottom").toggleClass("sticky", window.scrollY > 100);
+  $(".header-bottom").toggleClass("sticky", window.scrollY > 0);
 });
 
 // MODAL-MOBILE**********

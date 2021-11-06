@@ -52,7 +52,8 @@
 }
 
 .details .rencentOrder .cardHeader .btn {
-  background: #03a9f4;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(36, 44, 129, 0.6)), to(rgba(224, 108, 209, 0.6)));
+  background: linear-gradient(90deg, rgba(36, 44, 129, 0.6), rgba(224, 108, 209, 0.6));
   color: #fff;
   padding: 5px;
   text-decoration: none;
@@ -114,7 +115,8 @@
 }
 
 .details .rencentOrder table tbody tr:hover {
-  background: #03a9f4;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(36, 44, 129, 0.6)), to(rgba(224, 108, 209, 0.6)));
+  background: linear-gradient(90deg, rgba(36, 44, 129, 0.6), rgba(224, 108, 209, 0.6));
   color: #fff;
 }
 
@@ -204,7 +206,8 @@
 .listBtn button {
   width: 30px;
   height: 30px;
-  background: #03a9f4;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(36, 44, 129, 0.6)), to(rgba(224, 108, 209, 0.6)));
+  background: linear-gradient(90deg, rgba(36, 44, 129, 0.6), rgba(224, 108, 209, 0.6));
   color: #fff;
   border: none;
   cursor: pointer;

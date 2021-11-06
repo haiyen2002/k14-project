@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
                 let index = req.files[i].path.indexOf("upload");
                 let link =
                   "/public/" + req.files[i].path.slice(index, req.files[i].path.length);    
-                arr.push(link)
+                arr.push(link.split("\\").join("/"))
             }
                                      
                 const data = await ProductModel.create(
@@ -66,15 +66,16 @@ const storage = multer.diskStorage({
 
 router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => {
     try {
-
+        console.log(req.files);
         if (req.files.length > 0) {
             let arr = []
             for (let i = 0; i < req.files.length; i++) {
                 let index = req.files[i].path.indexOf("upload");
                 let link =
                   "/public/" + req.files[i].path.slice(index, req.files[i].path.length);    
-                arr.push(link)
+                arr.push(link.split("\\").join("/"))
             }
+            console.log(78, arr);
             const data = await ProductModel.findByIdAndUpdate(
                 {_id: req.params.id},
                 {
@@ -225,6 +226,7 @@ router.post("/changeProfile", upload.single("thumbnail"), async (req, res) => {
           let index = req.file.path.indexOf("upload");
           let link =
             "/public/" + req.file.path.slice(index, req.file.path.length);
+            let avatar = link.split("\\").join("/")
           const data = await accountmodel.findByIdAndUpdate(
             { _id: id },
             {
@@ -233,7 +235,7 @@ router.post("/changeProfile", upload.single("thumbnail"), async (req, res) => {
               phone: req.body.phone,
               email: req.body.email,
               birthday: req.body.birthday,
-              avatar: link,
+              avatar: avatar,
             }
           );
           if (data) {
@@ -295,5 +297,11 @@ router.post("/pavigationUser", controllerAdmin.pavigationUser)
 router.post("/pavigationOrder", controllerAdmin.pavigationOrder)
 
 router.put("/changePass", controllerAdmin.postChangePass)
+
+router.post("/dangnhap", controllerAdmin.loginAdmin)
+
+router.get("/dangnhap", controllerAdmin.login)
+
+router.post("/logoutAdmin", controllerAdmin.logout)
 
 module.exports = router;

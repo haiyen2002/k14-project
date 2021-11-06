@@ -79,16 +79,8 @@ const orders = new Schema(
   { collection: "orders" }
 );
 
-const BlackListSchema = mongoose.Schema(
-  {
-    token: String,
-  },
-  { collection: "blackList" }
-);
-
-const BlackListModel = mongoose.model("blackList", BlackListSchema);
 const ProductModel = mongoose.model("Products", Products);
 const accountmodel = mongoose.model("account", account);
 const orderssModel = mongoose.model("orders", orders);
 
-module.exports = { ProductModel, accountmodel, orderssModel, BlackListModel };
+module.exports = { ProductModel, accountmodel, orderssModel};

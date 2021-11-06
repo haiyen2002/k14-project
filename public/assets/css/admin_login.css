@@ -16,7 +16,7 @@ body{
     background-repeat: no-repeat;
 }
 .container{
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     width: 350px;
     padding: 40px 30px;
     box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.8);
@@ -59,7 +59,7 @@ input{
 input::placeholder{
     color: #f1f1f1;
 }
-input[type="submit"]{
+input[type="button"]{
     margin-top: 30px;
     background: #4267b2;
     color: #fff;
@@ -67,4 +67,12 @@ input[type="submit"]{
     border: none;
     cursor: pointer;
 
+}
+
+.form-message-error,
+.form-message-user,
+.form-message-pass{
+    color: red;
+    text-align: center;
+    margin-top: 10px;
 }

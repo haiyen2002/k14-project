@@ -11,7 +11,7 @@ async function comfirmDelete(id){
         })
         console.log(data);
         // alert(data.mess)      
-        // window.location.href = "";
+        window.location.href = "";
     } catch (error) {
         console.log(error);
     }

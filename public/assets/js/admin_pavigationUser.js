@@ -31,7 +31,7 @@ async function render(){
                 <td>${ele.gender}</td>
                 <td>${ele.email}</td>
                 <td>${ele.birthday}</td>
-                <td>${ele.createdAt}</td>
+                <td>${new Date(ele.createdAt).toLocaleDateString()}</td>
                 <td>${ele.role}</td>
                 <td><a href="#${ele._id}" class="btn_delete" onclick="deleteUser('${ele._id}')">Delete</a></td>
                 <td><a href="#${ele._id}" class="btn_order"  onclick="viewsUser('${ele._id}')">Views</a></td>
@@ -76,7 +76,7 @@ async function changePage(page){
                 <td>${ele.gender}</td>
                 <td>${ele.email}</td>
                 <td>${ele.birthday}</td>
-                <td>${ele.createdAt}</td>
+                <td>${new Date(ele.createdAt).toLocaleDateString()}</td>
                 <td>${ele.role}</td>
                 <td><a href="#${ele._id}" class="btn_delete" onclick="deleteUser('${ele._id}')">Delete</a></td>
                 <td><a href="#${ele._id}" class="btn_order"  onclick="viewsUser('${ele._id}')">Views</a></td>

@@ -3,8 +3,10 @@ const {
   ProductModel,
   orderssModel,
 } = require("../models/db_mongoose");
+const BlackListModel = require("../models/backlist")
 const bcrypt = require("bcrypt");
 var path = require("path");
+const jwt = require("jsonwebtoken");
 
 //
 module.exports.adminlistUser = async (req, res) => {
@@ -186,7 +188,7 @@ module.exports.getProduct = (req, res) => {
       res.json({ mess: "show data", data: data, status: 200 });
     })
     .catch((err) => {
-      res.json({ mess: "loi sever", err: err, status: 500 });
+      res.json({ mess: "loi server", err: err, status: 500 });
     });
 };
 
@@ -216,7 +218,7 @@ module.exports.getUser = (req, res) => {
       res.json({ mess: "show data", data: data, status: 200 });
     })
     .catch((err) => {
-      res.json({ mess: "loi sever", err: err, status: 500 });
+      res.json({ mess: "loi server", err: err, status: 500 });
     });
 };
 
@@ -249,7 +251,7 @@ module.exports.getOrder = (req, res) => {
       res.json({ mess: "show data", data: data, status: 200 });
     })
     .catch((err) => {
-      res.json({ mess: "loi sever", err: err, status: 500 });
+      res.json({ mess: "loi server", err: err, status: 500 });
     });
 };
 
@@ -288,6 +290,55 @@ module.exports.postChangePass = async (req, res) => {
             res.json({status: 400, mess: "Ban chua dang nhap"})
         }
     } catch (error) {
-        res.json({status: 500, mess: "lỗi sever", error: error})
+        res.json({status: 500, mess: "lỗi server", error: error})
     }
 }
+
+
+module.exports.loginAdmin = async (req, res)=>{
+    try {
+        const checkUser = await accountmodel.findOne({
+            username: req.body.username
+        })
+        if(checkUser){
+            const checkPass = await bcrypt.compare(req.body.password, checkUser.password)
+            if(checkPass){
+                const token = jwt.sign({ id: checkUser._id }, "Auth", {
+                    expiresIn: "30d",
+                  });
+                const id = jwt.verify(token, "Auth").id;
+                const resultdata = await accountmodel.findOne({ _id: id });
+                if (resultdata) {
+                    if(resultdata.role == "admin"){
+                        res.json({ status: 200, id: token, mess: "ok", data: resultdata });
+                    }else{
+                        res.json({ status: 400, mess: "Khong co quyen admin" });
+                    }
+                  
+                }
+            }
+            else {
+                res.json({ status: 400, mess: "sai password" });
+              }
+        } else {
+            res.json({ status: 400, mess: "sai username" });
+        }
+
+    } catch (error) {
+        res.json({status: 500, err:error, mess : 'Lỗi server'})
+    }
+}
+
+module.exports.login = (req, res)=>{
+    res.render("login_Admin")
+}
+
+module.exports.logout = async (req, res) => {
+    try {
+        console.log(10);
+      await BlackListModel.create({ token: req.cookies.user });
+      res.json({ status: 200, mess: "logout" });
+    } catch (error) {
+      res.json({ error, mess: "server error", status: 500 });
+    }
+  };
