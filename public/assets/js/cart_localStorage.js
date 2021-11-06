@@ -85,7 +85,7 @@ if(prd_detail != null){
 function updateProductsInCart(product) {
   for (let i = 0; i < productsInCart.length; i++) {
     if (productsInCart[i].id == product.id) {
-      productsInCart[i].count = parseInt(productsInCart[i].count) + parseInt(product.count);
+      productsInCart[i].count += product.count;
         productsInCart[i].price =
           productsInCart[i].count * productsInCart[i].basePrice;
       return productsInCart[i];
@@ -304,7 +304,8 @@ parentElement.addEventListener("click", (event) => {
               productsInCart[i].count < sum
             ) {
               if (isPlusButton) {
-                productsInCart[i].count += 1;
+                  console.log(307, typeof productsInCart[i].count );
+                productsInCart[i].count  += 1;
               }
               productsInCart[i].price =
                 productsInCart[i].basePrice * productsInCart[i].count;
@@ -314,7 +315,7 @@ parentElement.addEventListener("click", (event) => {
               productsInCart[i].count <= sum
             ) {
               if (isMinusButton) {
-                productsInCart[i].count -= 1;
+                productsInCart[i].count  -= 1;
               }
               productsInCart[i].price =
                 productsInCart[i].basePrice * productsInCart[i].count;
@@ -360,7 +361,8 @@ if (prdCart != null) {
                 productsInCart[i].count < sum
               ) {
                 if (isPlusButton) {
-                  productsInCart[i].count += 1;
+                    console.log(typeof productsInCart[i].count);
+                    productsInCart[i].count  += 1;
                 }
                 productsInCart[i].price =
                   productsInCart[i].basePrice * productsInCart[i].count;
@@ -370,7 +372,7 @@ if (prdCart != null) {
                 productsInCart[i].count <= sum
               ) {
                 if (isMinusButton) {
-                  productsInCart[i].count -= 1;
+                    productsInCart[i].count  -= 1;
                 }
                 productsInCart[i].price =
                   productsInCart[i].basePrice * productsInCart[i].count;

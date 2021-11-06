@@ -55,7 +55,8 @@
 }
 
 .details .rencentOrder .cardHeader .btn {
-  background: #03a9f4;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(73, 138, 155, 0.6)), to(rgba(211, 85, 194, 0.6)));
+  background: linear-gradient(90deg, rgba(73, 138, 155, 0.6), rgba(211, 85, 194, 0.6));
   color: #fff;
   padding: 5px;
   text-decoration: none;
