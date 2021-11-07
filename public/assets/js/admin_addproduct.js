@@ -2,6 +2,7 @@ async function addProduct() {
     try {
       const form = document.querySelector("form");
       const formData = new FormData(form);
+      formData.set('descriptionDetails', CKEDITOR.instances.editor.getData());
       const res = await $.ajax({
         url: "/admin/addProduct",
         type: "POST",

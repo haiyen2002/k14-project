@@ -31,7 +31,13 @@
                  </div>
                  <div class="form-item">
                      <label for="descriptionDetails">descriptionDetails</label>
-                     <textarea name="descriptionDetails" id="descriptionDetails" cols="30" rows="10"></textarea>
+                     <textarea name="descriptionDetails" id="editor" cols="30" rows="10"></textarea>  
+                     
+                    <script>
+                        // Replace the <textarea id="editor1"> with a CKEditor 4
+                        // instance, using default configuration.
+                        CKEDITOR.replace( 'editor' );
+                    </script>   
                  </div>
              </div>
          </form>

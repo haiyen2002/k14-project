@@ -34,6 +34,7 @@ const Router = require("./router/RouterAdmin");
 const AdminRouter = require("./router/AdminRouter");
 
 app.use("/public", express.static(path.join(__dirname, "./public")));
+app.use("/ckeditor", express.static(path.join(__dirname, "./ckeditor")));
 
 app.use("/", indexRouter);
 app.use("/filter", filterRouter);

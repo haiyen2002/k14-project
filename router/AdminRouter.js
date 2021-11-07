@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 
   router.post("/addProduct", upload.array("products", 12), async (req, res)=>{
     try {
-        console.log(req.body);
+        // console.log(req.body);
         if (req.files.length > 0) {
             let arr = []
             for (let i = 0; i < req.files.length; i++) {
@@ -66,7 +66,7 @@ const storage = multer.diskStorage({
 
 router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => {
     try {
-        console.log(req.files);
+        // console.log(69, req.files);
         if (req.files.length > 0) {
             let arr = []
             for (let i = 0; i < req.files.length; i++) {
@@ -85,7 +85,7 @@ router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => 
                     quantity: req.body.quantity,
                     prd_key: req.body.prd_key,
                     rate: req.body.Rate,
-                    descriptionDetails: req.body.descriptionDetails,
+                    descriptionDetails: req.body.des,
                     img: arr
 
                 }
@@ -108,7 +108,7 @@ router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => 
                     quantity: req.body.quantity,
                     prd_key: req.body.prd_key,
                     rate: req.body.Rate,
-                    descriptionDetails: req.body.descriptionDetails,
+                    descriptionDetails: req.body.des,
                 }
                 )
                 if (data) {

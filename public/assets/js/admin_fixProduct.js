@@ -9,6 +9,8 @@ async function comfirmUpdate(id){
     try{
     const form = document.getElementById(`form_FixProduct_${id}`);
     const formData = new FormData(form);
+    console.log( CKEDITOR.instances[`editor_${id}`].getData());
+    formData.set(`des`, CKEDITOR.instances[`editor_${id}`].getData());
     const res = await $.ajax({
       url: `/admin/fixProduct/${id}`,
       type: "put",
