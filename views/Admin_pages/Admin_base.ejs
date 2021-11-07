@@ -45,6 +45,11 @@
 
     <% } %>
 
+    <% if( content == 'Addnews' ){ %>
+        <link rel="stylesheet" href="/public/assets/css/admin_news.css">
+        <script src="/ckeditor/ckeditor.js"></script>
+    <% } %>
+
 
   </head>
   <body>
@@ -112,6 +117,10 @@
         <% if( content == 'changePass' ){ %>
             <%- include('../Admin_pages/changePass') %>
         <% } %>
+
+        <% if( content == 'Addnews' ){ %>
+            <%- include('../Admin_pages/newsPost.ejs') %>
+        <% } %>
   
       </div>
     </div>
@@ -130,7 +139,7 @@
     <script src="/public/assets/js/admin_deleteProduct.js"></script>
     <script src="/public/assets/js/admin_pavigationProduct.js"></script>
 
-     <script src="/public/assets/js/admin_addproduct.js"></script>
+     <!-- <script src="/public/assets/js/admin_addproduct.js"></script> -->
 
     <% } %>
 
@@ -167,6 +176,10 @@
 
         <script src="/public/assets/js/admin_changePass.js"></script>
     
+    <% } %>
+
+    <% if( content == 'Addnews' ){ %>
+        <script src="/public/assets/js/admin_addNews.js"></script>
     <% } %>
 
     <script src="/public/assets/js/admin_login_logout.js"></script>

@@ -75,7 +75,7 @@ async function changePage(page){
             newdata.map((ele, index) =>{
                 let item = `
                 <tr>
-                <td>${index + 1}</td>
+                <td>${index + 1 + (page - 1)*6}</td>
                 <td>${ele.userId.username} </td>
                 <td>${ele.orderDate}</td>
                 <td>${ele.address}</td>

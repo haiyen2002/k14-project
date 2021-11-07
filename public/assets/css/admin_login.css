@@ -69,8 +69,10 @@ input[type="button"]{
 
 }
 
-.form-message-error,
-.form-message-user,
+
+
+
+.form-message,
 .form-message-pass{
     color: red;
     text-align: center;

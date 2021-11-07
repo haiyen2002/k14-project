@@ -10,7 +10,7 @@ const {
   accountmodel,
   orderssModel,
 } = require("../models/db_mongoose");
-const UserAddressModel = require("../models/addressModel");
+const newsModel = require("../models/news")
 
 router.get("/", (req, res) => {
   productController
@@ -156,6 +156,52 @@ router.get("/profile", async (req, res)=>{
                 products: products,
                 types: types,
                 acc: acc,        
+              });
+        }
+        
+    } catch (error) {
+        res.json(error);
+    }
+})
+
+router.get("/news", async (req, res)=>{
+    try {
+        const userId = req.user._id;
+        if(userId){
+            const acc = await accountmodel.findById(userId);
+            const products = await productController.getAllProduct();
+            const types = await productController.getTypePrd();
+            const news = await newsModel.find()
+            res.render("pages/Base_pages", {
+                content: 'news',
+                products: products,
+                types: types,
+                acc: acc,  
+                news: news,      
+              });
+        }
+        
+    } catch (error) {
+        res.json(error);
+    }
+})
+
+router.get("/news/:id", async (req, res)=>{
+    try {
+        const userId = req.user._id;
+        if(userId){
+            const acc = await accountmodel.findById(userId);
+            const products = await productController.getAllProduct();
+            const types = await productController.getTypePrd();
+            const newsDetail = await newsModel.findById(req.params.id)
+            const news = await newsModel.find()
+            res.render("pages/Base_pages", {
+                content: 'newsDetail',
+                products: products,
+                types: types,
+                acc: acc,  
+                news: news, 
+                newsDetail:newsDetail,     
               });
         }
         

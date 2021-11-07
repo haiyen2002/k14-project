@@ -11,38 +11,47 @@
                  </div>
                  <div class="form-item">
                      <label for="name">Name</label>
-                     <input type="text" id="name" name="name">
+                     <input type="text" id="nameprd" name="name" >
+                     <span class="form-message"></span>
                  </div>
                  <div class="form-item">
                      <label for="">prd-key</label>
-                     <input type="text" id="prd_key" name="prd_key">
+                     <input type="text" id="prd_key" name="prd_key" >
+                     <span class="form-message"></span>
                  </div>
                  <div class="form-item">
                      <label for="price">price</label>
-                     <input type="text" id="price" name="price">
+                     <input type="text" id="price" name="price" >
+                     <span class="form-message"></span>
                  </div>
                  <div class="form-item">
                      <label for="quantity">quantity</label>
-                     <input type="text" id="quantity" name="quantity">
+                     <input type="text" id="quantity" name="quantity" >
+                     <span class="form-message"></span>
                  </div>
                  <div class="form-item">
                      <label for="codeProduct">codeProduct</label>
                      <input type="text" id="codeProduct" name="codeProduct">
+                     <span class="form-message"></span>
                  </div>
-                 <div class="form-item">
-                     <label for="descriptionDetails">descriptionDetails</label>
-                     <textarea name="descriptionDetails" id="editor" cols="30" rows="10"></textarea>  
-                     
-                    <script>
-                        // Replace the <textarea id="editor1"> with a CKEditor 4
-                        // instance, using default configuration.
-                        CKEDITOR.replace( 'editor' );
-                    </script>   
-                 </div>
+                 
              </div>
+             <div >
+                <label for="descriptionDetails">descriptionDetails</label>
+                <textarea name="descriptionDetails" id="editor" cols="30" rows="10"></textarea>  
+                
+               <script>
+                   // Replace the <textarea id="editor1"> with a CKEditor 4
+                   // instance, using default configuration.
+                   CKEDITOR.replace( 'editor' );
+               </script>   
+            </div>
+            
          </form>
-         <div class="btns_add">
-             <button class="btn_add" onclick="addProduct()">Add</button>
-         </div>
+         <div class="btns_add" id="btns_add">
+            <button class="btn_add" onclick="addProduct()" >add</button>
+            <span class="form-message-error"></span>
+       </div>
+        
     </div>
  </div>

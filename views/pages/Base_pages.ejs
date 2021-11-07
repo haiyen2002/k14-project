@@ -32,6 +32,15 @@
         <link rel="stylesheet" href="/public/assets/css/profile.css" />
         <% } %>
         
+    <% if(content == 'news'){ %>
+        <link rel="stylesheet" href="/public/assets/css/news.css">
+        
+    <% } %>
+    <% if(content == 'newsDetail'){ %>
+        <link rel="stylesheet" href="/public/assets/css/newsDetail.css">
+        
+    <% } %>
+        
         <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/164071/drift-basic.css">
 
   </head>
@@ -91,6 +100,16 @@
 
     <% if(content == 'slogan'){ %>
         <%- include('./slogan') %>
+        
+    <% } %>
+
+    <% if(content == 'news'){ %>
+        <%- include('./news.ejs') %>
+        
+    <% } %>
+    
+    <% if(content == 'newsDetail'){ %>
+        <%- include('./newsDetail.ejs') %>
         
     <% } %>
 

@@ -1,22 +1,19 @@
 async function loginAdmin(){
     try {
-        const user = $("#username").val()
-        const pass =  $("#password").val()
-        $("#password").on("keyup", ()=>{
-            $(".form-message-pass").html("")
-        })
-        $("#username").on("keyup", ()=>{
-            $(".form-message-user").html("")
-        })
-        checkpass(pass)
-        checkuser(user)
-        if(checkpass(pass) == 100 && checkuser(user) == 100){
+        const user = document.querySelector("#username")
+        const pass =   document.querySelector("#password")
+        checkblur(user)
+        checkblur(pass)
+        checkValue(user)
+        checkValue(pass)
+
+        if( checkValue(user) == 100 && checkValue(pass) == 100){
             const data = await $.ajax({
                 url: "/admin/dangnhap",
                 type: "POST",
                 data: {
-                    username:user,
-                    password: pass
+                    username:user.value,
+                    password: pass.value
                 }
             })
             if(data.status == 200){
@@ -43,23 +40,22 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
-  function checkuser(item){
-      if(item.trim() == ""){
-          $(".form-message-user").html("")
-          $(".form-message-user").append("Vui lòng nhập trường này")
+  function checkValue(item){
+        let itemValue = item.value
+      if(itemValue.trim() == ""){
+        item.parentElement.querySelector(".form-message").innerHTML = ""
+        item.parentElement.querySelector(".form-message").innerHTML = "Vui lòng nhập trường này"
+
       }else{
           return 100
       }
   }
-  function checkpass(item){
-      
-      if(item.trim() == ""){
-          $(".form-message-pass").html("")
-          $(".form-message-pass").append("Vui lòng nhập trường này")
-      }else{
-          return 100
-      }
+  function checkblur(item){
+    item.addEventListener("keyup", ()=>{
+        item.parentElement.querySelector(".form-message").innerHTML = ""
+    })
   }
+
  
 
   function delete_cookie(name) {

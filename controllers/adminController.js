@@ -8,6 +8,7 @@ const bcrypt = require("bcrypt");
 var path = require("path");
 const jwt = require("jsonwebtoken");
 
+
 //
 module.exports.adminlistUser = async (req, res) => {
   try {
@@ -20,7 +21,7 @@ module.exports.adminlistUser = async (req, res) => {
         .find()
         .populate("userId")
         .populate("product.productId");
-      res.render("Admin_pages/Admin_base", {
+        res.render("Admin_pages/Admin_base", {
         content: "Customers",
         user: user,
         product: product,
@@ -44,7 +45,7 @@ module.exports.adminlistProduct = async (req, res) => {
         .find()
         .populate("userId")
         .populate("product.productId");
-      res.render("Admin_pages/Admin_base", {
+        res.render("Admin_pages/Admin_base", {
         content: "ListProduct",
         user: user,
         product: product,
@@ -68,7 +69,7 @@ module.exports.adminHome = async (req, res) => {
         .find()
         .populate("userId")
         .populate("product.productId");
-      res.render("Admin_pages/Admin_base", {
+        res.render("Admin_pages/Admin_base", {
         content: "Dashboard",
         user: user,
         product: product,
@@ -92,7 +93,7 @@ module.exports.adminlistOrder = async (req, res) => {
         .find()
         .populate("userId")
         .populate("product.productId");
-      res.render("Admin_pages/Admin_base", {
+        res.render("Admin_pages/Admin_base", {
         content: "ListOrder",
         user: user,
         product: product,
@@ -142,7 +143,7 @@ module.exports.adminchangePass = async (req, res) =>{
           .find()
           .populate("userId")
           .populate("product.productId");
-        res.render("Admin_pages/Admin_base", {
+            res.render("Admin_pages/Admin_base", {
           content: "changePass",
           user: user,
           product: product,
@@ -168,6 +169,30 @@ module.exports.adminchangeProfile = async (req, res) =>{
           .populate("product.productId");
             res.render("Admin_pages/Admin_base", {
           content: "changeProfile",
+          user: user,
+          product: product,
+          order: order,
+          acc: acc,
+        });
+      }
+    } catch (error) {
+      res.json(error);
+    }
+  };
+
+  module.exports.admiAddnews = async (req, res) => {
+    try {
+      const userId = req.user._id;
+      if (userId) {
+        const acc = await accountmodel.findById(userId);
+        const user = await accountmodel.find();
+        const product = await ProductModel.find();
+        const order = await orderssModel
+          .find()
+          .populate("userId")
+          .populate("product.productId");
+          res.render("Admin_pages/Admin_base", {
+          content: "Addnews",
           user: user,
           product: product,
           order: order,

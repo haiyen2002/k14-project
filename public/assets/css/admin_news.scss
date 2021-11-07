@@ -14,7 +14,7 @@
             width: 100%;
             margin-bottom: 20px;
         }
-        #form-addProduct{
+        #form-addNews{
             position: relative;
             width: 100%;   
             .form-items{
@@ -57,11 +57,12 @@
                         color: red;
                     }
                 }
+               
             }
-            div{
+            .des{
                 display: flex;
+                width: 100%;
                 flex-direction: column;
-                gap: 10px;
                 textarea{
                     width: 100% ;
                     outline: none;

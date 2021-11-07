@@ -20,12 +20,12 @@
   margin-bottom: 20px;
 }
 
-.details .container_detail #form-addProduct {
+.details .container_detail #form-addNews {
   position: relative;
   width: 100%;
 }
 
-.details .container_detail #form-addProduct .form-items {
+.details .container_detail #form-addNews .form-items {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -35,13 +35,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .details .container_detail #form-addProduct .form-items {
+  .details .container_detail #form-addNews .form-items {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
 }
 
-.details .container_detail #form-addProduct .form-items .form-item {
+.details .container_detail #form-addNews .form-items .form-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,7 +53,7 @@
   padding: 10px 0;
 }
 
-.details .container_detail #form-addProduct .form-items .form-item input {
+.details .container_detail #form-addNews .form-items .form-item input {
   width: 100%;
   outline: none;
   padding: 10px 15px;
@@ -62,36 +62,36 @@
   font-size: 14px;
 }
 
-.details .container_detail #form-addProduct .form-items .form-item input:focus {
+.details .container_detail #form-addNews .form-items .form-item input:focus {
   border: 1px solid #03a9f4;
 }
 
-.details .container_detail #form-addProduct .form-items .form-item input[type="file"]:focus {
+.details .container_detail #form-addNews .form-items .form-item input[type="file"]:focus {
   background: #03a9f4;
   color: #fff;
 }
 
-.details .container_detail #form-addProduct .form-items .form-item label {
+.details .container_detail #form-addNews .form-items .form-item label {
   margin-bottom: 10px;
 }
 
-.details .container_detail #form-addProduct .form-items .form-item .form-message {
+.details .container_detail #form-addNews .form-items .form-item .form-message {
   margin-top: 10px;
   color: red;
 }
 
-.details .container_detail #form-addProduct div {
+.details .container_detail #form-addNews .des {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 10px;
 }
 
-.details .container_detail #form-addProduct div textarea {
+.details .container_detail #form-addNews .des textarea {
   width: 100%;
   outline: none;
   padding: 10px 15px;
@@ -99,7 +99,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.details .container_detail #form-addProduct div textarea:focus {
+.details .container_detail #form-addNews .des textarea:focus {
   border: 1px solid #03a9f4;
 }
 
@@ -119,4 +119,4 @@
   border: none;
   border-radius: 10px;
 }
-/*# sourceMappingURL=admin_addProduct.css.map */
+/*# sourceMappingURL=admin_news.css.map */

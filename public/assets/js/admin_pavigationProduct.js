@@ -82,7 +82,7 @@ async function changePage(page) {
       newdata.map((ele, index) => {
         let itemStart = `
                 <tr>
-                <td>${index + 1}</td>
+                <td>${index + 1 + (page - 1)*6}</td>
                 <td>${ele._id}</td>
                 <td>
                   <div class="img_Product">               

@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const controllerAdmin = require("../controllers/adminController");
 const { ProductModel, accountmodel, orderssModel } = require("../models/db_mongoose");
 const check = require("../controllers/checkAuth")
+const newsModel = require("../models/news")
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -22,6 +23,7 @@ const storage = multer.diskStorage({
   router.post("/addProduct", upload.array("products", 12), async (req, res)=>{
     try {
         // console.log(req.body);
+        console.log(req.files);
         if (req.files.length > 0) {
             let arr = []
             for (let i = 0; i < req.files.length; i++) {
@@ -49,7 +51,47 @@ const storage = multer.diskStorage({
                           data: data,
                         });
                       
-            } else {
+            } else if(req.files.length == 0){
+                res.json({
+                    status: 400,
+                    mess: "not add",
+                    data: data,
+                  });
+         
+            }
+    
+        
+    } catch (error) {
+        res.json({ status: 500, mess: "lỗi sever", error });
+    }
+})
+
+router.post("/addNews", upload.single("imgNews"), async (req, res)=>{
+    try {
+        console.log(70, req.body);
+        console.log(req.file);
+        if (req.file) { 
+                let index = req.file.path.indexOf("upload");
+                let link =
+                  "/public/" + req.file.path.slice(index, req.file.path.length);  
+                let  imgNews = link.split("\\").join("/")                                     
+                const data = await newsModel.create(
+                    {
+                        title: req.body.title,
+                        content: req.body.content,
+                        imgNews: imgNews,
+                        description: req.body.description,
+                        dateSubmit: new Date().toUTCString()
+                    }
+                    )
+                   
+                        res.json({
+                          status: 200,
+                          mess: "add news compelete",
+                          data: data,
+                        });
+                      
+            } else{
                 res.json({
                     status: 400,
                     mess: "not add",
@@ -283,6 +325,8 @@ router.get("/addProduct", check.checkLogin, check.checkAdmin ,  controllerAdmin.
 router.get("/changePass", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminchangePass);
 
 router.get("/changeProfile", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminchangeProfile);
+
+router.get("/news", check.checkLogin, check.checkAdmin ,  controllerAdmin.admiAddnews);
 
 router.post("/getPrd", controllerAdmin.getProduct)
 
