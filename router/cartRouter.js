@@ -18,4 +18,7 @@ router.get("/check", cartController.getUpCart);
 
 router.delete("/cancel/:id", cartController.cancelOrder ) 
 
+//add cart to database
+router.put('/add', cartController.addCart) 
+
 module.exports = router;

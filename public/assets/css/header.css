@@ -110,7 +110,7 @@
 }
 
 .logo-header img {
-  height: 70px;
+  height: 60px;
   object-fit: cover;
   object-position: center;
   z-index: 99;
@@ -399,8 +399,8 @@
     display: block;
   }
   .logo-header img {
-    height: 50px;
-    width: 150px;
+    height: 45px;
+    /* width: 150px; */
     object-fit: cover;
 }
 }
@@ -415,7 +415,15 @@
     display: inline-block;
   }
   .logo-header img {
+    height: 32px;
 
+}
+.product-card_img img {
+  height: auto !important;
+}
+
+.add-to-cart {
+ 
 }
 }
 

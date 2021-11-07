@@ -133,3 +133,38 @@ module.exports.cancelOrder = async (req, res, next)=>{
         res.json({status: 500, error: error, mess: "lỗi sever"})
     }
 }
+
+module.exports.addCart = async (req, res) => {
+  try {
+    const userId = req.user._id;//get user id( global user )
+    const productId = req.body.productId;//get product id
+    const quantity = req.body.quantity;//get quantity
+    //tìm trong bảng account có userID và productID:
+    const hasProductId = await accountmodel.findOne({_id: userId, 'Cart.productId':productId})
+    // nếu có sản phẩm đó trong cart rồi thì update thêm số lượng:
+    if(hasProductId){
+      await accountmodel.findOneAndUpdate(
+        {_id: userId, 'Cart.productId': productId},
+        //cộng dồn vào so luong có sẵn
+        {$inc: {'Cart.$.quantity': quantity }}
+      )
+      res.json({
+        mess: "Cập nhật giỏ hàng thành công",
+        status: 200
+      });
+      //nếu k có thì thêm mới sản phẩm vào cart:
+    }else{
+      await accountmodel.findOneAndUpdate(
+        {_id: userId},
+        {$push: {Cart: { productId, quantity }}}
+        )
+        res.json({
+          mess: "Cập nhật giỏ hàng thành công",
+          status: 200
+        });
+    }
+  } catch (error) {
+    // res.json({status: 500, error: error, mess: "lỗi sever"})
+    console.log(error)
+  }
+}

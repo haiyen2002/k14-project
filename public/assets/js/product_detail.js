@@ -57,13 +57,16 @@ function addPrdCheckout(){
         basePrice: price_prd,
       };
     
-      var arr = [{productId:id_prd,quantity:quantity_prd}]
+      var arr = [id_prd,quantity_prd]
       const result =  await $.ajax({
-          url: '/cart/cart',
+          url: '/cart/add',
           type:'PUT',
-          data: {prd: arr}
+          data: {
+            productId: id_prd,
+            quantity: quantity_prd
+          }
       })
-      
+      console.log(result)
       
       if(result.status == 200){
         window.location.href = '/cart'
