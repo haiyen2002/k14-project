@@ -12,6 +12,7 @@
       -ms-flex-align: center;
           align-items: center;
   background: rgba(0, 0, 0, 0.2);
+  z-index: 11;
 }
 
 .modal_viewOrder .box_viewOrder {
@@ -19,7 +20,6 @@
   width: 500px;
   padding: 30px;
   background: #fff;
-  z-index: 10 !important;
 }
 
 @media screen and (max-width: 768px) {
