@@ -20,3 +20,4 @@ async function updatedataCart() {
     console.log(error);
   }
 }
+updatedataCart()
