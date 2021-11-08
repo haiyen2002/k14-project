@@ -229,6 +229,7 @@ parentElement.addEventListener("click", (event) => {
 
   if (isPlusButton || isMinusButton) {
     for (let i = 0; i < productsInCart.length; i++) {
+        setCount(event.target.dataset.id);
       function setCount(id) {
         try {
           $.ajax({
@@ -246,7 +247,6 @@ parentElement.addEventListener("click", (event) => {
               productsInCart[i].count < sum
             ) {
               if (isPlusButton) {
-                  console.log(307, typeof productsInCart[i].count );
                 productsInCart[i].count  += 1;
               }
               productsInCart[i].price =
@@ -270,7 +270,7 @@ parentElement.addEventListener("click", (event) => {
           console.log(error);
         }
       }
-      setCount(event.target.dataset.id);
+      
     }
     updateShoppingCartHTML();
     if (prdCart != null) {
