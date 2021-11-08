@@ -50,6 +50,13 @@
         <script src="/ckeditor/ckeditor.js"></script>
     <% } %>
 
+    <% if( content == 'listNews' ){ %>
+       <link rel="stylesheet" href="/public/assets/css/admin_listNews.css">
+       <link rel="stylesheet" href="/public/assets/css/modal_Delete.css">
+       <link rel="stylesheet" href="/public/assets/css/modal_fixNews.css">
+       <script src="/ckeditor/ckeditor.js"></script>
+    <% } %>
+
 
   </head>
   <body>
@@ -121,6 +128,13 @@
         <% if( content == 'Addnews' ){ %>
             <%- include('../Admin_pages/newsPost.ejs') %>
         <% } %>
+
+        <% if( content == 'listNews' ){ %>
+            <%- include('../Admin_pages/listNews.ejs') %>
+            <%- include('../components/admin/modal_DeleteNews.ejs') %>
+            <%- include('../components/admin/modal_FixNews.ejs') %>
+
+        <% } %>
   
       </div>
     </div>
@@ -180,6 +194,11 @@
 
     <% if( content == 'Addnews' ){ %>
         <script src="/public/assets/js/admin_addNews.js"></script>
+    <% } %>
+
+    <% if( content == 'listNews' ){ %>
+        <script src="/public/assets/js/admin_deleteNews.js"></script>
+        <script src="/public/assets/js/admin_fixNews.js"></script>
     <% } %>
 
     <script src="/public/assets/js/admin_login_logout.js"></script>

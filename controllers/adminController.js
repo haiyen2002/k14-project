@@ -7,6 +7,7 @@ const BlackListModel = require("../models/backlist")
 const bcrypt = require("bcrypt");
 var path = require("path");
 const jwt = require("jsonwebtoken");
+const newsModel = require("../models/news")
 
 
 //
@@ -197,6 +198,32 @@ module.exports.adminchangeProfile = async (req, res) =>{
           product: product,
           order: order,
           acc: acc,
+        });
+      }
+    } catch (error) {
+      res.json(error);
+    }
+  };
+
+  module.exports.adminListnews = async (req, res) => {
+    try {
+      const userId = req.user._id;
+      if (userId) {
+        const acc = await accountmodel.findById(userId);
+        const user = await accountmodel.find();
+        const product = await ProductModel.find();
+        const news = await newsModel.find()
+        const order = await orderssModel
+          .find()
+          .populate("userId")
+          .populate("product.productId");
+          res.render("Admin_pages/Admin_base", {
+          content: "listNews",
+          user: user,
+          product: product,
+          order: order,
+          acc: acc,
+          news: news
         });
       }
     } catch (error) {

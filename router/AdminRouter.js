@@ -168,6 +168,59 @@ router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => 
     }
   });
 
+  router.put("/fixNews/:id", upload.single("imgNews"), async (req, res) => {
+    try {
+        // console.log(69, req.files);
+        console.log(req.file);
+        if (req.file != undefined) {
+    
+
+                let index = req.file.path.indexOf("upload");
+                let link =
+                  "/public/" + req.file.path.slice(index, req.file.path.length);    
+                let imgNews = link.split("\\").join("/")
+            const data = await newsModel.findByIdAndUpdate(
+                {_id: req.params.id},
+                {
+                    title: req.body.title,
+                    content: req.body.content,
+                    description: req.body.description,
+                    imgNews: imgNews,          
+
+                }
+                )
+                if (data) {
+                    res.json({
+                      status: 200,
+                      mess: "change news compelete",
+                      data: data,
+                    });
+                  }
+        } else {
+
+            const data = await newsModel.findByIdAndUpdate(
+                {_id: req.params.id},
+                {
+                    title: req.body.title,
+                    content: req.body.content,
+                    description: req.body.description,
+                }
+                )
+                if (data) {
+                    res.json({
+                      status: 200,
+                      mess: "change news compelete",
+                      data: data,
+                    });
+                  }
+     
+        }
+
+    } catch (error) {
+      res.json({ status: 500, mess: "lỗi sever", error });
+    }
+  });
+
 
 
 router.delete("/deleteProduct/:id", async (req, res)=>{
@@ -258,6 +311,22 @@ router.delete("/deleteUser/:id", async (req, res)=>{
     }
 })
 
+router.delete("/deleteNews/:id", async (req, res)=>{
+    try {
+        const result = await newsModel.findByIdAndDelete(
+            {_id: req.params.id},           
+        )
+        if(result.deletedCount !== 0){
+            res.json({mess: "delete compelete", status: 200})
+        }else{
+            res.json({mess: "delete not compelete", status: 400})
+        }
+        
+    } catch (error) {
+        res.json({ status: 500, mess: "lỗi sever", error });
+    }
+})
+
 router.post("/changeProfile", upload.single("thumbnail"), async (req, res) => {
     try {
       if (req.cookies.user) {
@@ -327,6 +396,8 @@ router.get("/changePass", check.checkLogin, check.checkAdmin ,  controllerAdmin.
 router.get("/changeProfile", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminchangeProfile);
 
 router.get("/news", check.checkLogin, check.checkAdmin ,  controllerAdmin.admiAddnews);
+
+router.get("/listNews", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminListnews);
 
 router.post("/getPrd", controllerAdmin.getProduct)
 

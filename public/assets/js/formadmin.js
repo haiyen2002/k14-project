@@ -98,7 +98,19 @@ $(".modal_viewOrder").on("click", OffmodalViewOrder)
 $(".box_viewOrder").on("click", (event) => {
     event.stopPropagation();
 });
+ 
   
+  // modal fix
+  function OffmodalFixNews(){
+    $(".modal_fixNews").css("display", "none")
+}
+
+$(".close_modalFix").on("click", OffmodalFixNews)
+$(".modal_fixProduct").on("click", OffmodalFixNews)
+
+$(".box_modalFix").on("click", (event) => {
+    event.stopPropagation();
+  });
   
 const status = document.querySelectorAll(".status")
             for (let i = 0; i < status.length; i++) {
