@@ -12,19 +12,40 @@ const {
 } = require("../models/db_mongoose");
 const newsModel = require("../models/news")
 
-router.get("/", (req, res) => {
-  productController
-    .getAllProduct()
-    .then((products) => {
-      productController.getTypePrd().then((types) => {
-        res.render("home/index", {
-          products: products,
-          types: types,
-        });
-      });
-    })
-    .catch((err) => console.log(err));
-});
+// router.get("/", (req, res) => {
+//   productController
+//     .getAllProduct()
+//     .then((products) => {
+//       productController.getTypePrd().then((types) => {
+//         res.render("home/index", {
+//           products: products,
+//           types: types,
+//         });
+//       });
+//     })
+//     .catch((err) => console.log(err));
+// });
+
+router.get("/", async (req, res)=>{
+    try {
+        const userId = req.user._id;
+        if(userId){
+            const acc = await accountmodel.findById(userId);
+            const products = await productController.getAllProduct();
+            const types = await productController.getTypePrd();
+            const news = await newsModel.find().sort({"dateSubmit": -1});
+            res.render("home/index", {
+                products: products,
+                types: types,
+                acc: acc,
+                news: news        
+              });
+        }
+        
+    } catch (error) {
+        res.json(error);
+    }
+})
 
 router.post("/", (req, res) => {
   var name = req.body.name;
@@ -194,7 +215,7 @@ router.get("/news/:id", async (req, res)=>{
             const products = await productController.getAllProduct();
             const types = await productController.getTypePrd();
             const newsDetail = await newsModel.findById(req.params.id)
-            const news = await newsModel.find()
+            const news = await newsModel.find().sort({ "dateSubmit": -1})
             res.render("pages/Base_pages", {
                 content: 'newsDetail',
                 products: products,

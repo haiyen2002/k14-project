@@ -254,144 +254,31 @@
             <div class="section-body">
                 <div id="slider">
                     <div class="owl-carousel owl-theme">
-                        <a href="/about-us">
-                            <div class="item box-card">
-                                <div class="news-card">
-                                    <div class="card-images">
-                                        <img src="../../public/images/news_card_1.png" alt="">
-                                    </div>
-                                    <div class="card-text">
-                                        <div class="card-text_title">
-                                            <h3>COMBO CHĂM SÓC TÓC ĐI BIỂN CHỈ VỚI 449K – TẶNG NGAY SỮA TẮM</h3>
+                        <% news.forEach(ele => { %>
+                            <a href="/news/<%= ele._id %>">
+                                <div class="item box-card">
+                                    <div class="news-card">
+                                        <div class="card-images">
+                                            <img src="<%= ele.imgNews %>" alt="">
                                         </div>
-                                        <div class="card-text_date">
-                                            11/05/2020
-                                        </div>
-                                        <div class="card-line"></div>
-                                        <div class="card-description">
-                                            Khi khí trời bắt đầu chuyển gió, hơi nóng thoảng bay như báo hiệu mùa Hè sắp
-                                            đến. Đó
-                                            cũng là lúc công việc và những nỗi lo toan cuộc ...
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="/about-us">
-                            <div class="item box-card">
-                                <div class="news-card">
-                                    <div class="card-images">
-                                        <img src="../../public/images/news_card_2.png" alt="">
-                                    </div>
-                                    <div class="card-text">
-                                        <div class="card-text_title">
-                                            <h3>CHA KHÔNG HOÀN HẢO NHƯNG SẼ LUÔN LÀ NGƯỜI YÊU CON NHẤT!</h3>
-                                        </div>
-                                        <div class="card-text_date">
-                                            11/05/2020
-                                        </div>
-                                        <div class="card-line"></div>
-                                        <div class="card-description">
-                                            Cha trong ấn tượng của hầu hết chúng ta có phải là người đàn ông ít nói
-                                            nhưng tình
-                                            cảm, nghiêm khắc nhưng lại bao dung? “Trên Trái Đất này, ...
+                                        <div class="card-text">
+                                            <div class="card-text_title">
+                                                <h3><%= ele.title %></h3>
+                                            </div>
+                                            <div class="card-text_date">
+                                                <%= ele.dateSubmit.toLocaleDateString() %>
+                                            </div>
+                                            <div class="card-line"></div>
+                                            <div class="card-description">
+                                                <!-- <%= ele.content %> -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="/about-us">
-                            <div class="item box-card">
-                                <div class="news-card">
-                                    <div class="card-images">
-                                        <img src="../../public/images/news_card_3.jpg" alt="">
-                                    </div>
-                                    <div class="card-text">
-                                        <div class="card-text_title">
-                                            <h3>LÀM SAO ĐỂ TÓC HẾT DẦU BẾT VÀ GÀU ?</h3>
-                                        </div>
-                                        <div class="card-text_date">
-                                            11/05/2020
-                                        </div>
-                                        <div class="card-line"></div>
-                                        <div class="card-description">
-                                            Tóc gàu và bết là vấn đề không của riêng ai, gây ra sự mất thẩm mỹ, khiến
-                                            bạn không
-                                            tự tin khi tiếp xúc với người khác và ảnh ...
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="/about-us">
-                            <div class="item box-card">
-                                <div class="news-card">
-                                    <div class="card-images">
-                                        <img src="../../public/images/news_card_4.png" alt="">
-                                    </div>
-                                    <div class="card-text">
-                                        <div class="card-text_title">
-                                            <h3>HÃY ĐỂ HACHI TRAO CHO EM MÓN QUÀ BẤT NGỜ!!!</h3>
-                                        </div>
-                                        <div class="card-text_date">
-                                            11/05/2020
-                                        </div>
-                                        <div class="card-line"></div>
-                                        <div class="card-description">
-                                            Xu hướng sử dụng các sản phẩm chăm sóc tóc từ thiên nhiên hiện nay còn HOT
-                                            hơn cả
-                                            cái nắng mùa hè. Thương hiệu HACHI tuy mới có mặt ...
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="/about-us">
-                            <div class="item box-card">
-                                <div class="news-card">
-                                    <div class="card-images">
-                                        <img src="../../public/images/news_card_5.png" alt="">
-                                    </div>
-                                    <div class="card-text">
-                                        <div class="card-text_title">
-                                            <h3>KHI NÀO BẠN CẦN DETOX DA ĐẦU?</h3>
-                                        </div>
-                                        <div class="card-text_date">
-                                            11/05/2020
-                                        </div>
-                                        <div class="card-line"></div>
-                                        <div class="card-description">
-                                            Thường thì khi mọi người gặp phải những vấn đề về tóc như: tóc khô, tóc
-                                            rụng, tóc
-                                            yếu,… đều chỉ muốn chữa trị tình trạng tóc đang mắc phải ...
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="/about-us">
-                            <div class="item box-card">
-                                <div class="news-card">
-                                    <div class="card-images">
-                                        <img src="../../public/images/news_card_6.jpeg" alt="">
-                                    </div>
-                                    <div class="card-text">
-                                        <div class="card-text_title">
-                                            <h3>DETOX DA ĐẦU MANG LẠI SỰ KHỎE MẠNH CHO TÓC</h3>
-                                        </div>
-                                        <div class="card-text_date">
-                                            11/05/2020
-                                        </div>
-                                        <div class="card-line"></div>
-                                        <div class="card-description">
-                                            Hãy thử lắng nghe làn da và tưởng tượng da đang phải chịu đựng những gì
-                                            trong thời
-                                            tiết nóng bức, bít tắc lỗ chân lông, nhiễm chì, lão hóa ...
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        <% }) %>
+                        
+ 
                     </div>
                 </div>
             </div>
