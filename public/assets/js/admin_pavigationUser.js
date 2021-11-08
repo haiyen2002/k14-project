@@ -36,7 +36,7 @@ async function render(){
                 <td><a href="#${ele._id}" class="btn_delete" onclick="deleteUser('${ele._id}')">Delete</a></td>
                 <td><a href="#${ele._id}" class="btn_user"  onclick="viewsUser('${ele._id}')">Views</a></td>
                 <td><a href="#${ele._id}" class="btn_role"  onclick="changeRole('${ele._id}')">Role</a></td>
-                <td><a href="/admin/userOrderDetail/${ele._id}" class="btn_order"  onclick="OrderUser('${ele._id}')">views</a></td>
+                <td><a href="/admin/userOrderDetail/${ele._id}" class="btn_order">views</a></td>
               </tr>
                 `;
 
@@ -54,7 +54,6 @@ async function render(){
 async function changePage(page){
     try {
         let username = $("#search").val();
-        console.log(page);
         const res = await $.ajax({
             url: `/admin/pavigationUser?page=${page}`,
             type: "POST",
@@ -82,7 +81,7 @@ async function changePage(page){
                 <td><a href="#${ele._id}" class="btn_delete" onclick="deleteUser('${ele._id}')">Delete</a></td>
                 <td><a href="#${ele._id}" class="btn_user"  onclick="viewsUser('${ele._id}')">Views</a></td>
                 <td><a href="#${ele._id}" class="btn_role"  onclick="changeRole('${ele._id}')">Role</a></td>
-                <td><a href="/admin/userOrderDetail/${ele._id}" class="btn_order"  onclick="OrderUser('${ele._id}')">views</a></td>
+                <td><a href="/admin/userOrderDetail/${ele._id}" class="btn_order">views</a></td>
               </tr>
                 `;
 
