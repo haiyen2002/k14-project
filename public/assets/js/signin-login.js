@@ -219,7 +219,6 @@ async function logout() {
     if (res.status === 200) {
       delete_cookie("user");
       localStorage.removeItem("shoppingCart");
-      updatedataCart()
       window.location.href = "/";
     }
   } catch (error) {
