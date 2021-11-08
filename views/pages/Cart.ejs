@@ -2,63 +2,16 @@
     <div class="main-cart">
       <div class="container-cart-buy">
         <div class="content-table">
-          <div class="content-table-items">
+          <!-- <div class="content-table-items">
               <div class="item-td">Sản phẩm</div>
               <div class="item-td"></div>
               <div class="item-td">Đơn giá</div>
               <div class="item-td">Số lượng</div>
               <div class="item-td">Tạm tính</div>
-            </div>
+            </div> -->
         </div>
   
-        <div class="buy-table">
-          <% userCart.forEach(item => {%>
-            <div class="buy-table-item">
-                     <div class="item-td">
-                       <a class="item-prd-link" href="/products/detail/<%= item.productId %>">
-                        <%products.forEach(prd => {%>
-                          <%if(prd._id == item.productId){%>
-                            <img class="item-img" src="<%=prd.img[1]%>" alt="" />    
-                             
-                         <% }%>
-                       <%})%>
-                          
-                       </a>
-                     </div>
-                     <div class="item-td">
-                       <a class="item-prd-link" href="/product/detail/<%= item.productId %>">
-                        
-                       </a>
-                     </div>
-                   <div class="item-td price">
-                     <%products.forEach(prd => {%>
-                        <%if(prd._id == item.productId){%>
-                          <span class="productPrice-item countOfProduct"><%= prd.price %></span>
-                       <% }%>
-                     <%})%>
-                   </div>
-                   <div class="item-td">
-                     <button class="button-minus">-</button>
-                     <span class="countOfProduct productQuantity-item"><%= item.quantity %></span>
-                     <button class="button-plus" >+</button>
-                   </div>
-                   <div class="item-td prices">
-                    <%products.forEach(prd => {%>
-                      <%if(prd._id == item.productId){%>
-                        <span class="countOfProduct totalPay"><%= prd.price * item.quantity %></span>
-                     <% }%>
-                   <%})%>
-                   </div>
-                   <div class="item-td">
-                     <button class="prd-cart_delete">
-                       X
-                     </button>
-                   </div>
-                 </div>
-                 <hr />
-                   
-         <% })%>
-        </div>
+        <div class="buy-table"></div>
         <div class="back-buy">
           <a class="go-buy" href="/"
             ><i class="fas fa-long-arrow-alt-left"></i> Tiếp tục mua sắm</a
@@ -67,28 +20,18 @@
       </div>
   
       <div class="right-cart">
-        <div class="right-content"><p>CỘNG GIỎ HÀNG</p></div>
+        <!-- <div class="right-content"><p>CỘNG GIỎ HÀNG</p></div>
           <div class="total">
             <div class="total-content">Tạm tính</div>
-            <%var sum = 0;%>
-            <%userCart.forEach(item => {%>
-              <%products.forEach(prd => {%>
-                <%if(prd._id == item.productId){%>
-                   <% sum += prd.price * item.quantity %>
-                 
-               <% }%>
-              <% })%>
-           <% } )%>
-           <div class="total-price"><%=sum%></div>
+            <div class="total-price">1000</div>
           </div>
           <div class="total-end">
             <div class="total-end-content">Tổng</div>
-            <div class="total-end-price"><%=sum%></div>
+            <div class="total-end-price">1000</div>
           </div>
-          <a class="pay"  href="/order/">
-            <div class="pay-item">Tiến hành thanh toán</div>
-          </a>
+          <div class="pay">
+            <button class="pay-item">Tiến hành thanh toán</button>
+          </div> -->
       </div>
     </div>
   </div>
-  
