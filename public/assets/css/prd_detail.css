@@ -384,6 +384,10 @@
   padding: 10px 0;
 }
 
+.prd-description {
+  word-break: break-all;
+}
+
 .more-products .product-item .item-buy-see {
   position: absolute;
   top: 50%;
