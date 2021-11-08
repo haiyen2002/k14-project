@@ -218,19 +218,4 @@ router.get("/contact", controller.contact);
 
 router.get("/store/", controller.store);
 
-router.get("/show", (req, res) => {
-  orderssModel
-    // .deleteMany()
-    .deleteMany()
-
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
-
-
-
 module.exports = router;
