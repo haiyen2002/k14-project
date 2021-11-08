@@ -50,6 +50,7 @@
 }
 
 .main_news .container_news .news-left .news-left-item .item-img img {
+  width: 250px;
   height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -100,6 +101,7 @@
 }
 
 .main_news .container_news .news-right .news-right-item .item-img img {
+  width: 100px;
   height: 100px;
   -o-object-fit: cover;
      object-fit: cover;
