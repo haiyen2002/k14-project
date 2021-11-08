@@ -182,7 +182,7 @@
             &:nth-child(12) {
               text-align: right;
             }
-            .btn_order {
+            .btn_user {
               background: #f9ca3f;
               color: #fff;
               border: none;
@@ -209,6 +209,15 @@
               text-decoration: none;
               border-radius: 4px;
             }
+            .btn_order {
+                background: #03a9f4;
+                color: #fff;
+                border: none;
+                padding: 5px 10px;
+                cursor: pointer;
+                text-decoration: none;
+                border-radius: 4px;
+              }
           }
         }
       }

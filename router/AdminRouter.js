@@ -399,6 +399,8 @@ router.get("/news", check.checkLogin, check.checkAdmin ,  controllerAdmin.admiAd
 
 router.get("/listNews", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminListnews);
 
+router.get("/userOrderDetail/:id", check.checkLogin, check.checkAdmin ,  controllerAdmin.orderUserDetail);
+
 router.post("/getPrd", controllerAdmin.getProduct)
 
 router.post("/getUser", controllerAdmin.getUser)

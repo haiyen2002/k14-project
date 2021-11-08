@@ -57,6 +57,11 @@
        <script src="/ckeditor/ckeditor.js"></script>
     <% } %>
 
+    <% if( content == 'userOrderDetail' ){ %>
+        <link rel="stylesheet" href="/public/assets/css/admin_userOrderDetail.css">
+        <link rel="stylesheet" href="/public/assets/css/modal_viewOrder.css">
+     <% } %>
+
 
   </head>
   <body>
@@ -135,6 +140,11 @@
             <%- include('../components/admin/modal_FixNews.ejs') %>
 
         <% } %>
+
+        <% if( content == 'userOrderDetail' ){ %>
+            <%- include('../Admin_pages/userOrderDetail.ejs') %>
+            <%- include('../components/admin/modal_orderDetail.ejs') %>
+         <% } %>
   
       </div>
     </div>
@@ -200,6 +210,10 @@
         <script src="/public/assets/js/admin_deleteNews.js"></script>
         <script src="/public/assets/js/admin_fixNews.js"></script>
     <% } %>
+
+    <% if( content == 'userOrderDetail' ){ %>
+        <script src="/public/assets/js/admin_viewOrderDetail.js"></script>
+     <% } %>
 
     <script src="/public/assets/js/admin_login_logout.js"></script>
 

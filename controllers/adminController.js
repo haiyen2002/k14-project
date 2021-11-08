@@ -394,3 +394,33 @@ module.exports.logout = async (req, res) => {
       res.json({ error, mess: "server error", status: 500 });
     }
   };
+
+
+
+  module.exports.orderUserDetail = async (req, res) => {
+    try {
+      const userId = req.user._id;
+      if (userId) {
+        const acc = await accountmodel.findById(userId);
+        const user = await accountmodel.find();
+        const userOrder = await accountmodel.findById({_id: req.params.id});
+        const product = await ProductModel.find();
+        const OrderDetail = await orderssModel.find({userId: req.params.id}).populate("product.productId")
+        const order = await orderssModel
+          .find()
+          .populate("userId")
+          .populate("product.productId");
+          res.render("Admin_pages/Admin_base", {
+          content: "userOrderDetail",
+          user: user,
+          product: product,
+          order: order,
+          acc: acc,
+          OrderDetail: OrderDetail,
+          userOrder: userOrder,
+        });
+      }
+    } catch (error) {
+      res.json(error);
+    }
+  };
