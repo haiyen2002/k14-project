@@ -23,6 +23,7 @@ async function listorder() {
       if (data.status == 200) {
         alert(data.mess);
         localStorage.removeItem("shoppingCart");
+        updatedataCart();
         window.location.href = "/";
       } else if (data.status == 400) {
         alert(data.mess);

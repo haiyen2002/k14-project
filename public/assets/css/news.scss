@@ -7,6 +7,9 @@
     h3{
         color: #006885;
     }
+    @media screen and (max-width: 768px) {
+        padding: 10px;
+    }
     .container_news{
         width: 100%;
         display: grid;
@@ -62,10 +65,7 @@
             width: 100%;
             flex-direction: column;
             gap: 20px;   
-            @media screen and (max-width: 768px) {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-            }
+        
             h4{
                 color: #006885;
             }    
@@ -75,11 +75,6 @@
                 height: 100px;
                 gap: 20px;
                 text-decoration: none;
-                @media screen and (max-width: 768px) {
-                    display: flex;
-                    flex-direction: column;
-                    height: 200px;
-                }
                 .item-img{                   
                     img{
                         width: 100px;
