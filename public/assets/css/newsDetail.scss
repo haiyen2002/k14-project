@@ -12,6 +12,10 @@
         display: grid;
         grid-template-columns: 3fr 1fr;
         gap: 20px;
+        @media screen and (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+        }
         .news-left{
             display: flex;
             width: 100%;
@@ -22,6 +26,7 @@
            h1,h2,h3,h4,h5,h6{
                color: #006885;
            }
+
         }
         .news-right{
             display: flex;
@@ -40,7 +45,8 @@
                 .item-img{                   
                     img{
                         height: 100px;
-                    object-fit: cover;
+                        width: 100px;
+                        object-fit: cover;
                     }
                 }
                 .item-title{

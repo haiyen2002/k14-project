@@ -24,6 +24,18 @@
   gap: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .main_news .container_news {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .main_news .container_news .news-left {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,6 +83,7 @@
 
 .main_news .container_news .news-right .news-right-item .item-img img {
   height: 100px;
+  width: 100px;
   -o-object-fit: cover;
      object-fit: cover;
 }
