@@ -171,7 +171,7 @@ router.get("/news", async (req, res)=>{
             const acc = await accountmodel.findById(userId);
             const products = await productController.getAllProduct();
             const types = await productController.getTypePrd();
-            const news = await newsModel.find()
+            const news = await newsModel.find().sort({ "dateSubmit": -1})
             res.render("pages/Base_pages", {
                 content: 'news',
                 products: products,
