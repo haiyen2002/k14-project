@@ -42,8 +42,8 @@ async function render(page) {
   //lấy sản phẩm trả về tương ứng với page, type, min , max
   const products = res.products;
   //làm trống phần sản phẩm
-  $(".filter-product-results").html("");
-  products.forEach((product) => {
+  $(".filter-product-results").html("");//làm trống danh sách sản phẩm
+  products.forEach((product) => {//render các sản phẩm trả về
     var pPrice = product.price
     pPrice = pPrice.toLocaleString()
     $(".filter-product-results").append(`
@@ -79,7 +79,7 @@ async function render(page) {
       </nav>
     `);
     checklogin()
-    //first item
+    //first item thêm cái nút đầu tiên
     if(current == 1){
       $('.pagination-filter').append(`
       <li class="page-item disabled">
@@ -94,7 +94,13 @@ async function render(page) {
       `)
     }
     //item
-    var i = (Number(current) > 2 ? Number(current) - 1 : 1);
+    // var i = (Number(current) > 2 ? Number(current) - 1 : 1);// kiểm tra coi có cần thêm cái nut
+    var i;
+    if( Number(current) > 2 ){
+      i = Number(current) - 1
+    } else {
+      i = 1
+    }
     if(i !== 1) {
       $('.pagination-filter').append(`
       <li class="page-item disabled">

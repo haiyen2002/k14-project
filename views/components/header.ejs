@@ -53,7 +53,7 @@
               <a>
                 <span id="header-btn-search" onclick="openSearch()"><i class="fas fa-search"></i></span>
               </a>
-              <span class="header-cart">
+              <span onmouseover="hoverCart()" class="header-cart">
                 <a class="box-cart" href="/cart">
                   <span style="margin-right: 0px">GIỎ HÀNG</span>
                   <img
@@ -61,7 +61,9 @@
                     src="../../public/assets/img/hd_mainmenu_icon_cart.png"
                     alt=""
                   />
-                  <span class="countSumCart"></span>
+                  <% if(cartNum > 0 ){ %>
+                    <span class="countSumCart"><%= cartNum %></span>
+                  <% } %> 
                 </a>
                 <div class="container-cart">
                   <div class="tableTitle"></div>

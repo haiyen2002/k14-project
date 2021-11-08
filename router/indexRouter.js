@@ -61,20 +61,20 @@ router.post("/allproduct", (req, res) => {
     });
 });
 
-router.get("/cart", (req, res) => {
-  productController
-    .getAllProduct()
-    .then((products) => {
-      productController.getTypePrd().then((types) => {
-        res.render("pages/Base_pages", {
-            content: 'cart',
-          products: products,
-          types: types,
-        });
-      });
-    })
-    .catch((err) => console.log(err));
-});
+// router.get("/cart", (req, res) => {
+//   productController
+//     .getAllProduct()
+//     .then((products) => {
+//       productController.getTypePrd().then((types) => {
+//         res.render("pages/Base_pages", {
+//             content: 'cart',
+//           products: products,
+//           types: types,
+//         });
+//       });
+//     })
+//     .catch((err) => console.log(err));
+// });
 
 router.get("/myOrder", async (req, res) => {
   try {

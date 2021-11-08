@@ -3,9 +3,13 @@ const cartController = require("../controllers/cartController");
 const { route } = require("./UserRouter");
 const {orderssModel} = require("../models/db_mongoose")
 
+//get Cart Page
+router.get('/',cartController.getCart)
+
+
 // update Cart
 
-router.put("/cart/", cartController.postCart);
+// router.put("/cart/", cartController.postCart);
 
 //create order
 

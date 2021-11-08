@@ -19,10 +19,14 @@ app.use(cookieParser());
 
 app.set("view engine", "ejs");
 app.set("views", "views");
-
+//check đăng nhập hay chưa -> tạo ra biến req.user
 const { checkUser } = require("./middlewares/checkUser");
 // user = req.user
 app.use(checkUser);
+// middle ware này dùng để tạo ra biến global cartNum:
+const { checkUserCart } = require("./middlewares/checkUserCart");
+// set global variable cart
+app.use(checkUserCart);
 
 var indexRouter = require("./router/indexRouter");
 var filterRouter = require("./router/filterRouter");

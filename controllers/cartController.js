@@ -2,7 +2,30 @@ const {
   accountmodel,
   orderssModel,
   ProductModel,
-} = require("../models/db_mongoose")
+} = require("../models/db_mongoose");
+var productController = require("../controllers/ProductsController");
+//get cart:
+module.exports.getCart = async (req, res) => {
+  try {
+    const userID = req.user._id;
+    if (userID) {
+      const user = await accountmodel.findById(userID);
+      const userCart = user.Cart;
+      const products = await productController.getAllProduct()
+     
+      const types = await productController.getTypePrd()
+        res.render("pages/Base_pages", {
+            content: 'cart',
+            products: products,
+            types: types,
+            userCart
+        });  
+    }
+  } catch (error) {
+    res.json(error);
+  }
+};
+
 
 // update cart
 module.exports.postCart = async (req, res) => {
@@ -81,90 +104,90 @@ module.exports.postOrder = async (req, res, next) => {
   }
 };
 
-module.exports.getUpCart = async (req, res)=>{
-    try {
-        const userId = req.user._id
-        if(userId){
-            const data = await accountmodel.findById(userId)
-            .populate("Cart.productId")
-            if(data){
-                res.json({mess: "update", data:data, status: 200})
-            }else{
-                res.json({status: 400, mess: "loi"})
-            }
+module.exports.getUpCart = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    if (userId) {
+      const data = await accountmodel
+        .findById(userId)
+        .populate("Cart.productId");
+      if (data) {
+        res.json({ mess: "update", data: data, status: 200 });
+      } else {
+        res.json({ status: 400, mess: "loi" });
+      }
+    }
+  } catch (error) {
+    res.json(error);
+  }
+};
+
+module.exports.cancelOrder = async (req, res, next) => {
+  try {
+    const orderId = req.params.id;
+    console.log(orderId);
+    const data = await orderssModel.findById(orderId);
+    if (data) {
+      let products = data.product;
+      for (let i = 0; i < products.length; i++) {
+        let productBuy = await ProductModel.findById(products[i].productId);
+        if (productBuy) {
+          let checkCount =
+            parseInt(productBuy.quantity) + parseInt(products[i].quantity);
+          let update = await ProductModel.findByIdAndUpdate(
+            { _id: productBuy._id },
+            { quantity: checkCount }
+          );
         }
-    } catch (error) {
-        res.json(error)
+      }
+      let xoa = await orderssModel.deleteOne({ _id: orderId });
+
+      res.json({
+        mess: "Hủy đơn hàng thành công",
+        status: 200,
+      });
+    } else {
+      res.json({ status: 400, mess: "Không tìm thấy đơn hàng" });
     }
-}
-
-
-module.exports.cancelOrder = async (req, res, next)=>{
-    try {
-        const orderId = req.params.id
-        console.log(orderId);
-        const data = await orderssModel.findById(orderId)
-        if(data){
-            let products = data.product;
-            for (let i = 0; i < products.length; i++) {
-                let productBuy = await ProductModel.findById(products[i].productId)
-                if(productBuy){
-                    let checkCount = parseInt(productBuy.quantity) + parseInt(products[i].quantity)
-                    let update = await ProductModel.findByIdAndUpdate(
-                        { _id: productBuy._id },
-                        { quantity: checkCount }
-                        )
-                }
-                
-            }
-            let xoa = await orderssModel.deleteOne({_id: orderId})
-           
-
-            res.json({
-                mess: "Hủy đơn hàng thành công",
-                status: 200,
-            
-              });
-        }else {
-            res.json({ status: 400, mess: "Không tìm thấy đơn hàng" });
-          }
-        
-    } catch (error) {
-        res.json({status: 500, error: error, mess: "lỗi sever"})
-    }
-}
+  } catch (error) {
+    res.json({ status: 500, error: error, mess: "lỗi sever" });
+  }
+};
 
 module.exports.addCart = async (req, res) => {
   try {
-    const userId = req.user._id;//get user id( global user )
-    const productId = req.body.productId;//get product id
-    const quantity = req.body.quantity;//get quantity
+    const userId = req.user._id; //get user id( global user )
+    const productId = req.body.productId; //get product id
+    const quantity = req.body.quantity; //get quantity
     //tìm trong bảng account có userID và productID:
-    const hasProductId = await accountmodel.findOne({_id: userId, 'Cart.productId':productId})
+    const hasProductId = await accountmodel.findOne({
+      _id: userId,
+      "Cart.productId": productId,
+    });
     // nếu có sản phẩm đó trong cart rồi thì update thêm số lượng:
-    if(hasProductId){
+    if (hasProductId) {
       await accountmodel.findOneAndUpdate(
-        {_id: userId, 'Cart.productId': productId},
+        { _id: userId, "Cart.productId": productId },
         //cộng dồn vào so luong có sẵn
-        {$inc: {'Cart.$.quantity': quantity }}
-      )
+        { $inc: { "Cart.$.quantity": quantity } }
+      );
       res.json({
         mess: "Cập nhật giỏ hàng thành công",
-        status: 200
+        status: 200,
       });
       //nếu k có thì thêm mới sản phẩm vào cart:
-    }else{
+    } else {
       await accountmodel.findOneAndUpdate(
-        {_id: userId},
-        {$push: {Cart: { productId, quantity }}}
-        )
-        res.json({
-          mess: "Cập nhật giỏ hàng thành công",
-          status: 200
-        });
+        { _id: userId },
+        { $push: { Cart: { productId, quantity } } }
+      );
+      res.json({
+        mess: "Cập nhật giỏ hàng thành công",
+        status: 200,
+      });
     }
   } catch (error) {
     // res.json({status: 500, error: error, mess: "lỗi sever"})
-    console.log(error)
+    console.log(error);
   }
-}
+};
