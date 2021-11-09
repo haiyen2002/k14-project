@@ -17,30 +17,29 @@ const newsModel = require("../models/news")
 //     .getAllProduct()
 //     .then((products) => {
 //       productController.getTypePrd().then((types) => {
-//         res.render("home/index", {
-//           products: products,
-//           types: types,
-//         });
+//         newsModel.find().sort({"dateSubmit": -1}).then(news=>{
+//             res.render("home/index", {
+//                 products: products,
+//                 types: types,
+//                 news: news,
+//               });
+//             })
+        
 //       });
 //     })
 //     .catch((err) => console.log(err));
 // });
 
 router.get("/", async (req, res)=>{
-    try {
-        const userId = req.user._id;
-        if(userId){
-            const acc = await accountmodel.findById(userId);
+    try {       
             const products = await productController.getAllProduct();
             const types = await productController.getTypePrd();
             const news = await newsModel.find().sort({"dateSubmit": -1});
             res.render("home/index", {
                 products: products,
                 types: types,
-                acc: acc,
                 news: news        
-              });
-        }
+            })
         
     } catch (error) {
         res.json(error);
