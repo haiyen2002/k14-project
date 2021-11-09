@@ -152,7 +152,8 @@ router.get("/order", async (req, res) => {
       const products = await productController.getAllProduct();
       const types = await productController.getTypePrd();
       const acc = {};
-      res.render("Order-Cart/order", {
+      res.render("pages/Base_pages", {
+        content: 'order',
         products: products,
         types: types,
         acc: acc,
