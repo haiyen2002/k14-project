@@ -5,13 +5,18 @@ function deleteProduct(id){
 
 async function comfirmDelete(id){
     try {
-        const data = $.ajax({
+        const data = await $.ajax({
             url: `/admin/deleteProduct/${id}`,
             type: "DELETE",
         })
-        console.log(data);
-        // alert(data.mess)      
-        window.location.href = "";
+        if(data.status == 200){
+            console.log(data);
+            alert(data.mess)      
+            // window.location.href = "";
+        }else if(data.status == 400){
+            alert(data.mess)
+        }
+        
     } catch (error) {
         console.log(error);
     }

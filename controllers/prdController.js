@@ -19,9 +19,9 @@ module.exports.prdDetail = async (req, res) => {
     const productss = await ProductModel.find({prd_key: prd_detail.prd_key})
     res.render("pages/Base_pages", {
         content: 'prd_detail',
-      prd_detail : prd_detail,
-      types: types,
-      productss:productss
+        prd_detail : prd_detail,
+        types: types,
+        productss:productss
     });
   } catch (error) {
     res.json(error);
@@ -33,7 +33,7 @@ module.exports.about_Us = async (req, res) => {
     const types = await ProductModel.distinct("prd_key");
     res.render("pages/Base_pages", {
         content: 'about_us',
-      types: types,
+        types: types,
     });
   } catch (error) {
     res.json(error);
@@ -45,7 +45,7 @@ module.exports.slogan = async (req, res) => {
     const types = await ProductModel.distinct("prd_key");
     res.render("pages/Base_pages", {
         content: 'slogan',
-      types: types,
+        types: types,
     });
   } catch (error) {
     res.json(error);
@@ -56,7 +56,7 @@ module.exports.contact = async (req, res) => {
     const types = await ProductModel.distinct("prd_key");
     res.render("pages/Base_pages", {
         content: 'contact',
-      types: types,
+        types: types,
     });
   } catch (error) {
     res.json(error);
@@ -68,7 +68,7 @@ module.exports.store = async (req, res) => {
     const types = await ProductModel.distinct("prd_key");
     res.render("pages/Base_pages", {
         content: 'store',
-      types: types,
+        types: types,
     });
   } catch (error) {
     res.json(error);

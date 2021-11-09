@@ -15,7 +15,7 @@ const {
         });
         let product = [];
         for (let i = 0; i < productInfo.length; i += 2) {
-          product.push({
+            product.push({
             productId: req.body[productInfo[i]],
             quantity: req.body[productInfo[i + 1]],
           });
@@ -27,7 +27,7 @@ const {
           }
         );
         if (data) {
-          res.json({
+            res.json({
             mess: "Cập nhật giỏ hàng thành công",
             status: 200,
             data: data,
@@ -35,7 +35,7 @@ const {
         }
       }
     } catch (error) {
-      res.json(error);
+         res.json(error);
     }
   };
   
@@ -47,7 +47,7 @@ const {
       if (userId) {
         const user = await accountmodel.findOne({ _id: userId });
         if (user.Cart.length > 0) {
-          const data = await orderssModel.create({
+            const data = await orderssModel.create({
             product: user.Cart,
             userId: userId,
             totalPrice: req.body.totalPrice,

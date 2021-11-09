@@ -7,7 +7,7 @@
     bottom: 0;
     right: 0;
     position: fixed;
-    z-index: 10;
+    z-index: 99;
     background: rgba(0, 0, 0, 0.2);
 
     .modal-mobile-close {
@@ -17,41 +17,46 @@
       width: 40px;
       height: 40px;
       cursor: pointer;
-      z-index: 99;
+      z-index: 999;
       .btn-mobile-close {
         width: 100%;
         height: 100%;
         border: none;
-        background: none;
+        background: #fff;
         font-size: 32px;
-        color: #fff;
+        color: #006885;
         cursor: pointer;
-        z-index: 99;
+        z-index: 999;
       }
-      @media screen and (max-width: 600px) {
-          background: #777;
+      @media screen and (max-width: 768px) {
+          background: #fff;
       }
     }
     .modal-mobile {
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 300px;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-      z-index: 3;
-      overflow-x: hidden;
-      overflow-y: scroll;
-      &::-webkit-scrollbar {
-        width: 10px;
-        height: 5px;
-        background: #fff;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        background-image: linear-gradient(
+        90deg,
+        rgba(14, 17, 49, 0.6),
+        rgba(42, 117, 122, 0.6)
+        ),
+        url("../img/content-pixie-9l7r-n1zt-Y-unsplash.jpg");
+        background-size: cover;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+        z-index: 99;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        font-size: 20px !important;
+        &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+
       }
-      &::-webkit-scrollbar-thumb {
-        background-color: #e4e6eb;
-      }
-      @media screen and (max-width: 600px) {
+    
+      @media screen and (max-width: 768px) {
           width: 100%;
       }
       .container-mobile {
@@ -62,38 +67,59 @@
           .nav-mobile-search {
             display: flex;
             width: 100%;
-            padding: 20px;
-            border-bottom: 1px solid #ececec;
+            padding: 20px;           
             #search-mobile-op {
-              width: 70px;
+              width: 30%;
               padding: 6px;
-              color: #777;
               border-radius: 15px;
               margin-right: 10px;
               border: none;
-              font-size: 16px;
+              font-size: 20px !important;
               outline: none;
-              border: 1px solid #ececec;
+              color: #fff;
               background: rgba(175, 170, 170, 0.055);
+              border: 1px solid #ececec;
+              @media screen and (max-width: 768px) {
+                padding: 15px 20px;
+                border-radius: 30px;
+                }
+               option{
+                   color: #006885;
+               } 
             }
             .search-mobile {
               position: relative;
-              font-size: 16px;
+              width: 70%;
+              font-size: 20px;
               display: flex;
               #search-mobile-input {
-                width: 150px;
+                width: 100%;
                 border-radius: 15px;
                 outline: none;
                 border: none;
-                font-size: 16px;
+                font-size: 20px !important;
+                color: #fff;
                 background: rgba(175, 170, 170, 0.055);
                 padding: 0 20px;
                 border: 1px solid #ececec;
+                &::placeholder{
+                    color: #fff;
+                    font-size: 20px !important;
+                }
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                    padding: 15px 20px;
+                    border-radius: 30px;
+                }
               }
               .search-mobile-icon {
                 position: absolute;
-                top: 17%;
+                top: 30%;
                 right: 5%;
+                i{
+                    font-size: 20px;
+                    color: #fff;
+                }
               }
             }
           }
@@ -104,7 +130,9 @@
             align-items: center;
             width: 100%;
             padding: 20px;
-            border-bottom: 1px solid #ececec;
+            border: none;
+            background: none;
+            
             &:hover .img-mobile-hover {
               display: block !important;
             }
@@ -115,81 +143,29 @@
               display: flex;
               width: 100%;
               height: 100%;
-              justify-content: space-between;
+              justify-content: start;
               align-items: center;
               margin-bottom: 10px;
-              .mobile-link {
-                display: flex;
-                justify-content: start;
-                align-items: center;
-                gap: 20px;
-                text-decoration: none;
-                color: #777;
-                .img-mobile-nav {
-                  position: relative;
-                  display: flex;
-                  .img-mobile-hover {
-                    position: absolute;
-                    display: none;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                  }
-                }
-              }
-              .more {
-                display: flex;
-                position: relative;
-                margin-right: 10px;
-                margin-bottom: 10px;
-  
-                .more-link-item1,
-                .more-link-item2,
-                .more-link-item3 {
-                  position: absolute;
-                  border: none;
-                  font-size: 20px;
-                  background: none;
-                  color: #777;
-                  cursor: pointer;
-                }
-                .more-link-item-click1,
-                .more-link-item-click2,
-                .more-link-item-click3 {
-                  position: absolute;
-                  display: none;
-                  border: none;
-                  font-size: 20px;
-                  background: none;
-                  transform: rotateX(180deg);
-                  color: #777;
-                  cursor: pointer;
-                  animation: ani-xoay 0.2s linear 1;
-  
-                  @keyframes ani-xoay {
-                    0% {
-                      transform: rotate(0deg);
-                    }
-                    100% {
-                      transform: rotate(-180deg);
-                    }
-                  }
-                }
-              }
+              .mobile-link{
+                  text-decoration: none;
+                  color: #fff;
+               
+              }                            
             }
-            .children1,
-            .children2,
-            .children3 {
-              display: none;
-  
+            
+            .children {
+              display: none; 
               width: 100%;
+              flex-direction: column;
+              align-items: flex-start;
               .children-item {
                 display: flex;
                 flex-direction: column;
+                align-items: flex-start;
                 list-style: none;
                 .children-link {
                   text-decoration: none;
-                  color: #777;
+                  color: #fff;
                   padding: 10px;
                 }
                 .children-link:nth-child(1) {
@@ -198,16 +174,17 @@
               }
             }
           }
+         
           .nav-mobile-login {
             display: flex;
             width: 100%;
             padding: 20px;
-            border-bottom: 1px solid #ececec;
+            
             .mobile-login {
               border: none;
               background: none;
-              font-size: 16px;
-              color: #777;
+              font-size: 20px !important;
+              color: #fff;
               cursor: pointer;
             }
           }
@@ -216,10 +193,10 @@
             width: 100%;
             padding: 20px;
             gap: 10px;
-            border-bottom: 1px solid #ececec;
+            
             .link-web {
               text-decoration: none;
-              color: #777;
+              color: #fff;
             }
           }
         }
@@ -227,11 +204,6 @@
     }
   }
 
-  .modal-mobile::-webkit-scrollbar {
-    width: 10px;
-    height: 5px;
-    background: #fff;
-  }
-  .modal-mobile::-webkit-scrollbar-thumb {
-    background-color: #e4e6eb;
-  }
+.active{
+    display: flex !important;
+}

@@ -200,17 +200,5 @@ $(".modal-mobile").on("click", (event) => {
   event.stopPropagation();
 });
 
-// SHOW CHILREN //
-for (let i = 1; i < 4; i++) {
-  $(`.more-link-item${i}`).on("click", () => {
-    $(`.children${i}`).css("display", "block");
-    $(`.more-link-item${i}`).css("display", "none");
-    $(`.more-link-item-click${i}`).css("display", "block");
-  });
-  $(`.more-link-item-click${i}`).on("click", () => {
-    $(`.children${i}`).css("display", "none");
-    $(`.more-link-item${i}`).css("display", "block");
-    $(`.more-link-item-click${i}`).css("display", "none");
-  });
-}
+
 

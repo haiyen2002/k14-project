@@ -395,14 +395,15 @@
     }
   
     .main-md-logo {
-      display: none;
+        display: none;
     }
     .main-mobile-logo {
+
       display: block;
     }
     .logo-header img {
-      height: 50px;
-      width: 150px;
+      height: 40px !important;
+      width: 230px !important;
       object-fit: cover;
   }
   }

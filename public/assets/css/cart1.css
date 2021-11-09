@@ -43,9 +43,9 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 992px) {
   .container-cart {
-    display: none;
+    display: none !important;
   }
 }
 

@@ -159,7 +159,7 @@
     text-align: center;
     display: block;
     font-size: 16px;
-    z-index: 999;
+    z-index: 9;
     visibility: hidden;
     opacity: 0;
     transform: translateX(50%);
@@ -185,6 +185,7 @@
         max-width: 849px;
         margin: 0 auto;
     }
+
 }
 
 @media( max-width: 549px ){
@@ -193,4 +194,5 @@
         max-width: 849px;
         margin: 0 auto;
     } 
+
 }

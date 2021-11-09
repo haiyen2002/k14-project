@@ -12,6 +12,7 @@
     <% if(content == 'order'){ %>
         
         <link rel="stylesheet" href="/public/assets/css/mainOrder.css" />
+
     <% } %>
 
     <% if(content == 'prd_detail'){ %>
@@ -25,11 +26,13 @@
         
         <link rel="stylesheet" href="/public/assets/css/myOrder.css" />
         <link rel="stylesheet" href="/public/assets/css/modal_viewOrder.css">
+
         <% } %>
 
       <% if(content == 'profile'){ %>
         
         <link rel="stylesheet" href="/public/assets/css/profile.css" />
+
         <% } %>
 
       <% if(content == 'changeProfileUser'){ %>
@@ -45,10 +48,12 @@
         <% } %>
         
     <% if(content == 'news'){ %>
+
         <link rel="stylesheet" href="/public/assets/css/news.css">
         
     <% } %>
     <% if(content == 'newsDetail'){ %>
+
         <link rel="stylesheet" href="/public/assets/css/newsDetail.css">
         
     <% } %>
@@ -68,67 +73,80 @@
 
     <!-- **************************** -->
     <% if(content == 'cart'){ %>
+
         <%- include('./Cart') %>
         
     <% } %>
 
     <% if(content == 'order'){ %>
+
         <%- include('./Order') %>
         
     <% } %>
 
     <% if(content == 'prd_detail'){ %>
+
         <%- include('./product_Detail') %>
         
     <% } %>
 
 
     <% if(content == 'myOrder'){ %>
+
         <%- include('./myOrder') %>
         <%- include('../components/modal_myOrder.ejs') %>
         
     <% } %>
 
     <% if(content == 'profile'){ %>
+
         <%- include('./profile') %>
         
     <% } %>
     <% if(content == 'changeProfileUser'){ %>
+
         <%- include('./changeProfileUser.ejs') %>
         
     <% } %>
     <% if(content == 'changePassUser'){ %>
+
         <%- include('./changPassUser.ejs') %>
         
     <% } %>
 
     <% if(content == 'about_us'){ %>
+
         <%- include('./about_us') %>
         
     <% } %>
 
     <% if(content == 'contact'){ %>
+
         <%- include('./contact') %>
         
     <% } %>
 
 
     <% if(content == 'store'){ %>
+
         <%- include('./store') %>
         
     <% } %>
 
     <% if(content == 'slogan'){ %>
+
         <%- include('./slogan') %>
         
     <% } %>
 
     <% if(content == 'news'){ %>
+
         <%- include('./news.ejs') %>
         
     <% } %>
     
     <% if(content == 'newsDetail'){ %>
+        
         <%- include('./newsDetail.ejs') %>
         
     <% } %>
