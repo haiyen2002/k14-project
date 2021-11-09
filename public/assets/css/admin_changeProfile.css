@@ -234,4 +234,9 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.form-message,
+.message-error {
+  color: red;
+}
 /*# sourceMappingURL=admin_changeProfile.css.map */

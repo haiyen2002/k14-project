@@ -115,16 +115,7 @@ router.get("/myOrder", async (req, res) => {
            acc: acc,
            myorder: myorder,
          });
-        }else if(!myorder){
-            res.render("pages/Base_pages", {
-                content: 'myOrder',
-                products: products,
-                types: types,
-                acc: acc,
-             
-              });
-        }
-      
+        }     
     }
   } catch (error) {
     res.json(error);
@@ -148,17 +139,18 @@ router.get("/order", async (req, res) => {
         types: types,
         acc: acc,
       });
-    } else {
-      const products = await productController.getAllProduct();
-      const types = await productController.getTypePrd();
-      const acc = {};
-      res.render("pages/Base_pages", {
-        content: 'order',
-        products: products,
-        types: types,
-        acc: acc,
-      });
     }
+    //  else {
+    //   const products = await productController.getAllProduct();
+    //   const types = await productController.getTypePrd();
+    //   const acc = {};
+    //   res.render("pages/Base_pages", {
+    //     content: 'order',
+    //     products: products,
+    //     types: types,
+    //     acc: acc,
+    //   });
+    // }
   } catch (error) {
     console.log(error);
     res.json(error);
@@ -174,6 +166,46 @@ router.get("/profile", async (req, res)=>{
             const types = await productController.getTypePrd();
             res.render("pages/Base_pages", {
                 content: 'profile',
+                products: products,
+                types: types,
+                acc: acc,        
+              });
+        }
+        
+    } catch (error) {
+        res.json(error);
+    }
+})
+
+router.get("/changeProfileUser", async (req, res)=>{
+    try {
+        const userId = req.user._id;
+        if(userId){
+            const acc = await accountmodel.findById(userId);
+            const products = await productController.getAllProduct();
+            const types = await productController.getTypePrd();
+            res.render("pages/Base_pages", {
+                content: 'changeProfileUser',
+                products: products,
+                types: types,
+                acc: acc,        
+              });
+        }
+        
+    } catch (error) {
+        res.json(error);
+    }
+})
+
+router.get("/changePassUser", async (req, res)=>{
+    try {
+        const userId = req.user._id;
+        if(userId){
+            const acc = await accountmodel.findById(userId);
+            const products = await productController.getAllProduct();
+            const types = await productController.getTypePrd();
+            res.render("pages/Base_pages", {
+                content: 'changePassUser',
                 products: products,
                 types: types,
                 acc: acc,        

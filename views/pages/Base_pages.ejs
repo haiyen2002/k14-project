@@ -31,6 +31,18 @@
         
         <link rel="stylesheet" href="/public/assets/css/profile.css" />
         <% } %>
+
+      <% if(content == 'changeProfileUser'){ %>
+        
+        <link rel="stylesheet" href="/public/assets/css/changeProfileUser.css" />
+
+        <% } %>
+
+      <% if(content == 'changePassUser'){ %>
+        
+        <link rel="stylesheet" href="/public/assets/css/changeProfileUser.css" />
+
+        <% } %>
         
     <% if(content == 'news'){ %>
         <link rel="stylesheet" href="/public/assets/css/news.css">
@@ -79,6 +91,14 @@
 
     <% if(content == 'profile'){ %>
         <%- include('./profile') %>
+        
+    <% } %>
+    <% if(content == 'changeProfileUser'){ %>
+        <%- include('./changeProfileUser.ejs') %>
+        
+    <% } %>
+    <% if(content == 'changePassUser'){ %>
+        <%- include('./changPassUser.ejs') %>
         
     <% } %>
 
@@ -195,4 +215,16 @@
     <script src="/public/assets/js/myOrder.js"></script>
     
 <% } %>
+
+<% if(content == 'changeProfileUser'){ %>
+        
+    <script src="/public/assets/js/admin_changeProfile.js"></script>
+
+    <% } %>
+<% if(content == 'changePassUser'){ %>
+        
+    <script src="/public/assets/js/admin_changePass.js"></script>
+    <script src="/public/assets/js/checkvalidate.js"></script>
+
+    <% } %>
 </html>

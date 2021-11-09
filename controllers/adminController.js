@@ -68,6 +68,7 @@ module.exports.adminHome = async (req, res) => {
       const product = await ProductModel.find();
       const order = await orderssModel
         .find()
+        .sort({"orderDate": -1})
         .populate("userId")
         .populate("product.productId");
         res.render("Admin_pages/Admin_base", {

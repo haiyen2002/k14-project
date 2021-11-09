@@ -170,7 +170,7 @@ function checklogin() {
         <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
         data-mdb-toggle="dropdown" aria-expanded="false">
         <img src="${data.checkUser.avatar}" style="margin-right: 10px;
-        height: 30px; width: 30px" class="rounded-circle" height="25" alt=""
+        height: 30px; width: 30px; object-fit: cover;" class="rounded-circle" height="25" alt=""
             loading="lazy"/>
         </a>
         <span data-mdb-toggle="dropdown" style="line-height: 30px; color: #777"> ${
@@ -179,15 +179,11 @@ function checklogin() {
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
         <li>
         <i class="fas fa-users"></i>
-            <a class="dropdown-item" href="/changeprofile" >Change Profile</a>
+            <a class="dropdown-item" href="/profile" >Tài khoản của tôi</a>
         </li>
         <li>
         <i class="fas fa-lock-open"></i>
             <a class="dropdown-item" href="/changepass" >Change Password</a>
-        </li>
-        <li>
-        <i class="fas fa-shopping-bag"></i>
-            <a class="dropdown-item" href="/profile" >Tài khoản của tôi</a>
         </li>
         <li>
         <i class="fas fa-sign-out-alt"></i>
