@@ -73,8 +73,8 @@ input[type="button"]{
 
 
 .form-message,
-.form-message-pass{
-    color: red;
+.form-message-error{
+    color: #f1c40f;
     text-align: center;
     margin-top: 10px;
 }

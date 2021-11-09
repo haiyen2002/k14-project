@@ -364,16 +364,16 @@ module.exports.loginAdmin = async (req, res)=>{
                     if(resultdata.role == "admin"){
                         res.json({ status: 200, id: token, mess: "ok", data: resultdata });
                     }else{
-                        res.json({ status: 400, mess: "Khong co quyen admin" });
+                        res.json({ status: 400, mess: "Không có quyền admin" });
                     }
                   
                 }
             }
             else {
-                res.json({ status: 400, mess: "sai password" });
+                res.json({ status: 400, mess: "Sai password" });
               }
         } else {
-            res.json({ status: 400, mess: "sai username" });
+            res.json({ status: 400, mess: "Sai username" });
         }
 
     } catch (error) {
