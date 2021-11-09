@@ -181,10 +181,13 @@
           grid-template-columns: 1fr 1fr 1fr 1fr;
           gap: 20px;
           padding: 20px;
+          @media screen and (max-width: 1024px) {
+            grid-template-columns: 1fr 1fr !important;
+          }
           @media screen and (max-width: 992px) {
             grid-template-columns: 1fr 1fr !important;
           }
-          @media screen and (max-width: 480px) {
+          @media screen and (max-width: 768px) {
             grid-template-columns: 1fr !important;
           }
           a {

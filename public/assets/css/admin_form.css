@@ -261,6 +261,13 @@
   padding: 20px;
 }
 
+@media screen and (max-width: 1024px) {
+  * body .container .main .cardBox {
+    -ms-grid-columns: 1fr 1fr !important;
+        grid-template-columns: 1fr 1fr !important;
+  }
+}
+
 @media screen and (max-width: 992px) {
   * body .container .main .cardBox {
     -ms-grid-columns: 1fr 1fr !important;
@@ -268,7 +275,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   * body .container .main .cardBox {
     -ms-grid-columns: 1fr !important;
         grid-template-columns: 1fr !important;
