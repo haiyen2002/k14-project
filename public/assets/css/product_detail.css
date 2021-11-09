@@ -482,6 +482,13 @@
   
   .add-to-cart {
     top: 35%;
+    text-decoration: none;
+  }
+  .to-add{
+      text-decoration: none !important;
+  }
+  .to-add:hover{
+      color: #fff;
   }
   
   
@@ -521,6 +528,7 @@
   
     .container-product-left {
       display: none !important;
+      overflow-y: auto;
     }
   
     .productDetail-content {

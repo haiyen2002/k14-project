@@ -74,3 +74,16 @@ module.exports.store = async (req, res) => {
     res.json(error);
   }
 };
+
+module.exports.postSearch = (req, res) => {
+    const name = req.body.name;
+    ProductModel.find({name: {$regex: name, $options: "i"}})
+      .then((data) => {
+        res.json({
+          data: data,
+        });
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  };

@@ -12,9 +12,10 @@ async function comfirmDelete(id){
         if(data.status == 200){
             console.log(data);
             alert(data.mess)      
-            // window.location.href = "";
+            window.location.href = "";
         }else if(data.status == 400){
             alert(data.mess)
+            window.location.href = "";
         }
         
     } catch (error) {
