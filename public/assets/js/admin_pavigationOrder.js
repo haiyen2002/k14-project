@@ -24,7 +24,7 @@ async function render(){
                 <tr>
                 <td>${index + 1}</td>
                 <td>${ele.userId.username} </td>
-                <td>${ele._id}</td>
+                <td>${new Date(ele.orderDate).toLocaleDateString()}</td>
                 <td>${ele.address}</td>
                 <td>${parseInt(ele.totalPrice).toLocaleString() + 'đ'}</td>
                 <td><span class="status">${ele.status}</span></td>
@@ -77,7 +77,7 @@ async function changePage(page){
                 <tr>
                 <td>${index + 1 + (page - 1)*6}</td>
                 <td>${ele.userId.username} </td>
-                <td>${ele.orderDate}</td>
+                <td>${new Date(ele.orderDate).toLocaleDateString()}</td>
                 <td>${ele.address}</td>
                 <td>${parseInt(ele.totalPrice).toLocaleString() + 'đ'}</td>
                 <td><span class="status">${ele.status}</span></td>

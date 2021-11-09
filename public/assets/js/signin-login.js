@@ -182,9 +182,6 @@ function checklogin() {
             <a class="dropdown-item" href="/profile" >Tài khoản của tôi</a>
         </li>
         <li>
-        <i class="fas fa-lock-open"></i>
-            <a class="dropdown-item" href="/changepass" >Change Password</a>
-        </li>
         <li>
         <i class="fas fa-sign-out-alt"></i>
             <a class="dropdown-item" href="#" onclick="logout()">Logout</a>

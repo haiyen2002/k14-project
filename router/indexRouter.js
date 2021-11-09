@@ -219,20 +219,17 @@ router.get("/changePassUser", async (req, res)=>{
 
 router.get("/news", async (req, res)=>{
     try {
-        const userId = req.user._id;
-        if(userId){
-            const acc = await accountmodel.findById(userId);
-            const products = await productController.getAllProduct();
-            const types = await productController.getTypePrd();
-            const news = await newsModel.find().sort({ "dateSubmit": -1})
-            res.render("pages/Base_pages", {
-                content: 'news',
-                products: products,
-                types: types,
-                acc: acc,  
-                news: news,      
-              });
-        }
+
+        const products = await productController.getAllProduct();
+        const types = await productController.getTypePrd();
+        const news = await newsModel.find().sort({ "dateSubmit": -1})
+        res.render("pages/Base_pages", {
+            content: 'news',
+            products: products,
+            types: types,  
+            news: news,      
+            });
+        
         
     } catch (error) {
         res.json(error);
@@ -241,9 +238,7 @@ router.get("/news", async (req, res)=>{
 
 router.get("/news/:id", async (req, res)=>{
     try {
-        const userId = req.user._id;
-        if(userId){
-            const acc = await accountmodel.findById(userId);
+
             const products = await productController.getAllProduct();
             const types = await productController.getTypePrd();
             const newsDetail = await newsModel.findById(req.params.id)
@@ -252,11 +247,10 @@ router.get("/news/:id", async (req, res)=>{
                 content: 'newsDetail',
                 products: products,
                 types: types,
-                acc: acc,  
                 news: news, 
                 newsDetail:newsDetail,     
               });
-        }
+
         
     } catch (error) {
         res.json(error);

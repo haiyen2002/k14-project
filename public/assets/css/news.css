@@ -53,8 +53,9 @@
           flex-direction: column;
   gap: 20px;
   padding: 10px;
-  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding-top: 20px;
+  -webkit-box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .main_news .container_news .news-left .news-left-item {

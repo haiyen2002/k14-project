@@ -388,7 +388,6 @@ module.exports.login = (req, res)=>{
 
 module.exports.logout = async (req, res) => {
     try {
-        console.log(10);
       await BlackListModel.create({ token: req.cookies.user });
       res.json({ status: 200, mess: "logout" });
     } catch (error) {
