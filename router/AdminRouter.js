@@ -381,7 +381,7 @@ router.post("/changeProfile", upload.single("thumbnail"), async (req, res) => {
     }
   });
 
-router.get("/", check.checkLogin, check.checkAdmin , controllerAdmin.adminHome);
+router.get("/home", check.checkLogin, check.checkAdmin , controllerAdmin.adminHome);
 
 router.get("/listUser", check.checkLogin, check.checkAdmin ,  controllerAdmin.adminlistUser);
 

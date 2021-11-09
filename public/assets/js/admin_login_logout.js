@@ -19,7 +19,7 @@ async function loginAdmin(){
             if(data.status == 200){
                 setCookie("user", data.id, 30);
                 alert(data.mess)
-                window.location.href = "/admin/"
+                window.location.href = "/admin/home"
             }else if(data.status == 400){
                 $(".form-message-error").html("")
                 $(".form-message-error").append(`${data.mess}`)
@@ -76,5 +76,22 @@ function setCookie(cname, cvalue, exdays) {
       console.log(error);
     }
   }
+
+
+    $.ajax({
+        url: "/user/checkLogin",
+        type: "POST",
+        headers: {},
+      })
+        .then((data) => {
+          if (data.status !== 200) {
+            window.location.href = "/admin/dangnhap";
+            // alert(data.mess);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
 
   
