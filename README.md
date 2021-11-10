@@ -27,7 +27,7 @@
 
 ### TRANG ADMIN
 
-![Tên Ảnh](https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/254669726_597819224887611_3716591135443007452_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_ohc=MVgzGfg1jbQAX-wy06j&_nc_ht=scontent.fhan2-4.fna&oh=f9fc5aeb04a174ff53669659764d74fc&oe=61B0BC8D)
+![Tên Ảnh](https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/251342583_301922844927269_666457604608337105_n.png?_nc_cat=104&ccb=1-5&_nc_sid=ae9488&_nc_ohc=JOAKlx5R_vYAX8NnsGV&tn=Kcr4kJa6vXsptCPT&_nc_ht=scontent.fhan2-4.fna&oh=e2c66b19aa88c6074a235a91d300ebbc&oe=618CF6BE)
 
 ## LINK DEMO DỰ ÁN
 [CLICK ĐỂ XEM ONLINE]()
