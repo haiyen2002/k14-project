@@ -164,9 +164,10 @@
                 align-items: flex-start;
                 list-style: none;
                 .children-link {
-                  text-decoration: none;
-                  color: #fff;
-                  padding: 10px;
+                    text-align: start !important;
+                    text-decoration: none;
+                    color: #fff;
+                    padding: 10px;
                 }
                 .children-link:nth-child(1) {
                   font-weight: bolder;

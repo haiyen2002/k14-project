@@ -218,6 +218,7 @@
 }
 
 .modal-nav-mobile .modal-mobile .container-mobile .nav-mobile .nav-mobile-item .children .children-item .children-link {
+  text-align: start !important;
   text-decoration: none;
   color: #fff;
   padding: 10px;
