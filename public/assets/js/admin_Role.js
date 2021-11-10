@@ -6,7 +6,7 @@ function changeRole(id){
 async function RoleUpdate(id){
     try {
         let role = $(`#select_Role_${id}`).val()
-        const data = $.ajax({
+        const data = await $.ajax({
             url: `/admin/updateRole/${id}`,
             type: "put",
             data: {role}

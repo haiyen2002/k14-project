@@ -5,7 +5,7 @@ function deleteNews(id){
 
 async function comfirmDeleteNews(id){
     try {
-        const data = $.ajax({
+        const data = await $.ajax({
             url: `/admin/deleteNews/${id}`,
             type: "DELETE",
         })

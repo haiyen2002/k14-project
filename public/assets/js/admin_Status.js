@@ -6,7 +6,7 @@ function edit(id){
 async function StatusUpdate(id){
     try {
         let status = $(`#select_Status_${id}`).val()
-        const data = $.ajax({
+        const data = await $.ajax({
             url: `/admin/updateStatus/${id}`,
             type: "put",
             data: {status}
