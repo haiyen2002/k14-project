@@ -261,6 +261,7 @@ async function upCart() {
           name: cart[i].productId.name,
           price: cart[i].productId.price,
           image: cart[i].productId.img[0],
+          maxCount: cart[i].productId.quantity
         };
         productInCart.push(obj);
       }
