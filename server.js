@@ -45,7 +45,7 @@ app.use("/filter", filterRouter);
 app.use("/cart", cartRouter);
 app.use("/user", UserRouter);
 app.use("/product", productRouter);
-// app.use("/admin", RouterHome);
+app.use("/admin", RouterHome);
 app.use("/check", Router);
 app.use("/admin", AdminRouter);
 
@@ -87,6 +87,7 @@ app.use("/login", (req, res) => {
 app.use("/sigin", (req, res) => {
   res.render("home/login_signup");
 });
+
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Example app listening at http://localhost:${port}`);

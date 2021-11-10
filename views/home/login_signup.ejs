@@ -45,47 +45,19 @@
   </style>
   <body>
     <div class="input-group pb-modalreglog-input-group btn_sign_log">
-      <a
-        href="#"
-        style="margin-right: 20px"
-        class="pb-modalreglog-submit"
-        data-toggle="modal"
-        data-target="#myModal"
-        >Đăng Nhập
+      <a  href="#" style="margin-right: 20px"  class="pb-modalreglog-submit"  data-toggle="modal"  data-target="#myModal" >Đăng Nhập
       </a>
-      <a
-        href="#"
-        class="pb-modalreglog-submit"
-        data-toggle="modal"
-        data-target="#myModal2"
-        >Đăng Kí
+      <a  href="#"  class="pb-modalreglog-submit"  data-toggle="modal" data-target="#myModal2" >Đăng Kí
       </a>
     </div>
-    <div
-      class="modal fade"
-      id="myModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="myModalLabel"
-      aria-hidden="true"
-      data-backdrop="false"
-    >
+    <div  class="modal fade"  id="myModal"  tabindex="-1"  role="dialog"  aria-labelledby="myModalLabel"  aria-hidden="true" data-backdrop="false">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+            <button  type="button"  class="close"  data-dismiss="modal"  aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4
-              style="text-align: center; font-size: 25px; color: #006885"
-              class="modal-title"
-              id="myModalLabel"
-            >
+            <h4  style="text-align: center; font-size: 25px; color: #006885"  class="modal-title"  id="myModalLabel">
               Đăng Nhập
             </h4>
           </div>
@@ -93,78 +65,41 @@
             <div class="form-group">
               <label for="email">Tài Khoản</label>
               <div class="input-group pb-modalreglog-input-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Email hoặc số điện thoại"
-                />
-                <span class="input-group-addon"
-                  ><span class="glyphicon glyphicon-user"></span
-                ></span>
+                <input  type="email"  class="form-control"  id="email"  placeholder="Email hoặc số điện thoại"/>
+                <span class="input-group-addon" >
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
               </div>
             </div>
             <div class="form-group">
               <label for="password">Mật Khẩu</label>
               <div class="input-group pb-modalreglog-input-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="pws"
-                  placeholder="Mật Khẩu"
-                />
-                <span class="input-group-addon"
-                  ><span class="glyphicon glyphicon-lock"></span
-                ></span>
+                <input  type="password"  class="form-control"  id="pws"  placeholder="Mật Khẩu" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              onclick="clickout()"
-              data-dismiss="modal"
-            >
+            <button  type="button" class="btn btn-secondary"  onclick="clickout()"  data-dismiss="modal" >
               Thoát
             </button>
-            <button
-              type="button"
-              class="btn btn-primary loginbtn"
-              onclick="login()"
-              style="background-color: #006885; border: #006885"
-            >
+            <button  type="button"  class="btn btn-primary loginbtn"  onclick="login()" style="background-color: #006885; border: #006885" >
               Đăng Nhập
             </button>
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="modal fade"
-      id="myModal2"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="myModalLabel"
-      aria-hidden="true"
-      data-backdrop="false"
-    >
+    <div  class="modal fade"  id="myModal2"  tabindex="-1"  role="dialog"   aria-labelledby="myModalLabel"  aria-hidden="true" data-backdrop="false" >
       <div class="modal-dialog modal-sm" role="document">
         <div style="width: 500px" class="modal-content">
           <div class="modal-header">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+            <button type="button"  class="close"  data-dismiss="modal"  aria-label="Close" >
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4
-              style="text-align: center; font-size: 25px; color: #006885"
-              class="modal-title"
-              id="myModalLabel"
-            >
+            <h4  style="text-align: center; font-size: 25px; color: #006885" class="modal-title"  id="myModalLabel">
               Đăng Kí
             </h4>
           </div>
@@ -176,117 +111,63 @@
             <div class="form-group">
               <label for="lastname">Họ</label>
               <div class="input-group pb-modalreglog-input-group">
-                <span class="input-group-addon"
-                  ><span class="glyphicon glyphicon-user"></span
-                ></span>
-                <input
-                  type="lastname"
-                  class="form-control"
-                  id="lastname"
-                  placeholder="Họ"
-                />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <input  type="lastname"  class="form-control"  id="lastname"  placeholder="Họ"/>
               </div>
             </div>
             <div class="form-group">
               <label for="Firtname">Tên</label>
               <div class="input-group pb-modalreglog-input-group">
-                <span class="input-group-addon"
-                  ><span class="glyphicon glyphicon-user"></span
-                ></span>
-                <input
-                  type="Firtname"
-                  class="form-control"
-                  id="Firtname"
-                  placeholder="Tên"
-                />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input type="Firtname"  class="form-control"  id="Firtname" placeholder="Tên"/>
               </div>
             </div>
             <div class="form-group ipn_email">
               <label for="email">Email hoặc số điện thoại</label>
               <div class="input-group pb-modalreglog-input-group">
-                <span class="input-group-addon"
-                  ><span class="glyphicon glyphicon-user"></span
-                ></span>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="inputEmail"
-                  placeholder="Email hoặc số điện thoại"
-                  onchange="checkuser()"
-                />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input  type="email" class="form-control" id="inputEmail"  placeholder="Email hoặc số điện thoại" onchange="checkuser()"/>
               </div>
             </div>
             <div class="form-group">
               <label for="password">Mật khẩu</label>
               <div class="input-group pb-modalreglog-input-group">
-                <span class="input-group-addon"
-                  ><span class="glyphicon glyphicon-lock"></span
-                ></span>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="inputPws"
-                  placeholder="Mật khẩu"
-                  required
-                />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input  type="password" class="form-control" id="inputPws" placeholder="Mật khẩu"  required />
               </div>
             </div>
             <div class="form-group">
               <label for="confirmpassword">Nhập lại mật khẩu</label>
               <div class="input-group pb-modalreglog-input-group">
-                <span class="input-group-addon"
-                  ><span class="glyphicon glyphicon-lock"></span
-                ></span>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="inputConfirmPws"
-                  placeholder="Nhập lại mật khẩu"
-                  required
-                />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input type="password" class="form-control"  id="inputConfirmPws" placeholder="Nhập lại mật khẩu" required />
               </div>
             </div>
             <div class="form-group">
               <label style="margin-right: 30px" for="sex">Giới tính</label>
-              <input
-                type="radio"
-                class="gt"
-                name="sex"
-                id="01"
-                value="nam"
-              />Nam
-              <input
-                style="margin-left: 30px"
-                type="radio"
-                class="gt"
-                name="sex"
-                id="02"
-                value="nữ"
-              />Nữ
+              <input type="radio" class="gt" name="sex" id="01" value="nam" />Nam
+              <input style="margin-left: 30px" type="radio" class="gt" name="sex" id="02" value="nữ"/>Nữ
             </div>
             <div class="form-group">
-              <label style="margin-right: 30px" for="birthday"
-                >Ngày sinh nhật</label
-              >
+              <label style="margin-right: 30px" for="birthday">Ngày sinh nhật</label>
 
               <input type="date" name="birthday" id="birthday" />
             </div>
           </div>
           <div class="modal-footer">
             <button
-              type="button"
-              class="btn btn-secondary"
-              onclick="clickout()"
-              data-dismiss="modal"
-            >
+              type="button" class="btn btn-secondary" onclick="clickout()" data-dismiss="modal" >
               Thoát
             </button>
-            <button
-              type="button"
-              class="btn btn-primary signupbtn"
-              onclick="sigup()"
-              style="background-color: #006885; border: #006885"
-            >
+            <button type="button" class="btn btn-primary signupbtn"  onclick="sigup()" style="background-color: #006885; border: #006885" >
               Đăng kí
             </button>
           </div>

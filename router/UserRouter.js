@@ -21,6 +21,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+router.get("/dangky", (req, res) => {
+    res.render("siginUser")
+  });
+
 router.get("/", Check.checkAdmin, async (req, res) => {
   const showUser = await UserModel.accountmodel.find();
   if (showUser) {
@@ -218,5 +222,53 @@ router.get("/:id", (req, res) => {
       res.json(err);
     });
 });
+
+
+router.post("/regiser", async (req, res) => {
+    try {
+      console.log(req.body);
+      const checkuser = await UserModel.accountmodel.findOne({
+        username: req.body.username,
+      });
+      const checkPhone = await UserModel.accountmodel.findOne({
+          phone : req.body.phone
+      })
+      const checkEmail = await UserModel.accountmodel.findOne({
+          email : req.body.email
+      })
+      if (checkuser) {
+        res.json({ status: 400, mess: "Username đã tồn tại" });
+      }
+      else if(checkPhone){
+        res.json({ status: 400, mess: "Số điện thoại đã được dùng" });
+      }else if(checkEmail){
+        res.json({ status: 400, mess: "Email đã được sử dụng" });
+      }
+      else {
+        req.body.password = await bcrypt.hash(req.body.password, 10);
+        const newuser = await UserModel.accountmodel.create({
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          username: req.body.username,
+          password: req.body.password,
+          birthday: req.body.birthday,
+          email: req.body.email,
+          phone: req.body.phone,
+          createdAt: new Date().toUTCString(),
+          Cart: [],
+        });
+        if (newuser) {
+          res.json({ status: 200, mess: "Tạo tài khoản thành công" });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      res.json({ status: 500, mess: "Lỗi server" });
+    }
+  });
+
+
+
+ 
 
 module.exports = router;
