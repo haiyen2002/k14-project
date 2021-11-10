@@ -26,13 +26,14 @@ const order_price = document.querySelector(".total-price");
 // tính toán cập nhật số lượng và chỉnh tổng tiền từng sản phẩm rồi push vào localStorage
 function updateProductsInCart(product) {
   for (let i = 0; i < productsInCart.length; i++) {
-    if (productsInCart[i].id == product.id && (productsInCart[i].count + product.count) <= product.maxCount) {
+    if (productsInCart[i].id == product.id && (productsInCart[i].count + product.count) < (product.maxCount + 1)) {
         productsInCart[i].count += product.count;
             productsInCart[i].price =
             productsInCart[i].count * productsInCart[i].basePrice;
+            alert(`số sản phẩm này trong giỏ của bạn là ${productsInCart[i].count}`)
         return productsInCart[i];
     }else if(productsInCart[i].id == product.id && (productsInCart[i].count + product.count) > product.maxCount){
-        alert(`vượt quá số lượng chỉ có thể mua thêm tối đa ${product.maxCount - productsInCart[i].count} sản phẩm`)
+        alert(`vượt quá số lượng chỉ có thể mua thêm tối đa ${product.maxCount - productsInCart[i].count} sản phẩm này`)
         productsInCart[i].count += 0;
             productsInCart[i].price =
             productsInCart[i].count * productsInCart[i].basePrice;
