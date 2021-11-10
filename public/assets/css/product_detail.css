@@ -24,6 +24,7 @@
   .container-product-left {
     width: 20%;
     padding-right: 20px;
+    overflow-y: scroll !important;
   
   }
   
@@ -53,6 +54,7 @@
     display: -ms-flexbox;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    overflow-y: scroll;
     /* -ms-flex-direction: column;
             flex-direction: column; */
   }

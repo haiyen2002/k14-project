@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 // }else{
 mongoose.connect(
   // process.env.db_refconnect,
-  "mongodb+srv://k14duanteam:Zxcv123123!!@cluster0.dyn71.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0.dyn71.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
   { useNewUrlParser: true },
   { useUnifiedTopology: true }
 );
