@@ -299,6 +299,9 @@ router.delete("/deleteUser/:id", async (req, res)=>{
     try {
         const data = await orderssModel.find({userId: req.params.id})
         if(data){
+        
+            res.json({mess: "user đã mua hàng", status: 400})
+        }else{
             const result = await accountmodel.findByIdAndDelete(
                 {_id: req.params.id},           
             )
@@ -307,8 +310,6 @@ router.delete("/deleteUser/:id", async (req, res)=>{
             }else{
                 res.json({mess: "delete not compelete", status: 400})
             }
-        }else{
-            res.json({mess: "user đã mua hàng", status: 400})
         }        
         
     } catch (error) {
