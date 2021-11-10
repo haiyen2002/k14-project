@@ -16,10 +16,10 @@ router.post("/login", async (req, res) => {
         checkUser.password
       );
       if (checkPassword) {
-        const token = jwt.sign({ id: checkUser._id }, "Auth", {
+        const token = jwt.sign({ id: checkUser._id }, process.env.TOKEN_SECRET, {
           expiresIn: "30d",
         });
-        const id = jwt.verify(token, "Auth").id;
+        const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
         const resultdata = await model.accountmodel.findOne({ _id: id });
         if (
           (resultdata && resultdata.role == "admin") ||
@@ -48,7 +48,7 @@ router.post("/checkLogin", async (req, res) => {
       if (checkToken) {
         res.json({ mess: "cookie bị hạn chế", status: 400 });
       } else {
-        const id = jwt.verify(token, "Auth").id;
+        const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
         const checkUser = await model.accountmodel.findOne({ _id: id });
         if (checkUser) {
           return res.json({

@@ -100,7 +100,7 @@ router.get("/myOrder", async (req, res) => {
   try {
     if (req.cookies.user != undefined) {
       const token = req.cookies.user;
-      const id = jwt.verify(token, "Auth").id;
+      const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
       const products = await productController.getAllProduct();
       const types = await productController.getTypePrd();
       const acc = await accountmodel.findOne({ _id: id });
@@ -129,7 +129,7 @@ router.get("/order", async (req, res) => {
     // console.log(63, req.cookies.user);
     if (req.cookies.user != undefined) {
       const token = req.cookies.user;
-      const id = jwt.verify(token, "Auth").id;
+      const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
       const products = await productController.getAllProduct();
       const types = await productController.getTypePrd();
       const acc = await accountmodel.findOne({ _id: id });

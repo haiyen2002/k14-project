@@ -356,10 +356,10 @@ module.exports.loginAdmin = async (req, res)=>{
         if(checkUser){
             const checkPass = await bcrypt.compare(req.body.password, checkUser.password)
             if(checkPass){
-                const token = jwt.sign({ id: checkUser._id }, "Auth", {
+                const token = jwt.sign({ id: checkUser._id }, process.env.TOKEN_SECRET, {
                     expiresIn: "30d",
                   });
-                const id = jwt.verify(token, "Auth").id;
+                const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
                 const resultdata = await accountmodel.findOne({ _id: id });
                 if (resultdata) {
                     if(resultdata.role == "admin"){

@@ -5,7 +5,7 @@ const { response } = require("express");
 module.exports.checkUser = async (req, res, next) => {
   try {
     const token = req.cookies.user;
-    const result = jwt.verify(token, "Auth");
+    const result = jwt.verify(token, process.env.TOKEN_SECRET);
     const user = await accountmodel.findById(result.id);
     req.user = user;
     if(req.user){

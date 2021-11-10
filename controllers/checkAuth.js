@@ -10,7 +10,7 @@ async function checkLogin(req, res, next) {
       if (checkToken) {
         res.json({ mess: "cookie bị hạn chế", status: 400 });
       } else {
-        const id = jwt.verify(token, "Auth").id;
+        const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
         const checkUser = await UserModel.accountmodel.findOne({ _id: id });
         if (checkUser) {
           req.role = checkUser.role;

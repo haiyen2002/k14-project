@@ -337,7 +337,7 @@ router.post("/changeProfile", upload.single("thumbnail"), async (req, res) => {
     try {
       if (req.cookies.user) {
         const token = req.cookies.user;
-        const id = jwt.verify(token, "Auth").id;
+        const id = jwt.verify(token, process.env.TOKEN_SECRET).id;
         // console.log(req.file);
         if (req.file != undefined) {
           let index = req.file.path.indexOf("upload");
