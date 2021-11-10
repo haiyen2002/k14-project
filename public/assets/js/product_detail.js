@@ -38,7 +38,7 @@ changeImage()
 
 const prd_detail =document.querySelector('.product-main')
 
-// lấy thông tin tên, số lượng, giá tiền của sản phẩm muốn mua
+// lấy thông tin tên, số lượng, giá tiền, tổng sản phẩm có trong kho của sản phẩm muốn mua
 if(prd_detail != null){
     prd_detail.addEventListener("click", (event) => {
         if (event.target.classList.contains("prd-detail-add-gotoPay")) {
@@ -48,6 +48,8 @@ if(prd_detail != null){
           const productPriceS = prd_detail.querySelector(".product-card_price span").innerHTML;
           const productImg = prd_detail.querySelector(".prd-detail-img").src;
           const productPrice = parseInt(productPriceS.replace(/,/g, ""));
+          const maxCount = prd_detail.querySelector(".product-card_quantity span").innerHTML;
+          const maxCountS = parseInt(maxCount)
           let product = {
             name: productName,
             image: productImg,
@@ -55,6 +57,7 @@ if(prd_detail != null){
             count: parseInt(count),
             price: productPrice,
             basePrice: productPrice,
+            maxCount: maxCountS
           };
           //update lên localstorage
           updateProductsInCart(product);

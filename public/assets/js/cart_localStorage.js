@@ -229,47 +229,29 @@ parentElement.addEventListener("click", (event) => {
 
   if (isPlusButton || isMinusButton) {
     for (let i = 0; i < productsInCart.length; i++) {
-        setCount(event.target.dataset.id);
-      function setCount(id) {
-        try {
-          $.ajax({
-            url: "/product/find",
-            type: "post",
-            data: {
-              id: id,
-            },
-          }).then((data) => {
-            let sum = 0;
-            sum = parseInt(data.quantity);
-            // console.log(sum);
-            if (
-              productsInCart[i].id == event.target.dataset.id &&
-              productsInCart[i].count < sum
-            ) {
-              if (isPlusButton) {
-                productsInCart[i].count  += 1;
-              }
-              productsInCart[i].price =
-                productsInCart[i].basePrice * productsInCart[i].count;
+        if (
+            productsInCart[i].id == event.target.dataset.id &&
+            productsInCart[i].count < productsInCart[i].maxCount
+          ) {
+            if (isPlusButton) {
+              productsInCart[i].count  += 1;
             }
-            if (
-              productsInCart[i].id == event.target.dataset.id &&
-              productsInCart[i].count <= sum
-            ) {
-              if (isMinusButton) {
-                productsInCart[i].count  -= 1;
-              }
-              productsInCart[i].price =
-                productsInCart[i].basePrice * productsInCart[i].count;
+            productsInCart[i].price =
+              productsInCart[i].basePrice * productsInCart[i].count;
+          }
+          if (
+            productsInCart[i].id == event.target.dataset.id &&
+            productsInCart[i].count <= productsInCart[i].maxCount
+          ) {
+            if (isMinusButton) {
+              productsInCart[i].count  -= 1;
             }
-            if (productsInCart[i].count <= 0) {
-              productsInCart.splice(i, 1);
-            }
-          });
-        } catch (error) {
-          console.log(error);
-        }
-      }
+            productsInCart[i].price =
+              productsInCart[i].basePrice * productsInCart[i].count;
+          }
+          if (productsInCart[i].count <= 0) {
+            productsInCart.splice(i, 1);
+          }
       
     }
     updateShoppingCartHTML();
@@ -287,47 +269,29 @@ if (prdCart != null) {
     const isMinusButton = event.target.classList.contains("button-minus");
     if (isPlusButton || isMinusButton) {
       for (let i = 0; i < productsInCart.length; i++) {
-        function setCount(id) {
-          try {
-            $.ajax({
-              url: "/product/find",
-              type: "post",
-              data: {
-                id: id,
-              },
-            }).then((data) => {
-              let sum = 0;
-              sum = parseInt(data.quantity);
-              // console.log(sum);
-              if (productsInCart[i].id == event.target.dataset.id &&
-                productsInCart[i].count < sum
-              ) {
-                if (isPlusButton) {
-                    console.log(typeof productsInCart[i].count);
-                    productsInCart[i].count  += 1;
-                }
-                productsInCart[i].price =
-                  productsInCart[i].basePrice * productsInCart[i].count;
-              }
-              if (
-                productsInCart[i].id == event.target.dataset.id &&
-                productsInCart[i].count <= sum
-              ) {
-                if (isMinusButton) {
-                    productsInCart[i].count  -= 1;
-                }
-                productsInCart[i].price =
-                  productsInCart[i].basePrice * productsInCart[i].count;
-              }
-              if (productsInCart[i].count <= 0) {
-                productsInCart.splice(i, 1);
-              }
-            });
-          } catch (error) {
-            console.log(error);
+        if (
+            productsInCart[i].id == event.target.dataset.id &&
+            productsInCart[i].count < productsInCart[i].maxCount
+          ) {
+            if (isPlusButton) {
+              productsInCart[i].count  += 1;
+            }
+            productsInCart[i].price =
+              productsInCart[i].basePrice * productsInCart[i].count;
           }
-        }
-        setCount(productsInCart[i].id);
+          if (
+            productsInCart[i].id == event.target.dataset.id &&
+            productsInCart[i].count <= productsInCart[i].maxCount
+          ) {
+            if (isMinusButton) {
+              productsInCart[i].count  -= 1;
+            }
+            productsInCart[i].price =
+              productsInCart[i].basePrice * productsInCart[i].count;
+          }
+          if (productsInCart[i].count <= 0) {
+            productsInCart.splice(i, 1);
+          }
       }
       updateShoppingCartHTML();
       updateCart();
