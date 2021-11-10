@@ -138,7 +138,7 @@ async function unlinks() {
       username: usernamefocus,
     },
   });
-  console.log(dataresults);
+//   console.log(dataresults);
 }
 
 async function getusername() {

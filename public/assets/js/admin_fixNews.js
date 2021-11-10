@@ -9,7 +9,7 @@ async function comfirmUpdateNews(id){
     try{
     const form = document.getElementById(`form_FixNews_${id}`);
     const formData = new FormData(form);
-    console.log( CKEDITOR.instances[`editor_${id}`].getData());
+    // console.log( CKEDITOR.instances[`editor_${id}`].getData());
     formData.set(`description`, CKEDITOR.instances[`editor_${id}`].getData());
     const res = await $.ajax({
       url: `/admin/fixNews/${id}`,

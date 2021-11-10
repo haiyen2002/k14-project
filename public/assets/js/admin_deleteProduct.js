@@ -10,7 +10,7 @@ async function comfirmDelete(id){
             type: "DELETE",
         })
         if(data.status == 200){
-            console.log(data);
+            // console.log(data);
             alert(data.mess)      
             window.location.href = "";
         }else if(data.status == 400){

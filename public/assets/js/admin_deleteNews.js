@@ -9,9 +9,14 @@ async function comfirmDeleteNews(id){
             url: `/admin/deleteNews/${id}`,
             type: "DELETE",
         })
-        console.log(data);
-        // alert(data.mess)      
-        window.location.href = "";
+        // console.log(data);
+        // alert(data.mess) 
+        if(data.status == 200){
+            alert(data.mess)
+            window.location.href = "";
+        }else if(data.status == 400){
+            alert(data.mess)
+        }     
     } catch (error) {
         console.log(error);
     }

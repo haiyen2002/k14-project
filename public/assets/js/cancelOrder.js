@@ -4,12 +4,14 @@ async function cancelOrder(id){
             url: `/cart/cancel/${id}`,
             type: "DELETE"
         })
-        console.log(res);
+        // console.log(res);
         if(res.status == 200 ){
-            console.log(res.mess);
+            alert(res.mess)
+            // console.log(res.mess);
             window.location.href = ""
         }else if (res. status == 400 ){
-            console.log(res.mess);
+            alert(res.mess)
+            // console.log(res.mess);
             window.location.href = ""
         }
     } catch (error) {

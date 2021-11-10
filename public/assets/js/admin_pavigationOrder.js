@@ -61,7 +61,7 @@ async function render(){
 async function changePage(page){
     try {
         let idOrder = $("#search").val();
-        console.log(page);
+        // console.log(page);
         const res = await $.ajax({
             url: `/admin/pavigationOrder?page=${page}`,
             type: "POST",

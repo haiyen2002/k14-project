@@ -102,7 +102,7 @@ const {
   module.exports.cancelOrder = async (req, res, next)=>{
       try {
           const orderId = req.params.id
-          console.log(orderId);
+        //   console.log(orderId);
           const data = await orderssModel.findById(orderId)
           if(data){
               let products = data.product;

@@ -35,7 +35,7 @@ $(".modal-mobile").on("click", (event) => {
 
 const link = document.querySelector(".link")
 
-console.log(link.classList.value);
+// console.log(link.classList.value);
 
 function ONOFF(){
     if(link.classList.value == "nav-mobile-item link"){
