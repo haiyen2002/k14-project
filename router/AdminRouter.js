@@ -297,14 +297,19 @@ router.put("/updateStatus/:id", async (req, res)=>{
 
 router.delete("/deleteUser/:id", async (req, res)=>{
     try {
-        const result = await accountmodel.findByIdAndDelete(
-            {_id: req.params.id},           
-        )
-        if(result.deletedCount !== 0){
-            res.json({mess: "delete compelete", status: 200})
+        const data = await orderssModel.find({userId: req.params.id})
+        if(data){
+            const result = await accountmodel.findByIdAndDelete(
+                {_id: req.params.id},           
+            )
+            if(result.deletedCount !== 0){
+                res.json({mess: "delete compelete", status: 200})
+            }else{
+                res.json({mess: "delete not compelete", status: 400})
+            }
         }else{
-            res.json({mess: "delete not compelete", status: 400})
-        }
+            res.json({mess: "user đã mua hàng", status: 400})
+        }        
         
     } catch (error) {
         res.json({ status: 500, mess: "lỗi sever", error });
