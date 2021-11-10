@@ -31,7 +31,7 @@ function updateProductsInCart(product) {
             productsInCart[i].price =
             productsInCart[i].count * productsInCart[i].basePrice;
         return productsInCart[i];
-    }else{
+    }else if(productsInCart[i].id == product.id && (productsInCart[i].count + product.count) > product.maxCount){
         alert(`vượt quá số lượng chỉ có thể mua thêm tối đa ${product.maxCount - productsInCart[i].count} sản phẩm`)
         productsInCart[i].count += 0;
             productsInCart[i].price =
