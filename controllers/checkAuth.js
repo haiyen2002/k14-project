@@ -1,3 +1,4 @@
+require('dotenv').config()
 const UserModel = require("../models/db_mongoose");
 const jwt = require("jsonwebtoken");
 const BlackListModel = require("../models/backlist");
