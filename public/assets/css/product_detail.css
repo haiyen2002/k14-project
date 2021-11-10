@@ -378,9 +378,10 @@
     display: none;
     border: none;
     background: #006885;
-    color: #fff;
+    color: #fff !important;
     font-weight: 600;
     cursor: pointer;
+    text-decoration: none;
   }
   
   .product-main .container-product .container-product-right .prd-description {
@@ -571,4 +572,27 @@
     .add-to-cart {
       top: 35%;
     }
+  }
+  .prd-detail-add{
+      display: flex;
+      flex-direction: column;
+  }
+  .go-to-cart{
+      width: 100%;
+      margin-top: 10px;
+      background: #006885;
+      color: #fff;
+      padding: 8px;
+  }
+
+  .to-add:hover{
+    color: #fff;
+    opacity: 0.6;
+    text-decoration: none;
+    }
+
+  .go-to-cart:hover{
+      color: #fff;
+      opacity: 0.6;
+      text-decoration: none;
   }
