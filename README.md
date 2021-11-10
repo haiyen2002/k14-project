@@ -1,12 +1,32 @@
 # PROJECT WEBSITE BÁN HÀNG 👋
 
 ## HÌNH ẢNH DEMO CỦA DỰ ÁN
+
+### TRANG CHỦ
+
 ![Tên ảnh](https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/255333817_291154229546003_7944229574035046406_n.png?_nc_cat=109&ccb=1-5&_nc_sid=ae9488&_nc_ohc=Xma7JdkG3cwAX-wfXrH&_nc_ht=scontent.fhan2-3.fna&oh=5a54902f9659e9bc93cf548859011c2a&oe=61B1CB3E)
+
+
 ![Tên ảnh](https://scontent.fhan2-2.fna.fbcdn.net/v/t1.15752-9/253054388_606572607199652_3015026914267816961_n.png?_nc_cat=111&ccb=1-5&_nc_sid=ae9488&_nc_ohc=Tkx0Je0mH9oAX-VOW9T&_nc_ht=scontent.fhan2-2.fna&oh=d1b0a39e572f1fdc392d5337d8ce737d&oe=61B1F448)
+
+### TRANG BỘ LỌC
+
 ![Tên ảnh](https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/251352480_1091963631542947_7995066350075953061_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_ohc=KsMG3YSCLlIAX8yTc9t&tn=Kcr4kJa6vXsptCPT&_nc_ht=scontent.fhan2-4.fna&oh=42067ab2f3231bf1aa255edc3bbe48c1&oe=61B1FCB1)
+
+### TRANG GIỎ HÀNG
+
 ![Tên ảnh](https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/251482694_1572557613076972_4698266086243236419_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_ohc=IDsWjIQNpvAAX8loBqh&_nc_ht=scontent.fhan2-3.fna&oh=94372bedc6aa99e3272d8fea42abeb43&oe=61B24219)
-![Tên ảnh](https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/252916614_211026191151719_4197909095565271192_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_ohc=UoihxJzZMjcAX8Mr8Zn&_nc_ht=scontent.fhan2-4.fna&oh=5ee7079f62c44be48b4c95af9afbb7c3&oe=61B08562)
+
+### TRANG ĐƠN HÀNG
+
 ![Tên Ảnh](https://scontent.fhan2-2.fna.fbcdn.net/v/t1.15752-9/255127333_406860640917282_5620201648515141454_n.png?_nc_cat=106&ccb=1-5&_nc_sid=ae9488&_nc_ohc=gFCeeRWQ3GoAX_zj-sa&_nc_ht=scontent.fhan2-2.fna&oh=955c9ff19e6345b6416060e6d29edb39&oe=61B1359D)
+
+### TRANG TIN TỨC
+
+![Tên ảnh](https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/252916614_211026191151719_4197909095565271192_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_ohc=UoihxJzZMjcAX8Mr8Zn&_nc_ht=scontent.fhan2-4.fna&oh=5ee7079f62c44be48b4c95af9afbb7c3&oe=61B08562)
+
+### TRANG ADMIN
+
 ![Tên Ảnh](https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/254669726_597819224887611_3716591135443007452_n.png?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_ohc=MVgzGfg1jbQAX-wy06j&_nc_ht=scontent.fhan2-4.fna&oh=f9fc5aeb04a174ff53669659764d74fc&oe=61B0BC8D)
 
 ## LINK DEMO DỰ ÁN
