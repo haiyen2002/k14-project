@@ -46,26 +46,48 @@ async function render(page) {
   products.forEach((product) => {//render các sản phẩm trả về
     var pPrice = product.price
     pPrice = pPrice.toLocaleString()
-    $(".filter-product-results").append(`
-    <div class="filter-col filter-col-4 currProduct product-card_item">
-    <a class="product-filter__card" href="/product/detail/${product._id}">
-      <div class="product-filter-card__top">
-        <img class="img-prd" src="${product.img[0]}" alt="" />
+    if(product.quantity > 0){
+        $(".filter-product-results").append(`
+        <div class="filter-col filter-col-4 currProduct product-card_item">
+        <a class="product-filter__card" href="/product/detail/${product._id}">
+          <div class="product-filter-card__top">
+            <img class="img-prd" src="${product.img[0]}" alt="" />
+          </div>
+          <div class="product-filter-card__bottom">
+            <div class="product-filter-card__name product-card_title">
+              ${product.name}
+            </div>
+            <div class="product-filter-card__price product-card_price">
+              ${pPrice}đ
+            </div>
+          </div>
+        </a>
+        <a class="add-to-cart" href="/product/detail/${product._id}" data-product-id="${product._id}">
+          <i class="fas fa-cart-plus"></i> Mua hàng
+        </a>
       </div>
-      <div class="product-filter-card__bottom">
-        <div class="product-filter-card__name product-card_title">
-          ${product.name}
-        </div>
-        <div class="product-filter-card__price product-card_price">
-          ${pPrice}đ
-        </div>
+        `);
+    }else{
+        $(".filter-product-results").append(`
+        <div class="filter-col filter-col-4 currProduct product-card_item">
+        <a class="product-filter__card" href="/product/detail/${product._id}">
+          <div class="product-filter-card__top">
+            <img class="img-prd" src="${product.img[0]}" alt="" />
+          </div>
+          <div class="product-filter-card__bottom">
+            <div class="product-filter-card__name product-card_title">
+              ${product.name}
+            </div>
+            <div class="product-filter-card__price product-card_price">
+              ${pPrice}đ
+            </div>
+          </div>
+        </a>
+     
       </div>
-    </a>
-    <a class="add-to-cart" href="/product/detail/${product._id}" data-product-id="${product._id}">
-      <i class="fas fa-cart-plus"></i> Mua hàng
-    </a>
-  </div>
-    `);
+        `);
+    }
+   
   });
 
   const pages = res.pages;
