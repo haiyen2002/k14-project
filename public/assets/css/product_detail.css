@@ -383,7 +383,8 @@
     cursor: pointer;
     text-decoration: none;
   }
-  
+
+
   .product-main .container-product .container-product-right .prd-description {
    
     border-bottom: 1px solid #ccc;
@@ -597,3 +598,6 @@
       opacity: 0.6;
       text-decoration: none;
   }
+  .to-add{
+    display: none;
+}
