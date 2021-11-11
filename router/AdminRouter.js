@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
   router.post("/addProduct", upload.array("products", 12), async (req, res)=>{
     try {
         // console.log(req.body);
-        console.log(req.files);
+        // console.log(req.files);
         if (req.files.length > 0) {
             let arr = []
             for (let i = 0; i < req.files.length; i++) {
@@ -69,8 +69,8 @@ const storage = multer.diskStorage({
 
 router.post("/addNews", upload.single("imgNews"), async (req, res)=>{
     try {
-        console.log(70, req.body);
-        console.log(req.file);
+        // console.log(70, req.body);
+        // console.log(req.file);
         if (req.file) { 
                 let index = req.file.path.indexOf("upload");
                 let link =
@@ -118,7 +118,7 @@ router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => 
                   "/public/" + req.files[i].path.slice(index, req.files[i].path.length);    
                 arr.push(link.split("\\").join("/"))
             }
-            console.log(78, arr);
+            // console.log(78, arr);
             const data = await ProductModel.findByIdAndUpdate(
                 {_id: req.params.id},
                 {
@@ -172,7 +172,7 @@ router.put("/fixProduct/:id", upload.array("products", 12), async (req, res) => 
   router.put("/fixNews/:id", upload.single("imgNews"), async (req, res) => {
     try {
         // console.log(69, req.files);
-        console.log(req.file);
+        // console.log(req.file);
         if (req.file != undefined) {
     
 

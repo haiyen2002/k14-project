@@ -75,7 +75,6 @@ async function sigup() {
     }
   } catch (error) {
     console.log(error);
-    window.location.href = "/500";
   }
 }
 function validate(password) {
@@ -126,7 +125,6 @@ async function login() {
       );
     }
   } catch (error) {
-    // window.location.href = "/500";
     console.log(error);
   }
 }
@@ -195,7 +193,6 @@ function checklogin() {
       }
     })
     .catch((err) => {
-      window.location.href = "/500";
       console.log(err);
     });
 }
@@ -215,7 +212,7 @@ async function logout() {
       window.location.href = "/";
     }
   } catch (error) {
-    window.location.href = "/500";
+    console.log(error);
   }
 }
 

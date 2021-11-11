@@ -110,7 +110,7 @@ const updateCart = function () {
       return `
         <div class="buy-table-item">
         <div class="item-td">
-        <a class="item-prd-link" href="/products/detail/${product.id}">
+        <a class="item-prd-link" href="/product/detail/${product.id}">
         <img class="item-img" src="${product.image}" alt="" />        
         </a>
         </div>
