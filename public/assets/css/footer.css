@@ -122,29 +122,42 @@
 }
 
 .footer-copyright {
-    padding: 15px 0px;
-    color: #00000080;
+    width: 100%;
+    padding: 5px 0px;
+    background: linear-gradient(
+        90deg,
+        rgba(79, 177, 84, 0.6),
+        rgba(42, 117, 122, 0.6)
+      );
     font-size: 14px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-.footer-copyright_img {
-    width: 27px;
+.team_nodemy_k14{
+    color: #fff;
+    animation: identifier 2s infinite ease;
     text-align: center;
 }
-
-.footer-copyright img {
-    width: 20px;
-}
-
-.footer-copyright span {
-    color: #006885 !important;
-    font-weight: bolder;
-}
-
-.footer-copyright span:hover {
-    color: #000 !important;
+@keyframes identifier {
+    0%{
+        color: #fff;
+        filter: hue-rotate(360deg);
+    }
+    33%{
+        color: blue;
+        filter: hue-rotate(180deg);
+    }
+    66%{
+        color: red;
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        color: #fff;
+        filter: hue-rotate(360deg);
+    }
 }
 
 /* button go to top  */

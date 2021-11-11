@@ -10,7 +10,7 @@ console.log(
 // Firefox or the block properties, like padding, don't work. Trying to use
 // "block" will work in Chrome; but, will go full-width in Firefox.
 console.log(
-    "%cHello bro 😊 😊 😊 ",
+    "%cHello 😊 😊 😊 ",
     "display: inline-block ; border: 3px solid #12CBC4 ; border-radius: 7px ; " +
     "padding: 10px ; margin: 20px ;"
 );
