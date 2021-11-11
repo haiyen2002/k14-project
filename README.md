@@ -9,7 +9,7 @@
 
 
 ## LINK DEMO DỰ ÁN 🔥
-[CLICK ĐỂ XEM ONLINE](https://k14-shopmypham.nodemy.vn/)
+[CLICK ĐỂ XEM ONLINE](https://k14shop.herokuapp.com/)
 
 ### HƯỚNG DẪN CÀI ĐẶT DỰ ÁN 🔥
     1. Đi đến trang https://github.com/haiyen2002/k14-project
