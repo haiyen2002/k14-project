@@ -8,28 +8,6 @@
 ![Tên ảnh](https://scontent.fhan2-3.fna.fbcdn.net/v/t1.15752-9/255186032_679963199644287_6218043156513002370_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_ohc=jrZhXC4_qRwAX9mAger&_nc_ht=scontent.fhan2-3.fna&oh=dbb2a73e2f5f4f862ce5e170a86bacc9&oe=61B1BB67)
 
 
-![Tên ảnh](https://scontent.fhan2-2.fna.fbcdn.net/v/t1.15752-9/251101948_263733482259959_912958600739660482_n.png?_nc_cat=111&ccb=1-5&_nc_sid=ae9488&_nc_ohc=EWbYRkqlaGcAX_Hw5PA&_nc_ht=scontent.fhan2-2.fna&oh=e169573a5d04f310ea98c41360615478&oe=61B111B2)
-
-### TRANG BỘ LỌC ☘️
-
-![Tên ảnh](https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/251095447_905186060109591_340914262974416026_n.png?_nc_cat=105&ccb=1-5&_nc_sid=ae9488&_nc_ohc=HOMaaClZgvAAX8nRnqR&_nc_ht=scontent.fhan2-4.fna&oh=89a5e2efb91635b86aa488c31112acd1&oe=61B1ACEE)
-
-### TRANG GIỎ HÀNG ☘️
-
-![Tên ảnh](https://scontent.fhan2-2.fna.fbcdn.net/v/t1.15752-9/249643258_343962110824380_3116690598957622253_n.png?_nc_cat=111&ccb=1-5&_nc_sid=ae9488&_nc_ohc=vjBkHC4hBAEAX8HIXOK&tn=Kcr4kJa6vXsptCPT&_nc_ht=scontent.fhan2-2.fna&oh=2b98963c090f5b801581dc65687486c2&oe=61AFC515)
-
-### TRANG ĐƠN HÀNG ☘️
-
-![Tên Ảnh](https://scontent.fhan2-1.fna.fbcdn.net/v/t1.15752-9/255110622_877643992915243_2004323960299112397_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_ohc=72xzLne-Z3sAX-H8ryq&_nc_ht=scontent.fhan2-1.fna&oh=0ca0db718a210931eb08d46472668271&oe=61AFC016)
-
-### TRANG TIN TỨC ☘️
-
-![Tên ảnh](https://scontent.fhan2-1.fna.fbcdn.net/v/t1.15752-9/250546373_675630063383755_8779012909596910029_n.png?_nc_cat=102&ccb=1-5&_nc_sid=ae9488&_nc_ohc=Q3tTjFAVUgMAX8SSm4d&_nc_ht=scontent.fhan2-1.fna&oh=643555de95f5b5679bb0934cf422245b&oe=61B27F0B)
-
-### TRANG ADMIN ☘️
-
-![Tên Ảnh](https://scontent.fhan2-4.fna.fbcdn.net/v/t1.15752-9/251342583_301922844927269_666457604608337105_n.png?_nc_cat=104&ccb=1-5&_nc_sid=ae9488&_nc_ohc=JOAKlx5R_vYAX8NnsGV&tn=Kcr4kJa6vXsptCPT&_nc_ht=scontent.fhan2-4.fna&oh=e2c66b19aa88c6074a235a91d300ebbc&oe=618CF6BE)
-
 ## LINK DEMO DỰ ÁN 🔥
 [CLICK ĐỂ XEM ONLINE]()
 
@@ -50,12 +28,13 @@
              
 ### CẤU HÌNH DATABASE 🔥
 
-    1.Thay thế đường dẫn DB để conect
+#### Thay thế đường dẫn DB để conect
 ![Tên ảnh](https://scontent.fhan1-1.fna.fbcdn.net/v/t1.15752-9/254717889_1745935698949058_4341138531250784670_n.png?_nc_cat=103&ccb=1-5&_nc_sid=ae9488&_nc_ohc=w_w1a9j8JTsAX9W-tSX&_nc_ht=scontent.fhan1-1.fna&oh=4242701f79c680e37bd38fe7d54654e7&oe=61B35478) 
-    2.Tạo file .env
+#### Tạo file .env
         Và thêm TOKEN_SECRET='key của bạn'
-    3. Tạo một tài khoản
-    4. Để sử dụng phần admin bạn vào mongo atlas tìm bảng account và role => admin
+#### Tạo một tài khoản
+#### Để sử dụng phần admin bạn vào mongo atlas tìm bảng account và role => admin
+
 ![Tên ảnh](https://scontent.fhan1-1.fna.fbcdn.net/v/t1.15752-9/252302175_620831765713795_1377388586492219088_n.png?_nc_cat=109&ccb=1-5&_nc_sid=ae9488&_nc_ohc=yyAih940-aYAX-OPWf2&_nc_ht=scontent.fhan1-1.fna&oh=1562f0488dfadd387a94666866c91ac7&oe=61B20FF6)
 
 
