@@ -53,8 +53,10 @@ h1{
 .genner{
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     margin-top: 10px;
     margin-bottom: 20px;
+    padding: 0 30px;
 }
 label{
     margin-bottom: 5px;
@@ -85,11 +87,18 @@ input[type="button"]{
     font-size: 16px;
     border: none;
     cursor: pointer;
+    padding: 10px 20px;
 
 }
-input[type="button"]:hover{
-    opacity: 0.6;
+input[type="date"]{
+    outline: none;
 }
+input[type="radio"]{
+    margin-right: 10px;
+}
+/* input[type="button"]:hover{
+    opacity: 0.6;
+} */
 .go-home{
     background: #27ae60 !important;
 }

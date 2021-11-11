@@ -179,7 +179,7 @@
 
 @media screen and (max-width: 480px) {
   * body .container .main .topbar .search {
-    width: 250px !important;
+    width: 60% !important;
   }
 }
 
@@ -227,6 +227,16 @@
   height: 50px;
   border-radius: 50%;
   margin-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  * body .container .main .topbar .user {
+    margin-right: 10px;
+    gap: 0 !important;
+    -webkit-box-pack: right;
+        -ms-flex-pack: right;
+            justify-content: right;
+  }
 }
 
 * body .container .main .topbar .user .name_admin {

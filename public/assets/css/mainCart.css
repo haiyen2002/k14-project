@@ -154,8 +154,8 @@
 }
 
 .main .main-cart .container-cart-buy .buy-table .buy-table-item .item-td .item-prd-link .item-img {
-  width: 90%;
-  height: 90%;
+  width: 90px;
+  height: 90px;
   -o-object-fit: cover;
      object-fit: cover;
 }
