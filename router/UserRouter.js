@@ -255,6 +255,7 @@ router.post("/regiser", async (req, res) => {
           birthday: req.body.birthday,
           email: req.body.email,
           phone: req.body.phone,
+          gender: req.body.gender,
           createdAt: new Date().toUTCString(),
           Cart: [],
         });

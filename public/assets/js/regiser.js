@@ -7,6 +7,7 @@ async function regiser(){
         const password = document.querySelector("#password")
         const email = document.querySelector("#email")
         const phone = document.querySelector("#phone")
+        const gender = $('input[name="sex').val();
         checkValue(firstname)
         checkValue(lastname)
         checkValue(username)
@@ -47,6 +48,7 @@ async function regiser(){
                             birthday: $("#birthday").val(),
                             email: $("#email").val(),
                             phone: $("#phone").val(),
+                            gender: gender,
                         }
                     })
                     if(data.status == 200){
