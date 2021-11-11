@@ -50,9 +50,14 @@
              
 ### CẤU HÌNH DATABASE 🔥
 
-    Thay thế đường dẫn DB để conect
+    1.Thay thế đường dẫn DB để conect
 ![Tên ảnh](https://scontent.fhan1-1.fna.fbcdn.net/v/t1.15752-9/254717889_1745935698949058_4341138531250784670_n.png?_nc_cat=103&ccb=1-5&_nc_sid=ae9488&_nc_ohc=w_w1a9j8JTsAX9W-tSX&_nc_ht=scontent.fhan1-1.fna&oh=4242701f79c680e37bd38fe7d54654e7&oe=61B35478) 
-    Tạo file .env
-    Và thêm TOKEN_SECRET='key của bạn'
+    2.Tạo file .env
+        Và thêm TOKEN_SECRET='key của bạn'
+    3. Tạo một tài khoản
+    4. Để sử dụng phần admin bạn vào mongo atlas tìm bảng account và role => admin
+![Tên ảnh](https://scontent.fhan1-1.fna.fbcdn.net/v/t1.15752-9/252302175_620831765713795_1377388586492219088_n.png?_nc_cat=109&ccb=1-5&_nc_sid=ae9488&_nc_ohc=yyAih940-aYAX-OPWf2&_nc_ht=scontent.fhan1-1.fna&oh=1562f0488dfadd387a94666866c91ac7&oe=61B20FF6)
+
+
 
 # THANKS FOR WATCHING 🥰🥰🥰
