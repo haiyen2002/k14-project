@@ -71,7 +71,7 @@ input:hover{
     border: 1px solid #1dbfaf;
 }
 input::placeholder{
-    color: #303030;
+    color: #999;
 }
 input[type="button"]{
     margin-top: 30px;
@@ -81,6 +81,9 @@ input[type="button"]{
     border: none;
     cursor: pointer;
 
+}
+input[type="button"]:hover{
+    opacity: 0.6;
 }
 .go-home{
     background: #27ae60 !important;
